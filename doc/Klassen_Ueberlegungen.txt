@@ -1,0 +1,43 @@
+Klassen für LändleGuessr:
+
+Warten auf Absegnung durch Lehrer
+
+Abstrakte Klasse Quest:
+	- id, title, description,...
+	- vererbt an:
+		- Daily Quest
+		- Weekly Quest
+		- Special Quest
+	
+Quests:
+	- Verwaltet alle Quests
+	- liste mit allen Quests
+	- jetzige Quests aller User
+	- neue Quests verteilen (global/lokal je nach Wohnort)
+	- user schafft quest, was jetzt?
+	- ...
+
+User:
+	- liste mit CurrentQuests
+	- name, id, level, Wohnort,battlepassXP, Inventory...
+
+USerManager:
+	- verwaltet die User
+	- Benutzerkonten verwalten, anlegen,...
+	- anmelden/abmelden
+	- User kauft etwas
+	- User claimt Reward
+	- ...
+
+BattlePassManager:
+	- verwaltet, wie der BattlePass mit dem User interagiert
+	- welche Stufen hat ein User schon?
+	- User holt sich Reward -> was passiert?
+	
+BattlePassTier:
+	- TID, requiredXP, reward
+	
+Inventory:
+	- liste mit Items eines users
+
+Interface???????
