@@ -6,6 +6,8 @@ Grund: Coole Doku und dann hab ich was zum nachlesen :)
 <details>
 <summary>20.05.2025 (3h)</summary>
 
+## 20.05.2025
+
 Zuerst habe ich mich weiter in Flutter eingelesen und mit folgenden Dingen herumprobiert (ohne commits, nur zum "testen"):
 - Konstruktoren
 - Statische Klassen
@@ -72,3 +74,21 @@ https://de.wikipedia.org/wiki/ISO_8601
 
 </details>
 
+
+<details>
+<summary>21.05.2025 (1.5h)</summary>
+
+## 21.05.2025
+Heute habe ich mich auf die REST-API fokussiert und habe mir Gedanken gemacht wie man diese umsetzen könnte bezüglich schon vorhandener Supabase-API/direkter Verbindung zur DB,... 
+
+Nachdem ich mich mit Herr Bechthold beraten habe sind wir auf folgendes setup gekommen:
+App -> meine Rest-API -> Supabase-API -> Database
+
+Meine Rest-API schickt keine direkten Anfragen an die Datenbank, sondern leitet quasi einfach auf die Supabase-API weiter und diese kommuniziert erst mit der Datenbank.
+
+Somit sind die Vorraussetzungen erfüllt und ich muss micht nicht mit irgendwelchen PostgreSQL-Verbindungen rumschlagen.
+
+
+Dann habe ich schon angefangen das auszuprobieren und habe schon einige Überlegungen angestellt (noch nichts zum committen, nur um das Prinzip zu graspen)
+
+</details>
