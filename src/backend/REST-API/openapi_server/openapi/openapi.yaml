@@ -27,7 +27,7 @@ paths:
       summary: Alle Items eines Users bekommen
       tags:
       - item
-      x-openapi-router-controller: openapi_server.controllers.itemcontroller
+      x-openapi-router-controller: openapi_server.controllers.item_controller
   /all_quests:
     get:
       operationId: all_quests_get
@@ -41,7 +41,7 @@ paths:
       summary: Alle Quests bekommen
       tags:
       - quest
-      x-openapi-router-controller: openapi_server.controllers.questcontroller
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
   /all_quests_user/{uid}:
     get:
       operationId: all_quests_done_by
@@ -63,7 +63,7 @@ paths:
       summary: Alle gemachten Quests eines users bekommen
       tags:
       - quest
-      x-openapi-router-controller: openapi_server.controllers.questcontroller
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
   /dailyquest/{city}:
     get:
       operationId: dailyquest_get
@@ -85,7 +85,7 @@ paths:
       summary: Derzeitige DailyQuest einer Stadt
       tags:
       - quest
-      x-openapi-router-controller: openapi_server.controllers.questcontroller
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
   /item:
     get:
       operationId: all_items_get
@@ -99,7 +99,7 @@ paths:
       summary: Alle Items anzeigen
       tags:
       - item
-      x-openapi-router-controller: openapi_server.controllers.itemcontroller
+      x-openapi-router-controller: openapi_server.controllers.item_controller
   /item/{id}:
     get:
       operationId: item_get
@@ -121,7 +121,7 @@ paths:
       summary: Item mit bestimmter ID anzeigen
       tags:
       - item
-      x-openapi-router-controller: openapi_server.controllers.itemcontroller
+      x-openapi-router-controller: openapi_server.controllers.item_controller
   /item_user:
     post:
       operationId: item_user_post
@@ -141,7 +141,7 @@ paths:
       summary: Einem User ein Item zuschreiben
       tags:
       - item
-      x-openapi-router-controller: openapi_server.controllers.itemcontroller
+      x-openapi-router-controller: openapi_server.controllers.item_controller
   /quest_user:
     post:
       operationId: quest_user_post
@@ -161,7 +161,7 @@ paths:
       summary: Einem User eine Quest als gemacht zuschreiben
       tags:
       - quest
-      x-openapi-router-controller: openapi_server.controllers.questcontroller
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
   /user:
     get:
       operationId: all_users_get
@@ -175,7 +175,7 @@ paths:
       summary: Alle User anzeigen
       tags:
       - user
-      x-openapi-router-controller: openapi_server.controllers.usercontroller
+      x-openapi-router-controller: openapi_server.controllers.user_controller
     post:
       operationId: user_post
       requestBody:
@@ -194,7 +194,7 @@ paths:
       summary: Neuen User hinzufügen
       tags:
       - user
-      x-openapi-router-controller: openapi_server.controllers.usercontroller
+      x-openapi-router-controller: openapi_server.controllers.user_controller
   /user/{id}:
     get:
       operationId: user_get
@@ -216,7 +216,7 @@ paths:
       summary: User mit bestimmter ID anzeigen
       tags:
       - user
-      x-openapi-router-controller: openapi_server.controllers.usercontroller
+      x-openapi-router-controller: openapi_server.controllers.user_controller
     put:
       operationId: user_update
       parameters:
@@ -237,7 +237,7 @@ paths:
       summary: User bearbeiten
       tags:
       - user
-      x-openapi-router-controller: openapi_server.controllers.usercontroller
+      x-openapi-router-controller: openapi_server.controllers.user_controller
   /weeklyquest:
     get:
       operationId: weeklyquest_get
@@ -251,7 +251,7 @@ paths:
       summary: Derzeitige globale WeeklyQuest
       tags:
       - quest
-      x-openapi-router-controller: openapi_server.controllers.questcontroller
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
 components:
   schemas:
     user_id:

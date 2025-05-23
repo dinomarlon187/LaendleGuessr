@@ -6,6 +6,12 @@ from typing import Union
 from openapi_server.models.user_id import UserId  # noqa: E501
 from openapi_server import util
 
+import os
+from supabase import create_client, Client
+
+url: str = os.environ.get("https://ipjfhqmcqlwlrjqanjqk.supabase.co")
+key: str = os.environ.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlwamZocW1jcWx3bHJqcWFuanFrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzUxNDA0NCwiZXhwIjoyMDYzMDkwMDQ0fQ.5VpSCVmfUZ02Tbs5fHPL5vJsfJqvC_s6CggESbRCQQs")
+supabase: Client = create_client(url, key)
 
 def all_quests_done_by(uid):  # noqa: E501
     """Alle gemachten Quests eines users bekommen
