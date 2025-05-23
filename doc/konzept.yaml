@@ -1,0 +1,297 @@
+openapi: 3.0.0
+info:
+  title: LaendleGuessr
+  description: Eine API zur Verbindung mit unserer Supabase-Datenbank
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /dailyquest/{city}:
+    get:
+      tags:
+      - quest
+      summary: Derzeitige DailyQuest einer Stadt
+      operationId: dailyquest_get
+      parameters:
+      - explode: true
+        name: city
+        in: path
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.questcontroller
+  /weeklyquest:
+    get:
+      tags:
+      - quest
+      summary: Derzeitige globale WeeklyQuest
+      operationId: weeklyquest_get
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.questcontroller
+      
+      
+  /all_quests:
+    get:
+      tags:
+      - quest
+      summary: Alle Quests bekommen
+      operationId: all_quests_get
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.questcontroller
+  /all_quests_user/{uid}:
+    get:
+      tags:
+      - quest
+      summary: Alle gemachten Quests eines users bekommen
+      operationId: all_quests_done_by
+      parameters:
+      - explode: true
+        name: uid
+        in: path
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.questcontroller
+  
+  /quest_user:
+    post:
+      tags:
+      - quest
+      summary: Einem User eine Quest als gemacht zuschreiben
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_id'
+        required: true
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.questcontroller
+  
+  /user:
+    get:
+      tags:
+      - user
+      summary: Alle User anzeigen
+      operationId: all_users_get
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.usercontroller
+    post:
+      tags:
+      - user
+      summary: Neuen User hinzufügen
+      operationId: user_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        required: true
+  /user/{id}:
+    get:
+      tags:
+      - user
+      summary: User mit bestimmter ID anzeigen
+      operationId: user_get
+      parameters:
+      - explode: true
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.usercontroller
+    put:
+      tags:
+      - user
+      summary: User bearbeiten
+      operationId: user_update
+      parameters:
+      - explode: true
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.usercontroller
+    
+      
+  /item:
+    get:
+      tags:
+      - item
+      summary: Alle Items anzeigen
+      operationId: all_items_get
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.itemcontroller
+  /item/{id}:
+    get:
+      tags:
+      - item
+      summary: Item mit bestimmter ID anzeigen
+      operationId: item_get
+      parameters:
+      - explode: true
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.itemcontroller
+      
+  /all_item_user/{uid}:
+    get:
+      tags:
+      - item
+      summary: Alle Items eines Users bekommen
+      operationId: all_items_owned_by
+      parameters:
+      - explode: true
+        name: uid
+        in: path
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.itemcontroller
+  /item_user:
+    post:
+      tags:
+      - item
+      summary: Einem User ein Item zuschreiben
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_id'
+        required: true
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.itemcontroller
+components:
+  schemas:
+    user_id:
+      example:
+        iid: 3
+        uid: 4
+      properties:
+        uid: 
+          title: UserID
+          type: integer
+          minimum: 1
+        id: 
+          title: ID
+          type: integer
+          minimum: 1
+      required:
+      - uid
+      - iid
+    user:
+      example:
+        username: "keremderkomet"
+        password: "HASH VALUE"
+        coins: 150
+        admin: true
+      properties:
+        username:
+          title: username
+          type: string
+          maximum: 30
+          minimum: 3
+        password:
+          title: password
+          type: string
+        coins:
+          title: coins
+          type: integer
+          min: 0
+        admin:
+          title: admin
+          type: boolean
+      required:
+      - username
+      - password
+
+
+    
