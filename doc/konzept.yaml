@@ -126,6 +126,14 @@ paths:
             schema:
               $ref: '#/components/schemas/user'
         required: true
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      x-openapi-router-controller: openapi_server.controllers.usercontroller
   /user/{id}:
     get:
       tags:
@@ -285,7 +293,7 @@ components:
         coins:
           title: coins
           type: integer
-          min: 0
+          minimum: 0
         admin:
           title: admin
           type: boolean
