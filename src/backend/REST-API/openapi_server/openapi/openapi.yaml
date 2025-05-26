@@ -256,8 +256,8 @@ components:
   schemas:
     user_id:
       example:
-        iid: 3
-        uid: 4
+        uid: 3
+        id: 4
       properties:
         uid:
           minimum: 1
@@ -268,8 +268,8 @@ components:
           title: ID
           type: integer
       required:
-      - iid
       - uid
+      - id
       title: user_id
     user:
       example:
