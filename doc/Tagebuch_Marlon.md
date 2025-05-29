@@ -99,3 +99,12 @@ Dann habe ich schon angefangen das auszuprobieren und habe schon einige Überleg
 ## 23.05.2025
 Heute habe ich die REST-API konzeptioniert und dann auch schon die Supabase-Connection in dieser gemacht. Sicherheitsfaktoren (AUthorization,...) sind jedoch noch NICHT beachtet.
 </details>
+
+## Mehrere Tage vergessen zu dokumentieren xd
+
+<details>
+<summary>29.05.2025 (1.5h)</summary>
+
+## 29.05.2025
+Hab mit City-enum angefangen und wollte weitermachen aber bin 2h eingeschlafen am pc 
+</details>
