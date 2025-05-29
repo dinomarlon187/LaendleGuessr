@@ -1,9 +1,19 @@
-import 'package:laendle_guessr/services/database.dart';
+import 'package:laendle_guessr/data_objects/user.dart';
+import 'package:laendle_guessr/data_objects/quest.dart';
+import 'package:laendle_guessr/data_objects/city.dart';
+
 
 class QuestManager{
-  static final QuestManager _instance = QuestManager._internal();
-  factory QuestManager(){
-    return _instance;
+  late Quest weeklyQuest;
+  late Map<City, List<Quest>> dailyQuestsByCity;
+
+  Future<void> loadQuests() async {
+    
   }
-  QuestManager._internal();
+
+  List<Quest> getDailyQuestsForUser(User user) {
+    return dailyQuestsByCity[user.city] ?? [];
+  }
+
+  Quest getWeeklyQuest() => weeklyQuest;
 }

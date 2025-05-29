@@ -1,5 +1,11 @@
 import 'package:laendle_guessr/data_objects/item.dart';
 
 class Inventory{
-  var items = <Item>{};
+  List<Item> items;
+
+  Inventory({List<Item>? items}) : items = items ?? [];
+
+  void addItem(Item item) {
+    items.add(item);
+  }
 }

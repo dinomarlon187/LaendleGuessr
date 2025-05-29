@@ -4,11 +4,12 @@ import 'package:laendle_guessr/services/locationchecker.dart';
 
 
 class AppController {
-  late UserManager userManager;
-  late LocationChecker locationChecker;
+  final QuestManager questManager = QuestManager();
+  late final UserManager userManager;
 
   AppController() {
-    userManager = UserManager();
-    locationChecker = LocationChecker();
+    userManager = UserManager(questManager);
   }
+
+  
 }
