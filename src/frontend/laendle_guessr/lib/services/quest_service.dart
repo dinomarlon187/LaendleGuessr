@@ -1,0 +1,71 @@
+
+
+
+import 'dart:convert';
+import 'dart:js_interop';
+
+import 'package:laendle_guessr/data_objects/city.dart';
+import 'package:laendle_guessr/data_objects/quest.dart';
+import 'package:laendle_guessr/data_objects/user.dart';
+import 'package:laendle_guessr/services/api_service.dart';
+
+class QuestService{
+  final ApiService api;
+
+  QuestService(this.api);
+
+  Future<List<Quest>> getAllQuests() async {
+    final response = await api.get('all_quests');
+    if (response.statusCode == 200){
+      final List<dynamic> jsonList = jsonDecode(response.body);
+      return jsonList.map((jsonItem) => Quest.fromJson(jsonItem)).toList();
+    }
+    else{
+      throw Exception('Fehler beim Laden aller Quests: ${response.statusCode}');
+    }
+  }
+
+  Future<List<Quest>> getAllDoneQuestsByUser(User user) async {
+    final response = await api.get('all_quests_user/${user.uid}');
+    if (response.statusCode == 200){
+      final List<dynamic> jsonList = jsonDecode(response.body);
+      return jsonList.map((jsonItem) => Quest.fromJson(jsonItem)).toList();
+    }
+    else{
+      throw Exception('Fehler beim Laden aller gemachten Quests eines Users: ${response.statusCode}');
+    }
+  }
+
+  Future<Quest> getdailyQuest(City city) async {
+    final response = await api.get('dailyquest/$city');
+    if (response.statusCode == 200){
+      final Map<String, dynamic> json = jsonDecode(response.body);
+      return Quest.fromJson(json);
+    }
+    else{
+      throw Exception('Fehler beim Laden der Daily Quest: ${response.statusCode}');
+    }
+  }
+
+  Future<Quest> getweeklyQuest() async {
+    final response = await api.get('weeklyquest');
+    if (response.statusCode == 200){
+      final Map<String, dynamic> json = jsonDecode(response.body);
+      return Quest.fromJson(json);
+    }
+    else{
+      throw Exception('Fehler beim Laden der Weekly Quest: ${response.statusCode}');
+    }
+  }
+
+  Future postQuestDoneByUser(int qid, int uid) async {
+    final json = {
+      'id' : qid,
+      'uid': uid
+    };
+    final response = await api.post('quest_user', json);
+    if (response.statusCode != 200){
+      throw Exception('Fehler beim zuweisen eienr Quest zu einem User: ${response.statusCode}');
+    }
+  }
+}
