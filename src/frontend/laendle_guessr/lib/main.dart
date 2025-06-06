@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:laendle_guessr/controller/appcontroller.dart';
+import 'package:laendle_guessr/manager/questmanager.dart';
+import 'package:laendle_guessr/manager/usermanager.dart';
+import 'package:laendle_guessr/services/api_service.dart';
+import 'package:laendle_guessr/services/locationchecker.dart';
+import 'package:laendle_guessr/services/quest_service.dart';
+import 'package:laendle_guessr/ui/test.dart';
 
-AppController appController = AppController();
+
+String baseURL = '127.0.0.1:8080';
+QuestManager questManager = QuestManager(new QuestService(new ApiService(baseURL)));
+AppController appController = AppController(new LocationChecker(), questManager, new UserManager(questManager));
+
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    home: LocationScreen(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
-  
+
+
 
   // This widget is the root of your application.
   @override
@@ -46,7 +58,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
     return Scaffold(
       appBar : AppBar(actions: [],
         title: const Text('LaendleGuessr'),
-        
+
       ),
       body: Center(
         child: Column(

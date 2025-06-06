@@ -1,11 +1,53 @@
-class LocationChecker {
-  static final LocationChecker _instance = LocationChecker._internal(); //erstellt eine Instanz von LocationChecker sobald die Klasse geladen wird
+import 'dart:async';
+import 'package:geolocator/geolocator.dart';
 
-  factory LocationChecker() {
-    return _instance; // gibt immer die gleicht Instanz zurück
+class LocationChecker {
+  static final LocationChecker _instance = LocationChecker._internal();
+  factory LocationChecker() => _instance;
+  LocationChecker._internal();
+
+  StreamSubscription<Position>? _positionStream;
+
+  final LocationSettings _locationSettings = const LocationSettings(
+    accuracy: LocationAccuracy.high,
+    distanceFilter: 0,
+  );
+
+  Future<bool> checkPermission() async {
+    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return false;
+    }
+
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return false;
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return false;
+    }
+    return true;
   }
 
-  LocationChecker._internal(); // privater Konstruktor, so kann die Klasse nicht von außen instanziiert werden
+  Future<void> startListening(Function(Position) onUpdate) async {
+    final hasPermission = await checkPermission();
+    if (!hasPermission) {
+      return;
+    }
 
+    _positionStream = Geolocator.getPositionStream(locationSettings: _locationSettings).listen(
+          (Position position) {
+        onUpdate(position);
+      },
+    );
+  }
 
+  void stopListening() {
+    _positionStream?.cancel();
+    _positionStream = null;
+  }
 }

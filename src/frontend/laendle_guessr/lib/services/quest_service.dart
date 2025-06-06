@@ -2,7 +2,6 @@
 
 
 import 'dart:convert';
-import 'dart:js_interop';
 
 import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/quest.dart';
