@@ -92,3 +92,19 @@ Somit sind die Vorraussetzungen erfüllt und ich muss micht nicht mit irgendwelc
 Dann habe ich schon angefangen das auszuprobieren und habe schon einige Überlegungen angestellt (noch nichts zum committen, nur um das Prinzip zu graspen)
 
 </details>
+
+<details>
+<summary>23.05.2025 (1.5h)</summary>
+
+## 23.05.2025
+Heute habe ich die REST-API konzeptioniert und dann auch schon die Supabase-Connection in dieser gemacht. Sicherheitsfaktoren (AUthorization,...) sind jedoch noch NICHT beachtet.
+</details>
+
+## Mehrere Tage vergessen zu dokumentieren xd
+
+<details>
+<summary>29.05.2025 (1.5h)</summary>
+
+## 29.05.2025
+Hab mit City-enum angefangen und wollte weitermachen aber bin 2h eingeschlafen am pc 
+</details>

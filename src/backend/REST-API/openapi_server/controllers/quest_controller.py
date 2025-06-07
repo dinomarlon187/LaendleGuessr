@@ -5,49 +5,38 @@ from typing import Union
 
 from openapi_server.models.user_id import UserId  # noqa: E501
 from openapi_server import util
+from openapi_server.db import supabase
+from datetime import date
 
-import os
-from supabase import create_client, Client
-
-url: str = os.environ.get("https://ipjfhqmcqlwlrjqanjqk.supabase.co")
-key: str = os.environ.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlwamZocW1jcWx3bHJqcWFuanFrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzUxNDA0NCwiZXhwIjoyMDYzMDkwMDQ0fQ.5VpSCVmfUZ02Tbs5fHPL5vJsfJqvC_s6CggESbRCQQs")
-supabase: Client = create_client(url, key)
 
 def all_quests_done_by(uid):  # noqa: E501
-    """Alle gemachten Quests eines users bekommen
-
-     # noqa: E501
-
-    :param uid: 
-    :type uid: int
-
-    :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
-    """
-    return 'do some magic!'
+    response = (
+        supabase.table("user_quest")
+        .select("qid")
+        .eq("uid", uid)
+        .execute()
+    )
+    return response.data
 
 
 def all_quests_get():  # noqa: E501
-    """Alle Quests bekommen
-
-     # noqa: E501
-
-
-    :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
-    """
-    return 'do some magic!'
+    response = (
+        supabase.table("quest")
+        .select("*")
+        .execute()
+    )
+    return response.data
 
 
 def dailyquest_get(city):  # noqa: E501
-    """Derzeitige DailyQuest einer Stadt
-
-     # noqa: E501
-
-    :param city: 
-    :type city: int
-
-    :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
-    """
-    return 'do some magic!'
+    response = (
+        supabase.table("quest")
+        .select("*")
+        .eq("city",city)
+        .eq("last_used_d",date.today().isoformat())
+        .execute()
+    )
+    return response.data
 
 
 def quest_user_post(body):  # noqa: E501
@@ -61,9 +50,15 @@ def quest_user_post(body):  # noqa: E501
     :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
     """
     user_id = body
+    print(body)
     if connexion.request.is_json:
         user_id = UserId.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    response = (
+    supabase.table("user_quest")
+    .insert({"qid": user_id.id,"uid" : user_id.uid})
+    .execute()
+)   
+    return "Success", 200
 
 
 def weeklyquest_get():  # noqa: E501
@@ -74,4 +69,14 @@ def weeklyquest_get():  # noqa: E501
 
     :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
     """
-    return 'do some magic!'
+    today = date.today()
+    iso_year, iso_week, _ = today.isocalendar()
+
+    iso_string = f"{iso_year}-W{iso_week:02d}"
+    response = (
+        supabase.table("quest")
+        .select("*")
+        .eq("last_used_w",iso_string)
+        .execute()
+    )
+    return response.data
