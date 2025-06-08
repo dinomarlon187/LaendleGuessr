@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'maps.dart'; // Importiere die Maps-Seite
 
 void main() {
   runApp(const LaendleGuessrApp());
@@ -26,9 +27,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
+  final List<Widget> _pages = const [
+    HomeContent(),
+    MapsPage(),
+    Placeholder(), // Shopping Cart Page
+    Placeholder(), // Profile Page
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (int index) {
@@ -72,60 +81,68 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF91EAE4), Color(0xFF86A8E7)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+    );
+  }
+}
+
+class HomeContent extends StatelessWidget {
+  const HomeContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF91EAE4), Color(0xFF86A8E7)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
-            child: Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 500),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "LändleGuessr",
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
+      ),
+      child: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 500),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Text(
+                    "LändleGuessr",
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
-                    SizedBox(height: 4),
-                    Text(
-                      "Tägliche und Wöchentliche challenge",
-                      style: TextStyle(color: Colors.white70),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 24),
-                    ChallengeCard(
-                      title: "Daily Challenge",
-                      imageUrl: "assets/images/festspiele.jpeg",
-                      question: "Wo ist dieser Ort?",
-                      description:
-                      "Finde diesen Ort um die Challenge zu meistern",
-                      buttonText: "Starten",
-                      color: Colors.lightBlueAccent,
-                    ),
-                    SizedBox(height: 24),
-                    ChallengeCard(
-                      title: "Weekly Challenge",
-                      imageUrl: "assets/images/festspiele.jpeg",
-                      question: "Wo ist dieser Ort?",
-                      description:
-                      "Finde diesen Ort um die Challenge zu meistern",
-                      buttonText: "Starten",
-                      color: Colors.redAccent,
-                    ),
-                  ],
-                ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    "Tägliche und Wöchentliche challenge",
+                    style: TextStyle(color: Colors.white70),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 24),
+                  ChallengeCard(
+                    title: "Daily Challenge",
+                    imageUrl: "assets/images/festspiele.jpeg",
+                    question: "Wo ist dieser Ort?",
+                    description:
+                    "Finde diesen Ort um die Challenge zu meistern",
+                    buttonText: "Starten",
+                    color: Colors.lightBlueAccent,
+                  ),
+                  SizedBox(height: 24),
+                  ChallengeCard(
+                    title: "Weekly Challenge",
+                    imageUrl: "assets/images/festspiele.jpeg",
+                    question: "Wo ist dieser Ort?",
+                    description:
+                    "Finde diesen Ort um die Challenge zu meistern",
+                    buttonText: "Starten",
+                    color: Colors.redAccent,
+                  ),
+                ],
               ),
             ),
           ),
@@ -201,16 +218,18 @@ class ChallengeCard extends StatelessWidget {
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: color,
-              foregroundColor: Colors.white, // 👈 Text in Weiß
+              foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              padding:
+              const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
             onPressed: () {},
             child: Text(
               buttonText,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style:
+              const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
           ),
         ],
