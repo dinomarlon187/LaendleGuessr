@@ -36,7 +36,7 @@ class QuestService{
   }
 
   Future<Quest> getdailyQuest(City city) async {
-    final response = await api.get('dailyquest/$city');
+    final response = await api.get('dailyquest/${city.id}');
     if (response.statusCode == 200){
       final Map<String, dynamic> json = jsonDecode(response.body);
       return Quest.fromJson(json);
