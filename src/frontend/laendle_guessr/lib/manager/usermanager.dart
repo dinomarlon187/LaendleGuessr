@@ -8,6 +8,15 @@ class UserManager {
 
   UserManager(this.questManager);
 
+  User? currentUser;
+
+  void loginUser(User user) {
+    currentUser = user;
+  }
+  void logoutUser(){
+    currentUser = null;
+  }
+
   void completeQuest(User user, Quest quest) {
   }
 }

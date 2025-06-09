@@ -8,7 +8,7 @@ enum City{
 
 extension CityExtension on City{
   int get id{
-    switch (this){
+     switch (this){
       case City.bregenz:
         return 0;
       case City.dornbirn:
@@ -19,6 +19,22 @@ extension CityExtension on City{
         return 3;
       case City.bludenz:
         return 4;
+    }
+  }
+  static City fromId(int id) {
+    switch (id) {
+      case 0:
+        return City.bregenz;
+      case 1:
+        return City.dornbirn;
+      case 2:
+        return City.hohenems;
+      case 3:
+        return City.feldkirch;
+      case 4:
+        return City.bludenz;
+      default:
+        throw Exception('Invalid City ID: $id');
     }
   }
 }

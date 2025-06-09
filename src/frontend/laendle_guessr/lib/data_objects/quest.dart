@@ -16,7 +16,7 @@ class Quest {
     return Quest(
       id: json['qid'],
       image: json['image'],
-      city: json['city'],
+      city: CityExtension.fromId(json['city']),
     );
   }
 }
