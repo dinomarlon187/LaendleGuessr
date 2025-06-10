@@ -16,7 +16,13 @@ def all_items_get():  # noqa: E501
 
     :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
     """
-    return 'do some magic!'
+
+    response = (
+        supabase.table("item")
+        .select("*")
+        .execute()
+    )
+    return response.data
 
 
 def all_items_owned_by(uid):  # noqa: E501
@@ -29,7 +35,13 @@ def all_items_owned_by(uid):  # noqa: E501
 
     :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
     """
-    return 'do some magic!'
+    response = (
+        supabase.table("user_item")
+        .select("iid")
+        .eq("uid", uid)
+        .execute()
+    )
+    return response.data
 
 
 def item_get(id):  # noqa: E501
@@ -42,7 +54,13 @@ def item_get(id):  # noqa: E501
 
     :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
     """
-    return 'do some magic!'
+    response = (
+        supabase.table("item")
+        .select("*")
+        .eq("id", id)
+        .execute()
+    )
+    return response.data
 
 
 def item_user_post(body):  # noqa: E501
@@ -58,4 +76,11 @@ def item_user_post(body):  # noqa: E501
     user_id = body
     if connexion.request.is_json:
         user_id = UserId.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    response = (
+        supabase.table("user_item")
+        .insert({"iid": user_id.id, "uid": user_id.uid})
+        .execute()
+    )
+    if response.error:
+        return response.error.message, 400
+    return "Success", 200
