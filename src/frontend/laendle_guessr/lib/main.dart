@@ -1,21 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:laendle_guessr/services/quest_service.dart';
 import 'maps.dart';
-import 'package:laendle_guessr/controller/appcontroller.dart';
-import 'package:laendle_guessr/manager/questmanager.dart';
-import 'package:laendle_guessr/manager/usermanager.dart';
-import 'package:laendle_guessr/services/locationchecker.dart';
-import 'package:laendle_guessr/services/api_service.dart';
-import 'package:laendle_guessr/data_objects/city.dart';
-import 'package:laendle_guessr/data_objects/user.dart';
 
-String baseURL = "http://192.168.1.101:8080";
-QuestManager questManager = QuestManager(QuestService(ApiService(baseURL)));
-AppController appController = AppController(LocationChecker(), questManager, UserManager(questManager));
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await appController.questManager.loadQuests();
+void main() {
   runApp(const LaendleGuessrApp());
 }
 
@@ -41,11 +27,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = const [
-    HomeContent(),
-    MapsPage(),
-    Placeholder(), // Shopping Cart Page
-    Placeholder(), // Profile Page
+  final List<Widget> _pages = [
+    const HomeContent(),
+    const MapsPage(),
+    const Placeholder(),
+    const Placeholder(),
   ];
 
   @override
@@ -99,38 +85,11 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class HomeContent extends StatefulWidget {
+class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
 
   @override
-  State<HomeContent> createState() => _HomeContentState();
-}
-
-class _HomeContentState extends State<HomeContent> {
-  late final QuestManager _questManager;
-
-  @override
-  void initState() {
-    super.initState();
-    _questManager = appController.questManager;
-    //TestUser weil noch kein Login System implementiert ist
-    appController.userManager.loginUser(
-      User(
-        uid: "1",
-        username: "Max Mustermann",
-        city: City.bregenz,
-        coins: 100,
-        password: "password123",
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final weeklyQuest = _questManager.getWeeklyQuest();
-    final user = appController.userManager.currentUser;
-    final dailyQuest = _questManager.getDailyQuestForUser(user!);
-
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -147,8 +106,8 @@ class _HomeContentState extends State<HomeContent> {
               constraints: const BoxConstraints(maxWidth: 500),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     "LändleGuessr",
                     style: TextStyle(
                       fontSize: 32,
@@ -157,27 +116,24 @@ class _HomeContentState extends State<HomeContent> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 4),
-                  const Text(
+                  SizedBox(height: 4),
+                  Text(
                     "Tägliche und Wöchentliche challenge",
                     style: TextStyle(color: Colors.white70),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 24),
-                  if (dailyQuest != null)
-                    ChallengeCard(
-                      title: "Daily Challenge",
-                      //eigentlich: imageUrl: dailyQuest.image,
-                      imageUrl: "assets/images/festspiele.jpeg",
-                      question: "Wo ist dieser Ort?",
-                      description: "Finde diesen Ort um die Challenge zu meistern",
-                      buttonText: "Starten",
-                      color: Colors.lightBlueAccent,
-                    ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24),
+                  ChallengeCard(
+                    title: "Daily Challenge",
+                    imageUrl: "assets/images/festspiele.jpeg",
+                    question: "Wo ist dieser Ort?",
+                    description: "Finde diesen Ort um die Challenge zu meistern",
+                    buttonText: "Starten",
+                    color: Colors.lightBlueAccent,
+                  ),
+                  SizedBox(height: 24),
                   ChallengeCard(
                     title: "Weekly Challenge",
-                    //eigentlich: imageUrl: weeklyQuest.image,
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
                     description: "Finde diesen Ort um die Challenge zu meistern",
@@ -264,14 +220,12 @@ class ChallengeCard extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
-              padding:
-              const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
             onPressed: () {},
             child: Text(
               buttonText,
-              style:
-              const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
           ),
         ],
