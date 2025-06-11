@@ -8,7 +8,7 @@ import 'package:laendle_guessr/services/quest_service.dart';
 
 class QuestManager{
   late Quest weeklyQuest;
-  late Map<City, Quest> dailyQuestByCity;
+  Map<City, Quest> dailyQuestByCity = {};
   Timer? _midnightTimer;
   Duration? _timeUntilMidnight;
   final ValueNotifier<Duration> timeUntilMidnightNotifier = ValueNotifier(Duration.zero);
@@ -17,6 +17,7 @@ class QuestManager{
 
   Future<void> loadQuests() async {
     // Load Daily Quests:
+    //Funktioniert, wenn die Datenbank gefüllt ist, ansonsten gibt es einen Fehler
     dailyQuestByCity.clear();
     dailyQuestByCity[City.bregenz] = await questService.getdailyQuest(City.bregenz);
     dailyQuestByCity[City.dornbirn] = await questService.getdailyQuest(City.dornbirn);

@@ -36,12 +36,16 @@ class QuestService{
   }
 
   Future<Quest> getdailyQuest(City city) async {
-    final response = await api.get('dailyquest/$city');
+    final response = await api.get('dailyquest/${city.id}');
     if (response.statusCode == 200){
-      final Map<String, dynamic> json = jsonDecode(response.body);
+      final List<dynamic> jsonList = jsonDecode(response.body);
+      if (jsonList.isEmpty) {
+        throw Exception('Keine Daily Quest für Stadt ${city.id} gefunden.');
+      }
+      final Map<String, dynamic> json = jsonList[0];
       return Quest.fromJson(json);
-    }
-    else{
+    } 
+    else {
       throw Exception('Fehler beim Laden der Daily Quest: ${response.statusCode}');
     }
   }
@@ -49,7 +53,8 @@ class QuestService{
   Future<Quest> getweeklyQuest() async {
     final response = await api.get('weeklyquest');
     if (response.statusCode == 200){
-      final Map<String, dynamic> json = jsonDecode(response.body);
+      final List<dynamic> jsonList = jsonDecode(response.body);
+      final Map<String, dynamic> json = jsonList[0];
       return Quest.fromJson(json);
     }
     else{
