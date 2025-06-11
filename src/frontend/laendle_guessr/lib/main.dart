@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'maps.dart'; // Importiere die Maps-Seite
+import 'maps.dart';
 
 void main() {
   runApp(const LaendleGuessrApp());
@@ -27,11 +27,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = const [
-    HomeContent(),
-    MapsPage(),
-    Placeholder(), // Shopping Cart Page
-    Placeholder(), // Profile Page
+  final List<Widget> _pages = [
+    const HomeContent(),
+    const MapsPage(),
+    const Placeholder(),
+    const Placeholder(),
   ];
 
   @override
@@ -127,8 +127,7 @@ class HomeContent extends StatelessWidget {
                     title: "Daily Challenge",
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
-                    description:
-                    "Finde diesen Ort um die Challenge zu meistern",
+                    description: "Finde diesen Ort um die Challenge zu meistern",
                     buttonText: "Starten",
                     color: Colors.lightBlueAccent,
                   ),
@@ -137,8 +136,7 @@ class HomeContent extends StatelessWidget {
                     title: "Weekly Challenge",
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
-                    description:
-                    "Finde diesen Ort um die Challenge zu meistern",
+                    description: "Finde diesen Ort um die Challenge zu meistern",
                     buttonText: "Starten",
                     color: Colors.redAccent,
                   ),
@@ -222,14 +220,12 @@ class ChallengeCard extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
-              padding:
-              const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
             onPressed: () {},
             child: Text(
               buttonText,
-              style:
-              const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
           ),
         ],
