@@ -1,17 +1,21 @@
-
-
-
 import 'dart:convert';
-
 import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/quest.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
 import 'package:laendle_guessr/services/api_service.dart';
 
 class QuestService{
+  static final QuestService _instance = QuestService._internal(ApiService.instance);
+
+  factory QuestService() {
+    return _instance;
+  }
+  static QuestService get instance => _instance;
+
+  QuestService._internal(this.api);
   final ApiService api;
 
-  QuestService(this.api);
+
 
   Future<List<Quest>> getAllQuests() async {
     final response = await api.get('all_quests');

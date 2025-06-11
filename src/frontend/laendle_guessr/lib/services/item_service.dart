@@ -3,9 +3,13 @@ import 'dart:convert';
 import 'package:laendle_guessr/data_objects/item.dart';
 
 class ItemService {
+  static final ItemService _instance = ItemService._internal(ApiService.instance);
+  factory ItemService() {
+    return _instance;
+  }
+  ItemService._internal(this.api);
   final ApiService api;
-
-  ItemService(this.api);
+  static ItemService get instance => _instance;
 
   Future<List<Item>> getAllItems() async {
     final response = await api.get('all_items_get');

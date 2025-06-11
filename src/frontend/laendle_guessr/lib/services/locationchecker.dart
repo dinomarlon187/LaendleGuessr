@@ -6,6 +6,8 @@ class LocationChecker {
   factory LocationChecker() => _instance;
   LocationChecker._internal();
 
+  static LocationChecker get instance => _instance;
+
   StreamSubscription<Position>? _positionStream;
 
   final LocationSettings _locationSettings = const LocationSettings(

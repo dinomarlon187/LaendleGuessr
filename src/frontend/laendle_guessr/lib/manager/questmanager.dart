@@ -7,6 +7,7 @@ import 'package:laendle_guessr/services/quest_service.dart';
 
 
 class QuestManager{
+
   late Quest weeklyQuest;
   Map<City, Quest> dailyQuestByCity = {};
   Timer? _midnightTimer;
@@ -50,6 +51,8 @@ class QuestManager{
   Quest? getDailyQuestForUser(User user) {
     return dailyQuestByCity[user.city];
   }
+
+
 
   Quest getWeeklyQuest() => weeklyQuest;
 

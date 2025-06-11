@@ -2,9 +2,18 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService{
-  final String baseURL;
+  static final ApiService _instance = ApiService._internal('http://127.0.0.1:8080');
 
-  ApiService(this.baseURL);
+  factory ApiService(String baseURL) {
+    _instance.baseURL = baseURL;
+    return _instance;
+  }
+
+  ApiService._internal(this.baseURL);
+
+  static ApiService get instance => _instance;
+
+  String baseURL;
 
   Future<http.Response> get(String endpoint) async {
     final url = Uri.parse('$baseURL/$endpoint');

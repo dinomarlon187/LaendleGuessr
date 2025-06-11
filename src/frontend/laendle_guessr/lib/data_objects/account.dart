@@ -1,5 +1,5 @@
 abstract class Account{
-  final String uid;
+  final int uid;
     final String username;
     final String password;
     final bool isAdmin;
