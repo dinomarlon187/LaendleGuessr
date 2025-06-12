@@ -1,7 +1,28 @@
 import 'package:flutter/material.dart';
 import 'maps.dart';
+import 'package:laendle_guessr/controller/appcontroller.dart';
+import 'package:laendle_guessr/manager/questmanager.dart';
+import 'package:laendle_guessr/services/locationchecker.dart';
+import 'package:laendle_guessr/manager/inventory.dart';
+import 'package:laendle_guessr/manager/usermanager.dart';
+import 'package:laendle_guessr/services/api_service.dart';
+import 'package:laendle_guessr/data_objects/quest.dart';
+import 'package:laendle_guessr/data_objects/city.dart';
+import 'package:laendle_guessr/data_objects/user.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appController = AppController.instance;
+  await appController.questManager.loadQuests();
+
+  final testUser = User(
+    uid: 1,
+    username: 'Test User',
+    city: City.bregenz,
+    coins: 100,
+  );
+
+  appController.userManager.currentUser = testUser;
   runApp(const LaendleGuessrApp());
 }
 
@@ -90,6 +111,17 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appController = AppController.instance;
+    final user = appController.userManager.currentUser;
+    if (user == null) {
+      return const Center(child: Text("Bitte melde dich an, um die Challenges zu sehen."));
+    }
+    if (appController.questManager.weeklyQuest == null) {
+      return const Center(child: Text("Keine wöchentlichen Herausforderungen verfügbar."));
+    }
+    if (appController.questManager.dailyQuestByCity[user.city] == null) {
+      return const Center(child: Text("Keine täglichen Herausforderungen für deine Stadt verfügbar."));
+    }
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -106,8 +138,8 @@ class HomeContent extends StatelessWidget {
               constraints: const BoxConstraints(maxWidth: 500),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "LändleGuessr",
                     style: TextStyle(
                       fontSize: 32,
@@ -116,29 +148,31 @@ class HomeContent extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 4),
-                  Text(
+                  const SizedBox(height: 4),
+                  const Text(
                     "Tägliche und Wöchentliche challenge",
                     style: TextStyle(color: Colors.white70),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   ChallengeCard(
-                    title: "Daily Challenge",
+                    title: "${appController.questManager.dailyQuestByCity[appController.userManager.currentUser!.city]!.qid}",
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
                     description: "Finde diesen Ort um die Challenge zu meistern",
                     buttonText: "Starten",
                     color: Colors.lightBlueAccent,
+                    qid: appController.questManager.dailyQuestByCity[appController.userManager.currentUser!.city]!.qid,
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   ChallengeCard(
-                    title: "Weekly Challenge",
+                    title: "${appController.questManager.weeklyQuest.qid}",
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
                     description: "Finde diesen Ort um die Challenge zu meistern",
                     buttonText: "Starten",
                     color: Colors.redAccent,
+                    qid: appController.questManager.weeklyQuest.qid,
                   ),
                 ],
               ),
@@ -157,6 +191,8 @@ class ChallengeCard extends StatelessWidget {
   final String description;
   final String buttonText;
   final Color color;
+  final int qid;
+  static AppController appController = AppController.instance;
 
   const ChallengeCard({
     super.key,
@@ -166,6 +202,7 @@ class ChallengeCard extends StatelessWidget {
     required this.description,
     required this.buttonText,
     required this.color,
+    required this.qid,
   });
 
   @override
@@ -222,7 +259,9 @@ class ChallengeCard extends StatelessWidget {
               ),
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
-            onPressed: () {},
+            onPressed: () {
+                
+            },
             child: Text(
               buttonText,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),

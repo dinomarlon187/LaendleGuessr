@@ -13,6 +13,7 @@ class QuestService{
   static QuestService get instance => _instance;
 
   QuestService._internal(this.api);
+  
   final ApiService api;
 
 

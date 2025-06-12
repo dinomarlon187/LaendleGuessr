@@ -4,9 +4,16 @@ import 'package:laendle_guessr/data_objects/city.dart';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:laendle_guessr/services/quest_service.dart';
+import 'package:laendle_guessr/manager/usermanager.dart';
+import 'package:flutter/material.dart';
 
 
-class QuestManager{
+class QuestManager extends ChangeNotifier{
+  QuestManager._internal(this.questService);
+  static final QuestManager _instance = QuestManager._internal(QuestService.instance);
+  factory QuestManager() => _instance;
+  static QuestManager get instance => _instance;
+
 
   late Quest weeklyQuest;
   Map<City, Quest> dailyQuestByCity = {};
@@ -14,7 +21,9 @@ class QuestManager{
   Duration? _timeUntilMidnight;
   final ValueNotifier<Duration> timeUntilMidnightNotifier = ValueNotifier(Duration.zero);
   final QuestService questService;
-  QuestManager(this.questService);
+
+  Timer? _questTimer;
+  int elapsedSeconds = 0;
 
   Future<void> loadQuests() async {
     // Load Daily Quests:
@@ -56,5 +65,21 @@ class QuestManager{
 
   Quest getWeeklyQuest() => weeklyQuest;
 
+  Future<List<Quest>> getAllQuests() async {
+    return await questService.getAllQuests();
+  }
+  Future<List<Quest>> getAllDoneQuestsByUser(User user) async {
+    return await questService.getAllDoneQuestsByUser(user);
+  }
 
+  bool get isRunning => _questTimer?.isActive ?? false;
+  void startQuest(){
+    elapsedSeconds = 0;
+    _questTimer?.cancel();
+
+    _questTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      elapsedSeconds++;
+      notifyListeners();
+    });
+  }
 }

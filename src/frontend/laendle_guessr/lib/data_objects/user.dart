@@ -4,18 +4,13 @@ import 'package:laendle_guessr/data_objects/city.dart';
 
 class User extends Account{
   int coins;
-  final Inventory inventory;
+  Inventory inventory = Inventory();
   City city;
 
   User({
     required super.uid,
     required super.username,
-    required super.password,
     required this.city,
     required this.coins,
-    Inventory? inventory,
-  })  : inventory = inventory ?? Inventory(),
-        super(isAdmin: false);
-
-
+  })  : super(isAdmin: false);
 }

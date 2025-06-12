@@ -6,5 +6,5 @@ class Admin extends Account {
     required int uid,
     required String username,
     required String password,
-  }) : super(uid: uid, username: username, password: password, isAdmin: true);
+  }) : super(uid: uid, username: username, isAdmin: true);
 }
