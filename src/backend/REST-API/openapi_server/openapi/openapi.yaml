@@ -4,19 +4,18 @@ info:
   title: LaendleGuessr
   version: 1.0.0
 servers:
-- url: /
+  - url: /
+
 paths:
   /all_item_user/{uid}:
     get:
       operationId: all_items_owned_by
       parameters:
-      - explode: true
-        in: path
-        name: uid
-        required: true
-        schema:
-          type: integer
-        style: simple
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -26,8 +25,9 @@ paths:
           description: Service nicht verfügbar
       summary: Alle Items eines Users bekommen
       tags:
-      - item
+        - item
       x-openapi-router-controller: openapi_server.controllers.item_controller
+
   /all_quests:
     get:
       operationId: all_quests_get
@@ -40,19 +40,18 @@ paths:
           description: Service nicht verfügbar
       summary: Alle Quests bekommen
       tags:
-      - quest
+        - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
+
   /all_quests_user/{uid}:
     get:
       operationId: all_quests_done_by
       parameters:
-      - explode: true
-        in: path
-        name: uid
-        required: true
-        schema:
-          type: integer
-        style: simple
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -60,21 +59,20 @@ paths:
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Alle gemachten Quests eines users bekommen
+      summary: Alle gemachten Quests eines Users bekommen
       tags:
-      - quest
+        - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
+
   /dailyquest/{city}:
     get:
       operationId: dailyquest_get
       parameters:
-      - explode: true
-        in: path
-        name: city
-        required: true
-        schema:
-          type: integer
-        style: simple
+        - in: path
+          name: city
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -84,8 +82,9 @@ paths:
           description: Service nicht verfügbar
       summary: Derzeitige DailyQuest einer Stadt
       tags:
-      - quest
+        - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
+
   /item:
     get:
       operationId: all_items_get
@@ -98,19 +97,18 @@ paths:
           description: Service nicht verfügbar
       summary: Alle Items anzeigen
       tags:
-      - item
+        - item
       x-openapi-router-controller: openapi_server.controllers.item_controller
+
   /item/{id}:
     get:
       operationId: item_get
       parameters:
-      - explode: true
-        in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-        style: simple
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -120,17 +118,18 @@ paths:
           description: Service nicht verfügbar
       summary: Item mit bestimmter ID anzeigen
       tags:
-      - item
+        - item
       x-openapi-router-controller: openapi_server.controllers.item_controller
+
   /item_user:
     post:
       operationId: item_user_post
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/user_id'
-        required: true
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -140,17 +139,18 @@ paths:
           description: Service nicht verfügbar
       summary: Einem User ein Item zuschreiben
       tags:
-      - item
+        - item
       x-openapi-router-controller: openapi_server.controllers.item_controller
+
   /quest_user:
     post:
       operationId: quest_user_post
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/user_id'
-        required: true
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -160,8 +160,9 @@ paths:
           description: Service nicht verfügbar
       summary: Einem User eine Quest als gemacht zuschreiben
       tags:
-      - quest
+        - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
+
   /user:
     get:
       operationId: all_users_get
@@ -174,16 +175,16 @@ paths:
           description: Service nicht verfügbar
       summary: Alle User anzeigen
       tags:
-      - user
+        - user
       x-openapi-router-controller: openapi_server.controllers.user_controller
     post:
       operationId: user_post
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/user'
-        required: true
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -193,19 +194,18 @@ paths:
           description: Service nicht verfügbar
       summary: Neuen User hinzufügen
       tags:
-      - user
+        - user
       x-openapi-router-controller: openapi_server.controllers.user_controller
+
   /user/{id}:
     get:
       operationId: user_get
       parameters:
-      - explode: true
-        in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-        style: simple
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -215,18 +215,22 @@ paths:
           description: Service nicht verfügbar
       summary: User mit bestimmter ID anzeigen
       tags:
-      - user
+        - user
       x-openapi-router-controller: openapi_server.controllers.user_controller
     put:
       operationId: user_update
       parameters:
-      - explode: true
-        in: path
-        name: id
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
         required: true
-        schema:
-          type: integer
-        style: simple
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -236,8 +240,9 @@ paths:
           description: Service nicht verfügbar
       summary: User bearbeiten
       tags:
-      - user
+        - user
       x-openapi-router-controller: openapi_server.controllers.user_controller
+
   /weeklyquest:
     get:
       operationId: weeklyquest_get
@@ -250,50 +255,65 @@ paths:
           description: Service nicht verfügbar
       summary: Derzeitige globale WeeklyQuest
       tags:
-      - quest
+        - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
+
 components:
   schemas:
     user_id:
+      title: user_id
+      required:
+        - uid
+        - id
+      properties:
+        uid:
+          type: integer
+          minimum: 1
+          title: UserID
+        id:
+          type: integer
+          minimum: 1
+          title: ID
       example:
         uid: 3
         id: 4
-      properties:
-        uid:
-          minimum: 1
-          title: UserID
-          type: integer
-        id:
-          minimum: 1
-          title: ID
-          type: integer
-      required:
-      - uid
-      - id
-      title: user_id
+
     user:
-      example:
-        username: keremderkomet
-        password: HASH VALUE
-        coins: 150
-        admin: true
+      title: user
+      required:
+        - username
+        - password
+        - coins
+        - admin
+        - city
       properties:
         username:
-          maximum: 30
-          minimum: 3
-          title: username
           type: string
+          title: Benutzername
+          minLength: 3
+          maxLength: 30
         password:
-          title: password
           type: string
+          title: Passwort
         coins:
-          minimum: 0
-          title: coins
           type: integer
+          title: Coins
+          minimum: 0
         admin:
-          title: admin
           type: boolean
-      required:
-      - password
-      - username
-      title: user
+          title: Admin
+        city:
+          type: integer
+          title: Stadt
+          enum:
+            - 0  
+            - 1  
+            - 2  
+            - 3  
+            - 4  
+      example:
+        username: keremderkomet
+        password: MeinSicheresPasswort123
+        coins: 150
+        admin: true
+        city: 1
