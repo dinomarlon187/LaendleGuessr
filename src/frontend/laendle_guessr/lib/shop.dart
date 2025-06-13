@@ -32,7 +32,7 @@ class ShopPage extends StatelessWidget {
                 '$coinBalance',
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 20),
             ],
           ),
         ],
@@ -43,7 +43,7 @@ class ShopPage extends StatelessWidget {
           crossAxisCount: 2,
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
-          childAspectRatio: 0.85,
+          childAspectRatio: 0.8,
         ),
         itemCount: characters.length,
         itemBuilder: (context, index) {
@@ -60,7 +60,7 @@ class Character {
   final String asset;
   final int price;
 
-  Character({required this.name, required this.asset, this.price = 200});
+  const Character({required this.name, required this.asset, this.price = 200});
 }
 
 class CharacterCard extends StatelessWidget {
@@ -77,26 +77,41 @@ class CharacterCard extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(12),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Image.asset(character.asset, fit: BoxFit.contain),
+          Column(
+            children: [
+              SizedBox(
+                height: 130,
+                child: Image.asset(character.asset, fit: BoxFit.contain),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                character.name,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ],
           ),
-          const SizedBox(height: 8),
-          Text(
-            character.name,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ),
-          const SizedBox(height: 4),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
               color: Colors.green,
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Text(
-              '${character.price} ',
-              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.monetization_on, color: Colors.white, size: 18),
+                const SizedBox(width: 4),
+                Text(
+                  '${character.price}',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
