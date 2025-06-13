@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'maps.dart';
+import 'shop.dart';
 import 'package:laendle_guessr/controller/appcontroller.dart';
 import 'package:laendle_guessr/manager/questmanager.dart';
 import 'package:laendle_guessr/services/locationchecker.dart';
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const HomeContent(),
     const MapsPage(),
-    const Placeholder(),
+    ShopPage(),
     const Placeholder(),
   ];
 
