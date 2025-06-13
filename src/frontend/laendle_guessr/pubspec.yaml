@@ -32,4 +32,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
+    - assets/images/elkin.png
+    - assets/images/riddle.png
+    - assets/images/ursa.png
+    - assets/images/aster.png
+    - assets/images/foxrot.png
+    - assets/images/fritz.png
