@@ -13,6 +13,7 @@ class QuestManager extends ChangeNotifier{
   static final QuestManager _instance = QuestManager._internal(QuestService.instance);
   factory QuestManager() => _instance;
   static QuestManager get instance => _instance;
+  final UserManager userManager = UserManager.instance;
 
 
   late Quest weeklyQuest;
@@ -30,10 +31,10 @@ class QuestManager extends ChangeNotifier{
     //Funktioniert, wenn die Datenbank gefüllt ist, ansonsten gibt es einen Fehler
     dailyQuestByCity.clear();
     dailyQuestByCity[City.bregenz] = await questService.getdailyQuest(City.bregenz);
-    dailyQuestByCity[City.dornbirn] = await questService.getdailyQuest(City.dornbirn);
-    dailyQuestByCity[City.hohenems] = await questService.getdailyQuest(City.hohenems);
-    dailyQuestByCity[City.feldkirch] = await questService.getdailyQuest(City.feldkirch);
-    dailyQuestByCity[City.bludenz] = await questService.getdailyQuest(City.bludenz);
+    //dailyQuestByCity[City.dornbirn] = await questService.getdailyQuest(City.dornbirn);
+    //dailyQuestByCity[City.hohenems] = await questService.getdailyQuest(City.hohenems);
+    //dailyQuestByCity[City.feldkirch] = await questService.getdailyQuest(City.feldkirch);
+    //dailyQuestByCity[City.bludenz] = await questService.getdailyQuest(City.bludenz);
     weeklyQuest = await questService.getweeklyQuest();
     _scheduleMidnightUpdate();
   }
@@ -57,8 +58,8 @@ class QuestManager extends ChangeNotifier{
     timeUntilMidnightNotifier.dispose();
   }
 
-  Quest? getDailyQuestForUser(User user) {
-    return dailyQuestByCity[user.city];
+  Quest? getDailyQuestForUser() {
+    return dailyQuestByCity[userManager.currentUser!.city];
   }
 
 
