@@ -72,9 +72,48 @@ class QuestService{
       'id' : qid,
       'uid': uid
     };
-    final response = await api.post('quest_user', json);
+    final response = await api.post('quest_user_post', json);
     if (response.statusCode != 200){
       throw Exception('Fehler beim zuweisen eienr Quest zu einem User: ${response.statusCode}');
+    }
+  }
+
+  Future<Quest?> getActiveQuestForUser(User user) async {
+  final response = await api.get('activequest/${user.uid}');
+  if (response.statusCode == 200) {
+    if (response.body.isEmpty || response.body == 'None') {
+      return null;
+    }
+    final Map<String, dynamic> json = jsonDecode(response.body);
+    return Quest.fromJson(json);
+  } else {
+    throw Exception('Fehler beim Laden der aktiven Quest: ${response.statusCode}');
+  }
+}
+  Future<Quest> getQuestById(int qid) async {
+    final response = await api.get('quest/$qid');
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> json = jsonDecode(response.body);
+      return Quest.fromJson(json);
+    } else {
+      throw Exception('Fehler beim Laden der Quest mit ID $qid: ${response.statusCode}');
+    }
+
+  }
+  Future<void> addQuestToActive(User user, int qid) async {
+    final json = {
+      'uid': user.uid,
+      'qid': qid,
+    };
+    final response = await api.post('activequest', json);
+    if (response.statusCode != 200) {
+      throw Exception('Fehler beim Hinzufügen der aktiven Quest: ${response.statusCode}');
+    }
+  }
+  Future<void> removeQuestFromActive(User user) async {
+    final response = await api.delete('activequest/${user.uid}');
+    if (response.statusCode != 200) {
+      throw Exception('Fehler beim Entfernen der aktiven Quest: ${response.statusCode}');
     }
   }
 }

@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:laendle_guessr/services/quest_service.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:flutter/material.dart';
+import 'package:laendle_guessr/services/step_counter.dart';
 
 
 class QuestManager extends ChangeNotifier{
@@ -15,7 +16,6 @@ class QuestManager extends ChangeNotifier{
   static QuestManager get instance => _instance;
   final UserManager userManager = UserManager.instance;
 
-
   late Quest weeklyQuest;
   Map<City, Quest> dailyQuestByCity = {};
   Timer? _midnightTimer;
@@ -23,8 +23,15 @@ class QuestManager extends ChangeNotifier{
   final ValueNotifier<Duration> timeUntilMidnightNotifier = ValueNotifier(Duration.zero);
   final QuestService questService;
 
-  Timer? _questTimer;
+  Timer? questTimer;
   int elapsedSeconds = 0;
+    // KI: "how to format elapsed time in HH:MM:SS format so i can use it in my ui?"
+  String get elapsedTime {
+    final hours = (elapsedSeconds ~/ 3600).toString().padLeft(2, '0');
+    final minutes = ((elapsedSeconds % 3600) ~/ 60).toString().padLeft(2, '0');
+    final seconds = (elapsedSeconds % 60).toString().padLeft(2, '0');
+    return '$hours:$minutes:$seconds';
+  }
 
   Future<void> loadQuests() async {
     // Load Daily Quests:
@@ -36,6 +43,12 @@ class QuestManager extends ChangeNotifier{
     //dailyQuestByCity[City.feldkirch] = await questService.getdailyQuest(City.feldkirch);
     //dailyQuestByCity[City.bludenz] = await questService.getdailyQuest(City.bludenz);
     weeklyQuest = await questService.getweeklyQuest();
+    // Known issue: If the user has last days daily quest as a weekly quest now, it will not be updated.
+    if (userManager.currentUser!.activeQuest != weeklyQuest && userManager.currentUser!.activeQuest != getDailyQuestForUser() && userManager.currentUser!.activeQuest != null) {
+      await questService.removeQuestFromActive(userManager.currentUser!);
+      userManager.currentUser!.activeQuest = null;
+    }
+    await fetchActiveQuest();
     _scheduleMidnightUpdate();
   }
 
@@ -55,7 +68,9 @@ class QuestManager extends ChangeNotifier{
   // KI: "do i need anything else to work properly?" (Ich habe ihm davor meinen Code für den Timer gegeben und gefragt pb das so funktioniert)
   void dispose() {
     _midnightTimer?.cancel();
+    questTimer?.cancel();
     timeUntilMidnightNotifier.dispose();
+    super.dispose();
   }
 
   Quest? getDailyQuestForUser() {
@@ -72,15 +87,38 @@ class QuestManager extends ChangeNotifier{
   Future<List<Quest>> getAllDoneQuestsByUser(User user) async {
     return await questService.getAllDoneQuestsByUser(user);
   }
+  Future<void> fetchActiveQuest() async {
+    userManager.currentUser!.activeQuest = await questService.getActiveQuestForUser(userManager.currentUser!);
+  }
 
-  bool get isRunning => _questTimer?.isActive ?? false;
-  void startQuest(){
+  bool get isRunning => questTimer?.isActive ?? false;
+
+  Future<void> startQuest(qid) async {
+    notifyListeners();
     elapsedSeconds = 0;
-    _questTimer?.cancel();
+    questTimer?.cancel();
+    userManager.currentUser!.activeQuest = await questService.getQuestById(qid);
+    await questService.addQuestToActive(userManager.currentUser!,qid);
 
-    _questTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    questTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       elapsedSeconds++;
       notifyListeners();
     });
+    StepCounter.instance.startStepCounting();
+  }
+  void stopQuest() async {
+    questTimer?.cancel();
+    notifyListeners();
+    await questService.removeQuestFromActive(userManager.currentUser!);
+    userManager.currentUser!.activeQuest = null;
+  }
+
+  void finishQuest() async{
+    await questService.postQuestDoneByUser(userManager.currentUser!.activeQuest!.qid, userManager.currentUser!.uid);
+    await questService.removeQuestFromActive(userManager.currentUser!);
+    userManager.currentUser!.activeQuest = null;
+    questTimer?.cancel();
+    StepCounter.instance.stopStepCounting();
+    notifyListeners();
   }
 }

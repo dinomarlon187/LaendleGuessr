@@ -86,6 +86,92 @@ paths:
       tags:
       - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
+  /activequest/{uid}:
+    get:
+      operationId: activequest_get
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      summary: Aktive Quest eines Users abrufen
+      tags:
+        - quest
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
+    delete:
+      operationId: activequest_delete
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Erfolgreich entfernt
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      summary: Aktive Quest eines Users entfernen
+      tags:
+        - quest
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
+  /activequest:
+    post:
+      operationId: activequest_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: integer
+                qid:
+                  type: integer
+              required:
+                - uid
+                - qid
+      responses:
+        "200":
+          description: Erfolgreich hinzugefügt
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      summary: Aktive Quest für User setzen
+      tags:
+        - quest
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
+  /quest/{qid}:
+    get:
+      operationId: quest_get
+      parameters:
+        - in: path
+          name: qid
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      summary: Quest mit bestimmter ID anzeigen
+      tags:
+        - quest
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
   /item:
     get:
       operationId: all_items_get

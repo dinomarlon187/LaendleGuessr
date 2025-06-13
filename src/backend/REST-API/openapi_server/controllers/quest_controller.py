@@ -80,3 +80,54 @@ def weeklyquest_get():  # noqa: E501
         .execute()
     )
     return response.data
+
+def activequest_get(uid):
+    response = (
+        supabase.table("active_quest")
+        .select("*")
+        .eq("uid", uid)
+        .execute()
+    )
+    if response.data:
+        qid = response.data[0].get("qid")
+        quest_response = (
+            supabase.table("quest")
+            .select("*")
+            .eq("qid", qid)
+            .single()
+            .execute()
+        )
+        return quest_response.data, 200
+    return None, 200
+
+def activequest_post(body): 
+    if connexion.request.is_json:
+        data = connexion.request.get_json()
+        uid = data.get("uid")
+        qid = data.get("qid")
+        response = (
+            supabase.table("active_quest")
+            .insert({"uid": uid, "qid": qid})
+            .execute()
+        )
+        return "Success", 200
+    return "Invalid input", 400
+
+def activequest_delete(uid): 
+    response = (
+        supabase.table("active_quest")
+        .delete()
+        .eq("uid", uid)
+        .execute()
+    )
+    return "Success", 200
+
+def quest_get(qid): 
+    response = (
+        supabase.table("quest")
+        .select("*")
+        .eq("qid", qid)
+        .single()
+        .execute()
+    )
+    return response.data

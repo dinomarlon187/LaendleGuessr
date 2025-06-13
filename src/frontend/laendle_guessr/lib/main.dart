@@ -2,28 +2,23 @@ import 'package:flutter/material.dart';
 import 'maps.dart';
 import 'shop.dart';
 import 'package:laendle_guessr/controller/appcontroller.dart';
-import 'package:laendle_guessr/manager/questmanager.dart';
-import 'package:laendle_guessr/services/locationchecker.dart';
-import 'package:laendle_guessr/manager/inventory.dart';
-import 'package:laendle_guessr/manager/usermanager.dart';
-import 'package:laendle_guessr/services/api_service.dart';
-import 'package:laendle_guessr/data_objects/quest.dart';
 import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appController = AppController.instance;
-  await appController.questManager.loadQuests();
 
   final testUser = User(
-    uid: 1,
-    username: 'Test User',
+    uid: 2,
+    username: 'admin',
     city: City.bregenz,
-    coins: 100,
+    coins: 234,
   );
 
   appController.userManager.currentUser = testUser;
+  await appController.questManager.loadQuests();
+
   runApp(const LaendleGuessrApp());
 }
 
@@ -49,12 +44,27 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const HomeContent(),
-    const MapsPage(),
-    ShopPage(),
-    const Placeholder(),
-  ];
+  late final List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      HomeContent(onNavigateToMaps: _navigateToMaps),
+      const MapsPage(),
+      ShopPage(),
+      const Placeholder(),
+    ];
+  }
+
+  void _navigateToMaps() {
+    final mapsPageIndex = _pages.indexWhere((page) => page is MapsPage);
+    if (mapsPageIndex != -1) {
+      setState(() {
+        _selectedIndex = mapsPageIndex;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,22 +117,50 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class HomeContent extends StatelessWidget {
-  const HomeContent({super.key});
+class HomeContent extends StatefulWidget {
+  final VoidCallback onNavigateToMaps;
+
+  const HomeContent({super.key, required this.onNavigateToMaps});
+
+  @override
+  State<HomeContent> createState() => _HomeContentState();
+}
+
+class _HomeContentState extends State<HomeContent> {
+  int? _activeQid;
+
+  @override
+  void initState() {
+    super.initState();
+    final activeQuest = AppController.instance.userManager.currentUser?.activeQuest;
+    if (activeQuest != null) {
+      _activeQid = activeQuest.qid;
+    }
+  }
+
+  void _onStartQuest(int qid) async {
+    await AppController.instance.questManager.startQuest(qid);
+    setState(() {
+      _activeQid = qid;
+    });
+    widget.onNavigateToMaps();
+  }
 
   @override
   Widget build(BuildContext context) {
     final appController = AppController.instance;
     final user = appController.userManager.currentUser;
+
     if (user == null) {
       return const Center(child: Text("Bitte melde dich an, um die Challenges zu sehen."));
     }
-    if (appController.questManager.weeklyQuest == null) {
-      return const Center(child: Text("Keine wöchentlichen Herausforderungen verfügbar."));
+    final dailyQuest = appController.questManager.dailyQuestByCity[user.city];
+    final weeklyQuest = appController.questManager.weeklyQuest;
+
+    if (dailyQuest == null || weeklyQuest == null) {
+        return const Center(child: CircularProgressIndicator());
     }
-    if (appController.questManager.dailyQuestByCity[user.city] == null) {
-      return const Center(child: Text("Keine täglichen Herausforderungen für deine Stadt verfügbar."));
-    }
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -157,23 +195,29 @@ class HomeContent extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   ChallengeCard(
-                    title: "${appController.questManager.dailyQuestByCity[appController.userManager.currentUser!.city]!.qid}",
+                    title: "Tägliche Challenge: ${dailyQuest.qid}",
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
                     description: "Finde diesen Ort um die Challenge zu meistern",
                     buttonText: "Starten",
                     color: Colors.lightBlueAccent,
-                    qid: appController.questManager.dailyQuestByCity[appController.userManager.currentUser!.city]!.qid,
+                    qid: dailyQuest.qid,
+                    isThisQuestActive: _activeQid == dailyQuest.qid,
+                    isAnyQuestActive: _activeQid != null,
+                    onPressed: () => _onStartQuest(dailyQuest.qid),
                   ),
                   const SizedBox(height: 24),
                   ChallengeCard(
-                    title: "${appController.questManager.weeklyQuest.qid}",
+                    title: "Wöchentliche Challenge: ${weeklyQuest.qid}",
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
                     description: "Finde diesen Ort um die Challenge zu meistern",
                     buttonText: "Starten",
                     color: Colors.redAccent,
-                    qid: appController.questManager.weeklyQuest.qid,
+                    qid: weeklyQuest.qid,
+                    isThisQuestActive: _activeQid == weeklyQuest.qid,
+                    isAnyQuestActive: _activeQid != null,
+                    onPressed: () => _onStartQuest(weeklyQuest.qid),
                   ),
                 ],
               ),
@@ -193,7 +237,9 @@ class ChallengeCard extends StatelessWidget {
   final String buttonText;
   final Color color;
   final int qid;
-  static AppController appController = AppController.instance;
+  final bool isThisQuestActive;
+  final bool isAnyQuestActive;
+  final VoidCallback onPressed;
 
   const ChallengeCard({
     super.key,
@@ -204,10 +250,15 @@ class ChallengeCard extends StatelessWidget {
     required this.buttonText,
     required this.color,
     required this.qid,
+    required this.isThisQuestActive,
+    required this.isAnyQuestActive,
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
+ 
+
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: color, width: 2),
@@ -236,20 +287,22 @@ class ChallengeCard extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
           const SizedBox(height: 12),
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(imageUrl),
+            child: Image.asset(imageUrl, fit: BoxFit.cover, height: 150, width: double.infinity,),
           ),
           const SizedBox(height: 12),
           Text(
             question,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 4),
-          Text(description),
+          Text(description, textAlign: TextAlign.center,),
           const SizedBox(height: 12),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -260,11 +313,9 @@ class ChallengeCard extends StatelessWidget {
               ),
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
-            onPressed: () {
-                
-            },
+            onPressed: isAnyQuestActive ? null : onPressed, // Corrected logic here
             child: Text(
-              buttonText,
+              isThisQuestActive ? "Started!" : buttonText,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
           ),
