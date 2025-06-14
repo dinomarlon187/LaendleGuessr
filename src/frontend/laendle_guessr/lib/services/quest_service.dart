@@ -116,4 +116,18 @@ class QuestService{
       throw Exception('Fehler beim Entfernen der aktiven Quest: ${response.statusCode}');
     }
   }
+
+  Future<int> getActiveQuestDuration(User user) async {
+  final response = await api.get('activequest_started/${user.uid}');
+  if (response.statusCode == 200) {
+    final Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    String dateString = jsonResponse['started_at'];
+
+    DateTime startedAt = DateTime.parse(dateString); 
+
+    return DateTime.now().difference(startedAt).inSeconds;
+  } else {
+    throw Exception('Fehler beim Laden der Startzeit der aktiven Quest: ${response.statusCode}');
+  }
+  } 
 }

@@ -70,6 +70,7 @@ class QuestManager extends ChangeNotifier{
     _midnightTimer?.cancel();
     questTimer?.cancel();
     timeUntilMidnightNotifier.dispose();
+    StepCounter.instance.startStepCounting();
     super.dispose();
   }
 
@@ -95,18 +96,28 @@ class QuestManager extends ChangeNotifier{
 
   Future<void> startQuest(qid) async {
     notifyListeners();
-    elapsedSeconds = 0;
-    questTimer?.cancel();
     userManager.currentUser!.activeQuest = await questService.getQuestById(qid);
     await questService.addQuestToActive(userManager.currentUser!,qid);
+  }
 
+  Future<void> startTracking() async{
+    if (userManager.currentUser!.activeQuest == null){
+      return;
+    }
+    elapsedSeconds = await questService.getActiveQuestDuration(userManager.currentUser!);
+    startQuestTimer();
+    StepCounter.instance.startStepCounting();
+  }
+
+  void startQuestTimer() {
+    questTimer?.cancel();
     questTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       elapsedSeconds++;
       notifyListeners();
     });
-    StepCounter.instance.startStepCounting();
   }
-  void stopQuest() async {
+
+  void forfeitQuest() async {
     questTimer?.cancel();
     notifyListeners();
     await questService.removeQuestFromActive(userManager.currentUser!);

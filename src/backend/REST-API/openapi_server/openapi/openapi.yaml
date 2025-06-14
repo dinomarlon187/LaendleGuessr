@@ -150,6 +150,25 @@ paths:
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
+  
+  /activequest_started/{uid}:
+    get:
+      operationId: activequest_started_get
+      parameters:
+      - in: path
+        name: uid
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Erfolgreich hinzugefügt
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      summary: Startzeit der aktiven Quest eines Users abrufen
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
   /quest/{qid}:
     get:
       operationId: quest_get

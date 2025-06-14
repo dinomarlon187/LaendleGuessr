@@ -32,6 +32,7 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
   void initState() {
     super.initState();
     _checkPermissionsAndStartTracking();
+    _questManager.startTracking();
   }
 
   Future<void> _checkPermissionsAndStartTracking() async {
@@ -93,7 +94,7 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
     _positionStreamSubscription?.cancel();
     _mapController.dispose();
     StepCounter.instance.stopStepCounting();
-    _questManager.dispose();
+    _questManager.questTimer!.cancel();
     super.dispose();
   }
 

@@ -131,3 +131,15 @@ def quest_get(qid):
         .execute()
     )
     return response.data
+
+def activequest_started_get(uid):
+    response = (
+        supabase.table("active_quest")
+        .select("started_at")
+        .eq("uid", uid)
+        .single()
+        .execute()
+    )
+    if response.data:
+        started_at = response.data.get("started_at")
+        return {"started_at": started_at}, 200
