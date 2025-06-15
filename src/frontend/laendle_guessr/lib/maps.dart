@@ -26,6 +26,8 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
 
   double _currentZoom = 17.0;
   bool _isMapReady = false;
+  bool _isButtonPressed = false;
+
   @override
   bool get wantKeepAlive => true;
 
@@ -37,47 +39,47 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
   }
 
   Future<void> _checkPermissionsAndStartTracking() async {
-  bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!mounted) return;
-  if (!serviceEnabled) {
-    _showError("Standortdienste sind deaktiviert.");
-    return;
-  }
-
-  var status = await Permission.locationWhenInUse.request();
-  if (!status.isGranted) {
-    _showError("Standortberechtigung verweigert.");
-    return;
-  }
-
-  LocationPermission permission = await Geolocator.checkPermission();
-  if (!mounted) return;
-  if (permission == LocationPermission.deniedForever) {
-    _showError("Standortberechtigung dauerhaft verweigert, bitte in den App-Einstellungen aktivieren.");
-    return;
-  }
-
-  await _positionStreamSubscription?.cancel();
-  _positionStreamSubscription = Geolocator.getPositionStream(
-    locationSettings: const LocationSettings(
-      accuracy: LocationAccuracy.high,
-      distanceFilter: 5,
-    ),
-  ).listen((Position position) {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!mounted) return;
-    final newLocation = LatLng(position.latitude, position.longitude);
-    setState(() {
-      _currentLocation = newLocation;
+    if (!serviceEnabled) {
+      _showError("Standortdienste sind deaktiviert.");
+      return;
+    }
+
+    var status = await Permission.locationWhenInUse.request();
+    if (!status.isGranted) {
+      _showError("Standortberechtigung verweigert.");
+      return;
+    }
+
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (!mounted) return;
+    if (permission == LocationPermission.deniedForever) {
+      _showError("Standortberechtigung dauerhaft verweigert, bitte in den App-Einstellungen aktivieren.");
+      return;
+    }
+
+    await _positionStreamSubscription?.cancel();
+    _positionStreamSubscription = Geolocator.getPositionStream(
+      locationSettings: const LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 5,
+      ),
+    ).listen((Position position) {
+      if (!mounted) return;
+      final newLocation = LatLng(position.latitude, position.longitude);
+      setState(() {
+        _currentLocation = newLocation;
+      });
+      if (_isMapReady) {
+        _mapController.move(newLocation, _currentZoom);
+      }
+    }, onError: (error) {
+      if (mounted) {
+        _showError("Fehler beim Empfangen des Standorts: $error");
+      }
     });
-    if (_isMapReady) {
-      _mapController.move(newLocation, _currentZoom);
-    }
-  }, onError: (error) {
-    if (mounted) {
-      _showError("Fehler beim Empfangen des Standorts: $error");
-    }
-  });
-}
+  }
 
   void _showError(String message) {
     if (mounted && ScaffoldMessenger.maybeOf(context) != null) {
@@ -92,7 +94,7 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
     _positionStreamSubscription?.cancel();
     _mapController.dispose();
     StepCounter.instance.stopStepCounting();
-    _questManager.questTimer!.cancel();
+    _questManager.questTimer?.cancel();
     super.dispose();
   }
 
@@ -101,8 +103,6 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
     super.build(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Live Standort"),
-        backgroundColor: Colors.blueAccent,
       ),
       body: Stack(
         children: [
@@ -163,72 +163,143 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
     );
   }
 
-Widget _buildActiveQuestBar() {
-  return Container(
-    color: Colors.white,
-    padding: const EdgeInsets.all(16),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AnimatedBuilder(
-              animation: QuestManager.instance,
-              builder: (context, _) {
-                return Text(
-                  QuestManager.instance.elapsedTime,
-                  style: const TextStyle(fontSize: 18),
-                );
-              },
+  Widget _buildActiveQuestBar() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(0, -2),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: _buildInfoBox(
+              icon: Icons.timer,
+              label: 'Zeit',
+              valueBuilder: () => QuestManager.instance.elapsedTime,
             ),
-            const Text('Zeit'),
-          ],
-        ),
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AnimatedBuilder(
-              animation: StepCounter.instance,
-              builder: (context, _) {
-                return Text(
-                  StepCounter.instance.totalSteps.toString(),
-                  style: const TextStyle(fontSize: 18),
-                );
-              },
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: _buildInfoBox(
+              icon: Icons.directions_walk,
+              label: 'Schritte',
+              valueBuilder: () => StepCounter.instance.totalSteps.toString(),
             ),
-            const Text('Schritte'),
-          ],
-        ),
-        ElevatedButton(
-          onPressed: () async {
-            final result = await locationChecker.checkLocation();
-            if (!mounted) return;
-            if (result == true) {
-              _questManager.finishQuest();
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Quest erfolgreich abgeschlossen!')),
+          ),
+          const SizedBox(width: 12),
+          GestureDetector(
+            onTapDown: (_) {
+              setState(() {
+                _isButtonPressed = true;
+              });
+            },
+            onTapUp: (_) async {
+              setState(() {
+                _isButtonPressed = false;
+              });
+              final result = await locationChecker.checkLocation();
+              if (!mounted) return;
+              if (result == true) {
+                _questManager.finishQuest();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Quest erfolgreich abgeschlossen!')),
+                );
+                setState(() {});
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Du bist nicht am Zielort!')),
+                );
+              }
+            },
+            child: AnimatedScale(
+              scale: _isButtonPressed ? 0.95 : 1.0,
+              duration: const Duration(milliseconds: 100),
+              child: ElevatedButton.icon(
+                onPressed: null,
+                icon: const Icon(Icons.check_circle_outline),
+                label: const Text('Prüfen'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoBox({
+    required IconData icon,
+    required String label,
+    required String Function() valueBuilder,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.grey[100],
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: Colors.blueAccent),
+          const SizedBox(height: 4),
+          AnimatedBuilder(
+            animation: QuestManager.instance,
+            builder: (context, _) {
+              return Text(
+                valueBuilder(),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               );
-              setState(() {});
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Du bist nicht am Zielort!')),
-              );
-            }
-          },
-          child: const Text('Prüfen'),
-        ),
-      ],
-    ),
+            },
+          ),
+          const SizedBox(height: 2),
+          Text(label, style: const TextStyle(fontSize: 14)),
+        ],
+      ),
     );
   }
 
   Widget _buildInactiveQuestBar() {
     return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(0, -2),
+          ),
+        ],
+      ),
       child: const Center(
-        child: Text('Keine aktive Quest'),
+        child: Text(
+          'Keine aktive Quest',
+          style: TextStyle(fontSize: 16, color: Colors.grey),
+        ),
       ),
     );
   }

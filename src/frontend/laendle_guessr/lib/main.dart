@@ -4,6 +4,7 @@ import 'shop.dart';
 import 'willkommen.dart';
 import 'login.dart';
 import 'signup.dart';
+import 'profile.dart';
 import 'package:laendle_guessr/controller/appcontroller.dart';
 import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
@@ -40,6 +41,7 @@ class LaendleGuessrApp extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignupPage(),
         '/home': (context) => const HomePage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }
@@ -64,7 +66,7 @@ class _HomePageState extends State<HomePage> {
       HomeContent(onNavigateToMaps: _navigateToMaps),
       const MapsPage(),
       ShopPage(),
-      const Placeholder(),
+      ProfilePage(),
     ];
   }
 
