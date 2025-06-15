@@ -1,20 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:laendle_guessr/data_objects/item.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
+import 'package:laendle_guessr/data_objects/user.dart';
 
 class ItemCard extends StatelessWidget {
   final Item item;
+  final VoidCallback? onPurchaseSuccess;
 
-  const ItemCard({super.key, required this.item});
+  const ItemCard({
+    super.key,
+    required this.item,
+    this.onPurchaseSuccess,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final UserManager userManager = UserManager.instance;
+    final User? currentUser = userManager.currentUser;
+    bool itemOwned = false;
+
+    if (currentUser != null && currentUser.inventory != null) {
+      itemOwned = currentUser.inventory!.items.any((inventoryItem) => inventoryItem.id == item.id);
+    }
+
     return Material(
       color: Colors.white,
       elevation: 4,
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
+        // onTap: itemOwned ? null : () {}, // Outer InkWell can be for item details if needed
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
@@ -25,6 +40,13 @@ class ItemCard extends StatelessWidget {
                 child: Image.asset(
                   item.image,
                   fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      height: 120,
+                      color: Colors.grey[200],
+                      child: Icon(Icons.broken_image, color: Colors.grey[400], size: 48),
+                    );
+                  },
                 ),
               ),
               const SizedBox(height: 12),
@@ -36,43 +58,46 @@ class ItemCard extends StatelessWidget {
                   fontSize: 16,
                   color: Colors.black87,
                 ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 12),
               InkWell(
-                onTap: () {
-                  bool buyState = UserManager.instance.buyItem(item);
-                  if (buyState) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('You bought ${item.name} for ${item.price} coins!'),
-                        duration: const Duration(seconds: 2),
-                      ),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Text('Not enough coins!'),
-                        duration: const Duration(seconds: 2),
-                      ),
-                    );
-                  }
-                },
+                onTap: itemOwned
+                    ? null // If item is owned, button is not tappable
+                    : () async {
+                        bool buyState = await userManager.buyItem(item); // Assuming buyItem is async
+                        if (buyState) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('You bought ${item.name} for ${item.price} coins!'),
+                              duration: const Duration(seconds: 2),
+                            ),
+                          );
+                          onPurchaseSuccess?.call(); // Notify parent about successful purchase
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: const Text('Not enough coins or item already owned!'), // Updated message
+                              duration: const Duration(seconds: 2),
+                            ),
+                          );
+                        }
+                      },
                 borderRadius: BorderRadius.circular(30),
-
-              
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Colors.green.shade600,
+                    color: itemOwned ? Colors.grey.shade400 : Colors.green.shade600,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.monetization_on, color: Colors.white, size: 18),
+                      Icon(itemOwned ? Icons.check_circle_outline : Icons.monetization_on, color: Colors.white, size: 18),
                       const SizedBox(width: 4),
                       Text(
-                        '${item.price}',
+                        itemOwned ? 'Owned' : '${item.price}',
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

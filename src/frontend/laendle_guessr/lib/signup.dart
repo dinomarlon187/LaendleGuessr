@@ -38,7 +38,7 @@ class _SignupPageState extends State<SignupPage> {
       final cityId = _getCityId(_selectedCity!);
 
       try {
-        final userService = UserService(ApiService.instance);
+        final userService = UserService();
 
         final response = await userService.registerUser(
           username: username,

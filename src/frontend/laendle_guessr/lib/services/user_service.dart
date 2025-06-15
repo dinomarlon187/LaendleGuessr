@@ -7,7 +7,14 @@ import 'package:laendle_guessr/data_objects/user.dart';
 class UserService {
   final ApiService api;
 
-  UserService(this.api);
+  UserService._internal(this.api);
+  static final UserService _instance = UserService._internal(ApiService.instance);
+
+  factory UserService() {
+    return _instance;
+  }
+
+  static UserService get instance => _instance;
 
 
   Future<List<dynamic>> getAllUsers() async {
@@ -72,7 +79,7 @@ class UserService {
 
 
   Future<Map<String, dynamic>> updateUser({
-    required String uid,
+    required int uid,
     String? username,
     String? password,
     int? coins,

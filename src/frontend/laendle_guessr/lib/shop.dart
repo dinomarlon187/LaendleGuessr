@@ -5,7 +5,6 @@ import 'package:laendle_guessr/services/item_service.dart';
 import 'package:laendle_guessr/ui/ItemCard.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 
-
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
 
@@ -14,17 +13,37 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-  final int coinBalance = UserManager.instance.currentUser!.coins;
+  // coinBalance will now be read directly from UserManager in the build method
   late Future<List<Item>> futureItems;
+  final UserManager _userManager = UserManager.instance; // Store instance
 
   @override
   void initState() {
     super.initState();
     futureItems = ItemService.instance.getAllItems();
+    _userManager.addListener(_onUserDataChanged); // Listen to UserManager
+  }
+
+  @override
+  void dispose() {
+    _userManager.removeListener(_onUserDataChanged); // Clean up listener
+    super.dispose();
+  }
+
+  void _onUserDataChanged() {
+    if (mounted) { // Check if the widget is still in the tree
+      setState(() {
+        // This will trigger a rebuild, updating the coin balance
+        // and causing ItemCards to re-evaluate their 'owned' status.
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    // Read coin balance directly here to ensure it's always current on rebuild
+    final int currentCoinBalance = _userManager.currentUser?.coins ?? 0;
+
     return Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),
       appBar: AppBar(
@@ -46,7 +65,7 @@ class _ShopPageState extends State<ShopPage> {
                 const Icon(Icons.monetization_on, color: Colors.amber),
                 const SizedBox(width: 4),
                 Text(
-                  '$coinBalance',
+                  '$currentCoinBalance', // Use currentCoinBalance
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -64,6 +83,8 @@ class _ShopPageState extends State<ShopPage> {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Fehler: ${snapshot.error}'));
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(child: Text('No items available in the shop.'));
           } else {
             final items = snapshot.data!;
             return AnimationLimiter(
@@ -73,7 +94,7 @@ class _ShopPageState extends State<ShopPage> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
-                  childAspectRatio: 0.8,
+                  childAspectRatio: 0.8, // Adjust as needed for your ItemCard layout
                 ),
                 itemCount: items.length,
                 itemBuilder: (context, index) {
@@ -84,7 +105,11 @@ class _ShopPageState extends State<ShopPage> {
                     columnCount: 2,
                     child: ScaleAnimation(
                       child: FadeInAnimation(
-                        child: ItemCard(item: item),
+                        child: ItemCard(
+                          item: item,
+                          onPurchaseSuccess: () {
+                          },
+                        ),
                       ),
                     ),
                   );

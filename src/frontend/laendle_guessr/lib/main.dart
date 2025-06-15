@@ -10,19 +10,7 @@ import 'package:laendle_guessr/data_objects/user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final appController = AppController.instance;
-
-  final testUser = User(
-    uid: 2,
-    username: 'admin',
-    city: City.bregenz,
-    coins: 234,
-    isAdmin: false,
-    password: 'adminadmin'
-  );
-
-  appController.userManager.currentUser = testUser;
-  await appController.questManager.loadQuests();
+  
 
   runApp(const LaendleGuessrApp());
 }
@@ -163,7 +151,7 @@ class _HomeContentState extends State<HomeContent> {
     final user = appController.userManager.currentUser;
 
     if (user == null) {
-      return const Center(child: Text("Bitte melde dich an, um die Challenges zu sehen."));
+      return const Center(child: Text("Bitte anmelden oder registrieren."));
     }
 
     final dailyQuest = appController.questManager.dailyQuestByCity[user.city];

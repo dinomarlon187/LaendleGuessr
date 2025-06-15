@@ -2,6 +2,7 @@ import 'package:laendle_guessr/data_objects/item.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
 import 'dart:async';
 import 'package:laendle_guessr/services/item_service.dart';
+import 'package:laendle_guessr/manager/usermanager.dart';
 
 class Inventory{
   List<Item> items;
@@ -9,9 +10,9 @@ class Inventory{
 
   Inventory({List<Item>? items}) : items = items ?? [];
 
-  void addItemToInventory(Item item, User user) async {
+  void addItemToInventory(Item item) async {
     items.add(item);
-    await itemService.addItemToInventory(user.uid, item).then((_) {
+    await itemService.addItemToInventory(UserManager.instance.currentUser!.uid, item).then((_) {
     }).catchError((error) {
       // Logging
     });

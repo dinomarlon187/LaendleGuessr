@@ -144,10 +144,14 @@ def activequest_started_get(uid):
         started_at = response.data.get("started_at")
         return {"started_at": started_at}, 200
     
-def activequest_update_stepCount(uid, step_count):
+def activequest_update_stepCount(uid, body):
+    steps = body.get('step_count')
+    if steps is None:
+        return "Missing step_count in body", 400
+
     response = (
         supabase.table("active_quest")
-        .update({"stepsCount": step_count['steps']})
+        .update({"stepsCount": steps})
         .eq("uid", uid)
         .execute()
     )

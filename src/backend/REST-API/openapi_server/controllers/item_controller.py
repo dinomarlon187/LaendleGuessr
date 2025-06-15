@@ -81,6 +81,4 @@ def item_user_post(body):  # noqa: E501
         .insert({"iid": user_id.id, "uid": user_id.uid})
         .execute()
     )
-    if response.error:
-        return response.error.message, 400
     return "Success", 200
