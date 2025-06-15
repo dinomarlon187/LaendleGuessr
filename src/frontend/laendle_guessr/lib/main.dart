@@ -11,7 +11,7 @@ import 'package:laendle_guessr/data_objects/user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
 
   runApp(const LaendleGuessrApp());
 }
@@ -198,7 +198,7 @@ class _HomeContentState extends State<HomeContent> {
                   const SizedBox(height: 24),
                   ChallengeCard(
                     title: "Tägliche Challenge: ${dailyQuest.qid}",
-                    imageUrl: "assets/images/festspiele.jpeg",
+                    imageUrl: dailyQuest.image,
                     question: "Wo ist dieser Ort?",
                     description: "Finde diesen Ort, um die Challenge zu meistern.",
                     buttonText: "Starten",
@@ -211,7 +211,7 @@ class _HomeContentState extends State<HomeContent> {
                   const SizedBox(height: 24),
                   ChallengeCard(
                     title: "Wöchentliche Challenge: ${weeklyQuest.qid}",
-                    imageUrl: "assets/images/festspiele.jpeg",
+                    imageUrl: weeklyQuest.image,
                     question: "Wo ist dieser Ort?",
                     description: "Finde diesen Ort, um die Challenge zu meistern.",
                     buttonText: "Starten",

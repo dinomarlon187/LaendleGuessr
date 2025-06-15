@@ -18,7 +18,7 @@ class Inventory{
     });
     
   }
-  //get Items from user, addItemToInv, db connection in item_service.dart
+
 
   Future<List<Item>> getAllItemsFromUser(User user) async {
     await itemService.getAllItemsByUser(user.uid).then((fetchedItems) {
