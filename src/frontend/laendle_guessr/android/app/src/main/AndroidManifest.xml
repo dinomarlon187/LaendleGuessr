@@ -1,14 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.laendle_guessr">
 
-    <!-- Standortrechte -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- Nur für Android 10+ (Q), falls du Hintergrund-Tracking brauchst -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
-    <!-- Nur notwendig, wenn du Netzwerkzugriff brauchst (z. B. für TileLayer) -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application

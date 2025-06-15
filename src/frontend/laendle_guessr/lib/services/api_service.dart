@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService{
-  static final ApiService _instance = ApiService._internal('http://10.0.2.2:8080');
+  static final ApiService _instance = ApiService._internal('http://192.168.1.191:8080');
 
   factory ApiService(String baseURL) {
     _instance.baseURL = baseURL;

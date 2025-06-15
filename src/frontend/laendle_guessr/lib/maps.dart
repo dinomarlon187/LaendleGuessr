@@ -7,6 +7,7 @@ import 'package:laendle_guessr/manager/questmanager.dart';
 import 'package:laendle_guessr/services/locationchecker.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:laendle_guessr/services/step_counter.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class MapsPage extends StatefulWidget {
   const MapsPage({super.key});
@@ -36,50 +37,47 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
   }
 
   Future<void> _checkPermissionsAndStartTracking() async {
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!mounted) return;
-    if (!serviceEnabled) {
-      _showError("Standortdienste sind deaktiviert.");
-      return;
-    }
-
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (!mounted) return;
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (!mounted) return;
-      if (permission == LocationPermission.denied) {
-        _showError("Standortberechtigung verweigert.");
-        return;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      _showError("Standortberechtigung dauerhaft verweigert, bitte in den App-Einstellungen aktivieren.");
-      return;
-    }
-
-    await _positionStreamSubscription?.cancel();
-    _positionStreamSubscription = Geolocator.getPositionStream(
-      locationSettings: const LocationSettings(
-        accuracy: LocationAccuracy.high,
-        distanceFilter: 5,
-      ),
-    ).listen((Position position) {
-      if (!mounted) return;
-      final newLocation = LatLng(position.latitude, position.longitude);
-      setState(() {
-        _currentLocation = newLocation;
-      });
-      if (_isMapReady) {
-        _mapController.move(newLocation, _currentZoom);
-      }
-    }, onError: (error) {
-      if (mounted) {
-        _showError("Fehler beim Empfangen des Standorts: $error");
-      }
-    });
+  bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!mounted) return;
+  if (!serviceEnabled) {
+    _showError("Standortdienste sind deaktiviert.");
+    return;
   }
+
+  var status = await Permission.locationWhenInUse.request();
+  if (!status.isGranted) {
+    _showError("Standortberechtigung verweigert.");
+    return;
+  }
+
+  LocationPermission permission = await Geolocator.checkPermission();
+  if (!mounted) return;
+  if (permission == LocationPermission.deniedForever) {
+    _showError("Standortberechtigung dauerhaft verweigert, bitte in den App-Einstellungen aktivieren.");
+    return;
+  }
+
+  await _positionStreamSubscription?.cancel();
+  _positionStreamSubscription = Geolocator.getPositionStream(
+    locationSettings: const LocationSettings(
+      accuracy: LocationAccuracy.high,
+      distanceFilter: 5,
+    ),
+  ).listen((Position position) {
+    if (!mounted) return;
+    final newLocation = LatLng(position.latitude, position.longitude);
+    setState(() {
+      _currentLocation = newLocation;
+    });
+    if (_isMapReady) {
+      _mapController.move(newLocation, _currentZoom);
+    }
+  }, onError: (error) {
+    if (mounted) {
+      _showError("Fehler beim Empfangen des Standorts: $error");
+    }
+  });
+}
 
   void _showError(String message) {
     if (mounted && ScaffoldMessenger.maybeOf(context) != null) {
