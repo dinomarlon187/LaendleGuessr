@@ -3,6 +3,8 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:laendle_guessr/data_objects/item.dart';
 import 'package:laendle_guessr/services/item_service.dart';
 import 'package:laendle_guessr/ui/ItemCard.dart';
+import 'package:laendle_guessr/manager/usermanager.dart';
+
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -12,7 +14,7 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-  final int coinBalance = 2052;
+  final int coinBalance = UserManager.instance.currentUser!.coins;
   late Future<List<Item>> futureItems;
 
   @override

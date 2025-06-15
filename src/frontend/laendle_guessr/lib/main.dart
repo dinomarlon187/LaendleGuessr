@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'maps.dart';
 import 'shop.dart';
+import 'willkommen.dart';
+import 'login.dart';
+import 'signup.dart';
 import 'package:laendle_guessr/controller/appcontroller.dart';
 import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
@@ -14,6 +17,8 @@ void main() async {
     username: 'admin',
     city: City.bregenz,
     coins: 234,
+    isAdmin: false,
+    password: 'adminadmin'
   );
 
   appController.userManager.currentUser = testUser;
@@ -28,8 +33,14 @@ class LaendleGuessrApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomePage(),
       debugShowCheckedModeBanner: false,
+      initialRoute: '/welcome',
+      routes: {
+        '/welcome': (context) => const WelcomeScreen(),
+        '/login': (context) => const LoginPage(),
+        '/signup': (context) => const SignupPage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
@@ -78,7 +89,7 @@ class _HomePageState extends State<HomePage> {
           });
         },
         selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black45,
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -154,11 +165,12 @@ class _HomeContentState extends State<HomeContent> {
     if (user == null) {
       return const Center(child: Text("Bitte melde dich an, um die Challenges zu sehen."));
     }
+
     final dailyQuest = appController.questManager.dailyQuestByCity[user.city];
     final weeklyQuest = appController.questManager.weeklyQuest;
 
     if (dailyQuest == null || weeklyQuest == null) {
-        return const Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     }
 
     return Container(
@@ -189,7 +201,7 @@ class _HomeContentState extends State<HomeContent> {
                   ),
                   const SizedBox(height: 4),
                   const Text(
-                    "Tägliche und Wöchentliche challenge",
+                    "Tägliche und Wöchentliche Challenge",
                     style: TextStyle(color: Colors.white70),
                     textAlign: TextAlign.center,
                   ),
@@ -198,7 +210,7 @@ class _HomeContentState extends State<HomeContent> {
                     title: "Tägliche Challenge: ${dailyQuest.qid}",
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
-                    description: "Finde diesen Ort um die Challenge zu meistern",
+                    description: "Finde diesen Ort, um die Challenge zu meistern.",
                     buttonText: "Starten",
                     color: Colors.lightBlueAccent,
                     qid: dailyQuest.qid,
@@ -211,7 +223,7 @@ class _HomeContentState extends State<HomeContent> {
                     title: "Wöchentliche Challenge: ${weeklyQuest.qid}",
                     imageUrl: "assets/images/festspiele.jpeg",
                     question: "Wo ist dieser Ort?",
-                    description: "Finde diesen Ort um die Challenge zu meistern",
+                    description: "Finde diesen Ort, um die Challenge zu meistern.",
                     buttonText: "Starten",
                     color: Colors.redAccent,
                     qid: weeklyQuest.qid,
@@ -257,8 +269,6 @@ class ChallengeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
- 
-
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: color, width: 2),
@@ -293,7 +303,7 @@ class ChallengeCard extends StatelessWidget {
           const SizedBox(height: 12),
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(imageUrl, fit: BoxFit.cover, height: 150, width: double.infinity,),
+            child: Image.asset(imageUrl, fit: BoxFit.cover, height: 150, width: double.infinity),
           ),
           const SizedBox(height: 12),
           Text(
@@ -302,7 +312,7 @@ class ChallengeCard extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 4),
-          Text(description, textAlign: TextAlign.center,),
+          Text(description, textAlign: TextAlign.center),
           const SizedBox(height: 12),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -313,9 +323,9 @@ class ChallengeCard extends StatelessWidget {
               ),
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
-            onPressed: isAnyQuestActive ? null : onPressed, // Corrected logic here
+            onPressed: isAnyQuestActive ? null : onPressed,
             child: Text(
-              isThisQuestActive ? "Started!" : buttonText,
+              isThisQuestActive ? "Gestartet!" : buttonText,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
           ),
