@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laendle_guessr/data_objects/item.dart';
+import 'package:laendle_guessr/manager/usermanager.dart';
 
 class ItemCard extends StatelessWidget {
   final Item item;
@@ -14,12 +15,6 @@ class ItemCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
-        onTap: () {
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('${item.name} ausgewählt')),
-          );
-        },
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
@@ -43,28 +38,51 @@ class ItemCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: Colors.green.shade600,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.monetization_on, color: Colors.white, size: 18),
-                    const SizedBox(width: 4),
-                    Text(
-                      '${item.price}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+              InkWell(
+                onTap: () {
+                  bool buyState = UserManager.instance.buyItem(item);
+                  if (buyState) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('You bought ${item.name} for ${item.price} coins!'),
+                        duration: const Duration(seconds: 2),
                       ),
-                    ),
-                  ],
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Text('Not enough coins!'),
+                        duration: const Duration(seconds: 2),
+                      ),
+                    );
+                  }
+                },
+                borderRadius: BorderRadius.circular(30),
+
+              
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.green.shade600,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.monetization_on, color: Colors.white, size: 18),
+                      const SizedBox(width: 4),
+                      Text(
+                        '${item.price}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+              )
             ],
           ),
         ),
