@@ -130,4 +130,23 @@ class QuestService{
     throw Exception('Fehler beim Laden der Startzeit der aktiven Quest: ${response.statusCode}');
   }
   } 
+
+  Future<void> updateActiveQuestStepCount(User user, int steps) async{
+    final Map<String, dynamic> stepCount = {
+      'step_count': steps,
+    };
+    final response = await api.put('/activequest/${user.uid}/stepcount', stepCount);
+    if (response.statusCode != 200) {
+      throw Exception('Fehler beim Aktualisieren der Schrittanzahl der aktiven Quest: ${response.statusCode}');
+    }
+
+  }
+  Future<int> getActiveQuestStepCount(User user) async {
+    final response = await api.get('activequest/${user.uid}/stepcount');
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+      return jsonResponse['steps'];
+    } 
+    return 0;
+  }
 }

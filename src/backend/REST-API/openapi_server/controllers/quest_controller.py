@@ -143,3 +143,26 @@ def activequest_started_get(uid):
     if response.data:
         started_at = response.data.get("started_at")
         return {"started_at": started_at}, 200
+    
+def activequest_update_stepCount(uid, step_count):
+    response = (
+        supabase.table("active_quest")
+        .update({"stepsCount": step_count['steps']})
+        .eq("uid", uid)
+        .execute()
+    )
+    if response.data:
+        return "Step count updated successfully", 200
+    return "Failed to update step count", 400
+
+def activequest_get_stepCount(uid):
+    response = (
+        supabase.table("active_quest")
+        .select("stepsCount")
+        .eq("uid", uid)
+        .single()
+        .execute()
+    )
+    if response.data:
+        steps_count = response.data.get("stepsCount")
+        return {"steps": steps_count}, 200

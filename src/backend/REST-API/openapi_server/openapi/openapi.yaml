@@ -169,6 +169,90 @@ paths:
           description: Service nicht verfügbar
       summary: Startzeit der aktiven Quest eines Users abrufen
       x-openapi-router-controller: openapi_server.controllers.quest_controller
+  /activequest_started/{uid}:
+    get:
+      operationId: activequest_started_get
+      parameters:
+      - in: path
+        name: uid
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Erfolgreich hinzugefügt
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      summary: Startzeit der aktiven Quest eines Users abrufen
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
+
+  /activequest/{uid}/stepcount:
+    put:
+      operationId: activequest_update_stepCount
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: Benutzer ID
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                step_count:
+                  type: integer
+                  description: Die neue Schrittzahl für die aktive Quest.
+              required:
+                - step_count
+      responses:
+        "200":
+          description: Schrittzahl erfolgreich aktualisiert
+        "400":
+          description: Ungültige Eingabe oder Fehler beim Aktualisieren der Schrittzahl
+        "404":
+          description: Aktive Quest für den Benutzer nicht gefunden
+        "503":
+          description: Service nicht verfügbar
+      summary: Aktualisiert die Schrittzahl für die aktive Quest eines Benutzers
+      tags:
+        - quest
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
+    get:
+      operationId: activequest_get_stepCount
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: Benutzer ID
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Erfolgreiche Abfrage der Schrittzahl
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  step_count:
+                    type: integer
+                    description: Die aktuelle Schrittzahl der aktiven Quest.
+        "404":
+          description: Aktive Quest für den Benutzer nicht gefunden oder Benutzer hat keine Schrittzahl
+        "503":
+          description: Service nicht verfügbar
+      summary: Ruft die Schrittzahl der aktiven Quest eines Benutzers ab
+      tags:
+        - quest
+      x-openapi-router-controller: openapi_server.controllers.quest_controller
+
+
   /quest/{qid}:
     get:
       operationId: quest_get
