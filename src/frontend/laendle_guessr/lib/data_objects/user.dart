@@ -12,7 +12,20 @@ class User extends Account{
   User({
     required super.uid,
     required super.username,
+    required super.password,
+    required super.isAdmin,
     required this.city,
     required this.coins,
-  })  : super(isAdmin: false);
+  });
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      uid: json['uid'],
+      username: json['username'],
+      password: json['password'],
+      coins: json['coins'],
+      city: CityExtension.fromId(json['city']),
+      isAdmin: json['admin']
+    );
+  }
 }

@@ -9,6 +9,40 @@ def all_users_get():
     return response.data, 200
 
 
+def user_login():
+    if not connexion.request.is_json:
+        return {"nachricht": "Anfrage muss im JSON-Format sein"}, 400
+
+    data = connexion.request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+
+    if not username or not password:
+        return {"nachricht": "Benutzername und Passwort erforderlich"}, 400
+
+    response = (
+        supabase.table("user")
+        .select("*")
+        .eq("username", username)
+        .single()
+        .execute()
+    )
+
+    user = response.data
+    if not user or not bcrypt.checkpw(password.encode("utf-8"), user["password"].encode("utf-8")):
+        return {"nachricht": "Ungültiger Benutzername oder Passwort"}, 401
+
+    return {
+        "nachricht": "Anmeldung erfolgreich",
+        "uid": user["uid"],
+        "username": user["username"],
+        "coins": user["coins"],
+        "admin": user["admin"],
+        "city": user["city"]
+    }, 200
+
+
+
 def user_get(id_):
     response = (
         supabase.table("user")

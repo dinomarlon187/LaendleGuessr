@@ -431,6 +431,70 @@ paths:
       tags:
         - user
       x-openapi-router-controller: openapi_server.controllers.user_controller
+  
+  /user/login:
+    post:
+      summary: Benutzeranmeldung
+      operationId: user_login
+      x-openapi-router-controller: openapi_server.controllers.user_controller
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: maxmustermann
+                password:
+                  type: string
+                  example: geheim123
+              required:
+                - username
+                - password
+      responses:
+        '200':
+          description: Erfolgreich angemeldet
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: Anmeldung erfolgreich
+                  uid:
+                    type: string
+                  username:
+                    type: string
+                  coins:
+                    type: integer
+                  admin:
+                    type: boolean
+                  city:
+                    type: integer
+        '400':
+          description: Ungültige Anfrage
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: Benutzername und Passwort erforderlich
+        '401':
+          description: Ungültige Anmeldedaten
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: Ungültiger Benutzername oder Passwort
+  
 
   /weeklyquest:
     get:
