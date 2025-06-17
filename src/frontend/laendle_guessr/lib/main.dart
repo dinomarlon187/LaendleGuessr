@@ -8,6 +8,7 @@ import 'profile.dart';
 import 'package:laendle_guessr/controller/appcontroller.dart';
 import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
+import 'package:laendle_guessr/services/quest_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -128,6 +129,8 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends State<HomeContent> {
+  Set<int> _doneQuestIds = {};
+  bool _isLoading = true;
   int? _activeQid;
 
   @override
@@ -136,6 +139,24 @@ class _HomeContentState extends State<HomeContent> {
     final activeQuest = AppController.instance.userManager.currentUser?.activeQuest;
     if (activeQuest != null) {
       _activeQid = activeQuest.qid;
+    }
+    _loadDoneQuests();
+  }
+
+  Future<void> _loadDoneQuests() async {
+    final user = AppController.instance.userManager.currentUser;
+    if (user != null) {
+      final doneQuests = await QuestService.instance.getAllDoneQuestsByUser(user);
+      if (!mounted) return; // Add this check
+      setState(() {
+        _doneQuestIds = doneQuests.map((quest) => quest.qid).toSet();
+        _isLoading = false;
+      });
+    } else {
+      if (!mounted) return; // Add this check
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -149,6 +170,9 @@ class _HomeContentState extends State<HomeContent> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
     final appController = AppController.instance;
     final user = appController.userManager.currentUser;
 
@@ -159,8 +183,19 @@ class _HomeContentState extends State<HomeContent> {
     final dailyQuest = appController.questManager.dailyQuestByCity[user.city];
     final weeklyQuest = appController.questManager.weeklyQuest;
 
-    if (dailyQuest == null || weeklyQuest == null) {
+    if (dailyQuest == null && weeklyQuest == null) {
       return const Center(child: CircularProgressIndicator());
+    }
+
+    final isDailyDone = dailyQuest != null && _doneQuestIds.contains(dailyQuest.qid);
+    final isWeeklyDone = _doneQuestIds.contains(weeklyQuest.qid);
+
+    // Only show quests that are NOT done
+    final showDaily = dailyQuest != null && !isDailyDone;
+    final showWeekly = !isWeeklyDone;
+
+    if (!showDaily && !showWeekly) {
+      return const Center(child: Text("Alle aktuellen Quests abgeschlossen!"));
     }
 
     return Container(
@@ -196,31 +231,33 @@ class _HomeContentState extends State<HomeContent> {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 24),
-                  ChallengeCard(
-                    title: "Tägliche Challenge: ${dailyQuest.qid}",
-                    imageUrl: dailyQuest.image,
-                    question: "Wo ist dieser Ort?",
-                    description: "Finde diesen Ort, um die Challenge zu meistern.",
-                    buttonText: "Starten",
-                    color: Colors.lightBlueAccent,
-                    qid: dailyQuest.qid,
-                    isThisQuestActive: _activeQid == dailyQuest.qid,
-                    isAnyQuestActive: _activeQid != null,
-                    onPressed: () => _onStartQuest(dailyQuest.qid),
-                  ),
-                  const SizedBox(height: 24),
-                  ChallengeCard(
-                    title: "Wöchentliche Challenge: ${weeklyQuest.qid}",
-                    imageUrl: weeklyQuest.image,
-                    question: "Wo ist dieser Ort?",
-                    description: "Finde diesen Ort, um die Challenge zu meistern.",
-                    buttonText: "Starten",
-                    color: Colors.redAccent,
-                    qid: weeklyQuest.qid,
-                    isThisQuestActive: _activeQid == weeklyQuest.qid,
-                    isAnyQuestActive: _activeQid != null,
-                    onPressed: () => _onStartQuest(weeklyQuest.qid),
-                  ),
+                  if (showDaily)
+                    ChallengeCard(
+                      title: "Tägliche Challenge: ${dailyQuest.qid}",
+                      imageUrl: dailyQuest.image,
+                      question: "Wo ist dieser Ort?",
+                      description: "Finde diesen Ort, um die Challenge zu meistern.",
+                      buttonText: "Starten",
+                      color: Colors.lightBlueAccent,
+                      qid: dailyQuest.qid,
+                      isThisQuestActive: _activeQid == dailyQuest.qid,
+                      isAnyQuestActive: _activeQid != null,
+                      onPressed: () => _onStartQuest(dailyQuest.qid),
+                    ),
+                  if (showDaily) const SizedBox(height: 24),
+                  if (showWeekly)
+                    ChallengeCard(
+                      title: "Wöchentliche Challenge: ${weeklyQuest.qid}",
+                      imageUrl: weeklyQuest.image,
+                      question: "Wo ist dieser Ort?",
+                      description: "Finde diesen Ort, um die Challenge zu meistern.",
+                      buttonText: "Starten",
+                      color: Colors.redAccent,
+                      qid: weeklyQuest.qid,
+                      isThisQuestActive: _activeQid == weeklyQuest.qid,
+                      isAnyQuestActive: _activeQid != null,
+                      onPressed: () => _onStartQuest(weeklyQuest.qid),
+                    ),
                 ],
               ),
             ),

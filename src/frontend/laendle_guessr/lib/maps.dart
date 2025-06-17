@@ -184,6 +184,7 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
               icon: Icons.timer,
               label: 'Zeit',
               valueBuilder: () => QuestManager.instance.elapsedTime,
+              listenable: QuestManager.instance,
             ),
           ),
           const SizedBox(width: 12),
@@ -192,6 +193,7 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
               icon: Icons.directions_walk,
               label: 'Schritte',
               valueBuilder: () => StepCounter.instance.totalSteps.toString(),
+              listenable: StepCounter.instance,
             ),
           ),
           const SizedBox(width: 12),
@@ -202,23 +204,23 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
               });
             },
             onTapUp: (_) async {
-              setState(() {
-                _isButtonPressed = false;
-              });
-              final result = await locationChecker.checkLocation();
-              if (!mounted) return;
-              if (result == true) {
-                _questManager.finishQuest();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Quest erfolgreich abgeschlossen!')),
-                );
-                setState(() {});
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Du bist nicht am Zielort!')),
-                );
-              }
-            },
+            setState(() {
+              _isButtonPressed = false;
+            });
+            final result = await locationChecker.checkLocation();
+            if (!mounted) return;
+            if (result == true) {
+              await _questManager.finishQuest();
+              setState(() {});
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Quest erfolgreich abgeschlossen!')),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Du bist nicht am Zielort!')),
+              );
+            }
+          },
             child: AnimatedScale(
               scale: _isButtonPressed ? 0.95 : 1.0,
               duration: const Duration(milliseconds: 100),
@@ -243,43 +245,44 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
   }
 
   Widget _buildInfoBox({
-    required IconData icon,
-    required String label,
-    required String Function() valueBuilder,
-  }) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-      decoration: BoxDecoration(
-        color: Colors.grey[100],
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            blurRadius: 6,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: Colors.blueAccent),
-          const SizedBox(height: 4),
-          AnimatedBuilder(
-            animation: QuestManager.instance,
-            builder: (context, _) {
-              return Text(
-                valueBuilder(),
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              );
-            },
-          ),
-          const SizedBox(height: 2),
-          Text(label, style: const TextStyle(fontSize: 14)),
-        ],
-      ),
-    );
-  }
+  required IconData icon,
+  required String label,
+  required String Function() valueBuilder,
+  Listenable? listenable,
+}) {
+  return Container(
+    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+    decoration: BoxDecoration(
+      color: Colors.grey[100],
+      borderRadius: BorderRadius.circular(16),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.1),
+          blurRadius: 6,
+          offset: const Offset(0, 2),
+        ),
+      ],
+    ),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, color: Colors.blueAccent),
+        const SizedBox(height: 4),
+        AnimatedBuilder(
+          animation: listenable ?? QuestManager.instance,
+          builder: (context, _) {
+            return Text(
+              valueBuilder(),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            );
+          },
+        ),
+        const SizedBox(height: 2),
+        Text(label, style: const TextStyle(fontSize: 14)),
+      ],
+    ),
+  );
+}
 
   Widget _buildInactiveQuestBar() {
     return Container(

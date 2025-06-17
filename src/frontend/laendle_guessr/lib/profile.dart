@@ -5,6 +5,7 @@ import 'package:laendle_guessr/services/step_counter.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:laendle_guessr/ui/ItemCard.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:laendle_guessr/services/user_service.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -18,6 +19,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
   late final AnimationController _animationController;
   late final Animation<double> _fadeAnimation;
   late final Animation<Offset> _slideAnimation;
+  Map<String, dynamic>? stats;
 
   @override
   void initState() {
@@ -38,6 +40,14 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
       curve: Curves.easeOut,
     ));
     _animationController.forward();
+    _loadStats();
+  }
+
+  Future<void> _loadStats() async {
+    final loadedStats = await UserService.instance.getAllTimeStats();
+    setState(() {
+      stats = loadedStats;
+    });
   }
 
   @override
@@ -48,8 +58,13 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    if (stats == null) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     final items = user.inventory?.items ?? [];
-    final int currentCoinBalance = UserManager().currentUser?.coins ?? 0;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),
@@ -80,11 +95,11 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                   style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 24),
-                _buildStatCard("👣 Schritte", "${StepCounter.instance.totalSteps}"),
+                _buildStatCard("👣 Schritte", "${stats!["steps"]}"),
                 const SizedBox(height: 16),
-                _buildStatCard("⏱ Spielzeit", "${QuestManager.instance.elapsedTime}"),
+                _buildStatCard("⏱ Spielzeit", "${formatElapsedSeconds(stats!["timeInSeconds"])}"),
                 const SizedBox(height: 16),
-                _buildStatCard("💰 Münzen", "${currentCoinBalance}"),
+                _buildStatCard("💰 Münzen", "${UserManager.instance.currentUser!.coins}"),
                 const SizedBox(height: 32),
                 if (items.isNotEmpty) ...[
                   const Align(
@@ -178,4 +193,11 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
       ),
     );
   }
+}
+
+String formatElapsedSeconds(int elapsedSeconds) {
+  final hours = (elapsedSeconds ~/ 3600).toString().padLeft(2, '0');
+  final minutes = ((elapsedSeconds % 3600) ~/ 60).toString().padLeft(2, '0');
+  final seconds = (elapsedSeconds % 60).toString().padLeft(2, '0');
+  return '$hours:$minutes:$seconds';
 }

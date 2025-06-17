@@ -339,7 +339,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/user_id'
+              $ref: '#/components/schemas/quest_user'
       responses:
         "200":
           description: Erfolgreiche Antwort
@@ -495,6 +495,26 @@ paths:
                     type: string
                     example: Ungültiger Benutzername oder Passwort
   
+  /all_time_stats/{uid}:
+    get:
+      operationId: get_all_time_stats
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+        "400":
+          description: Ungültige Eingabe
+        "503":
+          description: Service nicht verfügbar
+      summary: Gibt die Allzeit-Statistiken eines Users zurück
+      tags:
+        - user
+      x-openapi-router-controller: openapi_server.controllers.user_controller
 
   /weeklyquest:
     get:
@@ -570,3 +590,29 @@ components:
         coins: 150
         admin: true
         city: 1
+
+    quest_user:
+      title: quest_user
+      required:
+        - uid
+        - id
+        - steps
+        - timeInSeconds
+      properties:
+        uid:
+          type: integer
+          minimum: 1
+        id:
+          type: integer
+          minimum: 1
+        steps:
+          type: integer
+          minimum: 0
+        timeInSeconds:
+          type: integer
+          minimum: 0
+      example:
+        uid: 3
+        id: 4
+        steps: 1000
+        timeInSeconds: 3600

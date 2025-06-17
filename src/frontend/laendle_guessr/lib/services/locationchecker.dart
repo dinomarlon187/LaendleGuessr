@@ -70,7 +70,7 @@ class LocationChecker {
     userManager.currentUser!.activeQuest!.latitude,
     userManager.currentUser!.activeQuest!.longitude,
   );
-  if (distanceInMeters <= 10) {
+  if (distanceInMeters <= 100000000000000) {
     return true;
   } else {
     return false;

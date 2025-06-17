@@ -41,8 +41,6 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Read coin balance directly here to ensure it's always current on rebuild
-    final int currentCoinBalance = _userManager.currentUser?.coins ?? 0;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),
@@ -65,7 +63,7 @@ class _ShopPageState extends State<ShopPage> {
                 const Icon(Icons.monetization_on, color: Colors.amber),
                 const SizedBox(width: 4),
                 Text(
-                  '$currentCoinBalance', // Use currentCoinBalance
+                  '${UserManager.instance.currentUser!.coins}',
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,

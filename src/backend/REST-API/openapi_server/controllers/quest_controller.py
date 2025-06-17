@@ -4,19 +4,21 @@ from typing import Tuple
 from typing import Union
 
 from openapi_server.models.user_id import UserId  # noqa: E501
+from openapi_server.models.quest_user import QuestUser  # noqa: E501
 from openapi_server import util
 from openapi_server.db import supabase
 from datetime import date
+from flask import jsonify
 
 
 def all_quests_done_by(uid):  # noqa: E501
     response = (
         supabase.table("user_quest")
-        .select("qid")
+        .select("quest(*)")
         .eq("uid", uid)
         .execute()
     )
-    return response.data
+    return response.data, 200
 
 
 def all_quests_get():  # noqa: E501
@@ -49,15 +51,20 @@ def quest_user_post(body):  # noqa: E501
 
     :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
     """
-    user_id = body
-    print(body)
     if connexion.request.is_json:
-        user_id = UserId.from_dict(connexion.request.get_json())  # noqa: E501
+        quest_user = QuestUser.from_dict(connexion.request.get_json())  # noqa: E501
+    else:
+        quest_user = QuestUser.from_dict(body)
     response = (
-    supabase.table("user_quest")
-    .insert({"qid": user_id.id,"uid" : user_id.uid})
-    .execute()
-)   
+        supabase.table("user_quest")
+        .insert({
+            "qid": quest_user.id,
+            "uid": quest_user.uid,
+            "steps": quest_user.steps,
+            "timeInSeconds": quest_user.timeInSeconds
+        })
+        .execute()
+    )
     return "Success", 200
 
 
@@ -120,7 +127,9 @@ def activequest_delete(uid):
         .eq("uid", uid)
         .execute()
     )
-    return "Success", 200
+    if response.data:
+        return "Active quest deleted successfully", 200
+    return "Failed to delete active quest", 400
 
 def quest_get(qid): 
     response = (
@@ -157,7 +166,7 @@ def activequest_update_stepCount(uid, body):
     )
     if response.data:
         return "Step count updated successfully", 200
-    return "Failed to update step count", 400
+    return "Failed to update step count", 401
 
 def activequest_get_stepCount(uid):
     response = (

@@ -63,9 +63,9 @@ class UserId(Model):
         :type uid: int
         """
         if uid is None:
-            raise ValueError("Invalid value for `uid`, must not be `None`")  # noqa: E501
+            raise ValueError("Ungültiger Wert für `uid`, darf nicht `None` sein")  # noqa: E501
         if uid is not None and uid < 1:  # noqa: E501
-            raise ValueError("Invalid value for `uid`, must be a value greater than or equal to `1`")  # noqa: E501
+            raise ValueError("Ungültiger Wert für `uid`, muss größer oder gleich 1 sein")  # noqa: E501
 
         self._uid = uid
 
@@ -88,6 +88,6 @@ class UserId(Model):
         :type id: int
         """
         if id is not None and id < 1:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+            raise ValueError("Ungültiger Wert für `id`, muss größer oder gleich 1 sein")  # noqa: E501
 
         self._id = id

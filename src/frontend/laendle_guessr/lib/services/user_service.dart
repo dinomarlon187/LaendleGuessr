@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:laendle_guessr/services/api_service.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
+import 'package:laendle_guessr/manager/usermanager.dart';
 
 
 class UserService {
@@ -18,7 +19,7 @@ class UserService {
 
 
   Future<List<dynamic>> getAllUsers() async {
-    final response = await api.get('/user');
+    final response = await api.get('user');
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
@@ -28,7 +29,7 @@ class UserService {
 
 
   Future<bool> checkCredentials(String username, String password) async {
-    final response = await api.post('/user/login', {
+    final response = await api.post('user/login', {
       'username': username,
       'password': password,
     });
@@ -45,7 +46,7 @@ class UserService {
 
 
   Future<Map<String, dynamic>> getUser(String uid) async {
-    final response = await api.get('/user/$uid');
+    final response = await api.get('user/$uid');
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
@@ -69,7 +70,7 @@ class UserService {
       'coins': coins,
     };
 
-    final response = await api.post('/user', body);
+    final response = await api.post('user', body);
     if (response.statusCode == 201) {
       return jsonDecode(response.body);
     } else {
@@ -93,11 +94,24 @@ class UserService {
     if (admin != null) body['admin'] = admin;
     if (city != null) body['city'] = city;
 
-    final response = await api.put('/user/$uid', body);
+    final response = await api.put('user/$uid', body);
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
       throw Exception(jsonDecode(response.body)['nachricht']);
+    }
+  }
+  
+  Future<Map<String, dynamic>> getAllTimeStats() async {
+    final response = await api.get('all_time_stats/${UserManager.instance.currentUser!.uid}');
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+      return {
+        'timeInSeconds': jsonResponse['timeInSeconds'],
+        'steps': jsonResponse['steps'],
+      };
+    } else {
+      throw Exception('Fehler beim Laden der All-Time-Statistiken: ${response.statusCode}');
     }
   }
 }

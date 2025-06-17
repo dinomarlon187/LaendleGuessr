@@ -7,6 +7,7 @@ import 'package:laendle_guessr/services/quest_service.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:flutter/material.dart';
 import 'package:laendle_guessr/services/step_counter.dart';
+import 'package:laendle_guessr/services/user_service.dart';
 
 
 class QuestManager extends ChangeNotifier{
@@ -34,8 +35,6 @@ class QuestManager extends ChangeNotifier{
   }
 
   Future<void> loadQuests() async {
-    // Load Daily Quests:
-    //Funktioniert, wenn die Datenbank gefüllt ist, ansonsten gibt es einen Fehler
     dailyQuestByCity.clear();
     dailyQuestByCity[City.bregenz] = await questService.getdailyQuest(City.bregenz);
     //dailyQuestByCity[City.dornbirn] = await questService.getdailyQuest(City.dornbirn);
@@ -43,7 +42,6 @@ class QuestManager extends ChangeNotifier{
     //dailyQuestByCity[City.feldkirch] = await questService.getdailyQuest(City.feldkirch);
     //dailyQuestByCity[City.bludenz] = await questService.getdailyQuest(City.bludenz);
     weeklyQuest = await questService.getweeklyQuest();
-    // Known issue: If the user has last days daily quest as a weekly quest now, it will not be updated.
     if (userManager.currentUser!.activeQuest != weeklyQuest && userManager.currentUser!.activeQuest != getDailyQuestForUser() && userManager.currentUser!.activeQuest != null) {
       await questService.removeQuestFromActive(userManager.currentUser!);
       userManager.currentUser!.activeQuest = null;
@@ -124,12 +122,27 @@ class QuestManager extends ChangeNotifier{
     userManager.currentUser!.activeQuest = null;
   }
 
-  void finishQuest() async{
-    await questService.postQuestDoneByUser(userManager.currentUser!.activeQuest!.qid, userManager.currentUser!.uid);
+  Future<bool> finishQuest() async{
+    if (userManager.currentUser!.activeQuest == dailyQuestByCity[userManager.currentUser!.city]) {
+      userManager.currentUser!.coins += 10;
+    } else if (userManager.currentUser!.activeQuest == weeklyQuest) {
+      userManager.currentUser!.coins += 30;
+    }
+    await questService.postQuestDoneByUser(userManager.currentUser!.activeQuest!.qid, userManager.currentUser!.uid, StepCounter.instance.totalSteps, elapsedSeconds);
     await questService.removeQuestFromActive(userManager.currentUser!);
+    
+    Map<String, dynamic> updatedUserData = await UserService().updateUser(
+        uid: userManager.currentUser!.uid,
+        coins: userManager.currentUser!.coins,
+        username: userManager.currentUser!.username,
+        password: userManager.currentUser!.password,
+        city: userManager.currentUser!.city.id,
+        admin: false,
+      );
     userManager.currentUser!.activeQuest = null;
     questTimer?.cancel();
     StepCounter.instance.stopStepCounting();
     notifyListeners();
+    return true;
   }
 }

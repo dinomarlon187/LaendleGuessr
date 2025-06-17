@@ -159,3 +159,23 @@ def user_update(id_):
         return {"nachricht": "Benutzer erfolgreich aktualisiert"}, 200
     else:
         return {"nachricht": "Benutzer nicht gefunden oder nicht aktualisiert"}, 404
+    
+
+def get_all_time_stats(uid):
+    response = (
+        supabase.table('user_quest') 
+        .select('timeInSeconds', 'steps') 
+        .eq('uid', uid) 
+        .execute()
+    )
+
+    if response.data:
+        total_time = sum(item.get('timeInSeconds', 0) for item in response.data)
+        total_steps = sum(item.get('steps', 0) for item in response.data)
+
+        return {
+            "timeInSeconds": total_time,
+            "steps": total_steps
+        }, 200
+    else:
+        return {"nachricht": "Statistiken nicht gefunden"}, 400
