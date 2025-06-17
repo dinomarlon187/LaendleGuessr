@@ -123,11 +123,7 @@ class QuestManager extends ChangeNotifier{
   }
 
   Future<bool> finishQuest() async{
-    if (userManager.currentUser!.activeQuest == dailyQuestByCity[userManager.currentUser!.city]) {
-      userManager.currentUser!.coins += 10;
-    } else if (userManager.currentUser!.activeQuest == weeklyQuest) {
-      userManager.currentUser!.coins += 30;
-    }
+    userManager.currentUser!.coins += 20;
     await questService.postQuestDoneByUser(userManager.currentUser!.activeQuest!.qid, userManager.currentUser!.uid, StepCounter.instance.totalSteps, elapsedSeconds);
     await questService.removeQuestFromActive(userManager.currentUser!);
     

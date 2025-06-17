@@ -178,4 +178,7 @@ def get_all_time_stats(uid):
             "steps": total_steps
         }, 200
     else:
-        return {"nachricht": "Statistiken nicht gefunden"}, 400
+        return {
+            "timeInSeconds": 0,
+            "steps": 0
+        }, 200
