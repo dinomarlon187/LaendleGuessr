@@ -1,0 +1,418 @@
+\doxysection{openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive Klassenreferenz}
+\hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive}{}\label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+
+
+Comprehensive Quest\+Controller unit tests covering all edge cases.  
+
+
+Klassendiagramm für openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aaba34ae5f196c112e8b03aef1fa78b85}{test\+\_\+all\+\_\+quests\+\_\+done\+\_\+by\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+quests\+\_\+done\+\_\+by -\/ with quests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6f2e0e34c60ea9625948722171857d7}{test\+\_\+all\+\_\+quests\+\_\+done\+\_\+by\+\_\+empty}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+quests\+\_\+done\+\_\+by -\/ no quests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6b4b0e349e4ff380ce2777a649ec50a}{test\+\_\+all\+\_\+quests\+\_\+done\+\_\+by\+\_\+invalid\+\_\+uid}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+quests\+\_\+done\+\_\+by -\/ invalid user ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac84be4777e81a7a02b7071557bbc8ecd}{test\+\_\+all\+\_\+quests\+\_\+get\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+quests\+\_\+get -\/ with quests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6f4c1188f3f3a2fc734278b000a74d8}{test\+\_\+all\+\_\+quests\+\_\+get\+\_\+empty}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+quests\+\_\+get -\/ no quests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a8b9089f94458810cd7b69b4447389dc3}{test\+\_\+dailyquest\+\_\+get\+\_\+success}} (self, mock\+\_\+supabase, mock\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Test case for dailyquest\+\_\+get -\/ quest found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a07c38e7d96b093b7223e49af233bc119}{test\+\_\+dailyquest\+\_\+get\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase, mock\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Test case for dailyquest\+\_\+get -\/ no quest for today. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a307b1756f9497097d9d74f21a90cef8b}{test\+\_\+dailyquest\+\_\+get\+\_\+invalid\+\_\+city}} (self, mock\+\_\+supabase, mock\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Test case for dailyquest\+\_\+get -\/ invalid city. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_abea93e8619632afa9452b8f9454a5f96}{test\+\_\+quest\+\_\+user\+\_\+post\+\_\+success\+\_\+json}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for quest\+\_\+user\+\_\+post -\/ successful JSON request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ae7d1479923e923280e9dffcfa97fb827}{test\+\_\+quest\+\_\+user\+\_\+post\+\_\+success\+\_\+non\+\_\+json}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for quest\+\_\+user\+\_\+post -\/ successful non-\/\+JSON request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a2fafb1744d5115278002dd50362f387f}{test\+\_\+quest\+\_\+user\+\_\+post\+\_\+missing\+\_\+fields}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for quest\+\_\+user\+\_\+post -\/ missing required fields. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac2109a5f79628f80fea06dba281fe0ea}{test\+\_\+quest\+\_\+user\+\_\+post\+\_\+invalid\+\_\+data\+\_\+types}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for quest\+\_\+user\+\_\+post -\/ invalid data types. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a60344d31418ccae5832ac816d1ef8a51}{test\+\_\+weeklyquest\+\_\+get\+\_\+success}} (self, mock\+\_\+supabase, mock\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Test case for weeklyquest\+\_\+get -\/ quest found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_af0b42caf340011cb063105cadcca150d}{test\+\_\+weeklyquest\+\_\+get\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase, mock\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Test case for weeklyquest\+\_\+get -\/ no quest for this week. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a00c8668a1377fc497185f82c6f2fc645}{test\+\_\+weeklyquest\+\_\+get\+\_\+edge\+\_\+case\+\_\+week\+\_\+formatting}} (self, mock\+\_\+supabase, mock\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Test case for weeklyquest\+\_\+get -\/ edge case with single digit week. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa5d5baed988c828c7c451dc96060a08d}{test\+\_\+activequest\+\_\+get\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+get -\/ active quest found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ad9d0698a6773981eb6f903d64df2e731}{test\+\_\+activequest\+\_\+get\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+get -\/ no active quest. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a48f2b03c0497634c6c377fc39c9a67f7}{test\+\_\+activequest\+\_\+get\+\_\+invalid\+\_\+uid}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+get -\/ invalid user ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_abd4d68908e4fd907aee9fad0e51c5af3}{test\+\_\+activequest\+\_\+post\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+post -\/ successful creation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac535acd0dc8a00cf53c009435327ed65}{test\+\_\+activequest\+\_\+post\+\_\+non\+\_\+json}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+post -\/ non-\/\+JSON request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a2c76926776642893309d70f07e8010db}{test\+\_\+activequest\+\_\+post\+\_\+missing\+\_\+fields}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+post -\/ missing required fields. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a46858991be6dc9d415cfbeeed0f2ebaf}{test\+\_\+activequest\+\_\+delete\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+delete -\/ successful deletion. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a1829834329095e33344d375162f66733}{test\+\_\+activequest\+\_\+delete\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+delete -\/ nothing to delete. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a0657c5727da72fde4a047804277364f8}{test\+\_\+quest\+\_\+get\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for quest\+\_\+get -\/ quest found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a0873ca1947d6d90aea7a73e99800836e}{test\+\_\+quest\+\_\+get\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for quest\+\_\+get -\/ quest not found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a4c69ed5faf8f55f12e496775952f90ab}{test\+\_\+activequest\+\_\+started\+\_\+get\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+started\+\_\+get -\/ started time found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a09fa55904a54904473700bf67cd9d449}{test\+\_\+activequest\+\_\+started\+\_\+get\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+started\+\_\+get -\/ no data found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a941e4cbf89da99e9d749bc52f9f73882}{test\+\_\+activequest\+\_\+update\+\_\+step\+Count\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+update\+\_\+step\+Count -\/ successful update. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a1412b80e1a329e0c878e5cc931f2529e}{test\+\_\+activequest\+\_\+update\+\_\+step\+Count\+\_\+missing\+\_\+field}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+update\+\_\+step\+Count -\/ missing step\+\_\+count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ab17cf1a17059b194721081c7839a7276}{test\+\_\+activequest\+\_\+update\+\_\+step\+Count\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+update\+\_\+step\+Count -\/ active quest not found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a10295e52125b2d803f999012905b8d01}{test\+\_\+activequest\+\_\+get\+\_\+step\+Count\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+get\+\_\+step\+Count -\/ steps found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a46364451624fd321fa19390eb7877571}{test\+\_\+activequest\+\_\+get\+\_\+step\+Count\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for activequest\+\_\+get\+\_\+step\+Count -\/ no data found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Öffentliche Methoden geerbt von \mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case}{openapi\+\_\+server.\+test.\+Base\+Test\+Case}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case_a584ddc7f25fb22a6be0eda1c6d8737ce}{create\+\_\+app}} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+Comprehensive Quest\+Controller unit tests covering all edge cases. 
+
+\label{doc-func-members}
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_doc-func-members}
+\doxysubsection{Dokumentation der Elementfunktionen}
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a1829834329095e33344d375162f66733}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_delete\_not\_found@{test\_activequest\_delete\_not\_found}}
+\index{test\_activequest\_delete\_not\_found@{test\_activequest\_delete\_not\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_delete\_not\_found()}{test\_activequest\_delete\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a1829834329095e33344d375162f66733} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+delete\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+delete -\/ nothing to delete. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a46858991be6dc9d415cfbeeed0f2ebaf}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_delete\_success@{test\_activequest\_delete\_success}}
+\index{test\_activequest\_delete\_success@{test\_activequest\_delete\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_delete\_success()}{test\_activequest\_delete\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a46858991be6dc9d415cfbeeed0f2ebaf} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+delete\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+delete -\/ successful deletion. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa5d5baed988c828c7c451dc96060a08d}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_get\_found@{test\_activequest\_get\_found}}
+\index{test\_activequest\_get\_found@{test\_activequest\_get\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_get\_found()}{test\_activequest\_get\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa5d5baed988c828c7c451dc96060a08d} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+get\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+get -\/ active quest found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a48f2b03c0497634c6c377fc39c9a67f7}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_get\_invalid\_uid@{test\_activequest\_get\_invalid\_uid}}
+\index{test\_activequest\_get\_invalid\_uid@{test\_activequest\_get\_invalid\_uid}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_get\_invalid\_uid()}{test\_activequest\_get\_invalid\_uid()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a48f2b03c0497634c6c377fc39c9a67f7} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+get\+\_\+invalid\+\_\+uid (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+get -\/ invalid user ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ad9d0698a6773981eb6f903d64df2e731}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_get\_not\_found@{test\_activequest\_get\_not\_found}}
+\index{test\_activequest\_get\_not\_found@{test\_activequest\_get\_not\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_get\_not\_found()}{test\_activequest\_get\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ad9d0698a6773981eb6f903d64df2e731} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+get\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+get -\/ no active quest. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a46364451624fd321fa19390eb7877571}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_get\_stepCount\_not\_found@{test\_activequest\_get\_stepCount\_not\_found}}
+\index{test\_activequest\_get\_stepCount\_not\_found@{test\_activequest\_get\_stepCount\_not\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_get\_stepCount\_not\_found()}{test\_activequest\_get\_stepCount\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a46364451624fd321fa19390eb7877571} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+get\+\_\+step\+Count\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+get\+\_\+step\+Count -\/ no data found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a10295e52125b2d803f999012905b8d01}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_get\_stepCount\_success@{test\_activequest\_get\_stepCount\_success}}
+\index{test\_activequest\_get\_stepCount\_success@{test\_activequest\_get\_stepCount\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_get\_stepCount\_success()}{test\_activequest\_get\_stepCount\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a10295e52125b2d803f999012905b8d01} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+get\+\_\+step\+Count\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+get\+\_\+step\+Count -\/ steps found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a2c76926776642893309d70f07e8010db}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_post\_missing\_fields@{test\_activequest\_post\_missing\_fields}}
+\index{test\_activequest\_post\_missing\_fields@{test\_activequest\_post\_missing\_fields}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_post\_missing\_fields()}{test\_activequest\_post\_missing\_fields()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a2c76926776642893309d70f07e8010db} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+post\+\_\+missing\+\_\+fields (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+post -\/ missing required fields. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac535acd0dc8a00cf53c009435327ed65}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_post\_non\_json@{test\_activequest\_post\_non\_json}}
+\index{test\_activequest\_post\_non\_json@{test\_activequest\_post\_non\_json}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_post\_non\_json()}{test\_activequest\_post\_non\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac535acd0dc8a00cf53c009435327ed65} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+post\+\_\+non\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+post -\/ non-\/\+JSON request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_abd4d68908e4fd907aee9fad0e51c5af3}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_post\_success@{test\_activequest\_post\_success}}
+\index{test\_activequest\_post\_success@{test\_activequest\_post\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_post\_success()}{test\_activequest\_post\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_abd4d68908e4fd907aee9fad0e51c5af3} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+post\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+post -\/ successful creation. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a09fa55904a54904473700bf67cd9d449}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_started\_get\_not\_found@{test\_activequest\_started\_get\_not\_found}}
+\index{test\_activequest\_started\_get\_not\_found@{test\_activequest\_started\_get\_not\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_started\_get\_not\_found()}{test\_activequest\_started\_get\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a09fa55904a54904473700bf67cd9d449} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+started\+\_\+get\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+started\+\_\+get -\/ no data found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a4c69ed5faf8f55f12e496775952f90ab}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_started\_get\_success@{test\_activequest\_started\_get\_success}}
+\index{test\_activequest\_started\_get\_success@{test\_activequest\_started\_get\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_started\_get\_success()}{test\_activequest\_started\_get\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a4c69ed5faf8f55f12e496775952f90ab} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+started\+\_\+get\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+started\+\_\+get -\/ started time found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a1412b80e1a329e0c878e5cc931f2529e}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_update\_stepCount\_missing\_field@{test\_activequest\_update\_stepCount\_missing\_field}}
+\index{test\_activequest\_update\_stepCount\_missing\_field@{test\_activequest\_update\_stepCount\_missing\_field}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_update\_stepCount\_missing\_field()}{test\_activequest\_update\_stepCount\_missing\_field()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a1412b80e1a329e0c878e5cc931f2529e} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+update\+\_\+step\+Count\+\_\+missing\+\_\+field (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+update\+\_\+step\+Count -\/ missing step\+\_\+count. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ab17cf1a17059b194721081c7839a7276}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_update\_stepCount\_not\_found@{test\_activequest\_update\_stepCount\_not\_found}}
+\index{test\_activequest\_update\_stepCount\_not\_found@{test\_activequest\_update\_stepCount\_not\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_update\_stepCount\_not\_found()}{test\_activequest\_update\_stepCount\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ab17cf1a17059b194721081c7839a7276} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+update\+\_\+step\+Count\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+update\+\_\+step\+Count -\/ active quest not found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a941e4cbf89da99e9d749bc52f9f73882}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_activequest\_update\_stepCount\_success@{test\_activequest\_update\_stepCount\_success}}
+\index{test\_activequest\_update\_stepCount\_success@{test\_activequest\_update\_stepCount\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_activequest\_update\_stepCount\_success()}{test\_activequest\_update\_stepCount\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a941e4cbf89da99e9d749bc52f9f73882} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+activequest\+\_\+update\+\_\+step\+Count\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for activequest\+\_\+update\+\_\+step\+Count -\/ successful update. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6f2e0e34c60ea9625948722171857d7}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_all\_quests\_done\_by\_empty@{test\_all\_quests\_done\_by\_empty}}
+\index{test\_all\_quests\_done\_by\_empty@{test\_all\_quests\_done\_by\_empty}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_quests\_done\_by\_empty()}{test\_all\_quests\_done\_by\_empty()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6f2e0e34c60ea9625948722171857d7} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+quests\+\_\+done\+\_\+by\+\_\+empty (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+quests\+\_\+done\+\_\+by -\/ no quests. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6b4b0e349e4ff380ce2777a649ec50a}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_all\_quests\_done\_by\_invalid\_uid@{test\_all\_quests\_done\_by\_invalid\_uid}}
+\index{test\_all\_quests\_done\_by\_invalid\_uid@{test\_all\_quests\_done\_by\_invalid\_uid}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_quests\_done\_by\_invalid\_uid()}{test\_all\_quests\_done\_by\_invalid\_uid()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6b4b0e349e4ff380ce2777a649ec50a} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+quests\+\_\+done\+\_\+by\+\_\+invalid\+\_\+uid (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+quests\+\_\+done\+\_\+by -\/ invalid user ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aaba34ae5f196c112e8b03aef1fa78b85}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_all\_quests\_done\_by\_success@{test\_all\_quests\_done\_by\_success}}
+\index{test\_all\_quests\_done\_by\_success@{test\_all\_quests\_done\_by\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_quests\_done\_by\_success()}{test\_all\_quests\_done\_by\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aaba34ae5f196c112e8b03aef1fa78b85} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+quests\+\_\+done\+\_\+by\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+quests\+\_\+done\+\_\+by -\/ with quests. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6f4c1188f3f3a2fc734278b000a74d8}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_all\_quests\_get\_empty@{test\_all\_quests\_get\_empty}}
+\index{test\_all\_quests\_get\_empty@{test\_all\_quests\_get\_empty}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_quests\_get\_empty()}{test\_all\_quests\_get\_empty()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_aa6f4c1188f3f3a2fc734278b000a74d8} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+quests\+\_\+get\+\_\+empty (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+quests\+\_\+get -\/ no quests. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac84be4777e81a7a02b7071557bbc8ecd}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_all\_quests\_get\_success@{test\_all\_quests\_get\_success}}
+\index{test\_all\_quests\_get\_success@{test\_all\_quests\_get\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_quests\_get\_success()}{test\_all\_quests\_get\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac84be4777e81a7a02b7071557bbc8ecd} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+quests\+\_\+get\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+quests\+\_\+get -\/ with quests. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a307b1756f9497097d9d74f21a90cef8b}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_dailyquest\_get\_invalid\_city@{test\_dailyquest\_get\_invalid\_city}}
+\index{test\_dailyquest\_get\_invalid\_city@{test\_dailyquest\_get\_invalid\_city}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_dailyquest\_get\_invalid\_city()}{test\_dailyquest\_get\_invalid\_city()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a307b1756f9497097d9d74f21a90cef8b} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+dailyquest\+\_\+get\+\_\+invalid\+\_\+city (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+date}{}\end{DoxyParamCaption})}
+
+
+
+Test case for dailyquest\+\_\+get -\/ invalid city. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a07c38e7d96b093b7223e49af233bc119}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_dailyquest\_get\_not\_found@{test\_dailyquest\_get\_not\_found}}
+\index{test\_dailyquest\_get\_not\_found@{test\_dailyquest\_get\_not\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_dailyquest\_get\_not\_found()}{test\_dailyquest\_get\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a07c38e7d96b093b7223e49af233bc119} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+dailyquest\+\_\+get\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+date}{}\end{DoxyParamCaption})}
+
+
+
+Test case for dailyquest\+\_\+get -\/ no quest for today. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a8b9089f94458810cd7b69b4447389dc3}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_dailyquest\_get\_success@{test\_dailyquest\_get\_success}}
+\index{test\_dailyquest\_get\_success@{test\_dailyquest\_get\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_dailyquest\_get\_success()}{test\_dailyquest\_get\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a8b9089f94458810cd7b69b4447389dc3} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+dailyquest\+\_\+get\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+date}{}\end{DoxyParamCaption})}
+
+
+
+Test case for dailyquest\+\_\+get -\/ quest found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a0873ca1947d6d90aea7a73e99800836e}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_quest\_get\_not\_found@{test\_quest\_get\_not\_found}}
+\index{test\_quest\_get\_not\_found@{test\_quest\_get\_not\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_quest\_get\_not\_found()}{test\_quest\_get\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a0873ca1947d6d90aea7a73e99800836e} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+quest\+\_\+get\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for quest\+\_\+get -\/ quest not found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a0657c5727da72fde4a047804277364f8}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_quest\_get\_success@{test\_quest\_get\_success}}
+\index{test\_quest\_get\_success@{test\_quest\_get\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_quest\_get\_success()}{test\_quest\_get\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a0657c5727da72fde4a047804277364f8} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+quest\+\_\+get\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for quest\+\_\+get -\/ quest found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac2109a5f79628f80fea06dba281fe0ea}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_quest\_user\_post\_invalid\_data\_types@{test\_quest\_user\_post\_invalid\_data\_types}}
+\index{test\_quest\_user\_post\_invalid\_data\_types@{test\_quest\_user\_post\_invalid\_data\_types}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_quest\_user\_post\_invalid\_data\_types()}{test\_quest\_user\_post\_invalid\_data\_types()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ac2109a5f79628f80fea06dba281fe0ea} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+quest\+\_\+user\+\_\+post\+\_\+invalid\+\_\+data\+\_\+types (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for quest\+\_\+user\+\_\+post -\/ invalid data types. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a2fafb1744d5115278002dd50362f387f}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_quest\_user\_post\_missing\_fields@{test\_quest\_user\_post\_missing\_fields}}
+\index{test\_quest\_user\_post\_missing\_fields@{test\_quest\_user\_post\_missing\_fields}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_quest\_user\_post\_missing\_fields()}{test\_quest\_user\_post\_missing\_fields()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a2fafb1744d5115278002dd50362f387f} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+quest\+\_\+user\+\_\+post\+\_\+missing\+\_\+fields (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for quest\+\_\+user\+\_\+post -\/ missing required fields. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_abea93e8619632afa9452b8f9454a5f96}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_quest\_user\_post\_success\_json@{test\_quest\_user\_post\_success\_json}}
+\index{test\_quest\_user\_post\_success\_json@{test\_quest\_user\_post\_success\_json}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_quest\_user\_post\_success\_json()}{test\_quest\_user\_post\_success\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_abea93e8619632afa9452b8f9454a5f96} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+quest\+\_\+user\+\_\+post\+\_\+success\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for quest\+\_\+user\+\_\+post -\/ successful JSON request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ae7d1479923e923280e9dffcfa97fb827}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_quest\_user\_post\_success\_non\_json@{test\_quest\_user\_post\_success\_non\_json}}
+\index{test\_quest\_user\_post\_success\_non\_json@{test\_quest\_user\_post\_success\_non\_json}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_quest\_user\_post\_success\_non\_json()}{test\_quest\_user\_post\_success\_non\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_ae7d1479923e923280e9dffcfa97fb827} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+quest\+\_\+user\+\_\+post\+\_\+success\+\_\+non\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for quest\+\_\+user\+\_\+post -\/ successful non-\/\+JSON request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a00c8668a1377fc497185f82c6f2fc645}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_weeklyquest\_get\_edge\_case\_week\_formatting@{test\_weeklyquest\_get\_edge\_case\_week\_formatting}}
+\index{test\_weeklyquest\_get\_edge\_case\_week\_formatting@{test\_weeklyquest\_get\_edge\_case\_week\_formatting}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_weeklyquest\_get\_edge\_case\_week\_formatting()}{test\_weeklyquest\_get\_edge\_case\_week\_formatting()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a00c8668a1377fc497185f82c6f2fc645} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+weeklyquest\+\_\+get\+\_\+edge\+\_\+case\+\_\+week\+\_\+formatting (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+date}{}\end{DoxyParamCaption})}
+
+
+
+Test case for weeklyquest\+\_\+get -\/ edge case with single digit week. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_af0b42caf340011cb063105cadcca150d}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_weeklyquest\_get\_not\_found@{test\_weeklyquest\_get\_not\_found}}
+\index{test\_weeklyquest\_get\_not\_found@{test\_weeklyquest\_get\_not\_found}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_weeklyquest\_get\_not\_found()}{test\_weeklyquest\_get\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_af0b42caf340011cb063105cadcca150d} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+weeklyquest\+\_\+get\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+date}{}\end{DoxyParamCaption})}
+
+
+
+Test case for weeklyquest\+\_\+get -\/ no quest for this week. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a60344d31418ccae5832ac816d1ef8a51}\index{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}!test\_weeklyquest\_get\_success@{test\_weeklyquest\_get\_success}}
+\index{test\_weeklyquest\_get\_success@{test\_weeklyquest\_get\_success}!openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive@{openapi\_server.test.test\_quest\_controller\_comprehensive.TestQuestControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_weeklyquest\_get\_success()}{test\_weeklyquest\_get\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__quest__controller__comprehensive_1_1_test_quest_controller_comprehensive_a60344d31418ccae5832ac816d1ef8a51} 
+openapi\+\_\+server.\+test.\+test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+Test\+Quest\+Controller\+Comprehensive.\+test\+\_\+weeklyquest\+\_\+get\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+date}{}\end{DoxyParamCaption})}
+
+
+
+Test case for weeklyquest\+\_\+get -\/ quest found. 
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+test/\mbox{\hyperlink{test__quest__controller__comprehensive_8py}{test\+\_\+quest\+\_\+controller\+\_\+comprehensive.\+py}}\end{DoxyCompactItemize}

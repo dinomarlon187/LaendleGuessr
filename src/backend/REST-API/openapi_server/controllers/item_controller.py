@@ -1,3 +1,11 @@
+"""
+@file item_controller.py
+@brief Controller für Item-bezogene API-Endpunkte im LaendleGuessr Backend.
+
+Dieses Modul enthält Funktionen zur Verwaltung und Abfrage von Items und deren Zuordnung zu Benutzern.
+Alle Funktionen sind für die REST-API vorgesehen und werden von OpenAPI genutzt.
+"""
+
 import connexion
 from typing import Dict
 from typing import Tuple
@@ -9,15 +17,13 @@ from openapi_server import util
 from openapi_server.db import supabase
 from openapi_server.logger import logger
 
+
 def all_items_get():  # noqa: E501
     """Alle Items anzeigen
-
-     # noqa: E501
-
-
-    :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
+    
+    @brief Gibt eine Liste aller Items zurück.
+    @return Liste aller Items aus der Datenbank.
     """
-
     logger.info("Abruf aller Items gestartet.")
     response = (
         supabase.table("item")
@@ -30,13 +36,10 @@ def all_items_get():  # noqa: E501
 
 def all_items_owned_by(uid):  # noqa: E501
     """Alle Items eines Users bekommen
-
-     # noqa: E501
-
-    :param uid: 
-    :type uid: int
-
-    :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
+    
+    @brief Gibt alle Items zurück, die einem bestimmten User gehören.
+    @param uid: Die eindeutige User-ID
+    @return Liste der Items, die dem User zugeordnet sind.
     """
     logger.info(f"Abruf aller Items für User {uid} gestartet.")
     try:
@@ -56,13 +59,10 @@ def all_items_owned_by(uid):  # noqa: E501
 
 def item_get(id):  # noqa: E501
     """Item mit bestimmter ID anzeigen
-
-     # noqa: E501
-
-    :param id: 
-    :type id: int
-
-    :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
+    
+    @brief Gibt ein Item anhand seiner ID zurück.
+    @param id: Die eindeutige Item-ID
+    @return Das Item-Objekt oder Fehlercode.
     """
     logger.info(f"Abruf Item mit ID {id} gestartet.")
     try:
@@ -85,13 +85,10 @@ def item_get(id):  # noqa: E501
 
 def item_user_post(body):  # noqa: E501
     """Einem User ein Item zuschreiben
-
-     # noqa: E501
-
-    :param user_id: 
-    :type user_id: dict | bytes
-
-    :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
+    
+    @brief Verknüpft ein Item mit einem User.
+    @param body: JSON-Objekt mit User- und Item-ID
+    @return Erfolgs- oder Fehlermeldung
     """
     user_id = body
     logger.info(f"Item-Zuweisung gestartet: {body}")

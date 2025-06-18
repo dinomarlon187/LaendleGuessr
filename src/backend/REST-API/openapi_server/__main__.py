@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+@file __main__.py
+@brief Einstiegspunkt für das LaendleGuessr Backend.
+
+Dieses Modul startet den Backend-Server und initialisiert die API.
+"""
 
 import connexion
 from openapi_server import encoder
@@ -6,6 +12,9 @@ from openapi_server.logger import logger
 
 
 def main():
+    """
+    @brief Startet den Backend-Server und initialisiert die API.
+    """
     logger.info("Backend-Server wird gestartet.")
     try:
         app = connexion.App(__name__, specification_dir='./openapi/')

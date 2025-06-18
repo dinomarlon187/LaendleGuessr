@@ -1,3 +1,10 @@
+"""
+@file typing_utils.py
+@brief Typprüfungs-Hilfsfunktionen für das LaendleGuessr Backend.
+
+Dieses Modul enthält Funktionen zur Typprüfung für generische Typen, Listen und Dictionaries.
+"""
+
 from openapi_server.logger import logger
 import sys
 

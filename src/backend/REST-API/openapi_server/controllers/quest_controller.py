@@ -1,3 +1,11 @@
+"""
+@file quest_controller.py
+@brief Controller für Quest-bezogene API-Endpunkte im LaendleGuessr Backend.
+
+Dieses Modul enthält Funktionen zur Verwaltung und Abfrage von Quests, deren Zuweisung und Status für Benutzer.
+Alle Funktionen sind für die REST-API vorgesehen und werden von OpenAPI genutzt.
+"""
+
 import connexion
 from typing import Dict
 from typing import Tuple
@@ -10,6 +18,11 @@ from openapi_server.logger import logger
 
 
 def all_quests_done_by(uid):  # noqa: E501
+    """
+    @brief Gibt alle erledigten Quests eines Benutzers zurück.
+    @param uid: Die eindeutige User-ID
+    @return Liste der erledigten Quests
+    """
     logger.info(f"Abruf aller erledigten Quests für User {uid}.")
     response = (
         supabase.table("user_quest")
@@ -22,6 +35,10 @@ def all_quests_done_by(uid):  # noqa: E501
 
 
 def all_quests_get():  # noqa: E501
+    """
+    @brief Gibt eine Liste aller Quests zurück.
+    @return Liste aller Quests aus der Datenbank.
+    """
     logger.info("Abruf aller Quests gestartet.")
     response = (
         supabase.table("quest")
@@ -33,6 +50,11 @@ def all_quests_get():  # noqa: E501
 
 
 def dailyquest_get(city):  # noqa: E501
+    """
+    @brief Gibt die aktuelle DailyQuest für eine bestimmte Stadt zurück.
+    @param city: Name der Stadt
+    @return DailyQuest-Objekt oder leere Liste
+    """
     logger.info(f"Abruf der DailyQuest für Stadt {city} gestartet.")
     try:
         response = (
@@ -54,14 +76,10 @@ def dailyquest_get(city):  # noqa: E501
 
 
 def quest_user_post(body):  # noqa: E501
-    """Quest einem User zuweisen
-
-     # noqa: E501
-
-    :param user_id: 
-    :type user_id: dict | bytes
-
-    :rtype: Union[None, Tuple[None, int], Tuple[None, int, Dict[str, str]]
+    """
+    @brief Verknüpft eine Quest mit einem User als abgeschlossen.
+    @param body: JSON-Objekt mit User- und Quest-ID
+    @return Erfolgs- oder Fehlermeldung
     """
     user_id = body
     logger.info(f"Quest-Zuweisung gestartet: {body}")
@@ -82,6 +100,10 @@ def quest_user_post(body):  # noqa: E501
 
 
 def weeklyquest_get():  # noqa: E501
+    """
+    @brief Gibt die aktuelle WeeklyQuest zurück.
+    @return WeeklyQuest-Objekt oder leere Liste
+    """
     try:
         today = date.today()
         iso_year, iso_week, _ = today.isocalendar()
@@ -104,6 +126,11 @@ def weeklyquest_get():  # noqa: E501
 
 
 def activequest_get(uid):
+    """
+    @brief Gibt die aktuell aktive Quest eines Benutzers zurück.
+    @param uid: Die eindeutige User-ID
+    @return Aktive Quest-Objekt oder None
+    """
     logger.info(f"Abruf der aktiven Quest für User {uid} gestartet.")
     try:
         response = (
@@ -132,6 +159,11 @@ def activequest_get(uid):
 
 
 def activequest_post(body): 
+    """
+    @brief Setzt eine neue aktive Quest für einen Benutzer.
+    @param body: JSON-Objekt mit User- und Quest-ID
+    @return Erfolgs- oder Fehlermeldung
+    """
     logger.info(f"Setze aktive Quest: {body}")
     try:
         if connexion.request.is_json:
@@ -154,6 +186,11 @@ def activequest_post(body):
 
 
 def activequest_delete(uid): 
+    """
+    @brief Entfernt die aktuell aktive Quest eines Benutzers.
+    @param uid: Die eindeutige User-ID
+    @return Erfolgs- oder Fehlermeldung
+    """
     logger.info(f"Lösche aktive Quest für User {uid}.")
     response = (
         supabase.table("active_quest")
@@ -165,6 +202,11 @@ def activequest_delete(uid):
 
 
 def quest_get(qid): 
+    """
+    @brief Gibt eine Quest anhand ihrer ID zurück.
+    @param qid: Die eindeutige Quest-ID
+    @return Quest-Objekt
+    """
     logger.info(f"Abruf der Quest mit ID {qid}.")
     response = (
         supabase.table("quest")
@@ -177,6 +219,11 @@ def quest_get(qid):
 
 
 def activequest_started_get(uid):
+    """
+    @brief Gibt den Startzeitpunkt der aktiven Quest eines Benutzers zurück.
+    @param uid: Die eindeutige User-ID
+    @return Startzeitpunkt als Dictionary
+    """
     logger.info(f"Abruf des Startzeitpunkts der aktiven Quest für User {uid}.")
     response = (
         supabase.table("active_quest")
@@ -190,6 +237,12 @@ def activequest_started_get(uid):
         return {"started_at": started_at}, 200
     
 def activequest_update_stepCount(uid, body):
+    """
+    @brief Aktualisiert die Schrittanzahl der aktiven Quest eines Benutzers.
+    @param uid: Die eindeutige User-ID
+    @param body: JSON-Objekt mit neuer Schrittanzahl
+    @return Erfolgs- oder Fehlermeldung
+    """
     steps = body.get('step_count')
     if steps is None:
         logger.warning(f"activequest_update_stepCount: step_count fehlt für User {uid}.")
@@ -208,6 +261,11 @@ def activequest_update_stepCount(uid, body):
     return "Failed to update step count", 400
 
 def activequest_get_stepCount(uid):
+    """
+    @brief Gibt die aktuelle Schrittanzahl der aktiven Quest eines Benutzers zurück.
+    @param uid: Die eindeutige User-ID
+    @return Schrittanzahl als Dictionary
+    """
     logger.info(f"Abruf Schrittanzahl für User {uid}.")
     response = (
         supabase.table("active_quest")

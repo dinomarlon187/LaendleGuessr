@@ -1,0 +1,234 @@
+\doxysection{openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance Klassenreferenz}
+\hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance}{}\label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+
+
+Performance and load tests for all controllers.  
+
+
+Klassendiagramm für openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_aea9c73176c08fbfd872458bb95da3455}{set\+Up}} (self)
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a452e6fe023931fab2e031af9f4202bba}{measure\+\_\+response\+\_\+time}} (self, func)
+\begin{DoxyCompactList}\small\item\em Decorator to measure response time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ab51d52ccd115a442967758c893cc7ab2}{test\+\_\+user\+\_\+get\+\_\+response\+\_\+time}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test response time for user retrieval. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_af97b9af40691f59e7530691fbfae1440}{test\+\_\+quest\+\_\+list\+\_\+response\+\_\+time}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test response time for quest list retrieval. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a799fffc758dcfcfa747d6a68418e5174}{test\+\_\+item\+\_\+list\+\_\+response\+\_\+time}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test response time for item list retrieval. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae373348c7620deb7572a95a25954236b}{test\+\_\+concurrent\+\_\+user\+\_\+requests}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test handling of concurrent user requests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a07b75994b3f9974a76e84ae82d51ef7e}{test\+\_\+concurrent\+\_\+quest\+\_\+assignments}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test concurrent quest assignments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ad9459a143f56be38a0473e121fa42851}{test\+\_\+concurrent\+\_\+item\+\_\+assignments}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test concurrent item assignments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a3efdd843dc7d8c8d28634913c3b3f485}{test\+\_\+large\+\_\+user\+\_\+dataset\+\_\+memory}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test memory usage with large user dataset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_af03dcefa601db79a5aacaee4567c31ed}{test\+\_\+slow\+\_\+database\+\_\+response}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test handling of slow database responses. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ab97ef52e138e5612884e707cafba1a5e}{test\+\_\+rapid\+\_\+user\+\_\+creation\+\_\+stress}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Stress test for rapid user creation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_aaa7a4a1ae16cd69e6a6b86b8151561da}{test\+\_\+daily\+\_\+quest\+\_\+load\+\_\+test}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Load test for daily quest endpoint. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a709cd2c5d5f35f5e8ba8e7d4d0ac3abf}{test\+\_\+maximum\+\_\+request\+\_\+size}} (self)
+\begin{DoxyCompactList}\small\item\em Test handling of maximum request sizes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ad0b3a083bd292e661d410f828030aa0f}{test\+\_\+deep\+\_\+recursion\+\_\+handling}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test handling of deeply nested JSON. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_acb7bc5a83811e9446967e6c639e07934}{tear\+Down}} (self)
+\begin{DoxyCompactList}\small\item\em Print performance statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Öffentliche Methoden geerbt von \mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case}{openapi\+\_\+server.\+test.\+Base\+Test\+Case}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case_a584ddc7f25fb22a6be0eda1c6d8737ce}{create\+\_\+app}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae82e4a37a504cbecd31f2388f6e8311a}{request\+\_\+times}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae9db18e50cdd1a28a5847304b2268122}{lock}} = threading.\+Lock()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+Performance and load tests for all controllers. 
+
+\label{doc-func-members}
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_doc-func-members}
+\doxysubsection{Dokumentation der Elementfunktionen}
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a452e6fe023931fab2e031af9f4202bba}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!measure\_response\_time@{measure\_response\_time}}
+\index{measure\_response\_time@{measure\_response\_time}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{measure\_response\_time()}{measure\_response\_time()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a452e6fe023931fab2e031af9f4202bba} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+measure\+\_\+response\+\_\+time (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{func}{}\end{DoxyParamCaption})}
+
+
+
+Decorator to measure response time. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_aea9c73176c08fbfd872458bb95da3455}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!setUp@{setUp}}
+\index{setUp@{setUp}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{setUp()}{setUp()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_aea9c73176c08fbfd872458bb95da3455} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+set\+Up (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_acb7bc5a83811e9446967e6c639e07934}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!tearDown@{tearDown}}
+\index{tearDown@{tearDown}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{tearDown()}{tearDown()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_acb7bc5a83811e9446967e6c639e07934} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+tear\+Down (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Print performance statistics. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ad9459a143f56be38a0473e121fa42851}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_concurrent\_item\_assignments@{test\_concurrent\_item\_assignments}}
+\index{test\_concurrent\_item\_assignments@{test\_concurrent\_item\_assignments}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_concurrent\_item\_assignments()}{test\_concurrent\_item\_assignments()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ad9459a143f56be38a0473e121fa42851} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+concurrent\+\_\+item\+\_\+assignments (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test concurrent item assignments. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a07b75994b3f9974a76e84ae82d51ef7e}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_concurrent\_quest\_assignments@{test\_concurrent\_quest\_assignments}}
+\index{test\_concurrent\_quest\_assignments@{test\_concurrent\_quest\_assignments}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_concurrent\_quest\_assignments()}{test\_concurrent\_quest\_assignments()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a07b75994b3f9974a76e84ae82d51ef7e} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+concurrent\+\_\+quest\+\_\+assignments (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test concurrent quest assignments. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae373348c7620deb7572a95a25954236b}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_concurrent\_user\_requests@{test\_concurrent\_user\_requests}}
+\index{test\_concurrent\_user\_requests@{test\_concurrent\_user\_requests}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_concurrent\_user\_requests()}{test\_concurrent\_user\_requests()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae373348c7620deb7572a95a25954236b} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+concurrent\+\_\+user\+\_\+requests (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test handling of concurrent user requests. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_aaa7a4a1ae16cd69e6a6b86b8151561da}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_daily\_quest\_load\_test@{test\_daily\_quest\_load\_test}}
+\index{test\_daily\_quest\_load\_test@{test\_daily\_quest\_load\_test}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_daily\_quest\_load\_test()}{test\_daily\_quest\_load\_test()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_aaa7a4a1ae16cd69e6a6b86b8151561da} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+daily\+\_\+quest\+\_\+load\+\_\+test (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Load test for daily quest endpoint. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ad0b3a083bd292e661d410f828030aa0f}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_deep\_recursion\_handling@{test\_deep\_recursion\_handling}}
+\index{test\_deep\_recursion\_handling@{test\_deep\_recursion\_handling}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_deep\_recursion\_handling()}{test\_deep\_recursion\_handling()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ad0b3a083bd292e661d410f828030aa0f} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+deep\+\_\+recursion\+\_\+handling (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test handling of deeply nested JSON. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a799fffc758dcfcfa747d6a68418e5174}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_item\_list\_response\_time@{test\_item\_list\_response\_time}}
+\index{test\_item\_list\_response\_time@{test\_item\_list\_response\_time}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_item\_list\_response\_time()}{test\_item\_list\_response\_time()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a799fffc758dcfcfa747d6a68418e5174} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+item\+\_\+list\+\_\+response\+\_\+time (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test response time for item list retrieval. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a3efdd843dc7d8c8d28634913c3b3f485}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_large\_user\_dataset\_memory@{test\_large\_user\_dataset\_memory}}
+\index{test\_large\_user\_dataset\_memory@{test\_large\_user\_dataset\_memory}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_large\_user\_dataset\_memory()}{test\_large\_user\_dataset\_memory()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a3efdd843dc7d8c8d28634913c3b3f485} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+large\+\_\+user\+\_\+dataset\+\_\+memory (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test memory usage with large user dataset. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a709cd2c5d5f35f5e8ba8e7d4d0ac3abf}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_maximum\_request\_size@{test\_maximum\_request\_size}}
+\index{test\_maximum\_request\_size@{test\_maximum\_request\_size}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_maximum\_request\_size()}{test\_maximum\_request\_size()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_a709cd2c5d5f35f5e8ba8e7d4d0ac3abf} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+maximum\+\_\+request\+\_\+size (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test handling of maximum request sizes. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_af97b9af40691f59e7530691fbfae1440}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_quest\_list\_response\_time@{test\_quest\_list\_response\_time}}
+\index{test\_quest\_list\_response\_time@{test\_quest\_list\_response\_time}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_quest\_list\_response\_time()}{test\_quest\_list\_response\_time()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_af97b9af40691f59e7530691fbfae1440} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+quest\+\_\+list\+\_\+response\+\_\+time (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test response time for quest list retrieval. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ab97ef52e138e5612884e707cafba1a5e}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_rapid\_user\_creation\_stress@{test\_rapid\_user\_creation\_stress}}
+\index{test\_rapid\_user\_creation\_stress@{test\_rapid\_user\_creation\_stress}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_rapid\_user\_creation\_stress()}{test\_rapid\_user\_creation\_stress()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ab97ef52e138e5612884e707cafba1a5e} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+rapid\+\_\+user\+\_\+creation\+\_\+stress (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Stress test for rapid user creation. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_af03dcefa601db79a5aacaee4567c31ed}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_slow\_database\_response@{test\_slow\_database\_response}}
+\index{test\_slow\_database\_response@{test\_slow\_database\_response}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_slow\_database\_response()}{test\_slow\_database\_response()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_af03dcefa601db79a5aacaee4567c31ed} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+slow\+\_\+database\+\_\+response (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test handling of slow database responses. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ab51d52ccd115a442967758c893cc7ab2}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!test\_user\_get\_response\_time@{test\_user\_get\_response\_time}}
+\index{test\_user\_get\_response\_time@{test\_user\_get\_response\_time}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{test\_user\_get\_response\_time()}{test\_user\_get\_response\_time()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ab51d52ccd115a442967758c893cc7ab2} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+test\+\_\+user\+\_\+get\+\_\+response\+\_\+time (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test response time for user retrieval. 
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_doc-variable-members}
+\doxysubsection{Dokumentation der Datenelemente}
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae9db18e50cdd1a28a5847304b2268122}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!lock@{lock}}
+\index{lock@{lock}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae9db18e50cdd1a28a5847304b2268122} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+lock = threading.\+Lock()}
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae82e4a37a504cbecd31f2388f6e8311a}\index{openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}!request\_times@{request\_times}}
+\index{request\_times@{request\_times}!openapi\_server.test.test\_controller\_performance.TestControllerPerformance@{openapi\_server.test.test\_controller\_performance.TestControllerPerformance}}
+\doxysubsubsection{\texorpdfstring{request\_times}{request\_times}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__performance_1_1_test_controller_performance_ae82e4a37a504cbecd31f2388f6e8311a} 
+list openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+performance.\+Test\+Controller\+Performance.\+request\+\_\+times = \mbox{[}$\,$\mbox{]}}
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+test/\mbox{\hyperlink{test__controller__performance_8py}{test\+\_\+controller\+\_\+performance.\+py}}\end{DoxyCompactItemize}

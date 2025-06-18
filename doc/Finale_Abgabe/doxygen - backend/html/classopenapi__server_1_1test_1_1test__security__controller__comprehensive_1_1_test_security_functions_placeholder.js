@@ -1,0 +1,13 @@
+var classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder =
+[
+    [ "test_api_key_validation_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#a53b69d51e450f5f49e69757d06fd0b72", null ],
+    [ "test_audit_logging_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#ad59ccbadffa0271b80f66f7a34544a8c", null ],
+    [ "test_input_sanitization_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#a05129085a1f5fa8f7ff7acce5f456297", null ],
+    [ "test_ip_filtering_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#acc7ea38bc3711ec70579bfa22a54dc5c", null ],
+    [ "test_jwt_token_validation_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#ae503c68f01078ee0cfbb800122b7ee6d", null ],
+    [ "test_oauth_authentication_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#a58dae2e2481609136b08074821e991f3", null ],
+    [ "test_permission_checking_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#af894b4fca6edb0c85f80b4e71c6cbd0a", null ],
+    [ "test_rate_limiting_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#afd97b7043f68ac2278fd2a50dc397602", null ],
+    [ "test_security_headers_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#a8ef34a3ed097151c07d76604d9b7a9c4", null ],
+    [ "test_session_management_placeholder", "classopenapi__server_1_1test_1_1test__security__controller__comprehensive_1_1_test_security_functions_placeholder.html#a89e88386bde06aa144d36c78c35b3acd", null ]
+];

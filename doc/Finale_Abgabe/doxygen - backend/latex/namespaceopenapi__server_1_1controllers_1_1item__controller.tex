@@ -1,0 +1,85 @@
+\doxysection{openapi\+\_\+server.\+controllers.\+item\+\_\+controller-\/Namensbereichsreferenz}
+\hypertarget{namespaceopenapi__server_1_1controllers_1_1item__controller}{}\label{namespaceopenapi__server_1_1controllers_1_1item__controller}\index{openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}}
+\doxysubsubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1item__controller_a21a7fd8d2ad3e8da0879786e7ad5a383}{all\+\_\+items\+\_\+get}} ()
+\begin{DoxyCompactList}\small\item\em Alle Items anzeigen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1item__controller_adc65d155e72577767f50949e9b466a4d}{all\+\_\+items\+\_\+owned\+\_\+by}} (uid)
+\begin{DoxyCompactList}\small\item\em Alle Items eines Users bekommen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1item__controller_ace686bcc6db2920410b9f7f9ff02b337}{item\+\_\+get}} (id)
+\begin{DoxyCompactList}\small\item\em Item mit bestimmter ID anzeigen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1item__controller_acc175a38c2f70ca1bcd9b8904378c56e}{item\+\_\+user\+\_\+post}} (body)
+\begin{DoxyCompactList}\small\item\em Einem User ein Item zuschreiben. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1item__controller_doc-func-members}
+\doxysubsection{Dokumentation der Funktionen}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1item__controller_a21a7fd8d2ad3e8da0879786e7ad5a383}\index{openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}!all\_items\_get@{all\_items\_get}}
+\index{all\_items\_get@{all\_items\_get}!openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}}
+\doxysubsubsection{\texorpdfstring{all\_items\_get()}{all\_items\_get()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1item__controller_a21a7fd8d2ad3e8da0879786e7ad5a383} 
+openapi\+\_\+server.\+controllers.\+item\+\_\+controller.\+all\+\_\+items\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Alle Items anzeigen. 
+
+Gibt eine Liste aller Items zurück. \begin{DoxyReturn}{Rückgabe}
+Liste aller Items aus der Datenbank. 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1item__controller_adc65d155e72577767f50949e9b466a4d}\index{openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}!all\_items\_owned\_by@{all\_items\_owned\_by}}
+\index{all\_items\_owned\_by@{all\_items\_owned\_by}!openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}}
+\doxysubsubsection{\texorpdfstring{all\_items\_owned\_by()}{all\_items\_owned\_by()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1item__controller_adc65d155e72577767f50949e9b466a4d} 
+openapi\+\_\+server.\+controllers.\+item\+\_\+controller.\+all\+\_\+items\+\_\+owned\+\_\+by (\begin{DoxyParamCaption}\item[{}]{uid}{}\end{DoxyParamCaption})}
+
+
+
+Alle Items eines Users bekommen. 
+
+Gibt alle Items zurück, die einem bestimmten User gehören. 
+\begin{DoxyParams}{Parameter}
+{\em uid} & Die eindeutige User-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Liste der Items, die dem User zugeordnet sind. 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1item__controller_ace686bcc6db2920410b9f7f9ff02b337}\index{openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}!item\_get@{item\_get}}
+\index{item\_get@{item\_get}!openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}}
+\doxysubsubsection{\texorpdfstring{item\_get()}{item\_get()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1item__controller_ace686bcc6db2920410b9f7f9ff02b337} 
+openapi\+\_\+server.\+controllers.\+item\+\_\+controller.\+item\+\_\+get (\begin{DoxyParamCaption}\item[{}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Item mit bestimmter ID anzeigen. 
+
+Gibt ein Item anhand seiner ID zurück. 
+\begin{DoxyParams}{Parameter}
+{\em id} & Die eindeutige Item-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Das Item-\/\+Objekt oder Fehlercode. 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1item__controller_acc175a38c2f70ca1bcd9b8904378c56e}\index{openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}!item\_user\_post@{item\_user\_post}}
+\index{item\_user\_post@{item\_user\_post}!openapi\_server.controllers.item\_controller@{openapi\_server.controllers.item\_controller}}
+\doxysubsubsection{\texorpdfstring{item\_user\_post()}{item\_user\_post()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1item__controller_acc175a38c2f70ca1bcd9b8904378c56e} 
+openapi\+\_\+server.\+controllers.\+item\+\_\+controller.\+item\+\_\+user\+\_\+post (\begin{DoxyParamCaption}\item[{}]{body}{}\end{DoxyParamCaption})}
+
+
+
+Einem User ein Item zuschreiben. 
+
+Verknüpft ein Item mit einem User. 
+\begin{DoxyParams}{Parameter}
+{\em body} & JSON-\/\+Objekt mit User-\/ und Item-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Erfolgs-\/ oder Fehlermeldung 
+\end{DoxyReturn}

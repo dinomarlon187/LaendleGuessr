@@ -1,3 +1,10 @@
+"""
+@file util.py
+@brief Hilfsfunktionen für das LaendleGuessr Backend.
+
+Dieses Modul enthält Funktionen zur Deserialisierung und Typprüfung für die REST-API.
+"""
+
 import datetime
 
 import typing

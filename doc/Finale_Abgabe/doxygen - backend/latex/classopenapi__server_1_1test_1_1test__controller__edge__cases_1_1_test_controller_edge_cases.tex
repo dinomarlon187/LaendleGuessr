@@ -1,0 +1,202 @@
+\doxysection{openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases Klassenreferenz}
+\hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases}{}\label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+
+
+Tests for critical edge cases and integration scenarios across all controllers.  
+
+
+Klassendiagramm für openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ab69378c690908460796b460fe7583b4f}{test\+\_\+user\+\_\+quest\+\_\+integration}} (self, mock\+\_\+quest\+\_\+supabase, mock\+\_\+user\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test integration between user and quest controllers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a1432d68f33740ff48edc0a2bfcd49f11}{test\+\_\+user\+\_\+item\+\_\+integration}} (self, mock\+\_\+item\+\_\+supabase, mock\+\_\+user\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test integration between user and item controllers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ad156ac1c467c0b8588f320efa92b5cad}{test\+\_\+concurrent\+\_\+user\+\_\+creation}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test concurrent user creation with same username. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a2d8e4f381ed96e40d59c08f46c9c3039}{test\+\_\+active\+\_\+quest\+\_\+race\+\_\+condition}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test race condition in active quest assignment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a0702250eee84718de27dbae4bf52d072}{test\+\_\+user\+\_\+id\+\_\+boundaries}} (self)
+\begin{DoxyCompactList}\small\item\em Test boundary values for user IDs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a9a6cb4811b2271b20e224bc96ea9f132}{test\+\_\+item\+\_\+id\+\_\+boundaries}} (self)
+\begin{DoxyCompactList}\small\item\em Test boundary values for item IDs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ab5619c88ca50cd848903c4a72df15e1d}{test\+\_\+malformed\+\_\+json\+\_\+requests}} (self)
+\begin{DoxyCompactList}\small\item\em Test various malformed JSON requests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a94fc285d55e54cfae65d8dcb6bd1c0fe}{test\+\_\+extremely\+\_\+large\+\_\+requests}} (self)
+\begin{DoxyCompactList}\small\item\em Test handling of extremely large request bodies. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a11e874e171a4b54aca685d87a3e6bb71}{test\+\_\+null\+\_\+and\+\_\+undefined\+\_\+values}} (self)
+\begin{DoxyCompactList}\small\item\em Test handling of null and undefined values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a180f95315fdb720307b00ccb27336868}{test\+\_\+special\+\_\+characters\+\_\+in\+\_\+usernames}} (self)
+\begin{DoxyCompactList}\small\item\em Test usernames with special characters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_abcf5d60fd0698d4d9b18925f4ab7db3c}{test\+\_\+different\+\_\+encodings}} (self)
+\begin{DoxyCompactList}\small\item\em Test different character encodings. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a1097b076c6d30a7c878140a7dac17817}{test\+\_\+large\+\_\+dataset\+\_\+response}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test handling of large dataset responses. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a66ed07a7a2bce163c672de9b265a0d8c}{test\+\_\+password\+\_\+edge\+\_\+cases}} (self)
+\begin{DoxyCompactList}\small\item\em Test various password edge cases. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a44122cb5937d194800013b90f8ff2cc1}{test\+\_\+unsupported\+\_\+content\+\_\+types}} (self)
+\begin{DoxyCompactList}\small\item\em Test various unsupported content types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Öffentliche Methoden geerbt von \mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case}{openapi\+\_\+server.\+test.\+Base\+Test\+Case}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case_a584ddc7f25fb22a6be0eda1c6d8737ce}{create\+\_\+app}} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+Tests for critical edge cases and integration scenarios across all controllers. 
+
+\label{doc-func-members}
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_doc-func-members}
+\doxysubsection{Dokumentation der Elementfunktionen}
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a2d8e4f381ed96e40d59c08f46c9c3039}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_active\_quest\_race\_condition@{test\_active\_quest\_race\_condition}}
+\index{test\_active\_quest\_race\_condition@{test\_active\_quest\_race\_condition}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_active\_quest\_race\_condition()}{test\_active\_quest\_race\_condition()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a2d8e4f381ed96e40d59c08f46c9c3039} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+active\+\_\+quest\+\_\+race\+\_\+condition (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test race condition in active quest assignment. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ad156ac1c467c0b8588f320efa92b5cad}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_concurrent\_user\_creation@{test\_concurrent\_user\_creation}}
+\index{test\_concurrent\_user\_creation@{test\_concurrent\_user\_creation}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_concurrent\_user\_creation()}{test\_concurrent\_user\_creation()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ad156ac1c467c0b8588f320efa92b5cad} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+concurrent\+\_\+user\+\_\+creation (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test concurrent user creation with same username. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_abcf5d60fd0698d4d9b18925f4ab7db3c}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_different\_encodings@{test\_different\_encodings}}
+\index{test\_different\_encodings@{test\_different\_encodings}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_different\_encodings()}{test\_different\_encodings()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_abcf5d60fd0698d4d9b18925f4ab7db3c} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+different\+\_\+encodings (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test different character encodings. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a94fc285d55e54cfae65d8dcb6bd1c0fe}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_extremely\_large\_requests@{test\_extremely\_large\_requests}}
+\index{test\_extremely\_large\_requests@{test\_extremely\_large\_requests}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_extremely\_large\_requests()}{test\_extremely\_large\_requests()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a94fc285d55e54cfae65d8dcb6bd1c0fe} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+extremely\+\_\+large\+\_\+requests (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test handling of extremely large request bodies. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a9a6cb4811b2271b20e224bc96ea9f132}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_item\_id\_boundaries@{test\_item\_id\_boundaries}}
+\index{test\_item\_id\_boundaries@{test\_item\_id\_boundaries}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_item\_id\_boundaries()}{test\_item\_id\_boundaries()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a9a6cb4811b2271b20e224bc96ea9f132} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+item\+\_\+id\+\_\+boundaries (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test boundary values for item IDs. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a1097b076c6d30a7c878140a7dac17817}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_large\_dataset\_response@{test\_large\_dataset\_response}}
+\index{test\_large\_dataset\_response@{test\_large\_dataset\_response}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_large\_dataset\_response()}{test\_large\_dataset\_response()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a1097b076c6d30a7c878140a7dac17817} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+large\+\_\+dataset\+\_\+response (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test handling of large dataset responses. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ab5619c88ca50cd848903c4a72df15e1d}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_malformed\_json\_requests@{test\_malformed\_json\_requests}}
+\index{test\_malformed\_json\_requests@{test\_malformed\_json\_requests}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_malformed\_json\_requests()}{test\_malformed\_json\_requests()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ab5619c88ca50cd848903c4a72df15e1d} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+malformed\+\_\+json\+\_\+requests (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test various malformed JSON requests. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a11e874e171a4b54aca685d87a3e6bb71}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_null\_and\_undefined\_values@{test\_null\_and\_undefined\_values}}
+\index{test\_null\_and\_undefined\_values@{test\_null\_and\_undefined\_values}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_null\_and\_undefined\_values()}{test\_null\_and\_undefined\_values()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a11e874e171a4b54aca685d87a3e6bb71} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+null\+\_\+and\+\_\+undefined\+\_\+values (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test handling of null and undefined values. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a66ed07a7a2bce163c672de9b265a0d8c}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_password\_edge\_cases@{test\_password\_edge\_cases}}
+\index{test\_password\_edge\_cases@{test\_password\_edge\_cases}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_password\_edge\_cases()}{test\_password\_edge\_cases()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a66ed07a7a2bce163c672de9b265a0d8c} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+password\+\_\+edge\+\_\+cases (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test various password edge cases. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a180f95315fdb720307b00ccb27336868}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_special\_characters\_in\_usernames@{test\_special\_characters\_in\_usernames}}
+\index{test\_special\_characters\_in\_usernames@{test\_special\_characters\_in\_usernames}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_special\_characters\_in\_usernames()}{test\_special\_characters\_in\_usernames()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a180f95315fdb720307b00ccb27336868} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+special\+\_\+characters\+\_\+in\+\_\+usernames (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test usernames with special characters. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a44122cb5937d194800013b90f8ff2cc1}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_unsupported\_content\_types@{test\_unsupported\_content\_types}}
+\index{test\_unsupported\_content\_types@{test\_unsupported\_content\_types}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_unsupported\_content\_types()}{test\_unsupported\_content\_types()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a44122cb5937d194800013b90f8ff2cc1} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+unsupported\+\_\+content\+\_\+types (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test various unsupported content types. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a0702250eee84718de27dbae4bf52d072}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_user\_id\_boundaries@{test\_user\_id\_boundaries}}
+\index{test\_user\_id\_boundaries@{test\_user\_id\_boundaries}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_user\_id\_boundaries()}{test\_user\_id\_boundaries()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a0702250eee84718de27dbae4bf52d072} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+user\+\_\+id\+\_\+boundaries (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test boundary values for user IDs. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a1432d68f33740ff48edc0a2bfcd49f11}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_user\_item\_integration@{test\_user\_item\_integration}}
+\index{test\_user\_item\_integration@{test\_user\_item\_integration}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_user\_item\_integration()}{test\_user\_item\_integration()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_a1432d68f33740ff48edc0a2bfcd49f11} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+user\+\_\+item\+\_\+integration (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+item\+\_\+supabase}{, }\item[{}]{mock\+\_\+user\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test integration between user and item controllers. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ab69378c690908460796b460fe7583b4f}\index{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}!test\_user\_quest\_integration@{test\_user\_quest\_integration}}
+\index{test\_user\_quest\_integration@{test\_user\_quest\_integration}!openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases@{openapi\_server.test.test\_controller\_edge\_cases.TestControllerEdgeCases}}
+\doxysubsubsection{\texorpdfstring{test\_user\_quest\_integration()}{test\_user\_quest\_integration()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases_ab69378c690908460796b460fe7583b4f} 
+openapi\+\_\+server.\+test.\+test\+\_\+controller\+\_\+edge\+\_\+cases.\+Test\+Controller\+Edge\+Cases.\+test\+\_\+user\+\_\+quest\+\_\+integration (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+quest\+\_\+supabase}{, }\item[{}]{mock\+\_\+user\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test integration between user and quest controllers. 
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+test/\mbox{\hyperlink{test__controller__edge__cases_8py}{test\+\_\+controller\+\_\+edge\+\_\+cases.\+py}}\end{DoxyCompactItemize}

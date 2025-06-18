@@ -1,3 +1,10 @@
+"""
+@file logger.py
+@brief Logging-Konfiguration für das LaendleGuessr Backend.
+
+Dieses Modul initialisiert das Logging für das Backend und schreibt Logs in eine Datei und auf die Konsole.
+"""
+
 import logging
 import os
 

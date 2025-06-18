@@ -1,0 +1,370 @@
+\doxysection{openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive Klassenreferenz}
+\hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive}{}\label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+
+
+Comprehensive Item\+Controller unit tests covering all edge cases.  
+
+
+Klassendiagramm für openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a4dbb627af0207ba975ab4885b0d2aa03}{test\+\_\+all\+\_\+items\+\_\+get\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+get -\/ with items. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a8fd8d939096b499368acca8cbd1866a0}{test\+\_\+all\+\_\+items\+\_\+get\+\_\+empty}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+get -\/ no items. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a7e23fcd83b73091ff9944f84a2a51fb4}{test\+\_\+all\+\_\+items\+\_\+get\+\_\+database\+\_\+error}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+get -\/ database returns None. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a26ddc9cbb849ce5beea1a0607f89d3e6}{test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ user has items. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a1fea6feacfad08367db2b59d37af37c8}{test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+empty}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ user has no items. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a52639745ac848e9fcf35e9f94c370b3f}{test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+invalid\+\_\+uid}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ invalid user ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_acd6befb5a953641f1d7b3400418c949e}{test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+negative\+\_\+uid}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ negative user ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aeee43930e7f3714597666b880c16d491}{test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+string\+\_\+uid}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ string user ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a3eeada054108c479f32921514580ab95}{test\+\_\+item\+\_\+get\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+get -\/ item found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a0f32a51d9db1e49d1fc55a5bfbf42bc7}{test\+\_\+item\+\_\+get\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+get -\/ item not found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ab13e1b6337cf5a3c73376665cad2168a}{test\+\_\+item\+\_\+get\+\_\+invalid\+\_\+id\+\_\+negative}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+get -\/ negative item ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a3b89c88bc5e591546c95982d8d879645}{test\+\_\+item\+\_\+get\+\_\+invalid\+\_\+id\+\_\+zero}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+get -\/ zero item ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_af0ef13c21b6ee6403e9ff19dc94c9ce2}{test\+\_\+item\+\_\+get\+\_\+invalid\+\_\+id\+\_\+string}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+get -\/ string item ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a0830f1a993c0074cede0f33e4738a6b5}{test\+\_\+item\+\_\+get\+\_\+multiple\+\_\+results}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+get -\/ multiple items with same ID (edge case) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a61a2d3e6113ed14da5a1c0a157c37793}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+success\+\_\+json}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ successful JSON request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aebc3271a867e94310cffaeee2f051160}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+success\+\_\+non\+\_\+json}} (self, mock\+\_\+supabase, mock\+\_\+connexion)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ successful non-\/\+JSON request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a5491e7f8b6694e40709ed4e92d178a3d}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+missing\+\_\+id}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ missing item ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a6a44f1d50cd2d300a2494166d28c9ccb}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+missing\+\_\+uid}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ missing user ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_afed56de46193acb2b1040670c3c48f47}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+invalid\+\_\+data\+\_\+types}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ invalid data types. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a9671459cfede700d804ae5ddd9eec51f}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+negative\+\_\+ids}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ negative IDs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ae8031b9e24e1cd6cfc333dacf62ce8bc}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+zero\+\_\+ids}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ zero IDs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ae3291e159d3915ec7cc0b3605e859673}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+duplicate\+\_\+assignment}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ duplicate item assignment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a1a1e64449b59a9c0c00baff1134f5a67}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+invalid\+\_\+json}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ invalid JSON. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aa41eadc91d96d061fde5dea700d7d9c3}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+empty\+\_\+body}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ empty request body. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a6af64f84f0616fc908f47c45e54fbd83}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+very\+\_\+large\+\_\+ids}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ very large IDs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a2045337a6559642dfb3c90d4c65ec65c}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+additional\+\_\+fields}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ additional fields in request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a5de50252c5262a03c667cb3166fabb40}{test\+\_\+all\+\_\+items\+\_\+get\+\_\+database\+\_\+exception}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+items\+\_\+get -\/ database exception. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ab6d9af6cf20c99bd83234777a306eca3}{test\+\_\+item\+\_\+user\+\_\+post\+\_\+database\+\_\+exception}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for item\+\_\+user\+\_\+post -\/ database exception during insert. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Öffentliche Methoden geerbt von \mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case}{openapi\+\_\+server.\+test.\+Base\+Test\+Case}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case_a584ddc7f25fb22a6be0eda1c6d8737ce}{create\+\_\+app}} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+Comprehensive Item\+Controller unit tests covering all edge cases. 
+
+\label{doc-func-members}
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_doc-func-members}
+\doxysubsection{Dokumentation der Elementfunktionen}
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a7e23fcd83b73091ff9944f84a2a51fb4}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_get\_database\_error@{test\_all\_items\_get\_database\_error}}
+\index{test\_all\_items\_get\_database\_error@{test\_all\_items\_get\_database\_error}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_get\_database\_error()}{test\_all\_items\_get\_database\_error()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a7e23fcd83b73091ff9944f84a2a51fb4} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+get\+\_\+database\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+get -\/ database returns None. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a5de50252c5262a03c667cb3166fabb40}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_get\_database\_exception@{test\_all\_items\_get\_database\_exception}}
+\index{test\_all\_items\_get\_database\_exception@{test\_all\_items\_get\_database\_exception}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_get\_database\_exception()}{test\_all\_items\_get\_database\_exception()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a5de50252c5262a03c667cb3166fabb40} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+get\+\_\+database\+\_\+exception (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+get -\/ database exception. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a8fd8d939096b499368acca8cbd1866a0}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_get\_empty@{test\_all\_items\_get\_empty}}
+\index{test\_all\_items\_get\_empty@{test\_all\_items\_get\_empty}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_get\_empty()}{test\_all\_items\_get\_empty()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a8fd8d939096b499368acca8cbd1866a0} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+get\+\_\+empty (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+get -\/ no items. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a4dbb627af0207ba975ab4885b0d2aa03}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_get\_success@{test\_all\_items\_get\_success}}
+\index{test\_all\_items\_get\_success@{test\_all\_items\_get\_success}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_get\_success()}{test\_all\_items\_get\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a4dbb627af0207ba975ab4885b0d2aa03} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+get\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+get -\/ with items. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a1fea6feacfad08367db2b59d37af37c8}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_owned\_by\_empty@{test\_all\_items\_owned\_by\_empty}}
+\index{test\_all\_items\_owned\_by\_empty@{test\_all\_items\_owned\_by\_empty}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_owned\_by\_empty()}{test\_all\_items\_owned\_by\_empty()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a1fea6feacfad08367db2b59d37af37c8} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+empty (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ user has no items. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a52639745ac848e9fcf35e9f94c370b3f}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_owned\_by\_invalid\_uid@{test\_all\_items\_owned\_by\_invalid\_uid}}
+\index{test\_all\_items\_owned\_by\_invalid\_uid@{test\_all\_items\_owned\_by\_invalid\_uid}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_owned\_by\_invalid\_uid()}{test\_all\_items\_owned\_by\_invalid\_uid()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a52639745ac848e9fcf35e9f94c370b3f} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+invalid\+\_\+uid (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ invalid user ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_acd6befb5a953641f1d7b3400418c949e}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_owned\_by\_negative\_uid@{test\_all\_items\_owned\_by\_negative\_uid}}
+\index{test\_all\_items\_owned\_by\_negative\_uid@{test\_all\_items\_owned\_by\_negative\_uid}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_owned\_by\_negative\_uid()}{test\_all\_items\_owned\_by\_negative\_uid()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_acd6befb5a953641f1d7b3400418c949e} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+negative\+\_\+uid (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ negative user ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aeee43930e7f3714597666b880c16d491}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_owned\_by\_string\_uid@{test\_all\_items\_owned\_by\_string\_uid}}
+\index{test\_all\_items\_owned\_by\_string\_uid@{test\_all\_items\_owned\_by\_string\_uid}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_owned\_by\_string\_uid()}{test\_all\_items\_owned\_by\_string\_uid()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aeee43930e7f3714597666b880c16d491} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+string\+\_\+uid (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ string user ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a26ddc9cbb849ce5beea1a0607f89d3e6}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_all\_items\_owned\_by\_success@{test\_all\_items\_owned\_by\_success}}
+\index{test\_all\_items\_owned\_by\_success@{test\_all\_items\_owned\_by\_success}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_items\_owned\_by\_success()}{test\_all\_items\_owned\_by\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a26ddc9cbb849ce5beea1a0607f89d3e6} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+items\+\_\+owned\+\_\+by\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+items\+\_\+owned\+\_\+by -\/ user has items. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a3eeada054108c479f32921514580ab95}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_get\_found@{test\_item\_get\_found}}
+\index{test\_item\_get\_found@{test\_item\_get\_found}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_get\_found()}{test\_item\_get\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a3eeada054108c479f32921514580ab95} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+get\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+get -\/ item found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ab13e1b6337cf5a3c73376665cad2168a}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_get\_invalid\_id\_negative@{test\_item\_get\_invalid\_id\_negative}}
+\index{test\_item\_get\_invalid\_id\_negative@{test\_item\_get\_invalid\_id\_negative}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_get\_invalid\_id\_negative()}{test\_item\_get\_invalid\_id\_negative()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ab13e1b6337cf5a3c73376665cad2168a} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+get\+\_\+invalid\+\_\+id\+\_\+negative (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+get -\/ negative item ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_af0ef13c21b6ee6403e9ff19dc94c9ce2}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_get\_invalid\_id\_string@{test\_item\_get\_invalid\_id\_string}}
+\index{test\_item\_get\_invalid\_id\_string@{test\_item\_get\_invalid\_id\_string}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_get\_invalid\_id\_string()}{test\_item\_get\_invalid\_id\_string()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_af0ef13c21b6ee6403e9ff19dc94c9ce2} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+get\+\_\+invalid\+\_\+id\+\_\+string (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+get -\/ string item ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a3b89c88bc5e591546c95982d8d879645}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_get\_invalid\_id\_zero@{test\_item\_get\_invalid\_id\_zero}}
+\index{test\_item\_get\_invalid\_id\_zero@{test\_item\_get\_invalid\_id\_zero}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_get\_invalid\_id\_zero()}{test\_item\_get\_invalid\_id\_zero()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a3b89c88bc5e591546c95982d8d879645} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+get\+\_\+invalid\+\_\+id\+\_\+zero (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+get -\/ zero item ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a0830f1a993c0074cede0f33e4738a6b5}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_get\_multiple\_results@{test\_item\_get\_multiple\_results}}
+\index{test\_item\_get\_multiple\_results@{test\_item\_get\_multiple\_results}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_get\_multiple\_results()}{test\_item\_get\_multiple\_results()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a0830f1a993c0074cede0f33e4738a6b5} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+get\+\_\+multiple\+\_\+results (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+get -\/ multiple items with same ID (edge case) 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a0f32a51d9db1e49d1fc55a5bfbf42bc7}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_get\_not\_found@{test\_item\_get\_not\_found}}
+\index{test\_item\_get\_not\_found@{test\_item\_get\_not\_found}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_get\_not\_found()}{test\_item\_get\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a0f32a51d9db1e49d1fc55a5bfbf42bc7} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+get\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+get -\/ item not found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a2045337a6559642dfb3c90d4c65ec65c}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_additional\_fields@{test\_item\_user\_post\_additional\_fields}}
+\index{test\_item\_user\_post\_additional\_fields@{test\_item\_user\_post\_additional\_fields}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_additional\_fields()}{test\_item\_user\_post\_additional\_fields()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a2045337a6559642dfb3c90d4c65ec65c} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+additional\+\_\+fields (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ additional fields in request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ab6d9af6cf20c99bd83234777a306eca3}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_database\_exception@{test\_item\_user\_post\_database\_exception}}
+\index{test\_item\_user\_post\_database\_exception@{test\_item\_user\_post\_database\_exception}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_database\_exception()}{test\_item\_user\_post\_database\_exception()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ab6d9af6cf20c99bd83234777a306eca3} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+database\+\_\+exception (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ database exception during insert. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ae3291e159d3915ec7cc0b3605e859673}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_duplicate\_assignment@{test\_item\_user\_post\_duplicate\_assignment}}
+\index{test\_item\_user\_post\_duplicate\_assignment@{test\_item\_user\_post\_duplicate\_assignment}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_duplicate\_assignment()}{test\_item\_user\_post\_duplicate\_assignment()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ae3291e159d3915ec7cc0b3605e859673} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+duplicate\+\_\+assignment (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ duplicate item assignment. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aa41eadc91d96d061fde5dea700d7d9c3}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_empty\_body@{test\_item\_user\_post\_empty\_body}}
+\index{test\_item\_user\_post\_empty\_body@{test\_item\_user\_post\_empty\_body}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_empty\_body()}{test\_item\_user\_post\_empty\_body()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aa41eadc91d96d061fde5dea700d7d9c3} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+empty\+\_\+body (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ empty request body. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_afed56de46193acb2b1040670c3c48f47}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_invalid\_data\_types@{test\_item\_user\_post\_invalid\_data\_types}}
+\index{test\_item\_user\_post\_invalid\_data\_types@{test\_item\_user\_post\_invalid\_data\_types}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_invalid\_data\_types()}{test\_item\_user\_post\_invalid\_data\_types()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_afed56de46193acb2b1040670c3c48f47} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+invalid\+\_\+data\+\_\+types (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ invalid data types. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a1a1e64449b59a9c0c00baff1134f5a67}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_invalid\_json@{test\_item\_user\_post\_invalid\_json}}
+\index{test\_item\_user\_post\_invalid\_json@{test\_item\_user\_post\_invalid\_json}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_invalid\_json()}{test\_item\_user\_post\_invalid\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a1a1e64449b59a9c0c00baff1134f5a67} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+invalid\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ invalid JSON. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a5491e7f8b6694e40709ed4e92d178a3d}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_missing\_id@{test\_item\_user\_post\_missing\_id}}
+\index{test\_item\_user\_post\_missing\_id@{test\_item\_user\_post\_missing\_id}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_missing\_id()}{test\_item\_user\_post\_missing\_id()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a5491e7f8b6694e40709ed4e92d178a3d} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+missing\+\_\+id (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ missing item ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a6a44f1d50cd2d300a2494166d28c9ccb}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_missing\_uid@{test\_item\_user\_post\_missing\_uid}}
+\index{test\_item\_user\_post\_missing\_uid@{test\_item\_user\_post\_missing\_uid}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_missing\_uid()}{test\_item\_user\_post\_missing\_uid()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a6a44f1d50cd2d300a2494166d28c9ccb} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+missing\+\_\+uid (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ missing user ID. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a9671459cfede700d804ae5ddd9eec51f}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_negative\_ids@{test\_item\_user\_post\_negative\_ids}}
+\index{test\_item\_user\_post\_negative\_ids@{test\_item\_user\_post\_negative\_ids}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_negative\_ids()}{test\_item\_user\_post\_negative\_ids()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a9671459cfede700d804ae5ddd9eec51f} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+negative\+\_\+ids (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ negative IDs. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a61a2d3e6113ed14da5a1c0a157c37793}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_success\_json@{test\_item\_user\_post\_success\_json}}
+\index{test\_item\_user\_post\_success\_json@{test\_item\_user\_post\_success\_json}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_success\_json()}{test\_item\_user\_post\_success\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a61a2d3e6113ed14da5a1c0a157c37793} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+success\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ successful JSON request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aebc3271a867e94310cffaeee2f051160}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_success\_non\_json@{test\_item\_user\_post\_success\_non\_json}}
+\index{test\_item\_user\_post\_success\_non\_json@{test\_item\_user\_post\_success\_non\_json}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_success\_non\_json()}{test\_item\_user\_post\_success\_non\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_aebc3271a867e94310cffaeee2f051160} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+success\+\_\+non\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+connexion}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ successful non-\/\+JSON request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a6af64f84f0616fc908f47c45e54fbd83}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_very\_large\_ids@{test\_item\_user\_post\_very\_large\_ids}}
+\index{test\_item\_user\_post\_very\_large\_ids@{test\_item\_user\_post\_very\_large\_ids}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_very\_large\_ids()}{test\_item\_user\_post\_very\_large\_ids()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_a6af64f84f0616fc908f47c45e54fbd83} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+very\+\_\+large\+\_\+ids (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ very large IDs. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ae8031b9e24e1cd6cfc333dacf62ce8bc}\index{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}!test\_item\_user\_post\_zero\_ids@{test\_item\_user\_post\_zero\_ids}}
+\index{test\_item\_user\_post\_zero\_ids@{test\_item\_user\_post\_zero\_ids}!openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive@{openapi\_server.test.test\_item\_controller\_comprehensive.TestItemControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_item\_user\_post\_zero\_ids()}{test\_item\_user\_post\_zero\_ids()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive_ae8031b9e24e1cd6cfc333dacf62ce8bc} 
+openapi\+\_\+server.\+test.\+test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+Test\+Item\+Controller\+Comprehensive.\+test\+\_\+item\+\_\+user\+\_\+post\+\_\+zero\+\_\+ids (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for item\+\_\+user\+\_\+post -\/ zero IDs. 
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+test/\mbox{\hyperlink{test__item__controller__comprehensive_8py}{test\+\_\+item\+\_\+controller\+\_\+comprehensive.\+py}}\end{DoxyCompactItemize}
