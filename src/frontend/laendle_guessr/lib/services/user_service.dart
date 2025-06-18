@@ -5,7 +5,10 @@ import 'package:laendle_guessr/data_objects/user.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:laendle_guessr/services/logger.dart';
 
-
+/// Service für Benutzer-bezogene API-Aufrufe.
+///
+/// Diese Klasse kapselt alle API-Operationen rund um Benutzer (z.B. Login, User laden, Registrierung)
+/// und nutzt den ApiService für die HTTP-Kommunikation mit dem Backend.
 class UserService {
   final ApiService api;
 

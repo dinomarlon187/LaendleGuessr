@@ -2,6 +2,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'logger.dart';
 
+/// Service für HTTP-Anfragen an das Backend-API.
+///
+/// Diese Klasse kapselt alle HTTP-Methoden (GET, POST, PUT, DELETE) für die Kommunikation
+/// mit dem Backend-Server und stellt eine zentrale Schnittstelle für API-Aufrufe bereit.
 class ApiService{
   static final ApiService _instance = ApiService._internal('http://10.0.2.0:8080');
 

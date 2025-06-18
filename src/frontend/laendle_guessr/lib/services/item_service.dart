@@ -3,6 +3,10 @@ import 'dart:convert';
 import 'package:laendle_guessr/data_objects/item.dart';
 import 'package:laendle_guessr/services/logger.dart';
 
+/// Service für Item-bezogene API-Aufrufe.
+//
+/// Diese Klasse kapselt alle API-Operationen rund um Items (z.B. Items laden, einem User zuweisen)
+/// und nutzt den ApiService für die HTTP-Kommunikation mit dem Backend.
 class ItemService {
   static final ItemService _instance = ItemService._internal(ApiService.instance);
   factory ItemService() {

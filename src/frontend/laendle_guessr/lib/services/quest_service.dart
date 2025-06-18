@@ -6,6 +6,10 @@ import 'package:laendle_guessr/services/api_service.dart';
 import 'package:laendle_guessr/services/logger.dart';
 import 'package:flutter/foundation.dart';
 
+/// Service für Quest-bezogene API-Aufrufe.
+//
+/// Diese Klasse kapselt alle API-Operationen rund um Quests (z.B. Quests laden, abschließen)
+/// und nutzt den ApiService für die HTTP-Kommunikation mit dem Backend.
 class QuestService{
   static final QuestService _instance = QuestService._internal(ApiService.instance);
 

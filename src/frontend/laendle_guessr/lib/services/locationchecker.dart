@@ -3,6 +3,10 @@ import 'package:geolocator/geolocator.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:laendle_guessr/services/logger.dart';
 
+/// Service zur Standortüberprüfung und Standortberechtigungen.
+///
+/// Diese Klasse kapselt die Standortabfrage, Berechtigungsprüfung und das Streamen von Positionsdaten
+/// für die App und nutzt Geolocator sowie Logging.
 class LocationChecker {
   static final LocationChecker _instance = LocationChecker._internal();
   factory LocationChecker() {

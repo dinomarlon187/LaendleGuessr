@@ -6,6 +6,10 @@ import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:laendle_guessr/services/logger.dart';
 
+/// Service für Schrittzähler und Schrittzähl-Logik.
+///
+/// Diese Klasse kapselt die Anbindung an den Pedometer, speichert und verwaltet die Schrittanzahl
+/// und synchronisiert diese mit dem Backend über die QuestService-API.
 class StepCounter extends ChangeNotifier {
   StepCounter._internal() {
     AppLogger().log('StepCounter instanziiert');
