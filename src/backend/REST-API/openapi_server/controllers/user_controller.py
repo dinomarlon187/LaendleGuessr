@@ -200,3 +200,52 @@ def user_update(id_):
     else:
         logger.warning(f"Benutzer {id_} nicht gefunden oder nicht aktualisiert.")
         return {"nachricht": "Benutzer nicht gefunden oder nicht aktualisiert"}, 404
+    
+def get_all_time_stats(uid):
+    """
+    Gibt die Allzeit-Statistiken eines Users zurück
+    """
+    logger.info(f"Abruf der Allzeit-Statistiken für Benutzer {uid} gestartet.")
+    
+    try:
+        user_response = (
+            supabase.table("user")
+            .select("uid")
+            .eq("uid", uid)
+            .single()
+            .execute()
+        )
+        
+        if not user_response.data:
+            logger.warning(f"Benutzer {uid} nicht gefunden.")
+            return {"nachricht": "Benutzer nicht gefunden"}, 404
+        
+        steps_response = (
+            supabase.table("user_quest")
+            .select("steps")
+            .eq("uid", uid)
+            .execute()
+        )
+        
+        total_steps = sum(quest.get("steps", 0) for quest in steps_response.data)
+        
+        time_response = (
+            supabase.table("user_quest")
+            .select("timeInSeconds")
+            .eq("uid", uid)
+            .execute()
+        )
+        
+        total_time_seconds = sum(quest.get("timeInSeconds", 0) for quest in time_response.data)
+        
+        stats = {
+            "steps": total_steps,
+            "timeInSeconds": total_time_seconds
+        }
+        
+        logger.info(f"Allzeit-Statistiken für Benutzer {uid} erfolgreich abgerufen.")
+        return stats, 200
+        
+    except Exception as e:
+        logger.error(f"Fehler beim Abrufen der Allzeit-Statistiken für Benutzer {uid}: {e}")
+        return {"nachricht": "Datenbankfehler"}, 500

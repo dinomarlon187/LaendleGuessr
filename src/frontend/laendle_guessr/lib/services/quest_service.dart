@@ -50,7 +50,19 @@ class QuestService{
         AppLogger().log('QuestService: Keine erledigten Quests für User ${user.uid} gefunden');
         return <Quest>[];
       }
-      final quests = jsonList.map((jsonItem) => Quest.fromJson(jsonItem['quest'])).toList();
+      
+      List<Quest> quests = [];
+      for (var item in jsonList) {
+        if (item != null && item['qid'] != null) {
+          try {
+            final quest = await getQuestById(item['qid']);
+            quests.add(quest);
+          } catch (e) {
+            AppLogger().log('QuestService: Fehler beim Laden der Quest ${item['qid']}: $e');
+          }
+        }
+      }
+      
       AppLogger().log('QuestService: ${quests.length} erledigte Quests für User ${user.uid} geladen');
       return quests;
     }
@@ -71,7 +83,7 @@ class QuestService{
       }
       final Map<String, dynamic> json = jsonList[0];
       final quest = Quest.fromJson(json);
-      AppLogger().log('QuestService: Daily Quest für Stadt ${city.name} erfolgreich geladen: ${quest.questName}');
+      AppLogger().log('QuestService: Daily Quest für Stadt ${city.name} erfolgreich geladen: ${quest.qid}');
       return quest;
     } 
     else {

@@ -191,7 +191,6 @@ class _HomeContentState extends State<HomeContent> {
     final isDailyDone = dailyQuest != null && _doneQuestIds.contains(dailyQuest.qid);
     final isWeeklyDone = _doneQuestIds.contains(weeklyQuest.qid);
 
-    // Only show quests that are NOT done
     final showDaily = dailyQuest != null && !isDailyDone;
     final showWeekly = !isWeeklyDone;
 

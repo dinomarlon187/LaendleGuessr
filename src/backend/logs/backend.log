@@ -1,0 +1,1757 @@
+2025-06-18 20:18:48,585 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 20:20:10,335 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 20:21:44,764 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:21:44,768 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:21:44,824 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 205, column 99:
+     ... t_controller  /activequest/{uid}:
+                                         ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 205, column 99:
+     ... t_controller  /activequest/{uid}:
+                                         ^
+2025-06-18 20:24:18,652 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:24:18,653 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:24:18,688 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 205, column 99:
+     ... t_controller  /activequest/{uid}:
+                                         ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 205, column 99:
+     ... t_controller  /activequest/{uid}:
+                                         ^
+2025-06-18 20:25:57,941 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:25:57,941 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:25:57,989 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 291, column 93:
+     ... s.quest_controller  /activequest:
+                                         ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 291, column 93:
+     ... s.quest_controller  /activequest:
+                                         ^
+2025-06-18 20:26:13,133 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:26:13,133 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:26:13,163 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 291, column 93:
+     ... s.quest_controller  /activequest:
+                                         ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 291, column 93:
+     ... s.quest_controller  /activequest:
+                                         ^
+2025-06-18 20:26:20,557 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:26:20,557 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:26:20,641 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 930, column 90:
+     ... lers.user_controller  /user/{id}:
+                                         ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 930, column 90:
+     ... lers.user_controller  /user/{id}:
+                                         ^
+2025-06-18 20:26:38,466 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:26:38,467 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:26:38,573 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 1362, column 21:
+    components:  schemas:
+                        ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 1362, column 21:
+    components:  schemas:
+                        ^
+2025-06-18 20:26:51,712 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:26:51,713 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:26:51,823 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 1506, column 40:
+     ...    maxItems: 3    CompletedQuest:
+                                         ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 1506, column 40:
+     ...    maxItems: 3    CompletedQuest:
+                                         ^
+2025-06-18 20:27:04,187 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:27:04,187 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:27:04,312 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 1653, column 30:
+              maxItems: 5    User:
+                                 ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 1653, column 30:
+              maxItems: 5    User:
+                                 ^
+2025-06-18 20:31:16,603 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:31:16,603 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:31:17,410 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 20:31:17,438 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 20:31:18,806 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 20:31:18,806 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 20:34:55,374 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 20:34:55,375 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: urus
+2025-06-18 20:34:55,375 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername urus bereits existiert.
+2025-06-18 20:34:56,289 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.urus "HTTP/2 200 OK"
+2025-06-18 20:34:56,297 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer urus.
+2025-06-18 20:34:56,577 [INFO] LaendleGuessrBackend: Erstelle Benutzer urus in Datenbank.
+2025-06-18 20:34:56,754 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 20:34:56,755 [INFO] LaendleGuessrBackend: Benutzer urus erfolgreich erstellt mit UID 67.
+2025-06-18 20:34:56,756 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:34:56] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 20:35:04,832 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.urus "HTTP/2 200 OK"
+2025-06-18 20:35:05,151 [INFO] LaendleGuessrBackend: Benutzer urus erfolgreich angemeldet.
+2025-06-18 20:35:05,152 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:05] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 20:35:05,176 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 20:35:05,338 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 20:35:05,349 [INFO] LaendleGuessrBackend: 26 Benutzer gefunden.
+2025-06-18 20:35:05,351 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:05] "GET /user HTTP/1.1" 200 -
+2025-06-18 20:35:05,520 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 20:35:05,592 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 20:35:05,594 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 20:35:05,595 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:05] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 20:35:05,614 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 20:35:05,723 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 20:35:05,726 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 20:35:05,726 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:05] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 20:35:05,750 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 67 gestartet.
+2025-06-18 20:35:05,847 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:05,866 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 67 gefunden.
+2025-06-18 20:35:05,868 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:05] "GET /activequest/67 HTTP/1.1" 200 -
+2025-06-18 20:35:06,146 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 67.
+2025-06-18 20:35:06,250 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:06,253 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 20:35:06,254 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:06] "GET /all_quests_user/67 HTTP/1.1" 200 -
+2025-06-18 20:35:07,706 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 20:35:07,822 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 20:35:07,825 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:07] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 20:35:07,860 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 67, 'qid': 1}
+2025-06-18 20:35:07,860 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 67.
+2025-06-18 20:35:07,936 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 20:35:07,939 [INFO] LaendleGuessrBackend: aktive Quest für User 67 erfolgreich gesetzt.
+2025-06-18 20:35:07,939 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:07] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 20:35:08,485 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 67.
+2025-06-18 20:35:08,594 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:08,596 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:08] "GET /activequest_started/67 HTTP/1.1" 200 -
+2025-06-18 20:35:08,902 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 67.
+2025-06-18 20:35:08,975 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:08,979 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:08] "GET /activequest/67/stepcount HTTP/1.1" 200 -
+2025-06-18 20:35:21,718 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 1, 'uid': 67, 'steps': 0, 'timeInSeconds': 10}
+2025-06-18 20:35:21,719 [INFO] LaendleGuessrBackend: Weise Quest 1 User 67 zu.
+2025-06-18 20:35:21,941 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 20:35:21,943 [INFO] LaendleGuessrBackend: Quest 1 erfolgreich User 67 zugewiesen.
+2025-06-18 20:35:21,944 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:21] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 20:35:21,973 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 67.
+2025-06-18 20:35:22,045 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:22,054 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:22] "DELETE /activequest/67 HTTP/1.1" 200 -
+2025-06-18 20:35:22,305 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.urus&uid=neq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:22,777 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:22,778 [INFO] LaendleGuessrBackend: Benutzer 67 erfolgreich aktualisiert.
+2025-06-18 20:35:22,778 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:22] "PUT /user/67 HTTP/1.1" 200 -
+2025-06-18 20:35:22,812 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/67/stepcount validation error: 'step_count' is a required property
+2025-06-18 20:35:22,813 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:22] "[31m[1mPUT /activequest/67/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 20:35:24,322 [INFO] LaendleGuessrBackend: Abruf der Statistiken für Benutzer 67 gestartet.
+2025-06-18 20:35:24,326 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/67/stepcount validation error: 'step_count' is a required property
+2025-06-18 20:35:24,326 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:24] "[31m[1mPUT /activequest/67/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 20:35:24,466 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds%2Csteps&uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:24,481 [INFO] LaendleGuessrBackend: Statistiken für Benutzer 67 erfolgreich abgerufen.
+2025-06-18 20:35:24,481 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:24] "GET /all_time_stats/67 HTTP/1.1" 200 -
+2025-06-18 20:35:26,682 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 20:35:26,778 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 20:35:26,781 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 20:35:26,781 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:26] "GET /item HTTP/1.1" 200 -
+2025-06-18 20:35:27,776 [INFO] LaendleGuessrBackend: Abruf der Statistiken für Benutzer 67 gestartet.
+2025-06-18 20:35:27,917 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds%2Csteps&uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:27,920 [INFO] LaendleGuessrBackend: Statistiken für Benutzer 67 erfolgreich abgerufen.
+2025-06-18 20:35:27,920 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:27] "GET /all_time_stats/67 HTTP/1.1" 200 -
+2025-06-18 20:35:37,193 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 67.
+2025-06-18 20:35:37,198 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/67/stepcount validation error: 'step_count' is a required property
+2025-06-18 20:35:37,198 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:37] "[31m[1mPUT /activequest/67/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 20:35:37,419 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.67 "HTTP/2 200 OK"
+2025-06-18 20:35:37,422 [INFO] LaendleGuessrBackend: 1 Quests gefunden.
+2025-06-18 20:35:37,422 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:35:37] "GET /all_quests_user/67 HTTP/1.1" 200 -
+2025-06-18 20:40:32,411 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 20:40:35,779 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:40:35,780 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:40:36,881 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 20:40:36,919 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 20:40:38,192 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 20:40:38,192 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 20:41:48,574 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.urus "HTTP/2 200 OK"
+2025-06-18 20:41:48,811 [WARNING] LaendleGuessrBackend: Login fehlgeschlagen für Benutzer: urus
+2025-06-18 20:41:48,812 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:41:48] "[31m[1mPOST /user/login HTTP/1.1[0m" 401 -
+2025-06-18 20:41:58,876 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 20:41:58,876 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: yone
+2025-06-18 20:41:58,876 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername yone bereits existiert.
+2025-06-18 20:41:59,076 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.yone "HTTP/2 200 OK"
+2025-06-18 20:41:59,078 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer yone.
+2025-06-18 20:41:59,355 [INFO] LaendleGuessrBackend: Erstelle Benutzer yone in Datenbank.
+2025-06-18 20:41:59,432 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 20:41:59,433 [INFO] LaendleGuessrBackend: Benutzer yone erfolgreich erstellt mit UID 68.
+2025-06-18 20:41:59,434 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:41:59] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 20:42:06,656 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.yone "HTTP/2 200 OK"
+2025-06-18 20:42:06,922 [INFO] LaendleGuessrBackend: Benutzer yone erfolgreich angemeldet.
+2025-06-18 20:42:06,923 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:42:06] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 20:42:06,970 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 20:42:07,094 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 20:42:07,105 [INFO] LaendleGuessrBackend: 27 Benutzer gefunden.
+2025-06-18 20:42:07,107 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:42:07] "GET /user HTTP/1.1" 200 -
+2025-06-18 20:42:07,300 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 20:42:07,417 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 20:42:07,427 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 20:42:07,429 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:42:07] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 20:42:07,548 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 20:42:07,628 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 20:42:07,630 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 20:42:07,631 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:42:07] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 20:42:07,653 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 68 gestartet.
+2025-06-18 20:42:07,758 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.68 "HTTP/2 200 OK"
+2025-06-18 20:42:07,760 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 68 gefunden.
+2025-06-18 20:42:07,760 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:42:07] "GET /activequest/68 HTTP/1.1" 200 -
+2025-06-18 20:42:07,875 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 68.
+2025-06-18 20:42:07,955 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.68 "HTTP/2 200 OK"
+2025-06-18 20:42:07,957 [INFO] LaendleGuessrBackend: Keine erledigten Quests für User 68 gefunden.
+2025-06-18 20:42:07,958 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:42:07] "GET /all_quests_user/68 HTTP/1.1" 200 -
+2025-06-18 20:43:15,237 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 20:43:15,437 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 20:43:15,440 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:15] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 20:43:15,464 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 68, 'qid': 1}
+2025-06-18 20:43:15,464 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 68.
+2025-06-18 20:43:15,572 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 20:43:15,575 [INFO] LaendleGuessrBackend: aktive Quest für User 68 erfolgreich gesetzt.
+2025-06-18 20:43:15,575 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:15] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 20:43:16,029 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 68.
+2025-06-18 20:43:16,133 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.68 "HTTP/2 200 OK"
+2025-06-18 20:43:16,135 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:16] "GET /activequest_started/68 HTTP/1.1" 200 -
+2025-06-18 20:43:16,377 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 68.
+2025-06-18 20:43:16,480 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.68 "HTTP/2 200 OK"
+2025-06-18 20:43:16,482 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:16] "GET /activequest/68/stepcount HTTP/1.1" 200 -
+2025-06-18 20:43:24,053 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 1, 'uid': 68, 'steps': 0, 'timeInSeconds': 5}
+2025-06-18 20:43:24,053 [INFO] LaendleGuessrBackend: Weise Quest 1 User 68 zu.
+2025-06-18 20:43:24,237 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 20:43:24,246 [INFO] LaendleGuessrBackend: Quest 1 erfolgreich User 68 zugewiesen.
+2025-06-18 20:43:24,248 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:24] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 20:43:24,363 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 68.
+2025-06-18 20:43:24,477 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.68 "HTTP/2 200 OK"
+2025-06-18 20:43:24,480 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:24] "DELETE /activequest/68 HTTP/1.1" 200 -
+2025-06-18 20:43:24,606 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.yone&uid=neq.68 "HTTP/2 200 OK"
+2025-06-18 20:43:24,984 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.68 "HTTP/2 200 OK"
+2025-06-18 20:43:24,985 [INFO] LaendleGuessrBackend: Benutzer 68 erfolgreich aktualisiert.
+2025-06-18 20:43:24,985 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:24] "PUT /user/68 HTTP/1.1" 200 -
+2025-06-18 20:43:25,012 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/68/stepcount validation error: 'step_count' is a required property
+2025-06-18 20:43:25,013 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:25] "[31m[1mPUT /activequest/68/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 20:43:26,301 [INFO] LaendleGuessrBackend: Abruf der Statistiken für Benutzer 68 gestartet.
+2025-06-18 20:43:26,303 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/68/stepcount validation error: 'step_count' is a required property
+2025-06-18 20:43:26,304 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:26] "[31m[1mPUT /activequest/68/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 20:43:26,412 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds%2Csteps&uid=eq.68 "HTTP/2 200 OK"
+2025-06-18 20:43:26,415 [INFO] LaendleGuessrBackend: Statistiken für Benutzer 68 erfolgreich abgerufen.
+2025-06-18 20:43:26,415 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:26] "GET /all_time_stats/68 HTTP/1.1" 200 -
+2025-06-18 20:43:27,647 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 20:43:27,747 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 20:43:27,750 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 20:43:27,750 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:27] "GET /item HTTP/1.1" 200 -
+2025-06-18 20:43:30,312 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 68.
+2025-06-18 20:43:30,323 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/68/stepcount validation error: 'step_count' is a required property
+2025-06-18 20:43:30,324 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:30] "[31m[1mPUT /activequest/68/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 20:43:30,443 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.68 "HTTP/2 200 OK"
+2025-06-18 20:43:30,446 [INFO] LaendleGuessrBackend: 1 Quests gefunden.
+2025-06-18 20:43:30,446 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 20:43:30] "GET /all_quests_user/68 HTTP/1.1" 200 -
+2025-06-18 20:49:16,312 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 20:54:47,269 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:54:47,269 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:54:47,298 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: mapping values are not allowed here
+  in "<unicode string>", line 205, column 99:
+     ... t_controller  /activequest/{uid}:
+                                         ^
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 147, in from_file
+    spec = cls._load_spec_from_file(arguments, specification_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 139, in _load_spec_from_file
+    return yaml.safe_load(openapi_string)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+       ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 223, in fetch_more_tokens
+    return self.fetch_value()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\yaml\scanner.py", line 577, in fetch_value
+    raise ScannerError(None, None,
+            "mapping values are not allowed here",
+            self.get_mark())
+yaml.scanner.ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 205, column 99:
+     ... t_controller  /activequest/{uid}:
+                                         ^
+2025-06-18 20:55:16,360 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:55:16,360 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:55:17,158 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 20:55:17,175 [ERROR] connexion.apis.abstract: Failed to add operation for GET /all_time_stats/{uid}
+2025-06-18 20:55:17,175 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: module 'openapi_server.controllers.user_controller' has no attribute 'get_all_time_stats'
+Traceback (most recent call last):
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 222, in add_paths
+    self.add_operation(path, method)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 175, in add_operation
+    operation = make_operation(
+        self.specification,
+    ...<9 lines>...
+        pass_context_arg_name=self.pass_context_arg_name
+    )
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\__init__.py", line 16, in make_operation
+    return spec.operation_cls.from_spec(spec, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\openapi.py", line 134, in from_spec
+    return cls(
+        api,
+    ...<8 lines>...
+        **kwargs
+    )
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\openapi.py", line 81, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        api=api,
+        ^^^^^^^^
+    ...<12 lines>...
+        pass_context_arg_name=pass_context_arg_name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\abstract.py", line 101, in __init__
+    self._resolution = resolver.resolve(self)
+                       ~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 47, in resolve
+    return Resolution(self.resolve_function_from_operation_id(operation_id), operation_id)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 73, in resolve_function_from_operation_id
+    raise ResolverError(str(e), sys.exc_info())
+connexion.exceptions.ResolverError: <ResolverError: module 'openapi_server.controllers.user_controller' has no attribute 'get_all_time_stats'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 119, in __init__
+    self.add_paths()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 229, in add_paths
+    self._handle_add_operation_error(path, method, err.exc_info)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 244, in _handle_add_operation_error
+    raise value.with_traceback(traceback)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 68, in resolve_function_from_operation_id
+    return self.function_resolver(operation_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\utils.py", line 125, in get_function_from_name
+    function = deep_getattr(module, attr_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\utils.py", line 73, in deep_getattr
+    return functools.reduce(getattr, attrs, obj)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'openapi_server.controllers.user_controller' has no attribute 'get_all_time_stats'
+2025-06-18 20:55:22,784 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 20:55:22,785 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 20:55:23,543 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 20:55:23,549 [ERROR] connexion.apis.abstract: Failed to add operation for GET /all_time_stats/{uid}
+2025-06-18 20:55:23,550 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: module 'openapi_server.controllers.user_controller' has no attribute 'get_all_time_stats'
+Traceback (most recent call last):
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 222, in add_paths
+    self.add_operation(path, method)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 175, in add_operation
+    operation = make_operation(
+        self.specification,
+    ...<9 lines>...
+        pass_context_arg_name=self.pass_context_arg_name
+    )
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\__init__.py", line 16, in make_operation
+    return spec.operation_cls.from_spec(spec, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\openapi.py", line 134, in from_spec
+    return cls(
+        api,
+    ...<8 lines>...
+        **kwargs
+    )
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\openapi.py", line 81, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        api=api,
+        ^^^^^^^^
+    ...<12 lines>...
+        pass_context_arg_name=pass_context_arg_name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\abstract.py", line 101, in __init__
+    self._resolution = resolver.resolve(self)
+                       ~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 47, in resolve
+    return Resolution(self.resolve_function_from_operation_id(operation_id), operation_id)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 73, in resolve_function_from_operation_id
+    raise ResolverError(str(e), sys.exc_info())
+connexion.exceptions.ResolverError: <ResolverError: module 'openapi_server.controllers.user_controller' has no attribute 'get_all_time_stats'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 119, in __init__
+    self.add_paths()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 229, in add_paths
+    self._handle_add_operation_error(path, method, err.exc_info)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 244, in _handle_add_operation_error
+    raise value.with_traceback(traceback)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 68, in resolve_function_from_operation_id
+    return self.function_resolver(operation_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\utils.py", line 125, in get_function_from_name
+    function = deep_getattr(module, attr_path)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\utils.py", line 73, in deep_getattr
+    return functools.reduce(getattr, attrs, obj)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'openapi_server.controllers.user_controller' has no attribute 'get_all_time_stats'
+2025-06-18 21:00:39,544 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 21:00:39,545 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 21:00:40,346 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 21:00:40,387 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 21:00:41,742 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 21:00:41,743 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 21:07:35,862 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 21:07:35,868 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: huso
+2025-06-18 21:07:35,868 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername huso bereits existiert.
+2025-06-18 21:07:36,969 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.huso "HTTP/2 200 OK"
+2025-06-18 21:07:36,985 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer huso.
+2025-06-18 21:07:37,311 [INFO] LaendleGuessrBackend: Erstelle Benutzer huso in Datenbank.
+2025-06-18 21:07:37,428 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 21:07:37,429 [INFO] LaendleGuessrBackend: Benutzer huso erfolgreich erstellt mit UID 69.
+2025-06-18 21:07:37,430 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:37] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 21:07:46,674 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.huso "HTTP/2 200 OK"
+2025-06-18 21:07:47,004 [INFO] LaendleGuessrBackend: Benutzer huso erfolgreich angemeldet.
+2025-06-18 21:07:47,006 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:47] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 21:07:47,149 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 21:07:47,263 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:07:47,267 [INFO] LaendleGuessrBackend: 28 Benutzer gefunden.
+2025-06-18 21:07:47,269 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:47] "GET /user HTTP/1.1" 200 -
+2025-06-18 21:07:47,358 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 21:07:47,471 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 21:07:47,474 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 21:07:47,475 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:47] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 21:07:47,532 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 21:07:47,656 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 21:07:47,659 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 21:07:47,660 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:47] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 21:07:47,686 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 69 gestartet.
+2025-06-18 21:07:47,756 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:07:47,764 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 69 gefunden.
+2025-06-18 21:07:47,764 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:47] "GET /activequest/69 HTTP/1.1" 200 -
+2025-06-18 21:07:47,937 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 69.
+2025-06-18 21:07:48,049 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:07:48,052 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 21:07:48,053 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:48] "GET /all_quests_user/69 HTTP/1.1" 200 -
+2025-06-18 21:07:53,346 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:07:53,544 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:07:53,547 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:53] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:07:53,682 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 69, 'qid': 1}
+2025-06-18 21:07:53,682 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 69.
+2025-06-18 21:07:53,750 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:07:53,754 [INFO] LaendleGuessrBackend: aktive Quest für User 69 erfolgreich gesetzt.
+2025-06-18 21:07:53,755 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:53] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:07:55,262 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 69.
+2025-06-18 21:07:55,345 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:07:55,351 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:55] "GET /activequest_started/69 HTTP/1.1" 200 -
+2025-06-18 21:07:55,936 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 69.
+2025-06-18 21:07:56,040 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:07:56,044 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:07:56] "GET /activequest/69/stepcount HTTP/1.1" 200 -
+2025-06-18 21:08:22,401 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 1, 'uid': 69, 'steps': 0, 'timeInSeconds': 28}
+2025-06-18 21:08:22,401 [INFO] LaendleGuessrBackend: Weise Quest 1 User 69 zu.
+2025-06-18 21:08:22,622 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:08:22,625 [INFO] LaendleGuessrBackend: Quest 1 erfolgreich User 69 zugewiesen.
+2025-06-18 21:08:22,626 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:08:22] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:08:22,694 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 69.
+2025-06-18 21:08:22,758 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:08:22,762 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:08:22] "DELETE /activequest/69 HTTP/1.1" 200 -
+2025-06-18 21:08:22,933 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.huso&uid=neq.69 "HTTP/2 200 OK"
+2025-06-18 21:08:23,306 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:08:23,307 [INFO] LaendleGuessrBackend: Benutzer 69 erfolgreich aktualisiert.
+2025-06-18 21:08:23,307 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:08:23] "PUT /user/69 HTTP/1.1" 200 -
+2025-06-18 21:08:23,545 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/69/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:08:23,549 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:08:23] "[31m[1mPUT /activequest/69/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:08:26,779 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:08:26,785 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/69/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:08:26,786 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:08:26] "[31m[1mPUT /activequest/69/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:08:26,898 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:08:26,901 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:08:26,901 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:08:26] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:08:31,002 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 69 gestartet.
+2025-06-18 21:08:31,078 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:08:31,192 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest_user?select=steps&uid=eq.69 "HTTP/2 404 Not Found"
+2025-06-18 21:08:31,199 [ERROR] LaendleGuessrBackend: Fehler beim Abrufen der Allzeit-Statistiken für Benutzer 69: {'message': 'relation "public.quest_user" does not exist', 'code': '42P01', 'hint': None, 'details': None}
+2025-06-18 21:08:31,200 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:08:31] "[35m[1mGET /all_time_stats/69 HTTP/1.1[0m" 500 -
+2025-06-18 21:11:22,563 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 21:11:25,792 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 21:11:25,792 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 21:11:27,359 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 21:11:27,424 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 21:11:28,737 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 21:11:28,738 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 21:11:29,292 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:11:30,018 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:11:30,021 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:11:30,022 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:11:30] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:11:31,437 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 69 gestartet.
+2025-06-18 21:11:31,521 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:11:31,600 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:11:31,668 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:11:31,669 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 69 erfolgreich abgerufen.
+2025-06-18 21:11:31,670 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:11:31] "GET /all_time_stats/69 HTTP/1.1" 200 -
+2025-06-18 21:11:36,503 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 69.
+2025-06-18 21:11:36,509 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/69/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:11:36,510 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:11:36] "[31m[1mPUT /activequest/69/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:11:36,599 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:11:36,601 [INFO] LaendleGuessrBackend: 1 Quests gefunden.
+2025-06-18 21:11:36,602 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:11:36] "GET /all_quests_user/69 HTTP/1.1" 200 -
+2025-06-18 21:11:49,692 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:11:49,700 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/69/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:11:49,701 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:11:49] "[31m[1mPUT /activequest/69/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:11:49,864 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:11:49,868 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:11:49,869 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:11:49] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:11:51,078 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 69 gestartet.
+2025-06-18 21:11:51,141 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:11:51,225 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:11:51,287 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:11:51,287 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 69 erfolgreich abgerufen.
+2025-06-18 21:11:51,287 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:11:51] "GET /all_time_stats/69 HTTP/1.1" 200 -
+2025-06-18 21:11:53,551 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 69.
+2025-06-18 21:11:53,630 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.69 "HTTP/2 200 OK"
+2025-06-18 21:11:53,634 [INFO] LaendleGuessrBackend: 1 Quests gefunden.
+2025-06-18 21:11:53,635 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:11:53] "GET /all_quests_user/69 HTTP/1.1" 200 -
+2025-06-18 21:14:24,608 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.huso "HTTP/2 200 OK"
+2025-06-18 21:14:24,880 [WARNING] LaendleGuessrBackend: Login fehlgeschlagen für Benutzer: huso
+2025-06-18 21:14:24,881 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:24] "[31m[1mPOST /user/login HTTP/1.1[0m" 401 -
+2025-06-18 21:14:35,333 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 21:14:35,333 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: uran
+2025-06-18 21:14:35,334 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername uran bereits existiert.
+2025-06-18 21:14:35,533 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.uran "HTTP/2 200 OK"
+2025-06-18 21:14:35,536 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer uran.
+2025-06-18 21:14:35,864 [INFO] LaendleGuessrBackend: Erstelle Benutzer uran in Datenbank.
+2025-06-18 21:14:35,977 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 21:14:35,978 [INFO] LaendleGuessrBackend: Benutzer uran erfolgreich erstellt mit UID 70.
+2025-06-18 21:14:35,979 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:35] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 21:14:42,017 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.uran "HTTP/2 200 OK"
+2025-06-18 21:14:42,353 [INFO] LaendleGuessrBackend: Benutzer uran erfolgreich angemeldet.
+2025-06-18 21:14:42,353 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:42] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 21:14:42,387 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 21:14:42,502 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:14:42,504 [INFO] LaendleGuessrBackend: 29 Benutzer gefunden.
+2025-06-18 21:14:42,505 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:42] "GET /user HTTP/1.1" 200 -
+2025-06-18 21:14:42,593 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 21:14:42,746 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 21:14:42,753 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 21:14:42,754 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:42] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 21:14:42,834 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 21:14:42,896 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 21:14:42,902 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 21:14:42,902 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:42] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 21:14:42,928 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 70 gestartet.
+2025-06-18 21:14:43,036 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:14:43,038 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 70 gefunden.
+2025-06-18 21:14:43,038 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:43] "GET /activequest/70 HTTP/1.1" 200 -
+2025-06-18 21:14:43,188 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 70.
+2025-06-18 21:14:43,257 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:14:43,267 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 21:14:43,269 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:43] "GET /all_quests_user/70 HTTP/1.1" 200 -
+2025-06-18 21:14:54,184 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:14:54,188 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/70/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:14:54,189 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:54] "[31m[1mPUT /activequest/70/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:14:54,413 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:14:54,416 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:14:54,416 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:54] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:14:55,958 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 70 gestartet.
+2025-06-18 21:14:56,029 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:14:56,135 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:14:56,224 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:14:56,225 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 70 erfolgreich abgerufen.
+2025-06-18 21:14:56,226 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:56] "GET /all_time_stats/70 HTTP/1.1" 200 -
+2025-06-18 21:14:57,617 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 70.
+2025-06-18 21:14:57,724 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:14:57,728 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 21:14:57,729 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:57] "GET /all_quests_user/70 HTTP/1.1" 200 -
+2025-06-18 21:14:58,522 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:14:58,630 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:14:58,634 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:58] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:14:58,671 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 70, 'qid': 1}
+2025-06-18 21:14:58,671 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 70.
+2025-06-18 21:14:58,748 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:14:58,752 [INFO] LaendleGuessrBackend: aktive Quest für User 70 erfolgreich gesetzt.
+2025-06-18 21:14:58,753 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:58] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:14:58,937 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 70.
+2025-06-18 21:14:59,031 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:14:59,036 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:59] "GET /activequest_started/70 HTTP/1.1" 200 -
+2025-06-18 21:14:59,216 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 70.
+2025-06-18 21:14:59,292 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:14:59,295 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:14:59] "GET /activequest/70/stepcount HTTP/1.1" 200 -
+2025-06-18 21:15:03,133 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 1, 'uid': 70, 'steps': 0, 'timeInSeconds': 3}
+2025-06-18 21:15:03,133 [INFO] LaendleGuessrBackend: Weise Quest 1 User 70 zu.
+2025-06-18 21:15:03,200 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:15:03,204 [INFO] LaendleGuessrBackend: Quest 1 erfolgreich User 70 zugewiesen.
+2025-06-18 21:15:03,204 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:03] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:15:03,223 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 70.
+2025-06-18 21:15:03,293 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:03,296 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:03] "DELETE /activequest/70 HTTP/1.1" 200 -
+2025-06-18 21:15:03,381 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.uran&uid=neq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:03,750 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:03,751 [INFO] LaendleGuessrBackend: Benutzer 70 erfolgreich aktualisiert.
+2025-06-18 21:15:03,751 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:03] "PUT /user/70 HTTP/1.1" 200 -
+2025-06-18 21:15:03,773 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/70/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:15:03,773 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:03] "[31m[1mPUT /activequest/70/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:15:05,921 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:15:05,926 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/70/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:15:05,927 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:05] "[31m[1mPUT /activequest/70/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:15:06,024 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:15:06,028 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:15:06,028 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:06] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:15:07,466 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 70 gestartet.
+2025-06-18 21:15:07,541 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:07,619 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:07,692 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:07,693 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 70 erfolgreich abgerufen.
+2025-06-18 21:15:07,694 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:07] "GET /all_time_stats/70 HTTP/1.1" 200 -
+2025-06-18 21:15:09,801 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 70.
+2025-06-18 21:15:09,886 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:09,893 [INFO] LaendleGuessrBackend: 1 Quests gefunden.
+2025-06-18 21:15:09,894 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:09] "GET /all_quests_user/70 HTTP/1.1" 200 -
+2025-06-18 21:15:13,272 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:15:13,348 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:15:13,352 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:13] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:15:13,401 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 70, 'qid': 1}
+2025-06-18 21:15:13,402 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 70.
+2025-06-18 21:15:13,476 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:15:13,479 [INFO] LaendleGuessrBackend: aktive Quest für User 70 erfolgreich gesetzt.
+2025-06-18 21:15:13,479 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:13] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:15:13,592 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 70.
+2025-06-18 21:15:13,669 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:13,675 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:13] "GET /activequest_started/70 HTTP/1.1" 200 -
+2025-06-18 21:15:13,769 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 70.
+2025-06-18 21:15:13,844 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:13,850 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:13] "GET /activequest/70/stepcount HTTP/1.1" 200 -
+2025-06-18 21:15:17,687 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 1, 'uid': 70, 'steps': 0, 'timeInSeconds': 3}
+2025-06-18 21:15:17,687 [INFO] LaendleGuessrBackend: Weise Quest 1 User 70 zu.
+2025-06-18 21:15:17,759 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:15:17,764 [INFO] LaendleGuessrBackend: Quest 1 erfolgreich User 70 zugewiesen.
+2025-06-18 21:15:17,765 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:17] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:15:17,792 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 70.
+2025-06-18 21:15:17,871 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:17,880 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:17] "DELETE /activequest/70 HTTP/1.1" 200 -
+2025-06-18 21:15:18,010 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.uran&uid=neq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:18,366 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:18,367 [INFO] LaendleGuessrBackend: Benutzer 70 erfolgreich aktualisiert.
+2025-06-18 21:15:18,368 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:18] "PUT /user/70 HTTP/1.1" 200 -
+2025-06-18 21:15:18,420 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/70/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:15:18,421 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:18] "[31m[1mPUT /activequest/70/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:15:19,819 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 70.
+2025-06-18 21:15:19,823 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/70/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:15:19,824 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:19] "[31m[1mPUT /activequest/70/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:15:19,900 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:19,906 [INFO] LaendleGuessrBackend: 2 Quests gefunden.
+2025-06-18 21:15:19,908 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:19] "GET /all_quests_user/70 HTTP/1.1" 200 -
+2025-06-18 21:15:22,488 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 70.
+2025-06-18 21:15:22,494 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/70/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:15:22,494 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:22] "[31m[1mPUT /activequest/70/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:15:22,574 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:22,579 [INFO] LaendleGuessrBackend: 2 Quests gefunden.
+2025-06-18 21:15:22,580 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:22] "GET /all_quests_user/70 HTTP/1.1" 200 -
+2025-06-18 21:15:24,115 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:15:24,195 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:15:24,199 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:15:24,200 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:24] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:15:25,185 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 70 gestartet.
+2025-06-18 21:15:25,300 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:25,418 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:25,492 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.70 "HTTP/2 200 OK"
+2025-06-18 21:15:25,493 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 70 erfolgreich abgerufen.
+2025-06-18 21:15:25,494 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:15:25] "GET /all_time_stats/70 HTTP/1.1" 200 -
+2025-06-18 21:15:39,508 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 21:17:16,322 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 21:17:16,322 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 21:17:17,795 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 21:17:17,837 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 21:17:19,150 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 21:17:19,151 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 21:18:49,177 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.uran "HTTP/2 200 OK"
+2025-06-18 21:18:49,499 [WARNING] LaendleGuessrBackend: Login fehlgeschlagen für Benutzer: uran
+2025-06-18 21:18:49,500 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:18:49] "[31m[1mPOST /user/login HTTP/1.1[0m" 401 -
+2025-06-18 21:19:01,748 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 21:19:01,748 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: yasuo
+2025-06-18 21:19:01,748 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername yasuo bereits existiert.
+2025-06-18 21:19:01,916 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.yasuo "HTTP/2 200 OK"
+2025-06-18 21:19:01,920 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer yasuo.
+2025-06-18 21:19:02,247 [INFO] LaendleGuessrBackend: Erstelle Benutzer yasuo in Datenbank.
+2025-06-18 21:19:02,316 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 21:19:02,317 [INFO] LaendleGuessrBackend: Benutzer yasuo erfolgreich erstellt mit UID 71.
+2025-06-18 21:19:02,318 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:02] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 21:19:10,736 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.yasuo "HTTP/2 200 OK"
+2025-06-18 21:19:11,060 [INFO] LaendleGuessrBackend: Benutzer yasuo erfolgreich angemeldet.
+2025-06-18 21:19:11,061 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:11] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 21:19:11,116 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 21:19:11,201 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:19:11,218 [INFO] LaendleGuessrBackend: 30 Benutzer gefunden.
+2025-06-18 21:19:11,218 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:11] "GET /user HTTP/1.1" 200 -
+2025-06-18 21:19:31,642 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.yasuo "HTTP/2 200 OK"
+2025-06-18 21:19:31,953 [INFO] LaendleGuessrBackend: Benutzer yasuo erfolgreich angemeldet.
+2025-06-18 21:19:31,953 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:31] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 21:19:32,005 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 21:19:32,076 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:19:32,079 [INFO] LaendleGuessrBackend: 30 Benutzer gefunden.
+2025-06-18 21:19:32,080 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:32] "GET /user HTTP/1.1" 200 -
+2025-06-18 21:19:52,625 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.yasuo "HTTP/2 200 OK"
+2025-06-18 21:19:52,946 [INFO] LaendleGuessrBackend: Benutzer yasuo erfolgreich angemeldet.
+2025-06-18 21:19:52,947 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:52] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 21:19:52,980 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 21:19:53,066 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:19:53,068 [INFO] LaendleGuessrBackend: 30 Benutzer gefunden.
+2025-06-18 21:19:53,069 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:53] "GET /user HTTP/1.1" 200 -
+2025-06-18 21:19:53,125 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 21:19:53,240 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 21:19:53,243 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 21:19:53,243 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:53] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 21:19:53,277 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 21:19:53,371 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 21:19:53,373 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 21:19:53,374 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:53] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 21:19:53,397 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 71 gestartet.
+2025-06-18 21:19:53,482 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:19:53,484 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 71 gefunden.
+2025-06-18 21:19:53,484 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:53] "GET /activequest/71 HTTP/1.1" 200 -
+2025-06-18 21:19:53,704 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 71.
+2025-06-18 21:19:53,816 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:19:53,820 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 21:19:53,821 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:19:53] "GET /all_quests_user/71 HTTP/1.1" 200 -
+2025-06-18 21:20:00,493 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 71.
+2025-06-18 21:20:00,500 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/71/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:20:00,501 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:00] "[31m[1mPUT /activequest/71/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:20:00,656 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:00,660 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 21:20:00,661 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:00] "GET /all_quests_user/71 HTTP/1.1" 200 -
+2025-06-18 21:20:01,908 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:20:01,979 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:20:01,983 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:01] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:20:02,037 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 71, 'qid': 1}
+2025-06-18 21:20:02,037 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 71.
+2025-06-18 21:20:02,123 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:20:02,126 [INFO] LaendleGuessrBackend: aktive Quest für User 71 erfolgreich gesetzt.
+2025-06-18 21:20:02,126 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:02] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:20:02,278 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 71.
+2025-06-18 21:20:02,343 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:02,347 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:02] "GET /activequest_started/71 HTTP/1.1" 200 -
+2025-06-18 21:20:02,436 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 71.
+2025-06-18 21:20:02,543 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:02,548 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:02] "GET /activequest/71/stepcount HTTP/1.1" 200 -
+2025-06-18 21:20:13,539 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 1, 'uid': 71, 'steps': 0, 'timeInSeconds': 11}
+2025-06-18 21:20:13,540 [INFO] LaendleGuessrBackend: Weise Quest 1 User 71 zu.
+2025-06-18 21:20:13,713 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:20:13,715 [INFO] LaendleGuessrBackend: Quest 1 erfolgreich User 71 zugewiesen.
+2025-06-18 21:20:13,716 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:13] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:20:13,731 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 71.
+2025-06-18 21:20:13,808 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:13,810 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:13] "DELETE /activequest/71 HTTP/1.1" 200 -
+2025-06-18 21:20:13,898 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.yasuo&uid=neq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:14,256 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:14,257 [INFO] LaendleGuessrBackend: Benutzer 71 erfolgreich aktualisiert.
+2025-06-18 21:20:14,257 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:14] "PUT /user/71 HTTP/1.1" 200 -
+2025-06-18 21:20:14,277 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/71/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:20:14,277 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:14] "[31m[1mPUT /activequest/71/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:20:15,917 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:20:15,924 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/71/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:20:15,925 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:15] "[31m[1mPUT /activequest/71/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:20:15,993 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:20:15,996 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:20:15,997 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:15] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:20:17,446 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 71 gestartet.
+2025-06-18 21:20:17,514 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:17,591 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:17,675 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:17,676 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 71 erfolgreich abgerufen.
+2025-06-18 21:20:17,677 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:17] "GET /all_time_stats/71 HTTP/1.1" 200 -
+2025-06-18 21:20:19,129 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 71.
+2025-06-18 21:20:19,224 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:19,229 [INFO] LaendleGuessrBackend: 1 Quests gefunden.
+2025-06-18 21:20:19,230 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:19] "GET /all_quests_user/71 HTTP/1.1" 200 -
+2025-06-18 21:20:23,351 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 2.
+2025-06-18 21:20:23,433 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.2 "HTTP/2 200 OK"
+2025-06-18 21:20:23,436 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:23] "GET /quest/2 HTTP/1.1" 200 -
+2025-06-18 21:20:23,473 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 71, 'qid': 2}
+2025-06-18 21:20:23,474 [INFO] LaendleGuessrBackend: Setze Quest 2 als aktive Quest für User 71.
+2025-06-18 21:20:23,563 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:20:23,566 [INFO] LaendleGuessrBackend: aktive Quest für User 71 erfolgreich gesetzt.
+2025-06-18 21:20:23,566 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:23] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:20:23,705 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 71.
+2025-06-18 21:20:23,779 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:23,783 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:23] "GET /activequest_started/71 HTTP/1.1" 200 -
+2025-06-18 21:20:23,827 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 71.
+2025-06-18 21:20:23,900 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:23,904 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:23] "GET /activequest/71/stepcount HTTP/1.1" 200 -
+2025-06-18 21:20:27,442 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 2, 'uid': 71, 'steps': 0, 'timeInSeconds': 3}
+2025-06-18 21:20:27,443 [INFO] LaendleGuessrBackend: Weise Quest 2 User 71 zu.
+2025-06-18 21:20:27,513 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:20:27,517 [INFO] LaendleGuessrBackend: Quest 2 erfolgreich User 71 zugewiesen.
+2025-06-18 21:20:27,518 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:27] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:20:27,550 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 71.
+2025-06-18 21:20:27,650 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:27,655 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:27] "DELETE /activequest/71 HTTP/1.1" 200 -
+2025-06-18 21:20:27,762 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.yasuo&uid=neq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:28,292 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:28,293 [INFO] LaendleGuessrBackend: Benutzer 71 erfolgreich aktualisiert.
+2025-06-18 21:20:28,293 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:28] "PUT /user/71 HTTP/1.1" 200 -
+2025-06-18 21:20:28,309 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/71/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:20:28,309 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:28] "[31m[1mPUT /activequest/71/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:20:29,568 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:20:29,571 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/71/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:20:29,572 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:29] "[31m[1mPUT /activequest/71/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:20:29,650 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:20:29,653 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:20:29,654 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:29] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:20:30,673 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 71.
+2025-06-18 21:20:30,763 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:30,766 [INFO] LaendleGuessrBackend: 2 Quests gefunden.
+2025-06-18 21:20:30,767 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:30] "GET /all_quests_user/71 HTTP/1.1" 200 -
+2025-06-18 21:20:41,261 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 71.
+2025-06-18 21:20:41,266 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/71/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:20:41,267 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:41] "[31m[1mPUT /activequest/71/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:20:41,556 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.71 "HTTP/2 200 OK"
+2025-06-18 21:20:41,561 [INFO] LaendleGuessrBackend: 2 Quests gefunden.
+2025-06-18 21:20:41,562 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:20:41] "GET /all_quests_user/71 HTTP/1.1" 200 -
+2025-06-18 21:24:26,105 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 21:24:26,105 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: yasuo123
+2025-06-18 21:24:26,106 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername yasuo123 bereits existiert.
+2025-06-18 21:24:26,546 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.yasuo123 "HTTP/2 200 OK"
+2025-06-18 21:24:26,551 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer yasuo123.
+2025-06-18 21:24:26,858 [INFO] LaendleGuessrBackend: Erstelle Benutzer yasuo123 in Datenbank.
+2025-06-18 21:24:26,935 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 21:24:26,936 [INFO] LaendleGuessrBackend: Benutzer yasuo123 erfolgreich erstellt mit UID 72.
+2025-06-18 21:24:26,936 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:26] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 21:24:33,560 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.yasuo123 "HTTP/2 200 OK"
+2025-06-18 21:24:33,870 [INFO] LaendleGuessrBackend: Benutzer yasuo123 erfolgreich angemeldet.
+2025-06-18 21:24:33,871 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:33] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 21:24:33,927 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 21:24:34,001 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:24:34,012 [INFO] LaendleGuessrBackend: 31 Benutzer gefunden.
+2025-06-18 21:24:34,014 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:34] "GET /user HTTP/1.1" 200 -
+2025-06-18 21:24:34,229 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 21:24:34,311 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 21:24:34,313 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 21:24:34,314 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:34] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 21:24:34,349 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 21:24:34,442 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 21:24:34,444 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 21:24:34,445 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:34] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 21:24:34,464 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 72 gestartet.
+2025-06-18 21:24:34,556 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:24:34,558 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 72 gefunden.
+2025-06-18 21:24:34,558 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:34] "GET /activequest/72 HTTP/1.1" 200 -
+2025-06-18 21:24:34,704 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 72.
+2025-06-18 21:24:34,771 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:24:34,776 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 21:24:34,776 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:34] "GET /all_quests_user/72 HTTP/1.1" 200 -
+2025-06-18 21:24:36,963 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:24:37,035 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:24:37,038 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:37] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:24:37,070 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 72, 'qid': 1}
+2025-06-18 21:24:37,070 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 72.
+2025-06-18 21:24:37,148 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:24:37,151 [INFO] LaendleGuessrBackend: aktive Quest für User 72 erfolgreich gesetzt.
+2025-06-18 21:24:37,152 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:37] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:24:37,720 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 72.
+2025-06-18 21:24:37,788 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:24:37,790 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:37] "GET /activequest_started/72 HTTP/1.1" 200 -
+2025-06-18 21:24:38,184 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 72.
+2025-06-18 21:24:38,253 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:24:38,258 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:24:38] "GET /activequest/72/stepcount HTTP/1.1" 200 -
+2025-06-18 21:25:06,625 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 1, 'uid': 72, 'steps': 0, 'timeInSeconds': 28}
+2025-06-18 21:25:06,625 [INFO] LaendleGuessrBackend: Weise Quest 1 User 72 zu.
+2025-06-18 21:25:06,855 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:25:06,858 [INFO] LaendleGuessrBackend: Quest 1 erfolgreich User 72 zugewiesen.
+2025-06-18 21:25:06,858 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:06] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:25:06,874 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 72.
+2025-06-18 21:25:06,948 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:06,951 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:06] "DELETE /activequest/72 HTTP/1.1" 200 -
+2025-06-18 21:25:07,040 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.yasuo123&uid=neq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:07,366 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:07,366 [INFO] LaendleGuessrBackend: Benutzer 72 erfolgreich aktualisiert.
+2025-06-18 21:25:07,367 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:07] "PUT /user/72 HTTP/1.1" 200 -
+2025-06-18 21:25:07,392 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/72/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:25:07,393 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:07] "[31m[1mPUT /activequest/72/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:25:08,793 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 72 gestartet.
+2025-06-18 21:25:08,799 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/72/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:25:08,799 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:08] "[31m[1mPUT /activequest/72/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:25:08,875 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:08,948 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:09,037 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:09,038 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 72 erfolgreich abgerufen.
+2025-06-18 21:25:09,038 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:09] "GET /all_time_stats/72 HTTP/1.1" 200 -
+2025-06-18 21:25:10,080 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:25:10,149 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:25:10,153 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:25:10,154 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:10] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:25:11,182 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 72.
+2025-06-18 21:25:11,188 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/72/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:25:11,189 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:11] "[31m[1mPUT /activequest/72/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:25:11,252 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:11,255 [INFO] LaendleGuessrBackend: 1 Quests gefunden.
+2025-06-18 21:25:11,255 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:11] "GET /all_quests_user/72 HTTP/1.1" 200 -
+2025-06-18 21:25:11,298 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:25:11,369 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:25:11,372 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:11] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:25:13,010 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 2.
+2025-06-18 21:25:13,079 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.2 "HTTP/2 200 OK"
+2025-06-18 21:25:13,083 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:13] "GET /quest/2 HTTP/1.1" 200 -
+2025-06-18 21:25:13,116 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 72, 'qid': 2}
+2025-06-18 21:25:13,117 [INFO] LaendleGuessrBackend: Setze Quest 2 als aktive Quest für User 72.
+2025-06-18 21:25:13,185 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:25:13,188 [INFO] LaendleGuessrBackend: aktive Quest für User 72 erfolgreich gesetzt.
+2025-06-18 21:25:13,189 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:13] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:25:13,320 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 72.
+2025-06-18 21:25:13,390 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:13,394 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:13] "GET /activequest_started/72 HTTP/1.1" 200 -
+2025-06-18 21:25:13,442 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 72.
+2025-06-18 21:25:13,516 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:13,521 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:13] "GET /activequest/72/stepcount HTTP/1.1" 200 -
+2025-06-18 21:25:19,182 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 2, 'uid': 72, 'steps': 0, 'timeInSeconds': 5}
+2025-06-18 21:25:19,183 [INFO] LaendleGuessrBackend: Weise Quest 2 User 72 zu.
+2025-06-18 21:25:19,335 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:25:19,338 [INFO] LaendleGuessrBackend: Quest 2 erfolgreich User 72 zugewiesen.
+2025-06-18 21:25:19,338 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:19] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:25:19,352 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 72.
+2025-06-18 21:25:19,430 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:19,433 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:19] "DELETE /activequest/72 HTTP/1.1" 200 -
+2025-06-18 21:25:19,515 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.yasuo123&uid=neq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:19,851 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:19,852 [INFO] LaendleGuessrBackend: Benutzer 72 erfolgreich aktualisiert.
+2025-06-18 21:25:19,852 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:19] "PUT /user/72 HTTP/1.1" 200 -
+2025-06-18 21:25:19,872 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/72/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:25:19,872 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:19] "[31m[1mPUT /activequest/72/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:25:20,707 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 72.
+2025-06-18 21:25:20,711 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/72/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:25:20,712 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:20] "[31m[1mPUT /activequest/72/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:25:20,784 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:20,788 [INFO] LaendleGuessrBackend: 2 Quests gefunden.
+2025-06-18 21:25:20,788 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:20] "GET /all_quests_user/72 HTTP/1.1" 200 -
+2025-06-18 21:25:20,844 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:25:20,913 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:25:20,918 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:20] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:25:20,965 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 2.
+2025-06-18 21:25:21,053 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.2 "HTTP/2 200 OK"
+2025-06-18 21:25:21,056 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:21] "GET /quest/2 HTTP/1.1" 200 -
+2025-06-18 21:25:21,981 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 72 gestartet.
+2025-06-18 21:25:22,055 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:22,139 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:22,205 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.72 "HTTP/2 200 OK"
+2025-06-18 21:25:22,206 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 72 erfolgreich abgerufen.
+2025-06-18 21:25:22,206 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:22] "GET /all_time_stats/72 HTTP/1.1" 200 -
+2025-06-18 21:25:25,089 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:25:25,159 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:25:25,162 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:25:25,162 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:25:25] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:25:34,254 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 21:26:57,349 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 21:26:57,349 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 21:26:58,471 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 21:26:58,530 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 21:26:59,799 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 21:26:59,799 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 21:27:42,967 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 21:27:42,967 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: ken
+2025-06-18 21:27:42,967 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername ken bereits existiert.
+2025-06-18 21:27:43,723 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.ken "HTTP/2 200 OK"
+2025-06-18 21:27:43,726 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer ken.
+2025-06-18 21:27:44,038 [INFO] LaendleGuessrBackend: Erstelle Benutzer ken in Datenbank.
+2025-06-18 21:27:44,134 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 21:27:44,136 [INFO] LaendleGuessrBackend: Benutzer ken erfolgreich erstellt mit UID 73.
+2025-06-18 21:27:44,136 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:44] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 21:27:49,884 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.ken "HTTP/2 200 OK"
+2025-06-18 21:27:50,202 [INFO] LaendleGuessrBackend: Benutzer ken erfolgreich angemeldet.
+2025-06-18 21:27:50,203 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:50] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 21:27:50,242 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 21:27:50,308 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:27:50,311 [INFO] LaendleGuessrBackend: 32 Benutzer gefunden.
+2025-06-18 21:27:50,311 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:50] "GET /user HTTP/1.1" 200 -
+2025-06-18 21:27:50,354 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 21:27:50,428 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 21:27:50,430 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 21:27:50,430 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:50] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 21:27:50,454 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 21:27:50,520 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 21:27:50,522 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 21:27:50,523 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:50] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 21:27:50,545 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 73 gestartet.
+2025-06-18 21:27:50,616 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:27:50,619 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 73 gefunden.
+2025-06-18 21:27:50,620 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:50] "GET /activequest/73 HTTP/1.1" 200 -
+2025-06-18 21:27:50,771 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 73.
+2025-06-18 21:27:50,844 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:27:50,848 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 21:27:50,849 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:50] "GET /all_quests_user/73 HTTP/1.1" 200 -
+2025-06-18 21:27:52,140 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:27:52,219 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:27:52,223 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:52] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:27:52,281 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 73, 'qid': 1}
+2025-06-18 21:27:52,281 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 73.
+2025-06-18 21:27:52,348 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:27:52,351 [INFO] LaendleGuessrBackend: aktive Quest für User 73 erfolgreich gesetzt.
+2025-06-18 21:27:52,352 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:52] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:27:52,953 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 73.
+2025-06-18 21:27:53,022 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:27:53,025 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:53] "GET /activequest_started/73 HTTP/1.1" 200 -
+2025-06-18 21:27:53,260 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 73.
+2025-06-18 21:27:53,348 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:27:53,352 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:53] "GET /activequest/73/stepcount HTTP/1.1" 200 -
+2025-06-18 21:27:58,843 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 1, 'uid': 73, 'steps': 0, 'timeInSeconds': 5}
+2025-06-18 21:27:58,844 [INFO] LaendleGuessrBackend: Weise Quest 1 User 73 zu.
+2025-06-18 21:27:59,013 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:27:59,016 [INFO] LaendleGuessrBackend: Quest 1 erfolgreich User 73 zugewiesen.
+2025-06-18 21:27:59,016 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:59] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:27:59,200 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 73.
+2025-06-18 21:27:59,270 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:27:59,273 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:59] "DELETE /activequest/73 HTTP/1.1" 200 -
+2025-06-18 21:27:59,487 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.ken&uid=neq.73 "HTTP/2 200 OK"
+2025-06-18 21:27:59,836 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:27:59,837 [INFO] LaendleGuessrBackend: Benutzer 73 erfolgreich aktualisiert.
+2025-06-18 21:27:59,837 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:59] "PUT /user/73 HTTP/1.1" 200 -
+2025-06-18 21:27:59,949 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/73/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:27:59,949 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:27:59] "[31m[1mPUT /activequest/73/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:28:01,391 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 73 gestartet.
+2025-06-18 21:28:01,397 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/73/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:28:01,397 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:01] "[31m[1mPUT /activequest/73/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:28:01,490 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:01,565 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:01,650 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:01,651 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 73 erfolgreich abgerufen.
+2025-06-18 21:28:01,652 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:01] "GET /all_time_stats/73 HTTP/1.1" 200 -
+2025-06-18 21:28:04,147 [INFO] LaendleGuessrBackend: Abruf aller Items gestartet.
+2025-06-18 21:28:04,214 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/item?select=%2A "HTTP/2 200 OK"
+2025-06-18 21:28:04,217 [INFO] LaendleGuessrBackend: 6 Items gefunden.
+2025-06-18 21:28:04,218 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:04] "GET /item HTTP/1.1" 200 -
+2025-06-18 21:28:05,169 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 73 gestartet.
+2025-06-18 21:28:05,230 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:05,308 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:05,377 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:05,378 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 73 erfolgreich abgerufen.
+2025-06-18 21:28:05,379 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:05] "GET /all_time_stats/73 HTTP/1.1" 200 -
+2025-06-18 21:28:06,645 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 73.
+2025-06-18 21:28:06,707 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:06,711 [INFO] LaendleGuessrBackend: 1 Quests gefunden.
+2025-06-18 21:28:06,711 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:06] "GET /all_quests_user/73 HTTP/1.1" 200 -
+2025-06-18 21:28:06,777 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 21:28:06,839 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 21:28:06,842 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:06] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 21:28:07,592 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 2.
+2025-06-18 21:28:07,664 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.2 "HTTP/2 200 OK"
+2025-06-18 21:28:07,668 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:07] "GET /quest/2 HTTP/1.1" 200 -
+2025-06-18 21:28:07,706 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 73, 'qid': 2}
+2025-06-18 21:28:07,706 [INFO] LaendleGuessrBackend: Setze Quest 2 als aktive Quest für User 73.
+2025-06-18 21:28:07,784 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 21:28:07,788 [INFO] LaendleGuessrBackend: aktive Quest für User 73 erfolgreich gesetzt.
+2025-06-18 21:28:07,788 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:07] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 21:28:07,897 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 73.
+2025-06-18 21:28:07,965 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:07,970 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:07] "GET /activequest_started/73 HTTP/1.1" 200 -
+2025-06-18 21:28:08,034 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 73.
+2025-06-18 21:28:08,098 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:08,103 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:08] "GET /activequest/73/stepcount HTTP/1.1" 200 -
+2025-06-18 21:28:10,468 [INFO] LaendleGuessrBackend: Quest-Zuweisung gestartet: {'id': 2, 'uid': 73, 'steps': 0, 'timeInSeconds': 2}
+2025-06-18 21:28:10,469 [INFO] LaendleGuessrBackend: Weise Quest 2 User 73 zu.
+2025-06-18 21:28:10,551 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest "HTTP/2 201 Created"
+2025-06-18 21:28:10,554 [INFO] LaendleGuessrBackend: Quest 2 erfolgreich User 73 zugewiesen.
+2025-06-18 21:28:10,554 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:10] "POST /quest_user HTTP/1.1" 200 -
+2025-06-18 21:28:10,574 [INFO] LaendleGuessrBackend: Lösche aktive Quest für User 73.
+2025-06-18 21:28:10,642 [INFO] httpx: HTTP Request: DELETE https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:10,645 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:10] "DELETE /activequest/73 HTTP/1.1" 200 -
+2025-06-18 21:28:10,723 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.ken&uid=neq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:11,042 [INFO] httpx: HTTP Request: PATCH https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:11,043 [INFO] LaendleGuessrBackend: Benutzer 73 erfolgreich aktualisiert.
+2025-06-18 21:28:11,044 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:11] "PUT /user/73 HTTP/1.1" 200 -
+2025-06-18 21:28:11,073 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/73/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:28:11,073 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:11] "[31m[1mPUT /activequest/73/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:28:12,067 [INFO] LaendleGuessrBackend: Abruf der Allzeit-Statistiken für Benutzer 73 gestartet.
+2025-06-18 21:28:12,072 [ERROR] connexion.decorators.validation: http://10.0.2.2:8080/activequest/73/stepcount validation error: 'step_count' is a required property
+2025-06-18 21:28:12,072 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:12] "[31m[1mPUT /activequest/73/stepcount HTTP/1.1[0m" 400 -
+2025-06-18 21:28:12,144 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:12,213 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=steps&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:12,287 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=timeInSeconds&uid=eq.73 "HTTP/2 200 OK"
+2025-06-18 21:28:12,288 [INFO] LaendleGuessrBackend: Allzeit-Statistiken für Benutzer 73 erfolgreich abgerufen.
+2025-06-18 21:28:12,289 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 21:28:12] "GET /all_time_stats/73 HTTP/1.1" 200 -
+2025-06-18 21:34:30,522 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 21:34:32,608 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 21:34:32,608 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 21:34:33,362 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 21:34:33,383 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 21:34:34,690 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 21:34:34,690 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 21:34:53,062 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
