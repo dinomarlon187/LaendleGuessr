@@ -1,3 +1,10 @@
+"""
+@file encoder.py
+@brief JSON-Encoder für das LaendleGuessr Backend.
+
+Dieses Modul enthält einen angepassten JSONEncoder für die Serialisierung von Model-Objekten.
+"""
+
 from connexion.apps.flask_app import FlaskJSONEncoder
 from openapi_server.logger import logger
 

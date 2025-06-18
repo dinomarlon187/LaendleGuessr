@@ -1,3 +1,10 @@
+"""
+@file base_model.py
+@brief Basisklasse für alle Model-Objekte im LaendleGuessr Backend.
+
+Dieses Modul enthält die Model-Basisklasse mit Methoden zur Konvertierung und Serialisierung.
+"""
+
 import pprint
 
 import typing

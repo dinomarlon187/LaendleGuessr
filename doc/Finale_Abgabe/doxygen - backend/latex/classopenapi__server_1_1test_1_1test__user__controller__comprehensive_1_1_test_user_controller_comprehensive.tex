@@ -1,0 +1,454 @@
+\doxysection{openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive Klassenreferenz}
+\hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive}{}\label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+
+
+Comprehensive User\+Controller unit tests covering all edge cases.  
+
+
+Klassendiagramm für openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aef35d86cbe06fba852c8795b9c3f38a1}{test\+\_\+all\+\_\+users\+\_\+get\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+users\+\_\+get -\/ successful response. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a774778713f70fd8bcc64a4c5f3bea5bb}{test\+\_\+all\+\_\+users\+\_\+get\+\_\+empty}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for all\+\_\+users\+\_\+get -\/ empty result. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a36b25b030d7278dc220b1df5ecc12a41}{test\+\_\+user\+\_\+get\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+get -\/ user found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_abba5b9351ede4ff0341b1009180377fb}{test\+\_\+user\+\_\+get\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+get -\/ user not found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a383bd6d2408ae58eb6399492a74f1f66}{test\+\_\+user\+\_\+login\+\_\+success}} (self, mock\+\_\+supabase, mock\+\_\+bcrypt)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+login -\/ successful login. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ad62cfc1e826df5b3b04b2e09a379600f}{test\+\_\+user\+\_\+login\+\_\+user\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+login -\/ user not found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a7b6d5463373fc9175713427d04408964}{test\+\_\+user\+\_\+login\+\_\+wrong\+\_\+password}} (self, mock\+\_\+supabase, mock\+\_\+bcrypt)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+login -\/ wrong password. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_af5d07f99f78c5572b5c708e6592d761f}{test\+\_\+user\+\_\+login\+\_\+non\+\_\+json}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+login -\/ non-\/\+JSON request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aea6c3475cb09c5fbcee30dd49e4a7839}{test\+\_\+user\+\_\+login\+\_\+missing\+\_\+username}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+login -\/ missing username. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a1d7e22d1da039712c7a5f96a760ba395}{test\+\_\+user\+\_\+login\+\_\+missing\+\_\+password}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+login -\/ missing password. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a9101e21086b4c7723b4c5cc7964b28e3}{test\+\_\+user\+\_\+login\+\_\+empty\+\_\+credentials}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+login -\/ empty credentials. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a14bddb5fc7e8cc5dc0d734616587498f}{test\+\_\+user\+\_\+post\+\_\+success}} (self, mock\+\_\+supabase, mock\+\_\+bcrypt)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ successful creation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a408dbcb76134d8051e4e49db90a343dc}{test\+\_\+user\+\_\+post\+\_\+non\+\_\+json}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ non-\/\+JSON request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a051f1c2d9547248a991e56603a6e9c64}{test\+\_\+user\+\_\+post\+\_\+missing\+\_\+username}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ missing username. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a7a6857fdaa70c0553d5569522eb4706b}{test\+\_\+user\+\_\+post\+\_\+missing\+\_\+password}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ missing password. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a923e74fb8c468edf949c6c6ceccae90b}{test\+\_\+user\+\_\+post\+\_\+password\+\_\+too\+\_\+short}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ password too short. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a47af12d593ec272a1dde4f1a293e1942}{test\+\_\+user\+\_\+post\+\_\+password\+\_\+with\+\_\+spaces}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ password with spaces. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a2a99e3eed140ec21e81ecd49f70dcd00}{test\+\_\+user\+\_\+post\+\_\+invalid\+\_\+city\+\_\+negative}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ invalid city (negative) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ac361c9f1b5c5710c1b44d0bbdd7885f0}{test\+\_\+user\+\_\+post\+\_\+invalid\+\_\+city\+\_\+too\+\_\+high}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ invalid city (too high) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a67708cf81638f1c798dccfcd8ce0f8f6}{test\+\_\+user\+\_\+post\+\_\+invalid\+\_\+city\+\_\+string}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ invalid city (string) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a40ccbe3c8dfd6bca9266c2ed9c0aa53c}{test\+\_\+user\+\_\+post\+\_\+invalid\+\_\+admin\+\_\+string}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ invalid admin value (string) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a85b1cb4a446ad55515616481627cb3da}{test\+\_\+user\+\_\+post\+\_\+username\+\_\+exists}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ username already exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ae57a6d22adf37f88a0a535cca826db27}{test\+\_\+user\+\_\+post\+\_\+database\+\_\+error}} (self, mock\+\_\+supabase, mock\+\_\+bcrypt)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+post -\/ database error during creation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_afc3d9021ada3a4f579faa547be9f4404}{test\+\_\+user\+\_\+update\+\_\+success}} (self, mock\+\_\+supabase, mock\+\_\+bcrypt)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ successful update. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_afdd3b7e90f7d8cbdbdd60627ab5945bf}{test\+\_\+user\+\_\+update\+\_\+non\+\_\+json}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ non-\/\+JSON request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a37038b6006a33ee2171d6f9709fee835}{test\+\_\+user\+\_\+update\+\_\+username\+\_\+conflict}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ username already exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ae95ca82fbbed270c2a5e3e8b8511d2dc}{test\+\_\+user\+\_\+update\+\_\+password\+\_\+too\+\_\+short}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ password too short. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a2afb510e3cfa583e67ca2b4a72c0494b}{test\+\_\+user\+\_\+update\+\_\+password\+\_\+with\+\_\+spaces}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ password with spaces. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a3a96202bc027e9b0fdf20fd360d9d03d}{test\+\_\+user\+\_\+update\+\_\+invalid\+\_\+city}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ invalid city. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a32a8a894bac9d96047ac202c9851f3a6}{test\+\_\+user\+\_\+update\+\_\+invalid\+\_\+admin}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ invalid admin value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aa9b3ecb73f7bc37c989ca6c2118e7113}{test\+\_\+user\+\_\+update\+\_\+no\+\_\+valid\+\_\+fields}} (self)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ no valid fields to update. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a19dea530f26c56e02f189f26c469fba8}{test\+\_\+user\+\_\+update\+\_\+user\+\_\+not\+\_\+found}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for user\+\_\+update -\/ user not found. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a4a8beb00d2a3ce5e3c1cd2db06ce7202}{test\+\_\+get\+\_\+all\+\_\+time\+\_\+stats\+\_\+success}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for get\+\_\+all\+\_\+time\+\_\+stats -\/ with data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_abe9c1324150de2fbe6fa396630cdd900}{test\+\_\+get\+\_\+all\+\_\+time\+\_\+stats\+\_\+no\+\_\+data}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for get\+\_\+all\+\_\+time\+\_\+stats -\/ no data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ac2213bab9d5c3825eb9d6093a5bcc202}{test\+\_\+get\+\_\+all\+\_\+time\+\_\+stats\+\_\+missing\+\_\+fields}} (self, mock\+\_\+supabase)
+\begin{DoxyCompactList}\small\item\em Test case for get\+\_\+all\+\_\+time\+\_\+stats -\/ missing fields in data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Öffentliche Methoden geerbt von \mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case}{openapi\+\_\+server.\+test.\+Base\+Test\+Case}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopenapi__server_1_1test_1_1_base_test_case_a584ddc7f25fb22a6be0eda1c6d8737ce}{create\+\_\+app}} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+Comprehensive User\+Controller unit tests covering all edge cases. 
+
+\label{doc-func-members}
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_doc-func-members}
+\doxysubsection{Dokumentation der Elementfunktionen}
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a774778713f70fd8bcc64a4c5f3bea5bb}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_all\_users\_get\_empty@{test\_all\_users\_get\_empty}}
+\index{test\_all\_users\_get\_empty@{test\_all\_users\_get\_empty}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_users\_get\_empty()}{test\_all\_users\_get\_empty()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a774778713f70fd8bcc64a4c5f3bea5bb} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+users\+\_\+get\+\_\+empty (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+users\+\_\+get -\/ empty result. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aef35d86cbe06fba852c8795b9c3f38a1}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_all\_users\_get\_success@{test\_all\_users\_get\_success}}
+\index{test\_all\_users\_get\_success@{test\_all\_users\_get\_success}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_all\_users\_get\_success()}{test\_all\_users\_get\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aef35d86cbe06fba852c8795b9c3f38a1} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+all\+\_\+users\+\_\+get\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for all\+\_\+users\+\_\+get -\/ successful response. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ac2213bab9d5c3825eb9d6093a5bcc202}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_get\_all\_time\_stats\_missing\_fields@{test\_get\_all\_time\_stats\_missing\_fields}}
+\index{test\_get\_all\_time\_stats\_missing\_fields@{test\_get\_all\_time\_stats\_missing\_fields}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_get\_all\_time\_stats\_missing\_fields()}{test\_get\_all\_time\_stats\_missing\_fields()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ac2213bab9d5c3825eb9d6093a5bcc202} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+get\+\_\+all\+\_\+time\+\_\+stats\+\_\+missing\+\_\+fields (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for get\+\_\+all\+\_\+time\+\_\+stats -\/ missing fields in data. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_abe9c1324150de2fbe6fa396630cdd900}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_get\_all\_time\_stats\_no\_data@{test\_get\_all\_time\_stats\_no\_data}}
+\index{test\_get\_all\_time\_stats\_no\_data@{test\_get\_all\_time\_stats\_no\_data}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_get\_all\_time\_stats\_no\_data()}{test\_get\_all\_time\_stats\_no\_data()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_abe9c1324150de2fbe6fa396630cdd900} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+get\+\_\+all\+\_\+time\+\_\+stats\+\_\+no\+\_\+data (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for get\+\_\+all\+\_\+time\+\_\+stats -\/ no data. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a4a8beb00d2a3ce5e3c1cd2db06ce7202}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_get\_all\_time\_stats\_success@{test\_get\_all\_time\_stats\_success}}
+\index{test\_get\_all\_time\_stats\_success@{test\_get\_all\_time\_stats\_success}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_get\_all\_time\_stats\_success()}{test\_get\_all\_time\_stats\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a4a8beb00d2a3ce5e3c1cd2db06ce7202} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+get\+\_\+all\+\_\+time\+\_\+stats\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for get\+\_\+all\+\_\+time\+\_\+stats -\/ with data. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a36b25b030d7278dc220b1df5ecc12a41}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_get\_found@{test\_user\_get\_found}}
+\index{test\_user\_get\_found@{test\_user\_get\_found}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_get\_found()}{test\_user\_get\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a36b25b030d7278dc220b1df5ecc12a41} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+get\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+get -\/ user found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_abba5b9351ede4ff0341b1009180377fb}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_get\_not\_found@{test\_user\_get\_not\_found}}
+\index{test\_user\_get\_not\_found@{test\_user\_get\_not\_found}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_get\_not\_found()}{test\_user\_get\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_abba5b9351ede4ff0341b1009180377fb} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+get\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+get -\/ user not found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a9101e21086b4c7723b4c5cc7964b28e3}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_login\_empty\_credentials@{test\_user\_login\_empty\_credentials}}
+\index{test\_user\_login\_empty\_credentials@{test\_user\_login\_empty\_credentials}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_login\_empty\_credentials()}{test\_user\_login\_empty\_credentials()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a9101e21086b4c7723b4c5cc7964b28e3} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+login\+\_\+empty\+\_\+credentials (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+login -\/ empty credentials. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a1d7e22d1da039712c7a5f96a760ba395}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_login\_missing\_password@{test\_user\_login\_missing\_password}}
+\index{test\_user\_login\_missing\_password@{test\_user\_login\_missing\_password}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_login\_missing\_password()}{test\_user\_login\_missing\_password()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a1d7e22d1da039712c7a5f96a760ba395} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+login\+\_\+missing\+\_\+password (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+login -\/ missing password. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aea6c3475cb09c5fbcee30dd49e4a7839}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_login\_missing\_username@{test\_user\_login\_missing\_username}}
+\index{test\_user\_login\_missing\_username@{test\_user\_login\_missing\_username}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_login\_missing\_username()}{test\_user\_login\_missing\_username()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aea6c3475cb09c5fbcee30dd49e4a7839} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+login\+\_\+missing\+\_\+username (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+login -\/ missing username. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_af5d07f99f78c5572b5c708e6592d761f}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_login\_non\_json@{test\_user\_login\_non\_json}}
+\index{test\_user\_login\_non\_json@{test\_user\_login\_non\_json}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_login\_non\_json()}{test\_user\_login\_non\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_af5d07f99f78c5572b5c708e6592d761f} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+login\+\_\+non\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+login -\/ non-\/\+JSON request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a383bd6d2408ae58eb6399492a74f1f66}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_login\_success@{test\_user\_login\_success}}
+\index{test\_user\_login\_success@{test\_user\_login\_success}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_login\_success()}{test\_user\_login\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a383bd6d2408ae58eb6399492a74f1f66} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+login\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+bcrypt}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+login -\/ successful login. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ad62cfc1e826df5b3b04b2e09a379600f}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_login\_user\_not\_found@{test\_user\_login\_user\_not\_found}}
+\index{test\_user\_login\_user\_not\_found@{test\_user\_login\_user\_not\_found}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_login\_user\_not\_found()}{test\_user\_login\_user\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ad62cfc1e826df5b3b04b2e09a379600f} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+login\+\_\+user\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+login -\/ user not found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a7b6d5463373fc9175713427d04408964}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_login\_wrong\_password@{test\_user\_login\_wrong\_password}}
+\index{test\_user\_login\_wrong\_password@{test\_user\_login\_wrong\_password}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_login\_wrong\_password()}{test\_user\_login\_wrong\_password()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a7b6d5463373fc9175713427d04408964} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+login\+\_\+wrong\+\_\+password (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+bcrypt}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+login -\/ wrong password. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ae57a6d22adf37f88a0a535cca826db27}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_database\_error@{test\_user\_post\_database\_error}}
+\index{test\_user\_post\_database\_error@{test\_user\_post\_database\_error}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_database\_error()}{test\_user\_post\_database\_error()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ae57a6d22adf37f88a0a535cca826db27} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+database\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+bcrypt}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ database error during creation. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a40ccbe3c8dfd6bca9266c2ed9c0aa53c}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_invalid\_admin\_string@{test\_user\_post\_invalid\_admin\_string}}
+\index{test\_user\_post\_invalid\_admin\_string@{test\_user\_post\_invalid\_admin\_string}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_invalid\_admin\_string()}{test\_user\_post\_invalid\_admin\_string()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a40ccbe3c8dfd6bca9266c2ed9c0aa53c} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+invalid\+\_\+admin\+\_\+string (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ invalid admin value (string) 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a2a99e3eed140ec21e81ecd49f70dcd00}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_invalid\_city\_negative@{test\_user\_post\_invalid\_city\_negative}}
+\index{test\_user\_post\_invalid\_city\_negative@{test\_user\_post\_invalid\_city\_negative}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_invalid\_city\_negative()}{test\_user\_post\_invalid\_city\_negative()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a2a99e3eed140ec21e81ecd49f70dcd00} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+invalid\+\_\+city\+\_\+negative (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ invalid city (negative) 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a67708cf81638f1c798dccfcd8ce0f8f6}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_invalid\_city\_string@{test\_user\_post\_invalid\_city\_string}}
+\index{test\_user\_post\_invalid\_city\_string@{test\_user\_post\_invalid\_city\_string}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_invalid\_city\_string()}{test\_user\_post\_invalid\_city\_string()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a67708cf81638f1c798dccfcd8ce0f8f6} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+invalid\+\_\+city\+\_\+string (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ invalid city (string) 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ac361c9f1b5c5710c1b44d0bbdd7885f0}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_invalid\_city\_too\_high@{test\_user\_post\_invalid\_city\_too\_high}}
+\index{test\_user\_post\_invalid\_city\_too\_high@{test\_user\_post\_invalid\_city\_too\_high}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_invalid\_city\_too\_high()}{test\_user\_post\_invalid\_city\_too\_high()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ac361c9f1b5c5710c1b44d0bbdd7885f0} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+invalid\+\_\+city\+\_\+too\+\_\+high (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ invalid city (too high) 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a7a6857fdaa70c0553d5569522eb4706b}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_missing\_password@{test\_user\_post\_missing\_password}}
+\index{test\_user\_post\_missing\_password@{test\_user\_post\_missing\_password}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_missing\_password()}{test\_user\_post\_missing\_password()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a7a6857fdaa70c0553d5569522eb4706b} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+missing\+\_\+password (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ missing password. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a051f1c2d9547248a991e56603a6e9c64}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_missing\_username@{test\_user\_post\_missing\_username}}
+\index{test\_user\_post\_missing\_username@{test\_user\_post\_missing\_username}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_missing\_username()}{test\_user\_post\_missing\_username()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a051f1c2d9547248a991e56603a6e9c64} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+missing\+\_\+username (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ missing username. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a408dbcb76134d8051e4e49db90a343dc}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_non\_json@{test\_user\_post\_non\_json}}
+\index{test\_user\_post\_non\_json@{test\_user\_post\_non\_json}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_non\_json()}{test\_user\_post\_non\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a408dbcb76134d8051e4e49db90a343dc} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+non\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ non-\/\+JSON request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a923e74fb8c468edf949c6c6ceccae90b}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_password\_too\_short@{test\_user\_post\_password\_too\_short}}
+\index{test\_user\_post\_password\_too\_short@{test\_user\_post\_password\_too\_short}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_password\_too\_short()}{test\_user\_post\_password\_too\_short()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a923e74fb8c468edf949c6c6ceccae90b} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+password\+\_\+too\+\_\+short (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ password too short. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a47af12d593ec272a1dde4f1a293e1942}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_password\_with\_spaces@{test\_user\_post\_password\_with\_spaces}}
+\index{test\_user\_post\_password\_with\_spaces@{test\_user\_post\_password\_with\_spaces}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_password\_with\_spaces()}{test\_user\_post\_password\_with\_spaces()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a47af12d593ec272a1dde4f1a293e1942} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+password\+\_\+with\+\_\+spaces (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ password with spaces. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a14bddb5fc7e8cc5dc0d734616587498f}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_success@{test\_user\_post\_success}}
+\index{test\_user\_post\_success@{test\_user\_post\_success}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_success()}{test\_user\_post\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a14bddb5fc7e8cc5dc0d734616587498f} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+bcrypt}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ successful creation. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a85b1cb4a446ad55515616481627cb3da}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_post\_username\_exists@{test\_user\_post\_username\_exists}}
+\index{test\_user\_post\_username\_exists@{test\_user\_post\_username\_exists}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_post\_username\_exists()}{test\_user\_post\_username\_exists()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a85b1cb4a446ad55515616481627cb3da} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+post\+\_\+username\+\_\+exists (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+post -\/ username already exists. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a32a8a894bac9d96047ac202c9851f3a6}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_invalid\_admin@{test\_user\_update\_invalid\_admin}}
+\index{test\_user\_update\_invalid\_admin@{test\_user\_update\_invalid\_admin}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_invalid\_admin()}{test\_user\_update\_invalid\_admin()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a32a8a894bac9d96047ac202c9851f3a6} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+invalid\+\_\+admin (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ invalid admin value. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a3a96202bc027e9b0fdf20fd360d9d03d}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_invalid\_city@{test\_user\_update\_invalid\_city}}
+\index{test\_user\_update\_invalid\_city@{test\_user\_update\_invalid\_city}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_invalid\_city()}{test\_user\_update\_invalid\_city()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a3a96202bc027e9b0fdf20fd360d9d03d} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+invalid\+\_\+city (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ invalid city. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aa9b3ecb73f7bc37c989ca6c2118e7113}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_no\_valid\_fields@{test\_user\_update\_no\_valid\_fields}}
+\index{test\_user\_update\_no\_valid\_fields@{test\_user\_update\_no\_valid\_fields}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_no\_valid\_fields()}{test\_user\_update\_no\_valid\_fields()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_aa9b3ecb73f7bc37c989ca6c2118e7113} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+no\+\_\+valid\+\_\+fields (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ no valid fields to update. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_afdd3b7e90f7d8cbdbdd60627ab5945bf}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_non\_json@{test\_user\_update\_non\_json}}
+\index{test\_user\_update\_non\_json@{test\_user\_update\_non\_json}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_non\_json()}{test\_user\_update\_non\_json()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_afdd3b7e90f7d8cbdbdd60627ab5945bf} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+non\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ non-\/\+JSON request. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ae95ca82fbbed270c2a5e3e8b8511d2dc}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_password\_too\_short@{test\_user\_update\_password\_too\_short}}
+\index{test\_user\_update\_password\_too\_short@{test\_user\_update\_password\_too\_short}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_password\_too\_short()}{test\_user\_update\_password\_too\_short()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_ae95ca82fbbed270c2a5e3e8b8511d2dc} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+password\+\_\+too\+\_\+short (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ password too short. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a2afb510e3cfa583e67ca2b4a72c0494b}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_password\_with\_spaces@{test\_user\_update\_password\_with\_spaces}}
+\index{test\_user\_update\_password\_with\_spaces@{test\_user\_update\_password\_with\_spaces}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_password\_with\_spaces()}{test\_user\_update\_password\_with\_spaces()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a2afb510e3cfa583e67ca2b4a72c0494b} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+password\+\_\+with\+\_\+spaces (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ password with spaces. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_afc3d9021ada3a4f579faa547be9f4404}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_success@{test\_user\_update\_success}}
+\index{test\_user\_update\_success@{test\_user\_update\_success}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_success()}{test\_user\_update\_success()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_afc3d9021ada3a4f579faa547be9f4404} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{, }\item[{}]{mock\+\_\+bcrypt}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ successful update. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a19dea530f26c56e02f189f26c469fba8}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_user\_not\_found@{test\_user\_update\_user\_not\_found}}
+\index{test\_user\_update\_user\_not\_found@{test\_user\_update\_user\_not\_found}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_user\_not\_found()}{test\_user\_update\_user\_not\_found()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a19dea530f26c56e02f189f26c469fba8} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+user\+\_\+not\+\_\+found (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ user not found. 
+
+\Hypertarget{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a37038b6006a33ee2171d6f9709fee835}\index{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}!test\_user\_update\_username\_conflict@{test\_user\_update\_username\_conflict}}
+\index{test\_user\_update\_username\_conflict@{test\_user\_update\_username\_conflict}!openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive@{openapi\_server.test.test\_user\_controller\_comprehensive.TestUserControllerComprehensive}}
+\doxysubsubsection{\texorpdfstring{test\_user\_update\_username\_conflict()}{test\_user\_update\_username\_conflict()}}
+{\footnotesize\ttfamily \label{classopenapi__server_1_1test_1_1test__user__controller__comprehensive_1_1_test_user_controller_comprehensive_a37038b6006a33ee2171d6f9709fee835} 
+openapi\+\_\+server.\+test.\+test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+Test\+User\+Controller\+Comprehensive.\+test\+\_\+user\+\_\+update\+\_\+username\+\_\+conflict (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{mock\+\_\+supabase}{}\end{DoxyParamCaption})}
+
+
+
+Test case for user\+\_\+update -\/ username already exists. 
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+test/\mbox{\hyperlink{test__user__controller__comprehensive_8py}{test\+\_\+user\+\_\+controller\+\_\+comprehensive.\+py}}\end{DoxyCompactItemize}

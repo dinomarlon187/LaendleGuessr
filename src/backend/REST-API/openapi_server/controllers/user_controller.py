@@ -1,3 +1,11 @@
+"""
+@file user_controller.py
+@brief Controller für Benutzer-bezogene API-Endpunkte im LaendleGuessr Backend.
+
+Dieses Modul enthält Funktionen zur Verwaltung, Authentifizierung und Statistik von Benutzern.
+Alle Funktionen sind für die REST-API vorgesehen und werden von OpenAPI genutzt.
+"""
+
 import connexion
 from openapi_server.models.user import User
 from openapi_server.db import supabase

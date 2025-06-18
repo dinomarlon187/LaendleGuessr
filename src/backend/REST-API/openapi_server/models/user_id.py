@@ -1,3 +1,10 @@
+"""
+@file user_id.py
+@brief Model-Klasse für UserId im LaendleGuessr Backend.
+
+Dieses Modul enthält die UserId-Klasse zur eindeutigen Identifikation von Benutzern und Items/Quests.
+"""
+
 from datetime import date, datetime  # noqa: F401
 
 from typing import List, Dict  # noqa: F401

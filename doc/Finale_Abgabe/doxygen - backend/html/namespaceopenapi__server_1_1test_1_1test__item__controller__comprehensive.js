@@ -1,0 +1,4 @@
+var namespaceopenapi__server_1_1test_1_1test__item__controller__comprehensive =
+[
+    [ "TestItemControllerComprehensive", "classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive.html", "classopenapi__server_1_1test_1_1test__item__controller__comprehensive_1_1_test_item_controller_comprehensive" ]
+];

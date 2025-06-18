@@ -1,3 +1,10 @@
+"""
+@file quest_user.py
+@brief Model-Klasse für QuestUser im LaendleGuessr Backend.
+
+Dieses Modul enthält die QuestUser-Klasse zur Verknüpfung von Quests mit Benutzern inklusive Schritte und Zeit.
+"""
+
 from openapi_server.models.base_model import Model
 from openapi_server import util
 from openapi_server.logger import logger

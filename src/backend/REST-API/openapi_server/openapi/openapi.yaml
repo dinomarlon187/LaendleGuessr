@@ -3,27 +3,31 @@ info:
   description: Eine API zur Verbindung mit unserer Supabase-Datenbank
   title: LaendleGuessr
   version: 1.0.0
+  description: Diese OpenAPI-Spezifikation beschreibt die REST-API für das LaendleGuessr-Projekt.
 servers:
   - url: /
+    description: Lokaler Server
 
 paths:
   /all_item_user/{uid}:
     get:
       operationId: all_items_owned_by
+      summary: Alle Items eines Users bekommen
+      description: Gibt alle Items zurück, die einem bestimmten Benutzer gehören.
       parameters:
         - in: path
           name: uid
           required: true
           schema:
             type: integer
+          description: Die eindeutige Benutzer-ID
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreiche Antwort mit allen Items des Benutzers
         "400":
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Alle Items eines Users bekommen
       tags:
         - item
       x-openapi-router-controller: openapi_server.controllers.item_controller
@@ -31,14 +35,15 @@ paths:
   /all_quests:
     get:
       operationId: all_quests_get
+      summary: Alle Quests bekommen
+      description: Gibt eine Liste aller verfügbaren Quests zurück.
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreiche Antwort mit allen Quests
         "400":
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Alle Quests bekommen
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
@@ -46,20 +51,22 @@ paths:
   /all_quests_user/{uid}:
     get:
       operationId: all_quests_done_by
+      summary: Alle gemachten Quests eines Users bekommen
+      description: Gibt alle Quests zurück, die von einem bestimmten Benutzer abgeschlossen wurden.
       parameters:
         - in: path
           name: uid
           required: true
           schema:
             type: integer
+          description: Die eindeutige Benutzer-ID
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreiche Antwort mit allen abgeschlossenen Quests des Benutzers
         "400":
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Alle gemachten Quests eines Users bekommen
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
@@ -67,51 +74,58 @@ paths:
   /dailyquest/{city}:
     get:
       operationId: dailyquest_get
+      summary: Derzeitige DailyQuest einer Stadt
+      description: Gibt die aktuelle DailyQuest für eine bestimmte Stadt zurück.
       parameters:
         - in: path
           name: city
           required: true
           schema:
             type: string
+          description: Name der Stadt
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreiche Antwort mit der aktuellen DailyQuest
         "400":
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Derzeitige DailyQuest einer Stadt
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
   /activequest/{uid}:
     get:
       operationId: activequest_get
+      summary: Aktive Quest eines Users abrufen
+      description: Gibt die aktuell aktive Quest eines bestimmten Benutzers zurück.
       parameters:
         - in: path
           name: uid
           required: true
           schema:
             type: integer
+          description: Die eindeutige Benutzer-ID
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreiche Antwort mit der aktiven Quest
         "400":
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Aktive Quest eines Users abrufen
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
     delete:
       operationId: activequest_delete
+      summary: Aktive Quest eines Users entfernen
+      description: Entfernt die aktuell aktive Quest eines bestimmten Benutzers.
       parameters:
         - in: path
           name: uid
           required: true
           schema:
             type: integer
+          description: Die eindeutige Benutzer-ID
       responses:
         "200":
           description: Erfolgreich entfernt
@@ -119,13 +133,14 @@ paths:
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Aktive Quest eines Users entfernen
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
   /activequest:
     post:
       operationId: activequest_post
+      summary: Aktive Quest für User setzen
+      description: Setzt eine neue aktive Quest für einen Benutzer.
       requestBody:
         content:
           application/json:
@@ -134,8 +149,10 @@ paths:
               properties:
                 uid:
                   type: integer
+                  description: Die eindeutige Benutzer-ID
                 qid:
                   type: integer
+                  description: Die eindeutige Quest-ID
               required:
                 - uid
                 - qid
@@ -146,7 +163,6 @@ paths:
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Aktive Quest für User setzen
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
@@ -191,11 +207,13 @@ paths:
   /activequest/{uid}/stepcount:
     put:
       operationId: activequest_update_stepCount
+      summary: Aktualisiert die Schrittzahl für die aktive Quest eines Benutzers
+      description: Aktualisiert die aktuelle Schrittzahl für die aktive Quest eines bestimmten Benutzers.
       parameters:
         - name: uid
           in: path
           required: true
-          description: Benutzer ID
+          description: Die eindeutige Benutzer-ID
           schema:
             type: integer
       requestBody:
@@ -219,17 +237,18 @@ paths:
           description: Aktive Quest für den Benutzer nicht gefunden
         "503":
           description: Service nicht verfügbar
-      summary: Aktualisiert die Schrittzahl für die aktive Quest eines Benutzers
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
     get:
       operationId: activequest_get_stepCount
+      summary: Ruft die Schrittzahl der aktiven Quest eines Benutzers ab
+      description: Gibt die aktuelle Schrittzahl der aktiven Quest eines bestimmten Benutzers zurück.
       parameters:
         - name: uid
           in: path
           required: true
-          description: Benutzer ID
+          description: Die eindeutige Benutzer-ID
           schema:
             type: integer
       responses:
@@ -247,7 +266,6 @@ paths:
           description: Aktive Quest für den Benutzer nicht gefunden oder Benutzer hat keine Schrittzahl
         "503":
           description: Service nicht verfügbar
-      summary: Ruft die Schrittzahl der aktiven Quest eines Benutzers ab
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
@@ -314,6 +332,8 @@ paths:
     /item_user:
     post:
       operationId: item_user_post
+      summary: Einem User ein Item zuschreiben
+      description: Verknüpft ein Item mit einem Benutzer und speichert diese Beziehung.
       requestBody:
         required: true
         content:
@@ -327,7 +347,6 @@ paths:
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Einem User ein Item zuschreiben
       tags:
         - item
       x-openapi-router-controller: openapi_server.controllers.item_controller
@@ -335,6 +354,8 @@ paths:
   /quest_user:
     post:
       operationId: quest_user_post
+      summary: Einem User eine Quest als gemacht zuschreiben
+      description: Verknüpft eine Quest mit einem Benutzer als abgeschlossen und speichert diese Beziehung.
       requestBody:
         required: true
         content:
@@ -348,7 +369,6 @@ paths:
           description: Ungültige Eingabe
         "503":
           description: Service nicht verfügbar
-      summary: Einem User eine Quest als gemacht zuschreiben
       tags:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
@@ -534,10 +554,9 @@ paths:
 
 components:
   schemas:
-    components:
-  schemas:
     item_user:
       title: item_user
+      description: Repräsentiert die Beziehung zwischen einem Benutzer und einem Item.
       required:
         - uid
         - id
@@ -546,16 +565,19 @@ components:
           type: integer
           minimum: 1
           title: UserID
+          description: Die eindeutige ID des Benutzers
         id:
           type: integer
           minimum: 1
           title: ID
+          description: Die eindeutige ID des Items
       example:
         uid: 3
         id: 4
 
     user_id:
       title: user_id
+      description: Repräsentiert die Zuordnung eines Benutzers zu einer Quest inklusive Schritte und Zeit.
       required:
         - uid
         - id
@@ -566,18 +588,22 @@ components:
           type: integer
           minimum: 1
           title: UserID
+          description: Die eindeutige ID des Benutzers
         id:
           type: integer
           minimum: 1
           title: ID
+          description: Die eindeutige ID der Quest
         steps:
           type: integer
           minimum: 0
           title: Steps
+          description: Die Anzahl der Schritte, die der Benutzer für die Quest benötigt hat
         timeInSeconds:
           type: integer
           minimum: 0
           title: Time in Seconds
+          description: Die benötigte Zeit in Sekunden für die Quest
       example:
         uid: 3
         id: 4
@@ -586,6 +612,7 @@ components:
 
     user:
       title: user
+      description: Repräsentiert einen Benutzer im System.
       required:
         - username
         - password
@@ -598,16 +625,20 @@ components:
           title: Benutzername
           minLength: 3
           maxLength: 30
+          description: Der eindeutige Benutzername
         password:
           type: string
           title: Passwort
+          description: Das Passwort des Benutzers
         coins:
           type: integer
           title: Coins
           minimum: 0
+          description: Die Anzahl der Münzen, die der Benutzer besitzt
         admin:
           type: boolean
           title: Admin
+          description: Gibt an, ob der Benutzer Administratorrechte hat
         city:
           type: integer
           title: Stadt
@@ -617,6 +648,7 @@ components:
             - 2  
             - 3  
             - 4  
+          description: Die Stadt-ID, der der Benutzer zugeordnet ist
       example:
         username: keremderkomet
         password: MeinSicheresPasswort123
@@ -626,6 +658,7 @@ components:
 
     quest_user:
       title: quest_user
+      description: Repräsentiert die Beziehung zwischen einem Benutzer und einer abgeschlossenen Quest.
       required:
         - uid
         - id
@@ -635,15 +668,19 @@ components:
         uid:
           type: integer
           minimum: 1
+          description: Die eindeutige ID des Benutzers
         id:
           type: integer
           minimum: 1
+          description: Die eindeutige ID der Quest
         steps:
           type: integer
           minimum: 0
+          description: Die Anzahl der Schritte, die der Benutzer für die Quest benötigt hat
         timeInSeconds:
           type: integer
           minimum: 0
+          description: Die benötigte Zeit in Sekunden für die Quest
       example:
         uid: 3
         id: 4

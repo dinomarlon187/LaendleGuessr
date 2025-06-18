@@ -1,0 +1,242 @@
+\doxysection{openapi\+\_\+server.\+controllers.\+quest\+\_\+controller-\/Namensbereichsreferenz}
+\hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller}{}\label{namespaceopenapi__server_1_1controllers_1_1quest__controller}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_aab722f7f10c47bd0543301d8ea13141e}{all\+\_\+quests\+\_\+done\+\_\+by}} (uid)
+\begin{DoxyCompactList}\small\item\em Gibt alle erledigten Quests eines Benutzers zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_a31ab04911065c1ae3db0d398134e7676}{all\+\_\+quests\+\_\+get}} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Quests zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_a105215330c3a4703380093ffc9ea5ad4}{dailyquest\+\_\+get}} (city)
+\begin{DoxyCompactList}\small\item\em Gibt die aktuelle Daily\+Quest für eine bestimmte Stadt zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_ab40fcc680f8cde503fd4e5814eeeb201}{quest\+\_\+user\+\_\+post}} (body)
+\begin{DoxyCompactList}\small\item\em Verknüpft eine Quest mit einem User als abgeschlossen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_a00baf301278da42c165be6cd4ca68f4d}{weeklyquest\+\_\+get}} ()
+\begin{DoxyCompactList}\small\item\em Gibt die aktuelle Weekly\+Quest zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_a6b65d6b196073d731979f638931da549}{activequest\+\_\+get}} (uid)
+\begin{DoxyCompactList}\small\item\em Gibt die aktuell aktive Quest eines Benutzers zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_af2bec9a7b6936c8aa88b27bb59f48c3e}{activequest\+\_\+post}} (body)
+\begin{DoxyCompactList}\small\item\em Setzt eine neue aktive Quest für einen Benutzer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_a2008689c1ba70f3c3ffd7384e2b91050}{activequest\+\_\+delete}} (uid)
+\begin{DoxyCompactList}\small\item\em Entfernt die aktuell aktive Quest eines Benutzers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_a99c1d3ac13e3a8f82af0695bfec5409f}{quest\+\_\+get}} (qid)
+\begin{DoxyCompactList}\small\item\em Gibt eine Quest anhand ihrer ID zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_a5270cc439f2c18a2cbe8d63b265ffeae}{activequest\+\_\+started\+\_\+get}} (uid)
+\begin{DoxyCompactList}\small\item\em Gibt den Startzeitpunkt der aktiven Quest eines Benutzers zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_ab426f1d41ddd6054df152710af0fba4a}{activequest\+\_\+update\+\_\+step\+Count}} (uid, body)
+\begin{DoxyCompactList}\small\item\em Aktualisiert die Schrittanzahl der aktiven Quest eines Benutzers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceopenapi__server_1_1controllers_1_1quest__controller_ad85242129fa5fe9c878ff16e7822421c}{activequest\+\_\+get\+\_\+step\+Count}} (uid)
+\begin{DoxyCompactList}\small\item\em Gibt die aktuelle Schrittanzahl der aktiven Quest eines Benutzers zurück. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_doc-func-members}
+\doxysubsection{Dokumentation der Funktionen}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_a2008689c1ba70f3c3ffd7384e2b91050}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!activequest\_delete@{activequest\_delete}}
+\index{activequest\_delete@{activequest\_delete}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{activequest\_delete()}{activequest\_delete()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_a2008689c1ba70f3c3ffd7384e2b91050} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+activequest\+\_\+delete (\begin{DoxyParamCaption}\item[{}]{uid}{}\end{DoxyParamCaption})}
+
+
+
+Entfernt die aktuell aktive Quest eines Benutzers. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em uid} & Die eindeutige User-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Erfolgs-\/ oder Fehlermeldung 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_a6b65d6b196073d731979f638931da549}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!activequest\_get@{activequest\_get}}
+\index{activequest\_get@{activequest\_get}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{activequest\_get()}{activequest\_get()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_a6b65d6b196073d731979f638931da549} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+activequest\+\_\+get (\begin{DoxyParamCaption}\item[{}]{uid}{}\end{DoxyParamCaption})}
+
+
+
+Gibt die aktuell aktive Quest eines Benutzers zurück. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em uid} & Die eindeutige User-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Aktive Quest-\/\+Objekt oder None 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_ad85242129fa5fe9c878ff16e7822421c}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!activequest\_get\_stepCount@{activequest\_get\_stepCount}}
+\index{activequest\_get\_stepCount@{activequest\_get\_stepCount}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{activequest\_get\_stepCount()}{activequest\_get\_stepCount()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_ad85242129fa5fe9c878ff16e7822421c} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+activequest\+\_\+get\+\_\+step\+Count (\begin{DoxyParamCaption}\item[{}]{uid}{}\end{DoxyParamCaption})}
+
+
+
+Gibt die aktuelle Schrittanzahl der aktiven Quest eines Benutzers zurück. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em uid} & Die eindeutige User-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Schrittanzahl als Dictionary 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_af2bec9a7b6936c8aa88b27bb59f48c3e}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!activequest\_post@{activequest\_post}}
+\index{activequest\_post@{activequest\_post}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{activequest\_post()}{activequest\_post()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_af2bec9a7b6936c8aa88b27bb59f48c3e} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+activequest\+\_\+post (\begin{DoxyParamCaption}\item[{}]{body}{}\end{DoxyParamCaption})}
+
+
+
+Setzt eine neue aktive Quest für einen Benutzer. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em body} & JSON-\/\+Objekt mit User-\/ und Quest-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Erfolgs-\/ oder Fehlermeldung 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_a5270cc439f2c18a2cbe8d63b265ffeae}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!activequest\_started\_get@{activequest\_started\_get}}
+\index{activequest\_started\_get@{activequest\_started\_get}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{activequest\_started\_get()}{activequest\_started\_get()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_a5270cc439f2c18a2cbe8d63b265ffeae} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+activequest\+\_\+started\+\_\+get (\begin{DoxyParamCaption}\item[{}]{uid}{}\end{DoxyParamCaption})}
+
+
+
+Gibt den Startzeitpunkt der aktiven Quest eines Benutzers zurück. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em uid} & Die eindeutige User-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Startzeitpunkt als Dictionary 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_ab426f1d41ddd6054df152710af0fba4a}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!activequest\_update\_stepCount@{activequest\_update\_stepCount}}
+\index{activequest\_update\_stepCount@{activequest\_update\_stepCount}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{activequest\_update\_stepCount()}{activequest\_update\_stepCount()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_ab426f1d41ddd6054df152710af0fba4a} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+activequest\+\_\+update\+\_\+step\+Count (\begin{DoxyParamCaption}\item[{}]{uid}{, }\item[{}]{body}{}\end{DoxyParamCaption})}
+
+
+
+Aktualisiert die Schrittanzahl der aktiven Quest eines Benutzers. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em uid} & Die eindeutige User-\/\+ID \\
+\hline
+{\em body} & JSON-\/\+Objekt mit neuer Schrittanzahl \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Erfolgs-\/ oder Fehlermeldung 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_aab722f7f10c47bd0543301d8ea13141e}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!all\_quests\_done\_by@{all\_quests\_done\_by}}
+\index{all\_quests\_done\_by@{all\_quests\_done\_by}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{all\_quests\_done\_by()}{all\_quests\_done\_by()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_aab722f7f10c47bd0543301d8ea13141e} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+all\+\_\+quests\+\_\+done\+\_\+by (\begin{DoxyParamCaption}\item[{}]{uid}{}\end{DoxyParamCaption})}
+
+
+
+Gibt alle erledigten Quests eines Benutzers zurück. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em uid} & Die eindeutige User-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Liste der erledigten Quests 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_a31ab04911065c1ae3db0d398134e7676}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!all\_quests\_get@{all\_quests\_get}}
+\index{all\_quests\_get@{all\_quests\_get}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{all\_quests\_get()}{all\_quests\_get()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_a31ab04911065c1ae3db0d398134e7676} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+all\+\_\+quests\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gibt eine Liste aller Quests zurück. 
+
+\begin{DoxyReturn}{Rückgabe}
+Liste aller Quests aus der Datenbank. 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_a105215330c3a4703380093ffc9ea5ad4}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!dailyquest\_get@{dailyquest\_get}}
+\index{dailyquest\_get@{dailyquest\_get}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{dailyquest\_get()}{dailyquest\_get()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_a105215330c3a4703380093ffc9ea5ad4} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+dailyquest\+\_\+get (\begin{DoxyParamCaption}\item[{}]{city}{}\end{DoxyParamCaption})}
+
+
+
+Gibt die aktuelle Daily\+Quest für eine bestimmte Stadt zurück. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em city} & Name der Stadt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Daily\+Quest-\/\+Objekt oder leere Liste 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_a99c1d3ac13e3a8f82af0695bfec5409f}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!quest\_get@{quest\_get}}
+\index{quest\_get@{quest\_get}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{quest\_get()}{quest\_get()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_a99c1d3ac13e3a8f82af0695bfec5409f} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+quest\+\_\+get (\begin{DoxyParamCaption}\item[{}]{qid}{}\end{DoxyParamCaption})}
+
+
+
+Gibt eine Quest anhand ihrer ID zurück. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em qid} & Die eindeutige Quest-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Quest-\/\+Objekt 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_ab40fcc680f8cde503fd4e5814eeeb201}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!quest\_user\_post@{quest\_user\_post}}
+\index{quest\_user\_post@{quest\_user\_post}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{quest\_user\_post()}{quest\_user\_post()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_ab40fcc680f8cde503fd4e5814eeeb201} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+quest\+\_\+user\+\_\+post (\begin{DoxyParamCaption}\item[{}]{body}{}\end{DoxyParamCaption})}
+
+
+
+Verknüpft eine Quest mit einem User als abgeschlossen. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em body} & JSON-\/\+Objekt mit User-\/ und Quest-\/\+ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Erfolgs-\/ oder Fehlermeldung 
+\end{DoxyReturn}
+\Hypertarget{namespaceopenapi__server_1_1controllers_1_1quest__controller_a00baf301278da42c165be6cd4ca68f4d}\index{openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}!weeklyquest\_get@{weeklyquest\_get}}
+\index{weeklyquest\_get@{weeklyquest\_get}!openapi\_server.controllers.quest\_controller@{openapi\_server.controllers.quest\_controller}}
+\doxysubsubsection{\texorpdfstring{weeklyquest\_get()}{weeklyquest\_get()}}
+{\footnotesize\ttfamily \label{namespaceopenapi__server_1_1controllers_1_1quest__controller_a00baf301278da42c165be6cd4ca68f4d} 
+openapi\+\_\+server.\+controllers.\+quest\+\_\+controller.\+weeklyquest\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gibt die aktuelle Weekly\+Quest zurück. 
+
+\begin{DoxyReturn}{Rückgabe}
+Weekly\+Quest-\/\+Objekt oder leere Liste 
+\end{DoxyReturn}

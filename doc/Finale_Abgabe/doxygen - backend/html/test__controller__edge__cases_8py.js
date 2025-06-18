@@ -1,0 +1,4 @@
+var test__controller__edge__cases_8py =
+[
+    [ "openapi_server.test.test_controller_edge_cases.TestControllerEdgeCases", "classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases.html", "classopenapi__server_1_1test_1_1test__controller__edge__cases_1_1_test_controller_edge_cases" ]
+];

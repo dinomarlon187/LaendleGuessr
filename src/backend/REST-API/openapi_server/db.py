@@ -1,3 +1,10 @@
+"""
+@file db.py
+@brief Supabase-Client-Initialisierung für das LaendleGuessr Backend.
+
+Dieses Modul stellt den Supabase-Client für Datenbankzugriffe bereit.
+"""
+
 import os
 from supabase import create_client, Client
 from openapi_server.logger import logger

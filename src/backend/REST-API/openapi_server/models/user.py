@@ -1,3 +1,10 @@
+"""
+@file user.py
+@brief Model-Klasse für Benutzer im LaendleGuessr Backend.
+
+Dieses Modul enthält die User-Klasse mit allen Attributen und Methoden zur Serialisierung und Validierung.
+"""
+
 from datetime import date, datetime
 from typing import List, Dict
 from openapi_server.models.base_model import Model
