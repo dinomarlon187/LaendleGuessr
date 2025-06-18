@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'logger.dart';
 
 class ApiService{
-  static final ApiService _instance = ApiService._internal('http://10.0.2.2:8080');
+  static final ApiService _instance = ApiService._internal('http://10.0.2.0:8080');
 
   factory ApiService(String baseURL) {
     _instance.baseURL = baseURL;

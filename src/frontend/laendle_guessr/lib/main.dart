@@ -10,12 +10,114 @@ import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
 import 'package:laendle_guessr/services/quest_service.dart';
 import 'package:laendle_guessr/services/logger.dart';
+import 'package:laendle_guessr/services/api_service.dart';
+import 'ui/ip_input_dialog.dart';
+import 'package:http/http.dart' as http;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppLogger().init();
   AppLogger().log('App gestartet');
-  runApp(const LaendleGuessrApp());
+  runApp(LaendleGuessrAppWithApiCheck());
+}
+
+class LaendleGuessrAppWithApiCheck extends StatelessWidget {
+  const LaendleGuessrAppWithApiCheck({super.key});
+
+  Future<bool> _checkApi() async {
+    try {
+      final http.Response res = await ApiService.instance.get('healthcheck');
+      return res.statusCode == 200;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<bool>(
+      future: _checkApi(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const MaterialApp(
+            home: Scaffold(body: Center(child: CircularProgressIndicator())),
+            debugShowCheckedModeBanner: false,
+          );
+        }
+        if (snapshot.data == true) {
+          return const LaendleGuessrApp();
+        } else {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: IpInputScreen(),
+          );
+        }
+      },
+    );
+  }
+}
+
+class IpInputScreen extends StatefulWidget {
+  @override
+  State<IpInputScreen> createState() => _IpInputScreenState();
+}
+
+class _IpInputScreenState extends State<IpInputScreen> {
+  String? _lastIp;
+  Future<bool>? _apiCheckFuture;
+  bool _dialogShown = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_dialogShown) {
+      _dialogShown = true;
+      Future.microtask(_promptForIp);
+    }
+  }
+
+  void _promptForIp() async {
+    final ip = await showIpInputDialog(context);
+    if (ip != null && ip.isNotEmpty) {
+      ApiService('http://$ip:8080');
+      setState(() {
+        _lastIp = ip;
+        _apiCheckFuture = ApiService.instance.get('healthcheck')
+            .then((res) => res.statusCode == 200)
+            .catchError((_) => false);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_lastIp == null) {
+      // Wait for user input
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
+    return FutureBuilder<bool>(
+      future: _apiCheckFuture,
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const Scaffold(body: Center(child: CircularProgressIndicator()));
+        }
+        if (snapshot.data == true) {
+          Future.microtask(() {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (_) => const LaendleGuessrApp()),
+            );
+          });
+          return const Scaffold(body: Center(child: CircularProgressIndicator()));
+        } else {
+          // Prompt again for IP if still not working
+          Future.microtask(_promptForIp);
+          return const Scaffold(
+            body: Center(child: Text('API nicht erreichbar. Bitte IP erneut eingeben.')),
+          );
+        }
+      },
+    );
+  }
 }
 
 class LaendleGuessrApp extends StatelessWidget {
