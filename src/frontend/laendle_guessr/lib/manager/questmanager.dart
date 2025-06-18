@@ -8,10 +8,12 @@ import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:flutter/material.dart';
 import 'package:laendle_guessr/services/step_counter.dart';
 import 'package:laendle_guessr/services/user_service.dart';
-
+import 'package:laendle_guessr/services/logger.dart';
 
 class QuestManager extends ChangeNotifier{
-  QuestManager._internal(this.questService);
+  QuestManager._internal(this.questService) {
+    AppLogger().log('QuestManager instanziiert');
+  }
   static final QuestManager _instance = QuestManager._internal(QuestService.instance);
   factory QuestManager() => _instance;
   static QuestManager get instance => _instance;
@@ -35,27 +37,31 @@ class QuestManager extends ChangeNotifier{
   }
 
   Future<void> loadQuests() async {
+    AppLogger().log('QuestManager: loadQuests() aufgerufen');
     dailyQuestByCity.clear();
+    AppLogger().log('QuestManager: Lade Daily Quest für Bregenz');
     dailyQuestByCity[City.bregenz] = await questService.getdailyQuest(City.bregenz);
-    //dailyQuestByCity[City.dornbirn] = await questService.getdailyQuest(City.dornbirn);
-    //dailyQuestByCity[City.hohenems] = await questService.getdailyQuest(City.hohenems);
-    //dailyQuestByCity[City.feldkirch] = await questService.getdailyQuest(City.feldkirch);
-    //dailyQuestByCity[City.bludenz] = await questService.getdailyQuest(City.bludenz);
+    AppLogger().log('QuestManager: Lade Weekly Quest');
     weeklyQuest = await questService.getweeklyQuest();
     if (userManager.currentUser!.activeQuest != weeklyQuest && userManager.currentUser!.activeQuest != getDailyQuestForUser() && userManager.currentUser!.activeQuest != null) {
+      AppLogger().log('QuestManager: Entferne veraltete aktive Quest');
       await questService.removeQuestFromActive(userManager.currentUser!);
       userManager.currentUser!.activeQuest = null;
     }
+    AppLogger().log('QuestManager: Lade aktive Quest');
     await fetchActiveQuest();
+    AppLogger().log('QuestManager: Plane Mitternacht-Update');
     _scheduleMidnightUpdate();
+    AppLogger().log('QuestManager: loadQuests() abgeschlossen');
   }
 
   void _scheduleMidnightUpdate(){
+    AppLogger().log('QuestManager: _scheduleMidnightUpdate() aufgerufen');
     _midnightTimer?.cancel();
     final now = DateTime.now();
     final tomorrow = DateTime(now.year, now.month, now.day + 1);
     final durationUntilMidnight = tomorrow.difference(now);
-
+    AppLogger().log('QuestManager: Nächste Mitternacht in ${durationUntilMidnight.inHours}h ${durationUntilMidnight.inMinutes % 60}m');
     _timeUntilMidnight = durationUntilMidnight;
     timeUntilMidnightNotifier.value = durationUntilMidnight;
 

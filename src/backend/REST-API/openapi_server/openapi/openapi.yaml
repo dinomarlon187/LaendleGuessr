@@ -1,132 +1,312 @@
 openapi: 3.0.0
 info:
-  description: Eine API zur Verbindung mit unserer Supabase-Datenbank
-  title: LaendleGuessr
+  title: LaendleGuessr API
   version: 1.0.0
+  description: |
+    ## LaendleGuessr Backend API
+    
+    Eine umfassende REST-API für das LaendleGuessr-Projekt - ein standortbasiertes Ratespiel für Vorarlberg.
+    
+    ### Hauptfunktionen:
+    - **Benutzerverwaltung**: Registrierung, Anmeldung und Profilverwaltung
+    - **Quest-System**: Tägliche und wöchentliche Quests mit Standortverifikation
+    - **Item-Shop**: Virtuelle Items zum Sammeln und Kaufen
+    - **Fortschrittsverfolgung**: Schrittzählung und Quest-Fortschritt
+    
+    ### Technische Details:
+    - Datenbankanbindung über Supabase
+    - RESTful API-Design mit OpenAPI 3.0
+    - Umfassende Logging- und Fehlerbehandlung
+    
+    Entwickelt für HTL Rankweil - Projektarbeit 2024/25
+  contact:
+    name: LaendleGuessr Team
+    email: team@laendleguessr.dev
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
 servers:
   - url: /
+    description: Lokaler Development Server
+  - url: https://api.laendleguessr.dev
+    description: Production Server
 
 paths:
   /all_item_user/{uid}:
     get:
+      summary: Benutzer-Items abrufen
+      description: |
+        Ruft alle Items ab, die einem bestimmten Benutzer gehören.
+        Diese Endpoint ist nützlich für die Anzeige des Benutzer-Inventars.
       operationId: all_items_owned_by
       parameters:
         - in: path
           name: uid
           required: true
+          description: Die eindeutige Benutzer-ID für die Inventar-Abfrage
           schema:
             type: integer
+            minimum: 1
+            example: 123
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreich - Liste der Benutzer-Items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Alle Items eines Users bekommen
+          description: Ungültige Benutzer-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Benutzer nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - item
+        - Items
       x-openapi-router-controller: openapi_server.controllers.item_controller
-
   /all_quests:
     get:
+      summary: Alle verfügbaren Quests abrufen
+      description: |
+        Ruft eine vollständige Liste aller verfügbaren Quests im System ab.
+        Diese Endpoint wird verwendet, um den Quest-Katalog für die App zu laden.
       operationId: all_quests_get
       responses:
         "200":
-          description: Erfolgreiche Antwort
-        "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Alle Quests bekommen
+          description: Erfolgreich - Liste aller Quests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quest'
+        "500":
+          description: Interner Serverfehler beim Laden der Quests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
-
   /all_quests_user/{uid}:
     get:
+      summary: Abgeschlossene Quests eines Benutzers
+      description: |
+        Ruft alle Quests ab, die ein bestimmter Benutzer bereits erfolgreich abgeschlossen hat.
+        Nützlich für die Anzeige des Quest-Fortschritts und der Erfolge im Benutzerprofil.
       operationId: all_quests_done_by
       parameters:
         - in: path
           name: uid
           required: true
+          description: Die eindeutige Benutzer-ID für die Quest-Historie
           schema:
             type: integer
+            minimum: 1
+            example: 123
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreich - Liste der abgeschlossenen Quests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompletedQuest'
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Alle gemachten Quests eines Users bekommen
+          description: Ungültige Benutzer-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Benutzer nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
-
   /dailyquest/{city}:
     get:
+      summary: Tägliche Quest für Stadt abrufen
+      description: |
+        Ruft die aktuelle tägliche Quest für eine bestimmte Stadt in Vorarlberg ab.
+        Daily Quests wechseln täglich um Mitternacht und sind stadtspezifisch.
+        
+        **Verfügbare Städte:**
+        - 0: Bregenz
+        - 1: Dornbirn  
+        - 2: Feldkirch
+        - 3: Bludenz
+        - 4: Hohenems
       operationId: dailyquest_get
       parameters:
         - in: path
           name: city
           required: true
+          description: Die Stadt-ID für die Daily Quest Abfrage
           schema:
-            type: string
+            type: integer
+            minimum: 0
+            maximum: 4
+            example: 0
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreich - Daily Quest für die angegebene Stadt
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quest'
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Derzeitige DailyQuest einer Stadt
+          description: Ungültige Stadt-ID (muss zwischen 0-4 liegen)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Keine Daily Quest für diese Stadt verfügbar
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
-      x-openapi-router-controller: openapi_server.controllers.quest_controller
-  /activequest/{uid}:
+        - Quests
+      x-openapi-router-controller: openapi_server.controllers.quest_controller  /activequest/{uid}:
     get:
+      summary: Aktive Quest eines Benutzers abrufen
+      description: |
+        Ruft die aktuell aktive Quest eines bestimmten Benutzers ab.
+        Eine aktive Quest ist eine Quest, die der Benutzer gestartet, aber noch nicht abgeschlossen hat.
+        
+        **Anwendungsfälle:**
+        - Fortschritt der aktuellen Quest anzeigen
+        - Quest-Details für die Navigation laden
+        - Überprüfung ob eine Quest aktiv ist
       operationId: activequest_get
       parameters:
-        - in: path
-          name: uid
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/UserIdParam'
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Erfolgreich - Aktive Quest gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quest'
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Aktive Quest eines Users abrufen
+          description: Ungültige Benutzer-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Keine aktive Quest für diesen Benutzer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
     delete:
+      summary: Aktive Quest eines Benutzers entfernen
+      description: |
+        Entfernt die aktuell aktive Quest eines bestimmten Benutzers.
+        Dies ist nützlich wenn ein Benutzer eine Quest abbrechen möchte oder
+        bei der Cleanup nach Quest-Abschluss.
+        
+        **Wichtiger Hinweis:** 
+        Quest-Fortschritt geht dabei verloren!
       operationId: activequest_delete
       parameters:
-        - in: path
-          name: uid
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/UserIdParam'
       responses:
         "200":
-          description: Erfolgreich entfernt
+          description: Aktive Quest erfolgreich entfernt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: "Aktive Quest erfolgreich entfernt"
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Aktive Quest eines Users entfernen
+          description: Ungültige Benutzer-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Keine aktive Quest zum Entfernen gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
-      x-openapi-router-controller: openapi_server.controllers.quest_controller
-  /activequest:
+        - Quests
+      x-openapi-router-controller: openapi_server.controllers.quest_controller  /activequest:
     post:
+      summary: Neue aktive Quest für Benutzer setzen
+      description: |
+        Setzt eine neue Quest als aktive Quest für einen bestimmten Benutzer.
+        Nur eine Quest kann gleichzeitig aktiv sein - eine bestehende aktive Quest wird überschrieben.
+        
+        **Anwendungsfälle:**
+        - Daily Quest starten
+        - Weekly Quest beginnen
+        - Neue Quest nach Abschluss der vorherigen starten
+        
+        **Validierungen:**
+        - Quest muss existieren
+        - Benutzer muss existieren
+        - Quest darf nicht bereits abgeschlossen sein
       operationId: activequest_post
       requestBody:
+        required: true
+        description: Benutzer- und Quest-IDs für die neue aktive Quest
         content:
           application/json:
             schema:
@@ -134,72 +314,130 @@ paths:
               properties:
                 uid:
                   type: integer
+                  minimum: 1
+                  description: Die eindeutige Benutzer-ID
+                  example: 123
                 qid:
                   type: integer
+                  minimum: 1
+                  description: Die eindeutige Quest-ID
+                  example: 42
               required:
                 - uid
                 - qid
       responses:
         "200":
-          description: Erfolgreich hinzugefügt
+          description: Aktive Quest erfolgreich gesetzt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: "Quest erfolgreich als aktiv gesetzt"
+                  quest_id:
+                    type: integer
+                    example: 42
+                  started_at:
+                    type: string
+                    format: date-time
+                    example: "2024-06-18T14:30:00Z"
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Aktive Quest für User setzen
+          description: Ungültige Eingabe oder Quest bereits abgeschlossen
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Benutzer oder Quest nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
-  
-  /activequest_started/{uid}:
+    /activequest_started/{uid}:
     get:
+      summary: Startzeit der aktiven Quest abrufen
+      description: |
+        Ruft den Startzeitpunkt der aktuellen aktiven Quest eines Benutzers ab.
+        Diese Information ist wichtig für:
+        - Berechnung der Quest-Dauer
+        - Zeitbasierte Quest-Mechaniken
+        - Fortschrittsanzeige in der App
+        
+        **Rückgabewert:**
+        Zeitstempel im ISO 8601 Format (UTC)
       operationId: activequest_started_get
       parameters:
-      - in: path
-        name: uid
-        required: true
-        schema:
-          type: integer
+        - $ref: '#/components/parameters/UserIdParam'
       responses:
         "200":
-          description: Erfolgreich hinzugefügt
+          description: Startzeit erfolgreich abgerufen
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  started_at:
+                    type: string
+                    format: date-time
+                    description: Startzeitpunkt der aktiven Quest
+                    example: "2024-06-18T14:30:00Z"
+                  quest_id:
+                    type: integer
+                    description: ID der aktiven Quest
+                    example: 42
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Startzeit der aktiven Quest eines Users abrufen
+          description: Ungültige Benutzer-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Keine aktive Quest für diesen Benutzer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
-  /activequest_started/{uid}:
-    get:
-      operationId: activequest_started_get
-      parameters:
-      - in: path
-        name: uid
-        required: true
-        schema:
-          type: integer
-      responses:
-        "200":
-          description: Erfolgreich hinzugefügt
-        "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Startzeit der aktiven Quest eines Users abrufen
-      x-openapi-router-controller: openapi_server.controllers.quest_controller
-
   /activequest/{uid}/stepcount:
     put:
+      summary: Schrittzahl für aktive Quest aktualisieren
+      description: |
+        Aktualisiert die Schrittzahl für die aktive Quest eines Benutzers.
+        
+        **Wichtige Hinweise:**
+        - Nur für aktive Quests möglich
+        - Schrittzahl wird absolut gesetzt (nicht addiert)
+        - Verwendet für Fitness-Tracking und Quest-Fortschritt
+        - Automatische Validierung gegen negative Werte
+        
+        **Integration:**
+        - Wird typischerweise von der Pedometer-Funktion aufgerufen
+        - Kann zur Fortschrittsberechnung verwendet werden
       operationId: activequest_update_stepCount
       parameters:
-        - name: uid
-          in: path
-          required: true
-          description: Benutzer ID
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/UserIdParam'
       requestBody:
         required: true
+        description: Neue Schrittzahl für die aktive Quest
         content:
           application/json:
             schema:
@@ -207,34 +445,66 @@ paths:
               properties:
                 step_count:
                   type: integer
-                  description: Die neue Schrittzahl für die aktive Quest.
+                  minimum: 0
+                  description: Die neue Schrittzahl für die aktive Quest
+                  example: 2500
               required:
                 - step_count
       responses:
         "200":
           description: Schrittzahl erfolgreich aktualisiert
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: "Schrittzahl erfolgreich aktualisiert"
+                  step_count:
+                    type: integer
+                    example: 2500
+                  updated_at:
+                    type: string
+                    format: date-time
+                    example: "2024-06-18T15:30:00Z"
         "400":
-          description: Ungültige Eingabe oder Fehler beim Aktualisieren der Schrittzahl
+          description: Ungültige Eingabe oder negative Schrittzahl
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         "404":
           description: Aktive Quest für den Benutzer nicht gefunden
-        "503":
-          description: Service nicht verfügbar
-      summary: Aktualisiert die Schrittzahl für die aktive Quest eines Benutzers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
     get:
+      summary: Aktuelle Schrittzahl der aktiven Quest abrufen
+      description: |
+        Ruft die aktuelle Schrittzahl der aktiven Quest eines Benutzers ab.
+        
+        **Anwendungsfälle:**
+        - Fortschrittsanzeige in der App
+        - Synchronisation zwischen Geräten
+        - Validierung vor Updates
+        - Quest-Fortschritt berechnen
       operationId: activequest_get_stepCount
       parameters:
-        - name: uid
-          in: path
-          required: true
-          description: Benutzer ID
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/UserIdParam'
       responses:
         "200":
-          description: Erfolgreiche Abfrage der Schrittzahl
+          description: Schrittzahl erfolgreich abgerufen
           content:
             application/json:
               schema:
@@ -242,203 +512,568 @@ paths:
                 properties:
                   step_count:
                     type: integer
-                    description: Die aktuelle Schrittzahl der aktiven Quest.
+                    minimum: 0
+                    description: Die aktuelle Schrittzahl der aktiven Quest
+                    example: 1750
+                  quest_id:
+                    type: integer
+                    description: ID der aktiven Quest
+                    example: 42
+                  last_updated:
+                    type: string
+                    format: date-time
+                    description: Zeitpunkt der letzten Aktualisierung
+                    example: "2024-06-18T15:15:00Z"
+        "400":
+          description: Ungültige Benutzer-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         "404":
-          description: Aktive Quest für den Benutzer nicht gefunden oder Benutzer hat keine Schrittzahl
-        "503":
-          description: Service nicht verfügbar
-      summary: Ruft die Schrittzahl der aktiven Quest eines Benutzers ab
+          description: Aktive Quest oder Schrittzahl für den Benutzer nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
-
 
   /quest/{qid}:
     get:
+      summary: Quest-Details anhand ID abrufen
+      description: |
+        Ruft detaillierte Informationen zu einer spezifischen Quest anhand ihrer ID ab.
+        
+        **Verwendung:**
+        - Quest-Details für die Anzeige laden
+        - Koordinaten für Navigation abrufen
+        - Quest-Metadaten für Logik verwenden
+        
+        **Enthaltene Informationen:**
+        - Quest-Bild und Koordinaten
+        - Stadt-Zuordnung
+        - Verwendungshistorie
       operationId: quest_get
       parameters:
-        - in: path
-          name: qid
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/QuestIdParam'
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Quest-Details erfolgreich abgerufen
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quest'
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Quest mit bestimmter ID anzeigen
+          description: Ungültige Quest-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Quest mit dieser ID nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
-
   /item:
     get:
+      summary: Alle verfügbaren Items im Shop abrufen
+      description: |
+        Ruft eine vollständige Liste aller verfügbaren Items im Shop ab.
+        
+        **Anwendungsfälle:**
+        - Shop-Katalog laden
+        - Item-Auswahl anzeigen
+        - Preisvergleiche durchführen
+        
+        **Sortierung:**
+        Items werden standardmäßig nach Kategorie und dann nach Preis sortiert.
       operationId: all_items_get
       responses:
         "200":
-          description: Erfolgreiche Antwort
-        "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Alle Items anzeigen
+          description: Erfolgreiche Antwort mit vollständiger Item-Liste
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+        "500":
+          description: Interner Serverfehler beim Laden der Items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - item
+        - Items
       x-openapi-router-controller: openapi_server.controllers.item_controller
-
   /item/{id}:
     get:
+      summary: Item-Details anhand ID abrufen
+      description: |
+        Ruft detaillierte Informationen zu einem spezifischen Item anhand seiner ID ab.
+        
+        **Verwendung:**
+        - Item-Details vor Kauf anzeigen
+        - Item-Informationen für Inventar laden
+        - Einzelitem-Ansicht in der App
+        
+        **Enthaltene Informationen:**
+        - Name, Preis und Beschreibung
+        - Item-Bild und Kategorie
+        - Verfügbarkeitsstatus
       operationId: item_get
       parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ItemIdParam'
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Item-Details erfolgreich abgerufen
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Item mit bestimmter ID anzeigen
+          description: Ungültige Item-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Item mit dieser ID nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - item
+        - Items
       x-openapi-router-controller: openapi_server.controllers.item_controller
-
   /item_user:
     post:
+      summary: Item einem Benutzer zuweisen (Kauf abschließen)
+      description: |
+        Weist einem Benutzer ein Item zu, typischerweise nach einem erfolgreichen Kauf im Shop.
+        
+        **Funktionalität:**
+        - Validiert verfügbare Coins des Benutzers
+        - Zieht Item-Preis von Benutzer-Coins ab
+        - Fügt Item zum Benutzer-Inventar hinzu
+        - Verhindert Doppelkäufe
+        
+        **Transaktionale Sicherheit:**
+        - Atomare Operation (alles oder nichts)
+        - Rollback bei Fehlern
+        - Coin-Balance wird korrekt aktualisiert
       operationId: item_user_post
       requestBody:
         required: true
+        description: Benutzer- und Item-IDs für den Kaufvorgang
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/user_id'
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Item erfolgreich gekauft und zugewiesen
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: "Item erfolgreich gekauft"
+                  remaining_coins:
+                    type: integer
+                    description: Verbleibende Coins nach dem Kauf
+                    example: 500
+                  item_id:
+                    type: integer
+                    example: 15
+                  purchased_at:
+                    type: string
+                    format: date-time
+                    example: "2024-06-18T16:00:00Z"
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Einem User ein Item zuschreiben
+          description: Ungültige Eingabe, nicht genug Coins oder Item bereits besessen
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Benutzer oder Item nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler oder Transaktionsfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - item
+        - Items
       x-openapi-router-controller: openapi_server.controllers.item_controller
-
   /quest_user:
     post:
+      summary: Quest als abgeschlossen markieren
+      description: |
+        Markiert eine Quest für einen Benutzer als erfolgreich abgeschlossen.
+        
+        **Funktionalität:**
+        - Speichert Quest-Completion mit Zeitstempel
+        - Vergisst Belohnungen (Coins, Items)
+        - Berechnet und speichert Statistiken (Zeit, Schritte)
+        - Entfernt Quest aus aktiven Quests
+        
+        **Belohnungssystem:**
+        - Automatische Coin-Vergabe basierend auf Quest-Typ
+        - Daily Quests: 50-100 Coins
+        - Weekly Quests: 200-500 Coins
+        - Bonus für besonders schnelle Completion
+        
+        **Validierungen:**
+        - Quest muss existieren und aktiv sein
+        - Standortverifikation erforderlich
+        - Keine Doppel-Completions möglich
       operationId: quest_user_post
       requestBody:
         required: true
+        description: Quest-Completion Daten mit optionalen Statistiken
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/quest_user'
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Quest erfolgreich als abgeschlossen markiert
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: "Quest erfolgreich abgeschlossen"
+                  coins_earned:
+                    type: integer
+                    description: Verdiente Coins für diese Quest
+                    example: 75
+                  total_coins:
+                    type: integer
+                    description: Neue Gesamt-Coin-Anzahl
+                    example: 825
+                  completion_time:
+                    type: integer
+                    description: Benötigte Zeit in Sekunden
+                    example: 1800
+                  steps_taken:
+                    type: integer
+                    description: Anzahl der Schritte
+                    example: 2500
+                  completed_at:
+                    type: string
+                    format: date-time
+                    example: "2024-06-18T16:30:00Z"
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Einem User eine Quest als gemacht zuschreiben
+          description: Ungültige Eingabe oder Quest bereits abgeschlossen
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Benutzer oder Quest nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
-
   /user:
     get:
+      summary: Alle registrierten Benutzer abrufen
+      description: |
+        Ruft eine Liste aller registrierten Benutzer im System ab.
+        
+        **Admin-Funktion:**
+        - Nur für Administratoren verfügbar
+        - Sensible Daten (Passwörter) werden ausgeblendet
+        - Kann für Benutzeranalysen verwendet werden
+        
+        **Datenschutz:**
+        - Passwort-Hashes werden nicht übertragen
+        - Personal identifizierbare Informationen sind beschränkt
+        - Sortierung nach Registrierungsdatum
       operationId: all_users_get
       responses:
         "200":
-          description: Erfolgreiche Antwort
-        "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Alle User anzeigen
+          description: Erfolgreiche Antwort mit Benutzerliste
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        "401":
+          description: Nicht autorisiert - Admin-Rechte erforderlich
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - user
+        - Users
       x-openapi-router-controller: openapi_server.controllers.user_controller
     post:
+      summary: Neuen Benutzer registrieren
+      description: |
+        Registriert einen neuen Benutzer im LaendleGuessr-System.
+        
+        **Registrierungsprozess:**
+        - Benutzername-Eindeutigkeit wird geprüft
+        - Passwort wird sicher gehasht
+        - Standard-Coins (100) werden vergeben
+        - Benutzer wird automatisch der gewählten Stadt zugeordnet
+        
+        **Validierungen:**
+        - Benutzername: 3-30 Zeichen, nur Buchstaben, Zahlen, Underscore
+        - Passwort: Mindestens 8 Zeichen, keine Leerzeichen
+        - Stadt: Muss gültige Vorarlberger Stadt sein (0-4)
+        
+        **Sicherheit:**
+        - Passwort wird mit bcrypt gehasht
+        - SQL-Injection-Schutz
+        - Rate-Limiting für Registrierungen
       operationId: user_post
       requestBody:
         required: true
+        description: Registrierungsdaten für den neuen Benutzer
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/user'
       responses:
-        "200":
-          description: Erfolgreiche Antwort
+        "201":
+          description: Benutzer erfolgreich registriert
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: "Benutzer erfolgreich registriert"
+                  uid:
+                    type: integer
+                    description: Die neue Benutzer-ID
+                    example: 456
+                  username:
+                    type: string
+                    example: "neuer_benutzer"
+                  starting_coins:
+                    type: integer
+                    example: 100
+                  city:
+                    type: integer
+                    example: 2
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Neuen User hinzufügen
+          description: Ungültige Eingabedaten oder Benutzername bereits vergeben
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler bei der Registrierung
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - user
-      x-openapi-router-controller: openapi_server.controllers.user_controller
-
-  /user/{id}:
+        - Users
+      x-openapi-router-controller: openapi_server.controllers.user_controller  /user/{id}:
     get:
+      summary: Benutzer-Details anhand ID abrufen
+      description: |
+        Ruft detaillierte Informationen zu einem spezifischen Benutzer anhand seiner ID ab.
+        
+        **Anwendungsfälle:**
+        - Profil-Ansicht laden
+        - Benutzer-Statistiken anzeigen
+        - Admin-Verwaltung
+        
+        **Datenschutz:**
+        - Eigene Daten: Vollzugriff
+        - Andere Benutzer: Nur öffentliche Informationen
+        - Admin: Vollzugriff auf alle Daten (außer Passwörter)
       operationId: user_get
       parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/UserIdParam'
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Benutzer-Details erfolgreich abgerufen
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: User mit bestimmter ID anzeigen
+          description: Ungültige Benutzer-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Benutzer mit dieser ID nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - user
+        - Users
       x-openapi-router-controller: openapi_server.controllers.user_controller
     put:
+      summary: Benutzer-Daten aktualisieren
+      description: |
+        Aktualisiert die Daten eines bestehenden Benutzers.
+        
+        **Aktualisierbare Felder:**
+        - Benutzername (bei Verfügbarkeit)
+        - Passwort (wird neu gehasht)
+        - Stadt (Umzug möglich)
+        - Coins (nur Admin)
+        - Admin-Status (nur Admin)
+        
+        **Sicherheit:**
+        - Benutzer können nur eigene Daten ändern
+        - Admins können alle Daten ändern
+        - Passwort-Änderung erfordert aktuelle Passwort-Bestätigung
+        
+        **Validierungen:**
+        - Neue Benutzernamen werden auf Eindeutigkeit geprüft
+        - Passwort-Stärke wird validiert
+        - Stadt-IDs werden validiert
       operationId: user_update
       parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/UserIdParam'
       requestBody:
         required: true
+        description: Aktualisierte Benutzerdaten (nur geänderte Felder erforderlich)
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/user'
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Benutzer erfolgreich aktualisiert
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nachricht:
+                    type: string
+                    example: "Benutzer erfolgreich aktualisiert"
+                  updated_fields:
+                    type: array
+                    items:
+                      type: string
+                    example: ["username", "city"]
+                  updated_at:
+                    type: string
+                    format: date-time
+                    example: "2024-06-18T17:00:00Z"
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: User bearbeiten
+          description: Ungültige Eingabedaten oder Benutzername bereits vergeben
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Nicht autorisiert - keine Berechtigung zur Änderung
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Benutzer nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - user
+        - Users
       x-openapi-router-controller: openapi_server.controllers.user_controller
-  
-  /user/login:
+    /user/login:
     post:
-      summary: Benutzeranmeldung
+      summary: Benutzer-Anmeldung
+      description: |
+        Authentifiziert einen Benutzer mit Benutzername und Passwort.
+        
+        **Anmeldeprozess:**
+        - Benutzername wird case-insensitive geprüft
+        - Passwort wird gegen bcrypt-Hash validiert
+        - Session wird erstellt (falls Session-Management aktiv)
+        - Last-Active-Zeitstempel wird aktualisiert
+        
+        **Sicherheitsfeatures:**
+        - Rate-Limiting für Login-Versuche
+        - Account-Lockout nach fehlgeschlagenen Versuchen
+        - Sichere Passwort-Verifikation
+        - Logging von Login-Aktivitäten
+        
+        **Rückgabe:**
+        Komplette Benutzer-Informationen für App-Initialisierung
       operationId: user_login
       x-openapi-router-controller: openapi_server.controllers.user_controller
       requestBody:
         required: true
+        description: Anmeldedaten des Benutzers
         content:
           application/json:
             schema:
@@ -446,10 +1081,15 @@ paths:
               properties:
                 username:
                   type: string
+                  minLength: 3
+                  maxLength: 30
                   example: maxmustermann
+                  description: Der Benutzername (case-insensitive)
                 password:
                   type: string
+                  minLength: 8
                   example: geheim123
+                  description: Das Passwort des Benutzers
               required:
                 - username
                 - password
@@ -464,77 +1104,696 @@ paths:
                   nachricht:
                     type: string
                     example: Anmeldung erfolgreich
+                    description: Statusnachricht zur erfolgreichen Anmeldung
                   uid:
-                    type: string
+                    type: integer
+                    description: Die eindeutige Benutzer-ID
+                    example: 123
                   username:
                     type: string
+                    description: Der bestätigte Benutzername
+                    example: maxmustermann
                   coins:
                     type: integer
+                    description: Aktuelle Coin-Anzahl des Benutzers
+                    example: 750
                   admin:
                     type: boolean
+                    description: Admin-Status des Benutzers
+                    example: false
                   city:
                     type: integer
+                    description: Stadt-ID des Benutzers (0-4)
+                    example: 1
+                  last_login:
+                    type: string
+                    format: date-time
+                    description: Zeitstempel der Anmeldung
+                    example: "2024-06-18T17:30:00Z"
         '400':
-          description: Ungültige Anfrage
+          description: Ungültige Anfrage - fehlende oder ungültige Felder
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  nachricht:
-                    type: string
-                    example: Benutzername und Passwort erforderlich
+                $ref: '#/components/schemas/Error'
+              examples:
+                missing_fields:
+                  summary: Fehlende Felder
+                  value:
+                    nachricht: "Benutzername und Passwort erforderlich"
+                    timestamp: "2024-06-18T17:30:00Z"
+                invalid_format:
+                  summary: Ungültiges Format
+                  value:
+                    nachricht: "Benutzername muss zwischen 3 und 30 Zeichen lang sein"
+                    timestamp: "2024-06-18T17:30:00Z"
         '401':
           description: Ungültige Anmeldedaten
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  nachricht:
-                    type: string
-                    example: Ungültiger Benutzername oder Passwort
-  
+                $ref: '#/components/schemas/Error'
+              examples:
+                wrong_credentials:
+                  summary: Falsche Anmeldedaten
+                  value:
+                    nachricht: "Ungültiger Benutzername oder Passwort"
+                    timestamp: "2024-06-18T17:30:00Z"
+                account_locked:
+                  summary: Account gesperrt
+                  value:
+                    nachricht: "Account temporär gesperrt aufgrund zu vieler fehlgeschlagener Login-Versuche"
+                    timestamp: "2024-06-18T17:30:00Z"
+                    details: "Versuchen Sie es in 15 Minuten erneut"
+        '429':
+          description: Zu viele Login-Versuche
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Users
+      security: []
   /all_time_stats/{uid}:
     get:
+      summary: Allzeit-Statistiken eines Benutzers abrufen
+      description: |
+        Ruft die gesammelten Statistiken eines Benutzers über die gesamte Nutzungsdauer ab.
+        
+        **Enthaltene Statistiken:**
+        - Gesamtzahl abgeschlossener Quests
+        - Gesamte gelaufene Schritte
+        - Durchschnittliche Quest-Completion-Zeit
+        - Verdiente Coins gesamt
+        - Gekaufte Items
+        - Lieblings-Stadt (meiste Quests)
+        - Streak-Informationen (aufeinanderfolgende Tage)
+        
+        **Anwendung:**
+        - Profil-Statistiken anzeigen
+        - Leaderboards erstellen
+        - Erfolgs-System
+        - Motivations-Features
       operationId: get_all_time_stats
       parameters:
-        - in: path
-          name: uid
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/UserIdParam'
       responses:
         "200":
-          description: Erfolgreiche Antwort
+          description: Statistiken erfolgreich abgerufen
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: integer
+                    example: 123
+                  total_quests_completed:
+                    type: integer
+                    description: Gesamtzahl abgeschlossener Quests
+                    example: 45
+                  total_steps:
+                    type: integer
+                    description: Gesamtzahl gelaufener Schritte
+                    example: 125000
+                  total_coins_earned:
+                    type: integer
+                    description: Gesamtzahl verdienter Coins
+                    example: 3750
+                  total_coins_spent:
+                    type: integer
+                    description: Gesamtzahl ausgegebener Coins
+                    example: 1200
+                  items_owned:
+                    type: integer
+                    description: Anzahl besessener Items
+                    example: 8
+                  average_quest_time:
+                    type: number
+                    format: float
+                    description: Durchschnittliche Quest-Zeit in Minuten
+                    example: 28.5
+                  daily_quests_completed:
+                    type: integer
+                    example: 38
+                  weekly_quests_completed:
+                    type: integer
+                    example: 7
+                  current_streak:
+                    type: integer
+                    description: Aktuelle Streak (aufeinanderfolgende Tage)
+                    example: 5
+                  longest_streak:
+                    type: integer
+                    description: Längste Streak jemals erreicht
+                    example: 12
+                  favorite_city:
+                    type: integer
+                    description: Stadt mit den meisten abgeschlossenen Quests
+                    example: 1
+                  member_since:
+                    type: string
+                    format: date
+                    description: Registrierungsdatum
+                    example: "2024-01-15"
+                  last_active:
+                    type: string
+                    format: date-time
+                    description: Letzte Aktivität
+                    example: "2024-06-18T16:45:00Z"
         "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Gibt die Allzeit-Statistiken eines Users zurück
+          description: Ungültige Benutzer-ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Benutzer nicht gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - user
+        - Users
       x-openapi-router-controller: openapi_server.controllers.user_controller
-
   /weeklyquest:
     get:
+      summary: Aktuelle globale Weekly Quest abrufen
+      description: |
+        Ruft die aktuelle globale Weekly Quest ab, die für alle Benutzer verfügbar ist.
+        
+        **Weekly Quest System:**
+        - Neue Weekly Quest jeden Montag um 00:00 UTC
+        - Höhere Belohnungen als Daily Quests (200-500 Coins)
+        - Komplexere Aufgaben mit längerer Laufzeit
+        - Global für alle Städte verfügbar
+        
+        **Quest-Rotation:**
+        - Basiert auf ISO-Kalenderwoche
+        - Automatische Aktualisierung
+        - Verhindert Wiederholung innerhalb von 12 Wochen
+        
+        **Besonderheiten:**
+        - Oft mehrteilige Aufgaben
+        - Kann mehrere Standorte umfassen
+        - Bonus-Herausforderungen möglich
       operationId: weeklyquest_get
       responses:
         "200":
-          description: Erfolgreiche Antwort
-        "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      summary: Derzeitige globale WeeklyQuest
+          description: Aktuelle Weekly Quest erfolgreich abgerufen
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Quest'
+                  - type: object
+                    properties:
+                      week_number:
+                        type: string
+                        pattern: '^\d{4}-W\d{2}$'
+                        description: ISO-Woche für diese Weekly Quest
+                        example: "2024-W25"
+                      reward_coins:
+                        type: integer
+                        minimum: 200
+                        maximum: 500
+                        description: Coin-Belohnung für Completion
+                        example: 350
+                      difficulty:
+                        type: string
+                        enum: ["normal", "hard", "expert"]
+                        description: Schwierigkeitsgrad der Weekly Quest
+                        example: "hard"
+                      estimated_time:
+                        type: integer
+                        description: Geschätzte Zeit in Minuten
+                        example: 45
+        "404":
+          description: Keine Weekly Quest für diese Woche verfügbar
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Interner Serverfehler beim Laden der Weekly Quest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - quest
+        - Quests
       x-openapi-router-controller: openapi_server.controllers.quest_controller
 
-components:
-  schemas:
-    user_id:
-      title: user_id
+components:  schemas:
+    Error:
+      title: Error Response
+      description: |
+        Standard-Fehlerantwort für alle API-Endpoints mit konsistenter Struktur.
+        
+        **Verwendung:**
+        - Einheitliche Fehlerbehandlung
+        - Debugging und Logging
+        - Benutzerfreundliche Fehlermeldungen
+        - Internationalisierung möglich
+      type: object
+      required:
+        - nachricht
+        - timestamp
+        - error_code
+      properties:
+        nachricht:
+          type: string
+          description: Beschreibung des aufgetretenen Fehlers in deutscher Sprache
+          example: "Benutzer nicht gefunden"
+          minLength: 1
+          maxLength: 500
+        timestamp:
+          type: string
+          format: date-time
+          description: ISO 8601 Zeitstempel des Fehlers (UTC)
+          example: "2024-06-18T14:30:00Z"
+        error_code:
+          type: string
+          description: Eindeutiger Fehlercode für programmatische Behandlung
+          example: "USER_NOT_FOUND"
+          pattern: '^[A-Z_]+$'
+        details:
+          type: string
+          description: Zusätzliche technische Details zum Fehler (optional)
+          example: "Benutzer-ID 999 existiert nicht in der Datenbank"
+          maxLength: 1000
+        request_id:
+          type: string
+          description: Eindeutige Request-ID für Debugging
+          example: "req_1a2b3c4d5e6f"
+          pattern: '^req_[a-z0-9]+$'
+        help_url:
+          type: string
+          format: uri
+          description: URL zur Dokumentation oder Hilfe für diesen Fehler
+          example: "https://api-docs.laendleguessr.dev/errors/USER_NOT_FOUND"
+
+    Quest:
+      title: Quest
+      description: |
+        Repräsentiert eine Quest im LaendleGuessr-System mit allen notwendigen Metadaten.
+        
+        **Quest-Arten:**
+        - Daily Quests: Täglich wechselnde, stadtspezifische Aufgaben
+        - Weekly Quests: Wöchentliche, globale Herausforderungen
+        - Special Quests: Event-spezifische oder saisonale Quests
+        
+        **Koordinaten-Format:**
+        GPS-Koordinaten im WGS84-Format (latitude,longitude)
+      type: object
+      required:
+        - qid
+        - image
+        - city
+        - coordinates
+        - last_used_d
+        - last_used_w
+        - created_at
+      properties:
+        qid:
+          type: integer
+          minimum: 1
+          description: Eindeutige Quest-ID (Auto-increment)
+          example: 42
+        image:
+          type: string
+          format: uri-reference
+          description: Relativer Pfad zum Quest-Bild (vom Server-Root)
+          example: "/assets/images/quests/bregenz_landmark_01.jpg"
+          pattern: '^/assets/images/quests/[a-zA-Z0-9_-]+\.(jpg|jpeg|png|webp)$'
+        city:
+          type: integer
+          enum: [0, 1, 2, 3, 4]
+          description: |
+            Stadt-ID für geografische Zuordnung:
+            - 0: Bregenz (Landeshauptstadt)
+            - 1: Dornbirn (größte Stadt)
+            - 2: Feldkirch (historisch)
+            - 3: Bludenz (Alpenstadt)
+            - 4: Hohenems (kulturell)
+          example: 0
+        coordinates:
+          type: string
+          pattern: '^-?\d{1,2}\.\d{4,8},-?\d{1,2}\.\d{4,8}$'
+          description: |
+            GPS-Koordinaten im Format "latitude,longitude" (WGS84)
+            
+            **Vorarlberg Grenzen:**
+            - Latitude: 47.0° - 47.6°
+            - Longitude: 9.5° - 10.3°
+          example: "47.5031,9.7471"
+        last_used_d:
+          type: string
+          format: date
+          description: Datum der letzten Verwendung als Daily Quest (ISO 8601)
+          example: "2024-06-18"
+        last_used_w:
+          type: string
+          pattern: '^\d{4}-W\d{2}$'
+          description: ISO-Kalenderwoche der letzten Verwendung als Weekly Quest
+          example: "2024-W25"
+        created_at:
+          type: string
+          format: date-time
+          description: Erstellungszeitpunkt der Quest
+          example: "2024-01-15T10:00:00Z"
+        difficulty:
+          type: string
+          enum: ["easy", "medium", "hard", "expert"]
+          description: Schwierigkeitsgrad der Quest
+          example: "medium"
+          default: "medium"
+        estimated_duration:
+          type: integer
+          minimum: 5
+          maximum: 180
+          description: Geschätzte Dauer in Minuten
+          example: 30
+        reward_coins:
+          type: integer
+          minimum: 10
+          maximum: 500
+          description: Coin-Belohnung für Completion
+          example: 75
+        tags:
+          type: array
+          items:
+            type: string
+            enum: ["landmark", "nature", "culture", "sport", "history", "modern"]
+          description: Kategorien/Tags für die Quest
+          example: ["landmark", "culture"]
+          maxItems: 3    CompletedQuest:
+      title: Completed Quest
+      description: |
+        Eine abgeschlossene Quest mit Benutzer-spezifischen Daten und Statistiken.
+        
+        **Zusätzliche Informationen:**
+        - Completion-Zeitstempel für Tracking
+        - Performance-Metriken (Zeit, Schritte)
+        - Belohnungs-Details
+        - Achievement-Daten
+      allOf:
+        - $ref: '#/components/schemas/Quest'
+        - type: object
+          required:
+            - completed_at
+            - user_id
+          properties:
+            completed_at:
+              type: string
+              format: date-time
+              description: Zeitstempel der Quest-Vollendung (UTC)
+              example: "2024-06-18T15:45:30Z"
+            user_id:
+              type: integer
+              minimum: 1
+              description: ID des Benutzers, der die Quest abgeschlossen hat
+              example: 123
+            steps_taken:
+              type: integer
+              minimum: 0
+              description: Anzahl der Schritte für diese Quest
+              example: 2500
+            time_taken:
+              type: integer
+              minimum: 0
+              description: Benötigte Zeit in Sekunden
+              example: 1800
+            coins_earned:
+              type: integer
+              minimum: 0
+              description: Verdiente Coins für diese Quest
+              example: 75
+            bonus_applied:
+              type: boolean
+              description: Ob ein Zeitbonus angewendet wurde
+              example: true
+            completion_rank:
+              type: string
+              enum: ["bronze", "silver", "gold", "platinum"]
+              description: Bewertung basierend auf Performance
+              example: "gold"
+            weather_condition:
+              type: string
+              description: Wetterbedingungen zum Completion-Zeitpunkt
+              example: "sunny"
+              maxLength: 50
+
+    Item:
+      title: Item
+      description: |
+        Repräsentiert ein kaufbares Item im LaendleGuessr-Shop.
+        
+        **Item-Kategorien:**
+        - **accessory**: Schmuck, Kleidung, persönliche Gegenstände
+        - **decoration**: Dekorative Items für das Profil
+        - **special**: Limitierte oder Event-Items
+        - **utility**: Funktionale Items mit Spielvorteilen
+        
+        **Preis-Struktur:**
+        - Basis-Items: 50-200 Coins
+        - Premium-Items: 200-500 Coins
+        - Special/Limited: 500+ Coins
+      type: object
+      required:
+        - iid
+        - name
+        - price
+        - image
+        - category
+        - available
+      properties:
+        iid:
+          type: integer
+          minimum: 1
+          description: Eindeutige Item-ID (Auto-increment)
+          example: 15
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Anzeigename des Items
+          example: "Vorarlberg-Flagge"
+        price:
+          type: integer
+          minimum: 0
+          description: Preis des Items in Coins (0 = kostenlos)
+          example: 250
+        image:
+          type: string
+          format: uri-reference
+          description: Relativer Pfad zum Item-Bild
+          example: "/assets/images/items/vorarlberg_flag.png"
+          pattern: '^/assets/images/items/[a-zA-Z0-9_-]+\.(jpg|jpeg|png|webp)$'
+        description:
+          type: string
+          maxLength: 500
+          description: Detaillierte Beschreibung des Items
+          example: "Eine wunderschöne Flagge des Ländles zum Sammeln und Zeigen des Vorarlberg-Stolzes"
+        category:
+          type: string
+          enum: ["accessory", "decoration", "special", "utility"]
+          description: |
+            Kategorie des Items:
+            - accessory: Persönliche Gegenstände
+            - decoration: Dekorative Sammlerobjekte
+            - special: Limitierte/Event-Items
+            - utility: Funktionale Items
+          example: "decoration"
+        rarity:
+          type: string
+          enum: ["common", "uncommon", "rare", "epic", "legendary"]
+          description: Seltenheit des Items
+          example: "uncommon"
+          default: "common"
+        available:
+          type: boolean
+          description: Ob das Item im Shop verfügbar ist
+          example: true
+          default: true
+        limited_quantity:
+          type: integer
+          minimum: 0
+          description: Begrenzte Verfügbarkeit (0 = unbegrenzt)
+          example: 0
+        release_date:
+          type: string
+          format: date
+          description: Veröffentlichungsdatum des Items
+          example: "2024-01-15"
+        tags:
+          type: array
+          items:
+            type: string
+            maxLength: 20
+          description: Suchbare Tags für das Item
+          example: ["vorarlberg", "flagge", "patriotisch"]
+          maxItems: 5    User:
+      title: User
+      description: |
+        Repräsentiert einen Benutzer im LaendleGuessr-System mit allen relevanten Profildaten.
+        
+        **Benutzer-Typen:**
+        - **Standard-Benutzer**: Normale Spieler mit Quest- und Shop-Zugang
+        - **Admin-Benutzer**: Erweiterte Rechte für Systemverwaltung
+        
+        **Sicherheit:**
+        - Passwörter werden niemals in API-Antworten übertragen
+        - Sensible Daten nur für Benutzer selbst oder Admins sichtbar
+        - Automatische Session-Verwaltung
+        
+        **Gamification:**
+        - Coin-System für Quest-Belohnungen
+        - Stadt-Zugehörigkeit für lokale Inhalte
+        - Fortschritts-Tracking über created_at und last_active
+      type: object
+      required:
+        - uid
+        - username
+        - coins
+        - admin
+        - city
+        - created_at
+      properties:
+        uid:
+          type: integer
+          minimum: 1
+          description: Eindeutige Benutzer-ID (Auto-increment)
+          example: 123
+        username:
+          type: string
+          minLength: 3
+          maxLength: 30
+          pattern: '^[a-zA-Z0-9_]+$'
+          description: |
+            Eindeutiger Benutzername für Login und Anzeige.
+            
+            **Regeln:**
+            - 3-30 Zeichen
+            - Nur Buchstaben, Zahlen und Unterstriche
+            - Case-insensitive für Login
+            - Eindeutig im System
+          example: "max_mustermann"
+        email:
+          type: string
+          format: email
+          description: E-Mail-Adresse für Benachrichtigungen (optional)
+          example: "max@example.com"
+          maxLength: 254
+        coins:
+          type: integer
+          minimum: 0
+          description: |
+            Aktuelle Coin-Anzahl des Benutzers.
+            
+            **Verwendung:**
+            - Item-Käufe im Shop
+            - Belohnungen für Quest-Completion
+            - Bonus-Features (zukünftig)
+          example: 750
+        admin:
+          type: boolean
+          description: |
+            Admin-Status für erweiterte Systemberechtigung.
+            
+            **Admin-Rechte:**
+            - Benutzerverwaltung
+            - Quest- und Item-Management
+            - System-Statistiken
+            - Debugging-Tools
+          example: false
+        city:
+          type: integer
+          enum: [0, 1, 2, 3, 4]
+          description: |
+            Heimatstadt-ID für personalisierte Inhalte.
+            
+            **Städte:**
+            - 0: Bregenz (Landeshauptstadt, 29.000 Einwohner)
+            - 1: Dornbirn (größte Stadt, 50.000 Einwohner)
+            - 2: Feldkirch (mittelalterlich, 34.000 Einwohner)
+            - 3: Bludenz (Alpenstadt, 14.000 Einwohner)
+            - 4: Hohenems (kulturell, 16.000 Einwohner)
+          example: 1
+        created_at:
+          type: string
+          format: date-time
+          description: Registrierungszeitpunkt (UTC)
+          example: "2024-01-15T10:30:00Z"
+        last_active:
+          type: string
+          format: date-time
+          description: Zeitstempel der letzten Aktivität
+          example: "2024-06-18T14:25:30Z"
+        profile_image:
+          type: string
+          format: uri-reference
+          description: Relativer Pfad zum Profilbild (optional)
+          example: "/assets/images/profiles/user_123.jpg"
+        bio:
+          type: string
+          maxLength: 200
+          description: Kurze Biografie oder Status des Benutzers
+          example: "Vorarlberger durch und durch! 🏔️"
+        level:
+          type: integer
+          minimum: 1
+          description: Benutzer-Level basierend auf abgeschlossenen Quests
+          example: 15
+        total_score:
+          type: integer
+          minimum: 0
+          description: Gesamtpunktzahl aus allen Quest-Completions
+          example: 12450
+        preferences:
+          type: object
+          description: Benutzer-spezifische Einstellungen
+          properties:
+            notifications:
+              type: boolean
+              description: Push-Benachrichtigungen aktiviert
+              example: true
+            language:
+              type: string
+              enum: ["de", "en"]
+              description: Bevorzugte Sprache
+              example: "de"
+            privacy_level:
+              type: string
+              enum: ["public", "friends", "private"]
+              description: Sichtbarkeit des Profils
+              example: "public"    user_id:
+      title: User-ID Reference
+      description: |
+        Objekt zur Verknüpfung von Benutzer und Item/Quest bei Zuweisungsoperationen.
+        
+        **Verwendung:**
+        - Item-Käufe im Shop
+        - Quest-Assignment für aktive Quests
+        - Belohnungs-Zuweisungen
+        
+        **Validierung:**
+        - Beide IDs müssen existieren
+        - Benutzer muss berechtigt sein
+        - Duplikate werden verhindert
+      type: object
       required:
         - uid
         - id
@@ -542,77 +1801,571 @@ components:
         uid:
           type: integer
           minimum: 1
-          title: UserID
+          description: Eindeutige Benutzer-ID des Ziel-Benutzers
+          example: 123
         id:
           type: integer
           minimum: 1
-          title: ID
-      example:
-        uid: 3
-        id: 4
+          description: Eindeutige Item- oder Quest-ID für die Zuordnung
+          example: 42
+      examples:
+        item_purchase:
+          summary: Item-Kauf
+          value:
+            uid: 123
+            id: 15
+        quest_assignment:
+          summary: Quest-Zuweisung
+          value:
+            uid: 123
+            id: 42
 
     user:
-      title: user
+      title: User Registration/Update
+      description: |
+        Schema für Benutzerregistrierung und -updates mit vollständiger Validierung.
+        
+        **Registrierung:**
+        - Alle Pflichtfelder müssen ausgefüllt sein
+        - Automatische Validierung der Eingaben
+        - Sichere Passwort-Behandlung
+        
+        **Updates:**
+        - Nur geänderte Felder müssen übertragen werden
+        - Partial Updates unterstützt
+        - Validierung pro Feld
+        
+        **Sicherheit:**
+        - Passwort wird serverseitig gehasht
+        - Input-Sanitization
+        - Rate-Limiting für Registrierungen
+      type: object
       required:
         - username
         - password
-        - coins
-        - admin
         - city
       properties:
         username:
           type: string
-          title: Benutzername
           minLength: 3
           maxLength: 30
+          pattern: '^[a-zA-Z0-9_]+$'
+          description: |
+            Gewünschter Benutzername für das neue Konto.
+            
+            **Anforderungen:**
+            - 3-30 Zeichen
+            - Nur Buchstaben (a-z, A-Z), Zahlen (0-9) und Unterstriche (_)
+            - Eindeutig im System
+            - Case-insensitive Prüfung
+          example: "neuer_benutzer"
         password:
           type: string
-          title: Passwort
+          minLength: 8
+          maxLength: 128
+          description: |
+            Passwort für das Benutzerkonto.
+            
+            **Sicherheitsanforderungen:**
+            - Mindestens 8 Zeichen
+            - Keine Leerzeichen erlaubt
+            - Empfohlen: Mix aus Buchstaben, Zahlen und Sonderzeichen
+            - Wird serverseitig mit bcrypt gehasht
+          example: "MeinSicheresPasswort123"
+          format: password
+        email:
+          type: string
+          format: email
+          description: E-Mail-Adresse für Benachrichtigungen (optional)
+          example: "benutzer@example.com"
+          maxLength: 254
         coins:
           type: integer
-          title: Coins
           minimum: 0
+          maximum: 10000
+          default: 100
+          description: |
+            Anfangs-Coins für neue Benutzer (optional).
+            
+            **Standard:** 100 Coins
+            **Admin:** Kann beliebige Menge setzen
+            **Maximum:** 10.000 Coins bei Registrierung
+          example: 100
         admin:
           type: boolean
-          title: Admin
+          default: false
+          description: |
+            Admin-Status für das neue Konto (optional).
+            
+            **Hinweis:** Nur bestehende Admins können neue Admin-Konten erstellen
+          example: false
         city:
           type: integer
-          title: Stadt
-          enum:
-            - 0  
-            - 1  
-            - 2  
-            - 3  
-            - 4  
-      example:
-        username: keremderkomet
-        password: MeinSicheresPasswort123
-        coins: 150
-        admin: true
-        city: 1
-
-    quest_user:
-      title: quest_user
+          enum: [0, 1, 2, 3, 4]
+          description: |
+            Heimatstadt-ID für personalisierte Inhalte.
+            
+            **Verfügbare Städte:**
+            - 0: Bregenz (Landeshauptstadt am Bodensee)
+            - 1: Dornbirn (größte Stadt, Industrie)
+            - 2: Feldkirch (mittelalterliche Stadt)
+            - 3: Bludenz (Alpenstadt, Wintersport)
+            - 4: Hohenems (Kultur und Geschichte)
+          example: 2
+        bio:
+          type: string
+          maxLength: 200
+          description: Kurze Biografie oder Status (optional)
+          example: "Neu hier und bereit für Abenteuer!"
+      examples:
+        new_user:
+          summary: Neue Benutzerregistrierung
+          value:
+            username: "anna_vorarlberg"
+            password: "SuperSicher123!"
+            email: "anna@example.com"
+            city: 1
+            bio: "Dornbirnerin mit Leidenschaft fürs Entdecken!"
+        admin_user:
+          summary: Admin-Benutzer (nur für Admins)
+          value:
+            username: "admin_system"
+            password: "AdminPasswort456"
+            city: 0
+            admin: true
+            coins: 1000    quest_user:
+      title: Quest-User Assignment
+      description: |
+        Verknüpfung zwischen Benutzer und Quest mit Performance-Daten für Quest-Completion.
+        
+        **Completion-Prozess:**
+        1. Quest wird als aktiv markiert
+        2. Benutzer führt Quest aus (Standort, Schritte, Zeit)
+        3. Quest wird mit diesem Schema als abgeschlossen markiert
+        4. Belohnungen werden automatisch vergeben
+        
+        **Performance-Tracking:**
+        - Schritte für Fitness-Integration
+        - Zeit für Leaderboards und Achievements
+        - Automatische Qualitätsbewertung
+        
+        **Belohnungssystem:**
+        - Basis-Coins je nach Quest-Typ
+        - Zeit-Bonuse für schnelle Completion
+        - Zusätzliche Belohnungen für Streak-Erhaltung
+      type: object
       required:
         - uid
         - id
-        - steps
-        - timeInSeconds
       properties:
         uid:
           type: integer
           minimum: 1
+          description: Eindeutige Benutzer-ID des Quest-Absolventen
+          example: 123
         id:
           type: integer
           minimum: 1
+          description: Eindeutige Quest-ID der abgeschlossenen Quest
+          example: 42
         steps:
           type: integer
           minimum: 0
+          maximum: 100000
+          description: |
+            Anzahl der gemachten Schritte während der Quest-Ausführung.
+            
+            **Integration:**
+            - Pedometer/Fitness-Tracker Daten
+            - Validierung gegen unrealistische Werte
+            - Verwendung für Gesundheits-Features
+          example: 2500
         timeInSeconds:
           type: integer
           minimum: 0
-      example:
-        uid: 3
-        id: 4
-        steps: 1000
-        timeInSeconds: 3600
+          maximum: 86400
+          description: |
+            Benötigte Zeit für Quest-Completion in Sekunden.
+            
+            **Verwendung:**
+            - Leaderboards und Rankings
+            - Zeit-basierte Achievements
+            - Performance-Statistiken
+            - Bonus-Berechnungen
+            
+            **Limits:**
+            - Maximum: 24 Stunden (86400 Sekunden)
+            - Minimum: 0 Sekunden (sofortige Completion möglich)
+          example: 1800
+        location_verified:
+          type: boolean
+          description: Ob die GPS-Position erfolgreich verifiziert wurde
+          example: true
+          default: false
+        accuracy_meters:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+          description: GPS-Genauigkeit in Metern zum Completion-Zeitpunkt
+          example: 5.2
+        weather_condition:
+          type: string
+          enum: ["sunny", "cloudy", "rainy", "snowy", "foggy", "windy"]
+          description: Wetterbedingungen während der Quest (optional)
+          example: "sunny"
+        notes:
+          type: string
+          maxLength: 500
+          description: Optionale Notizen oder Kommentare zur Quest
+          example: "Wunderschöner Ausblick vom Pfänder!"
+      examples:
+        quick_completion:
+          summary: Schnelle Quest-Completion
+          value:
+            uid: 123
+            id: 42
+            steps: 1500
+            timeInSeconds: 900
+            location_verified: true
+            accuracy_meters: 3.1
+            weather_condition: "sunny"
+        long_quest:
+          summary: Längere Quest mit vielen Schritten
+          value:
+            uid: 456
+            id: 99
+            steps: 8500
+            timeInSeconds: 3600
+            location_verified: true
+            accuracy_meters: 8.7
+            weather_condition: "cloudy"
+            notes: "Tolle Wanderung durch die Altstadt!"
+  responses:
+    BadRequest:
+      description: |
+        Ungültige Anfrage aufgrund fehlerhafter oder unvollständiger Eingabedaten.
+        
+        **Häufige Ursachen:**
+        - Fehlende Pflichtfelder
+        - Ungültige Datenformate
+        - Werte außerhalb erlaubter Bereiche
+        - Verletzung von Business-Rules
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            missing_field:
+              summary: Fehlendes Pflichtfeld
+              value:
+                nachricht: "Feld 'username' ist erforderlich"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "MISSING_REQUIRED_FIELD"
+                details: "Das Feld 'username' muss in der Anfrage enthalten sein"
+            invalid_format:
+              summary: Ungültiges Datenformat
+              value:
+                nachricht: "Ungültiges Datumsformat"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "INVALID_DATE_FORMAT"
+                details: "Datum muss im ISO 8601 Format (YYYY-MM-DD) angegeben werden"
+    
+    Unauthorized:
+      description: |
+        Nicht autorisiert - Authentifizierung erforderlich oder fehlgeschlagen.
+        
+        **Mögliche Gründe:**
+        - Fehlendes oder ungültiges Authentifizierungs-Token
+        - Abgelaufene Session
+        - Ungültige Anmeldedaten
+        - Account gesperrt oder deaktiviert
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            missing_auth:
+              summary: Fehlende Authentifizierung
+              value:
+                nachricht: "Authentifizierung erforderlich"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "AUTHENTICATION_REQUIRED"
+                help_url: "https://api-docs.laendleguessr.dev/auth"
+            invalid_token:
+              summary: Ungültiges Token
+              value:
+                nachricht: "Ungültiges oder abgelaufenes Token"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "INVALID_TOKEN"
+    
+    Forbidden:
+      description: |
+        Zugriff verweigert - unzureichende Berechtigung für diese Operation.
+        
+        **Häufige Szenarien:**
+        - Admin-Rechte erforderlich
+        - Zugriff auf fremde Benutzerdaten
+        - Operation nicht für Benutzer-Typ erlaubt
+        - Rate-Limiting oder Account-Einschränkungen
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            admin_required:
+              summary: Admin-Rechte erforderlich
+              value:
+                nachricht: "Admin-Berechtigung erforderlich"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "ADMIN_PERMISSION_REQUIRED"
+            access_denied:
+              summary: Zugriff auf fremde Daten
+              value:
+                nachricht: "Zugriff auf fremde Benutzerdaten nicht erlaubt"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "ACCESS_DENIED"
+    
+    NotFound:
+      description: |
+        Ressource nicht gefunden - Die angeforderte Ressource existiert nicht.
+        
+        **Mögliche Ursachen:**
+        - Ungültige oder nicht existierende ID
+        - Ressource wurde gelöscht
+        - Falsche URL oder Endpoint
+        - Zugriff auf private/versteckte Ressourcen
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            user_not_found:
+              summary: Benutzer nicht gefunden
+              value:
+                nachricht: "Benutzer nicht gefunden"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "USER_NOT_FOUND"
+                details: "Benutzer-ID 999 existiert nicht in der Datenbank"
+            quest_not_found:
+              summary: Quest nicht gefunden
+              value:
+                nachricht: "Quest nicht gefunden"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "QUEST_NOT_FOUND"
+    
+    Conflict:
+      description: |
+        Konflikt - Die Anfrage kann aufgrund eines Konflikts mit dem aktuellen Zustand nicht verarbeitet werden.
+        
+        **Typische Konflikte:**
+        - Duplikate (z.B. Benutzername bereits vergeben)
+        - Quest bereits abgeschlossen
+        - Item bereits gekauft
+        - Concurrency-Konflikte
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            username_taken:
+              summary: Benutzername bereits vergeben
+              value:
+                nachricht: "Benutzername bereits vergeben"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "USERNAME_ALREADY_EXISTS"
+                details: "Der Benutzername 'max_mustermann' ist bereits registriert"
+            quest_completed:
+              summary: Quest bereits abgeschlossen
+              value:
+                nachricht: "Quest bereits abgeschlossen"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "QUEST_ALREADY_COMPLETED"
+    
+    TooManyRequests:
+      description: |
+        Zu viele Anfragen - Rate-Limiting aktiviert.
+        
+        **Rate-Limits:**
+        - Login-Versuche: 5 pro Minute
+        - Registrierungen: 3 pro Stunde
+        - API-Calls: 1000 pro Stunde
+        - Quest-Submissions: 10 pro Minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            rate_limit_exceeded:
+              summary: Rate-Limit überschritten
+              value:
+                nachricht: "Zu viele Anfragen"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "RATE_LIMIT_EXCEEDED"
+                details: "Maximale Anzahl von Anfragen pro Minute überschritten. Versuchen Sie es in 60 Sekunden erneut."
+    
+    InternalServerError:
+      description: |
+        Interner Serverfehler - Unerwarteter Fehler auf der Serverseite.
+        
+        **Automatische Maßnahmen:**
+        - Fehler wird geloggt und überwacht
+        - Entwicklungsteam wird benachrichtigt
+        - Request-ID für Support-Anfragen verfügbar
+        
+        **Benutzer-Empfehlungen:**
+        - Anfrage später wiederholen
+        - Bei anhaltenden Problemen Support kontaktieren
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            database_error:
+              summary: Datenbankfehler
+              value:
+                nachricht: "Interner Serverfehler"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "INTERNAL_DATABASE_ERROR"
+                request_id: "req_1a2b3c4d5e6f"
+                help_url: "https://support.laendleguessr.dev"
+    
+    ServiceUnavailable:
+      description: |
+        Dienst nicht verfügbar - Temporäre Serviceunterbrechung.
+        
+        **Mögliche Ursachen:**
+        - Wartungsarbeiten
+        - Systemüberlastung
+        - Abhängige Services nicht verfügbar
+        - Geplante Updates
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            maintenance:
+              summary: Wartungsmodus
+              value:
+                nachricht: "Service temporär nicht verfügbar"
+                timestamp: "2024-06-18T14:30:00Z"
+                error_code: "SERVICE_MAINTENANCE"
+                details: "Geplante Wartungsarbeiten bis 16:00 UTC"
+  parameters:
+    UserIdParam:
+      name: uid
+      in: path
+      required: true
+      description: Eindeutige Benutzer-ID für API-Operationen
+      schema:
+        type: integer
+        minimum: 1
+        example: 123
+      examples:
+        standard_user:
+          summary: Standard-Benutzer
+          value: 123
+        admin_user:
+          summary: Admin-Benutzer
+          value: 1
+
+    QuestIdParam:
+      name: qid
+      in: path
+      required: true
+      description: Eindeutige Quest-ID für API-Operationen
+      schema:
+        type: integer
+        minimum: 1
+        example: 42
+      examples:
+        daily_quest:
+          summary: Daily Quest
+          value: 42
+        weekly_quest:
+          summary: Weekly Quest
+          value: 99
+
+    ItemIdParam:
+      name: id
+      in: path
+      required: true
+      description: Eindeutige Item-ID für Shop-Operationen
+      schema:
+        type: integer
+        minimum: 1
+        example: 15
+      examples:
+        accessory:
+          summary: Accessoire
+          value: 15
+        decoration:
+          summary: Dekoration
+          value: 28
+
+    CityIdParam:
+      name: city
+      in: path
+      required: true
+      description: Stadt-ID für lokale Inhalte (0=Bregenz, 1=Dornbirn, 2=Feldkirch, 3=Bludenz, 4=Hohenems)
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 4
+        example: 0
+      examples:
+        bregenz:
+          summary: Bregenz
+          value: 0
+        dornbirn:
+          summary: Dornbirn
+          value: 1
+        feldkirch:
+          summary: Feldkirch
+          value: 2
+
+tags:
+  - name: Users
+    description: |
+      **Benutzerverwaltung und Authentifizierung**
+      
+      Alle Operationen rund um Benutzerkonten:
+      - Registrierung und Login
+      - Profilverwaltung
+      - Statistiken und Fortschritt
+      - Admin-Funktionen
+  - name: Quests
+    description: |
+      **Quest-System mit Daily und Weekly Quests**
+      
+      Das Herzstück des LaendleGuessr-Spiels:
+      - Daily Quests (täglich wechselnde stadtspezifische Aufgaben)
+      - Weekly Quests (wöchentliche globale Herausforderungen)
+      - Quest-Fortschritt und -Completion
+      - Aktive Quest-Verwaltung
+  - name: Items
+    description: |
+      **Shop-System und Item-Verwaltung**
+      
+      Virtueller Shop mit sammelbaren Items:
+      - Item-Katalog und -Details
+      - Kaufabwicklung mit Coins
+      - Inventar-Verwaltung
+      - Item-Kategorien und -Beschreibungen
+
+security:
+  - ApiKeyAuth: []
+  - BearerAuth: []
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API-Schlüssel für die Authentifizierung
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT-Token für authentifizierte Anfragen

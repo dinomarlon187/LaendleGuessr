@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -14,26 +15,33 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   @override
   void initState() {
     super.initState();
+    AppLogger().log('WelcomeScreen geladen');
+    AppLogger().log('WelcomeScreen: Initialisiere AnimationController');
     _controller = AnimationController(
       duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
     _fadeIn = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+    AppLogger().log('WelcomeScreen: Starte Fade-In Animation');
     _controller.forward();
   }
 
   @override
   void dispose() {
+    AppLogger().log('WelcomeScreen: dispose() aufgerufen');
     _controller.dispose();
+    AppLogger().log('WelcomeScreen: AnimationController disposed');
     super.dispose();
   }
 
   void _goToHome() {
+    AppLogger().log('WelcomeScreen: Navigation zu /home');
     Navigator.pushReplacementNamed(context, '/home');
   }
 
   @override
   Widget build(BuildContext context) {
+    AppLogger().log('WelcomeScreen: build() aufgerufen');
     return Scaffold(
       backgroundColor: const Color(0xFFEAF6FF),
       body: SafeArea(

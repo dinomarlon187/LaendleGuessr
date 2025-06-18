@@ -4,6 +4,7 @@ import 'package:laendle_guessr/data_objects/item.dart';
 import 'package:laendle_guessr/services/item_service.dart';
 import 'package:laendle_guessr/ui/ItemCard.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -13,34 +14,40 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-  // coinBalance will now be read directly from UserManager in the build method
+  
   late Future<List<Item>> futureItems;
-  final UserManager _userManager = UserManager.instance; // Store instance
+  final UserManager _userManager = UserManager.instance; 
 
   @override
   void initState() {
     super.initState();
+    AppLogger().log('ShopPage geladen');
+    AppLogger().log('ShopPage: Initialisiere futureItems');
     futureItems = ItemService.instance.getAllItems();
-    _userManager.addListener(_onUserDataChanged); // Listen to UserManager
+    AppLogger().log('ShopPage: Registriere UserManager Listener');
+    _userManager.addListener(_onUserDataChanged); 
   }
 
   @override
   void dispose() {
-    _userManager.removeListener(_onUserDataChanged); // Clean up listener
+    AppLogger().log('ShopPage: dispose() aufgerufen');
+    _userManager.removeListener(_onUserDataChanged); 
+    AppLogger().log('ShopPage: UserManager Listener entfernt');
     super.dispose();
   }
 
   void _onUserDataChanged() {
-    if (mounted) { // Check if the widget is still in the tree
+    AppLogger().log('ShopPage: User data changed');
+    if (mounted) { 
+      AppLogger().log('ShopPage: setState() wird aufgerufen');
       setState(() {
-        // This will trigger a rebuild, updating the coin balance
-        // and causing ItemCards to re-evaluate their 'owned' status.
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    AppLogger().log('ShopPage: build() aufgerufen');
 
     return Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),
@@ -92,7 +99,7 @@ class _ShopPageState extends State<ShopPage> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
-                  childAspectRatio: 0.8, // Adjust as needed for your ItemCard layout
+                  childAspectRatio: 0.8, 
                 ),
                 itemCount: items.length,
                 itemBuilder: (context, index) {

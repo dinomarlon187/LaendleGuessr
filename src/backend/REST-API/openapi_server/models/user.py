@@ -2,9 +2,11 @@ from datetime import date, datetime
 from typing import List, Dict
 from openapi_server.models.base_model import Model
 from openapi_server import util
+from openapi_server.logger import logger
 
 class User(Model):
     def __init__(self, username=None, password=None, coins=None, admin=None, city=None):
+        logger.debug(f"models/user.py: User-Objekt erstellt mit username={username}, coins={coins}, admin={admin}, city={city}")
         self.openapi_types = {
             'username': str,
             'password': str,
@@ -29,7 +31,10 @@ class User(Model):
 
     @classmethod
     def from_dict(cls, dikt) -> 'User':
-        return util.deserialize_model(dikt, cls)
+        logger.debug(f"models/user.py: User.from_dict() aufgerufen mit: {dikt}")
+        user = util.deserialize_model(dikt, cls)
+        logger.debug(f"models/user.py: User-Objekt aus Dictionary erstellt: {user.username}")
+        return user
 
     @property
     def username(self) -> str:
