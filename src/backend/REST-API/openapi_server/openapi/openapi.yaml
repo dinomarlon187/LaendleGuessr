@@ -328,29 +328,6 @@ paths:
         - item
       x-openapi-router-controller: openapi_server.controllers.item_controller
 
-  /item_user:
-    /item_user:
-    post:
-      operationId: item_user_post
-      summary: Einem User ein Item zuschreiben
-      description: Verknüpft ein Item mit einem Benutzer und speichert diese Beziehung.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/item_user'
-      responses:
-        "200":
-          description: Erfolgreiche Antwort
-        "400":
-          description: Ungültige Eingabe
-        "503":
-          description: Service nicht verfügbar
-      tags:
-        - item
-      x-openapi-router-controller: openapi_server.controllers.item_controller
-
   /quest_user:
     post:
       operationId: quest_user_post
@@ -552,28 +529,27 @@ paths:
         - quest
       x-openapi-router-controller: openapi_server.controllers.quest_controller
 
+  /healthcheck:
+    get:
+      operationId: healthcheck
+      responses:
+        "200":
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+      summary: Healthcheck Endpoint
+      tags:
+        - health
+      x-openapi-router-controller: openapi_server.controllers.health_controller
+
 components:
   schemas:
-    item_user:
-      title: item_user
-      description: Repräsentiert die Beziehung zwischen einem Benutzer und einem Item.
-      required:
-        - uid
-        - id
-      properties:
-        uid:
-          type: integer
-          minimum: 1
-          title: UserID
-          description: Die eindeutige ID des Benutzers
-        id:
-          type: integer
-          minimum: 1
-          title: ID
-          description: Die eindeutige ID des Items
-      example:
-        uid: 3
-        id: 4
 
     user_id:
       title: user_id
