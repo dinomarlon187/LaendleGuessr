@@ -67,7 +67,6 @@ Wir haben uns für folgende Hierarchie entschieden:
 
 Automatisch generiert mithilfe eines Paketes in flutter.
 
-```uml
 @startuml
 set namespaceSeparator .
 
@@ -183,7 +182,6 @@ class laendle_guessr.manager.usermanager.dart.UserManager {
 
 class ValueNotifier
 @enduml
-```
 
 
 

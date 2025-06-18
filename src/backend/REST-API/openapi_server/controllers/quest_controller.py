@@ -105,7 +105,7 @@ def activequest_get(uid):
             .execute()
         )
         return quest_response.data, 200
-    return None, 200
+    return {"message": "No active quest found for user"}, 404
 
 def activequest_post(body): 
     if connexion.request.is_json:
