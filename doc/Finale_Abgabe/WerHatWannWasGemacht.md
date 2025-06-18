@@ -29,6 +29,7 @@
 
 | Wann           | Beschreibung der Änderungen                                                                 |
 |----------------|---------------------------------------------------------------------------------------------|
+| 18. Juni 2025  | apk erstellt                                                                 |
 | 18. Juni 2025  | md in pdf umgewandelt                                                                 |
 | 18. Juni 2025  | Frontend API-Dokumentation                                                                  |
 | 18. Juni 2025  | Backend API-Dokumentation                                                                   |
