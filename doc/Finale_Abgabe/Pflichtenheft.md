@@ -4,20 +4,26 @@
 
 ### 1 Softwarevorraussetzungen
 
-- Flutter:
-    - sdk: flutter
-- Packages:
-    - flutter_staggered_animations: ^1.1.1
-    - cupertino_icons: ^1.0.8
-    - shared_preferences: ^2.5.3
-    - permission_handler: ^11.0.0
-    - flutter_map: ^6.2.1
-    - latlong2: ^0.9.0
-    - geolocator: ^10.1.0
-    - flutter_native_splash: ^2.4.0
-    - provider: ^6.1.3
-    - pedometer: ^4.0.0
-    - http: ^1.2.1
+Haupt-Abhängigkeiten:
+flutter
+flutter_staggered_animations: ^1.1.1
+cupertino_icons: ^1.0.8
+shared_preferences: ^2.5.3
+permission_handler: ^11.0.0
+path_provider: ^2.1.1
+flutter_map: ^6.2.1
+latlong2: ^0.9.0
+geolocator: ^10.1.0
+flutter_native_splash: ^2.4.0
+provider: ^6.1.3
+pedometer: ^4.0.0
+http: ^1.2.1
+
+
+Dev-Abhängigkeiten:
+flutter_test
+flutter_lints: ^5.0.0
+dcdg: ^4.1.0
 
 ### 2 Architektur
 
@@ -147,12 +153,77 @@ So stehen einem nun alle Wege offen. Man kann Quests starten, auf der Map sehen 
 
 ### 1 Softwarevorraussetzungen
 
-- Python3
-- pip
-- Pakete:
-  - flask
-  - connexion
-  - supabase-py
+Python3
+pip
+
+(Die Dependencies aus dem venv)
+aiohappyeyeballs==2.6.1
+aiohttp==3.12.13
+aiosignal==1.3.2
+annotated-types==0.7.0
+anyio==4.9.0
+attrs==25.3.0
+bcrypt==4.3.0
+certifi==2025.6.15
+charset-normalizer==3.4.2
+click==8.2.1
+clickclick==20.10.2
+colorama==0.4.6
+connexion==2.14.2
+coverage==7.9.1
+deprecation==2.1.0
+Flask==2.1.1
+Flask-Testing==0.8.1
+frozenlist==1.7.0
+gotrue==2.12.0
+h11==0.16.0
+h2==4.2.0
+hpack==4.1.0
+httpcore==1.0.9
+httpx==0.28.1
+hyperframe==6.1.0
+idna==3.10
+inflection==0.5.1
+iniconfig==2.1.0
+itsdangerous==2.2.0
+Jinja2==3.1.6
+jsonschema==4.24.0
+jsonschema-specifications==2025.4.1
+MarkupSafe==3.0.2
+multidict==6.5.0
+packaging==25.0
+pluggy==1.6.0
+postgrest==1.0.2
+propcache==0.3.2
+py==1.11.0
+pydantic==2.11.7
+pydantic_core==2.33.2
+PyJWT==2.10.1
+pytest==7.1.3
+pytest-cov==6.2.1
+pytest-mock==3.14.1
+pytest-randomly==3.16.0
+python-dateutil==2.9.0.post0
+PyYAML==6.0.2
+realtime==2.4.3
+referencing==0.36.2
+requests==2.32.4
+rpds-py==0.25.1
+setuptools==80.9.0
+six==1.17.0
+sniffio==1.3.1
+storage3==0.11.3
+StrEnum==0.4.15
+supabase==2.15.3
+supafunc==0.9.4
+swagger-ui-bundle==0.0.9
+tomli==2.2.1
+typing-inspection==0.4.1
+typing_extensions==4.14.0
+urllib3==2.5.0
+websockets==14.2
+Werkzeug==2.2.3
+yarl==1.20.1
 
 ### 2 Architektur
 
