@@ -340,7 +340,7 @@ So stehen einem nun alle Wege offen. Man kann Quests starten, auf der Map sehen 
 
 In unserer REST-API gibt es viele verschiedene Endpunkte, welche alle Daten aus unserer Datenbank auslesen/löschen/verändern/hinzufügen. Diese sind nach Kategorien in Files eingeteilt und auf Funktionalität getestet.
 
-### 4 Mögliche Pribleme und ihre Lösung
+### 4 Mögliche Probleme und ihre Lösung
 
 - Natürlich hat bei unserem Projekt nicht alles auf Anhieb geklappt und wir hatten allfällige Schwierigkeiten. Spezifische Beispiele und deren Lösungen werden hier näher besprochen 
 
