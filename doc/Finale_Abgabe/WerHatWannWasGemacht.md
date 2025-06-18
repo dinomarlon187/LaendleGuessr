@@ -22,19 +22,21 @@
 | 23. Mai 2025   | Supabase-Datenbankanbindung eingerichtet, REST-API Grundstruktur implementiert             |
 | 23. Mai 2025   | Kleinere Fehlerbehebungen und Planung des REST-API-Konzepts                                 |
 | 21. Mai 2025   | Erste Projektdokumentation hinzugefügt                                                      |
-| 20. Mai 2025   | Testen, wie, was in Flutter funktioniert                                             |
-| Zuvor              | Flutter lernen und Projektplanung|
-
+| 20. Mai 2025   | Testen, wie, was in Flutter funktioniert                                                     |
+| Zuvor          | Flutter lernen und Projektplanung                                                           |
 
 ## Ensar
 
 | Wann           | Beschreibung der Änderungen                                                                 |
 |----------------|---------------------------------------------------------------------------------------------|
+| 18. Juni 2025  | Frontend API-Dokumentation                                                                  |
+| 18. Juni 2025  | Backend API-Dokumentation                                                                   |
+| 18. Juni 2025  | Logging                                                                                      |
 | 15. Juni 2025  | Neues Bild für Quests hinzugefügt, Profilseite erweitert (Benutzerdaten + Logout), Shop-Animation |
 | 14. Juni 2025  | Items aus Datenbank erfolgreich im Shop geladen                                             |
 | 13. Juni 2025  | Neue API-Endpunkte für Benutzer und Controller erstellt, Shop-UI weiterentwickelt          |
 | 12. Juni 2025  | Shop-Benutzeroberfläche erstellt (noch nicht funktionsfähig)                               |
-| 11. Juni 2025  | Map-Funktionalität verbessert                                                               |
+| 11. Juni 2025  | Map eingefügt                                                                               |
 | 8. Juni 2025   | Anzeige der korrekten Quests für den Benutzer auf der Hauptseite umgesetzt                 |
 | 7. Juni 2025   | Benutzeroberfläche für die Hauptseite fertiggestellt (mit kleinen Details ausstehend)      |
-| Zuvor               | Flutter lernen und Projektplanung |
+| 8. Mai 2025    | ERM-Modell             
