@@ -2528,3 +2528,192 @@ On instance['paths']['/item_user']:
 2025-06-18 22:50:46,948 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
 2025-06-18 22:50:48,003 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
 2025-06-18 22:50:48,048 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 23:36:23,121 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 23:36:23,121 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 23:36:23,222 [ERROR] connexion.apis.abstract: Failed to add operation for GET /all_item_user/{uid}
+2025-06-18 23:36:23,222 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: No module named 'supabase'
+Traceback (most recent call last):
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 222, in add_paths
+    self.add_operation(path, method)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 175, in add_operation
+    operation = make_operation(
+        self.specification,
+    ...<9 lines>...
+        pass_context_arg_name=self.pass_context_arg_name
+    )
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\__init__.py", line 16, in make_operation
+    return spec.operation_cls.from_spec(spec, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\openapi.py", line 134, in from_spec
+    return cls(
+        api,
+    ...<8 lines>...
+        **kwargs
+    )
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\openapi.py", line 81, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        api=api,
+        ^^^^^^^^
+    ...<12 lines>...
+        pass_context_arg_name=pass_context_arg_name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\abstract.py", line 101, in __init__
+    self._resolution = resolver.resolve(self)
+                       ~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 47, in resolve
+    return Resolution(self.resolve_function_from_operation_id(operation_id), operation_id)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 71, in resolve_function_from_operation_id
+    raise ResolverError(msg, sys.exc_info())
+connexion.exceptions.ResolverError: <ResolverError: Cannot resolve operationId "openapi_server.controllers.item_controller.all_items_owned_by"! Import error was "No module named 'supabase'">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 22, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 119, in __init__
+    self.add_paths()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 229, in add_paths
+    self._handle_add_operation_error(path, method, err.exc_info)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 244, in _handle_add_operation_error
+    raise value.with_traceback(traceback)
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 68, in resolve_function_from_operation_id
+    return self.function_resolver(operation_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\utils.py", line 128, in get_function_from_name
+    raise last_import_error
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\utils.py", line 116, in get_function_from_name
+    module = importlib.import_module(module_name)
+  File "C:\Users\marlo\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "c:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\openapi_server\controllers\item_controller.py", line 17, in <module>
+    from openapi_server.db import supabase
+  File "c:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\openapi_server\db.py", line 9, in <module>
+    from supabase import create_client, Client
+ModuleNotFoundError: No module named 'supabase'
+2025-06-18 23:37:18,150 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 23:37:18,150 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 23:37:19,229 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 23:37:19,239 [ERROR] connexion.apis.abstract: Failed to add operation for GET /user
+2025-06-18 23:37:19,239 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: No module named 'bcrypt'
+Traceback (most recent call last):
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 222, in add_paths
+    self.add_operation(path, method)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 175, in add_operation
+    operation = make_operation(
+        self.specification,
+    ...<9 lines>...
+        pass_context_arg_name=self.pass_context_arg_name
+    )
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\__init__.py", line 16, in make_operation
+    return spec.operation_cls.from_spec(spec, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\openapi.py", line 134, in from_spec
+    return cls(
+        api,
+    ...<8 lines>...
+        **kwargs
+    )
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\openapi.py", line 81, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        api=api,
+        ^^^^^^^^
+    ...<12 lines>...
+        pass_context_arg_name=pass_context_arg_name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\operations\abstract.py", line 101, in __init__
+    self._resolution = resolver.resolve(self)
+                       ~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 47, in resolve
+    return Resolution(self.resolve_function_from_operation_id(operation_id), operation_id)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 71, in resolve_function_from_operation_id
+    raise ResolverError(msg, sys.exc_info())
+connexion.exceptions.ResolverError: <ResolverError: Cannot resolve operationId "openapi_server.controllers.user_controller.all_users_get"! Import error was "No module named 'bcrypt'">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 22, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 119, in __init__
+    self.add_paths()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 229, in add_paths
+    self._handle_add_operation_error(path, method, err.exc_info)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 244, in _handle_add_operation_error
+    raise value.with_traceback(traceback)
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\resolver.py", line 68, in resolve_function_from_operation_id
+    return self.function_resolver(operation_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\utils.py", line 128, in get_function_from_name
+    raise last_import_error
+  File "C:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\utils.py", line 116, in get_function_from_name
+    module = importlib.import_module(module_name)
+  File "C:\Users\marlo\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "c:\Users\marlo\Documents\test\LaendleGuessr\src\backend\REST-API\openapi_server\controllers\user_controller.py", line 12, in <module>
+    import bcrypt
+ModuleNotFoundError: No module named 'bcrypt'
+2025-06-18 23:37:29,314 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 23:37:29,314 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 23:37:30,005 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 23:37:30,061 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 23:37:31,363 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 23:37:31,363 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 23:37:33,913 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
