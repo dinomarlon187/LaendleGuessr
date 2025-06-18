@@ -6,6 +6,7 @@ import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:laendle_guessr/ui/ItemCard.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:laendle_guessr/services/user_service.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -24,6 +25,8 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
+    AppLogger().log('ProfilePage geladen');
+    AppLogger().log('ProfilePage: Initialisiere Animationen');
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 700),
@@ -39,32 +42,42 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
       parent: _animationController,
       curve: Curves.easeOut,
     ));
+    AppLogger().log('ProfilePage: Starte Animationen');
     _animationController.forward();
+    AppLogger().log('ProfilePage: Lade Benutzer-Statistiken');
     _loadStats();
   }
 
   Future<void> _loadStats() async {
+    AppLogger().log('ProfilePage: Statistiken werden geladen');
     final loadedStats = await UserService.instance.getAllTimeStats();
+    AppLogger().log('ProfilePage: Statistiken erhalten, aktualisiere UI');
     setState(() {
       stats = loadedStats;
     });
+    AppLogger().log('ProfilePage: Statistiken erfolgreich geladen');
   }
 
   @override
   void dispose() {
+    AppLogger().log('ProfilePage: dispose() aufgerufen');
     _animationController.dispose();
+    AppLogger().log('ProfilePage: AnimationController disposed');
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    AppLogger().log('ProfilePage: build() aufgerufen');
     if (stats == null) {
+      AppLogger().log('ProfilePage: Statistiken noch nicht geladen, zeige Ladeindikator');
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
-    final items = user.inventory?.items ?? [];
+    AppLogger().log('ProfilePage: Rendere vollständige Profil-UI');
+    final items = user.inventory.items;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),

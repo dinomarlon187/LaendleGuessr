@@ -1,11 +1,13 @@
 from openapi_server.models.base_model import Model
 from openapi_server import util
+from openapi_server.logger import logger
 
 
 class QuestUser(Model):
     """Model for assigning a quest to a user, including steps and duration."""
 
     def __init__(self, uid=None, id=None, steps=None, timeInSeconds=None):
+        logger.debug(f"models/quest_user.py: QuestUser-Objekt erstellt mit uid={uid}, id={id}, steps={steps}, timeInSeconds={timeInSeconds}")
         self.openapi_types = {
             'uid': int,
             'id': int,
@@ -27,7 +29,10 @@ class QuestUser(Model):
 
     @classmethod
     def from_dict(cls, dikt) -> 'QuestUser':
-        return util.deserialize_model(dikt, cls)
+        logger.debug(f"models/quest_user.py: QuestUser.from_dict() aufgerufen mit: {dikt}")
+        quest_user = util.deserialize_model(dikt, cls)
+        logger.debug(f"models/quest_user.py: QuestUser-Objekt aus Dictionary erstellt: uid={quest_user.uid}, id={quest_user.id}")
+        return quest_user
 
     @property
     def uid(self) -> int:

@@ -9,11 +9,12 @@ import 'package:laendle_guessr/controller/appcontroller.dart';
 import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
 import 'package:laendle_guessr/services/quest_service.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-
+  await AppLogger().init();
+  AppLogger().log('App gestartet');
   runApp(const LaendleGuessrApp());
 }
 

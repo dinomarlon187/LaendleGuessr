@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laendle_guessr/services/api_service.dart';
+import 'package:laendle_guessr/services/logger.dart';
 import 'package:laendle_guessr/services/user_service.dart';
 import 'ui_components.dart';
 
@@ -19,26 +20,45 @@ class _SignupPageState extends State<SignupPage> {
 
   final List<String> _cities = [
     'Bregenz',
-    'Dornbirn',
-    'Feldkirch',
-    'Bludenz',
-    'Hohenems',
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    AppLogger().log('SignupPage geladen');
+    AppLogger().log('SignupPage: Formularcontroller initialisiert');
+  }
+
+  @override
+  void dispose() {
+    AppLogger().log('SignupPage: dispose() aufgerufen');
+    _usernameController.dispose();
+    _passwordController.dispose();
+    AppLogger().log('SignupPage: Controller disposed');
+    super.dispose();
+  }
+
   int _getCityId(String cityName) {
+    AppLogger().log('SignupPage: getCityId für Stadt: $cityName');
     return _cities.indexOf(cityName);
   }
 
   void _submit() async {
+    AppLogger().log('SignupPage: Submit-Button gedrückt');
     if (_formKey.currentState!.validate()) {
+      AppLogger().log('SignupPage: Formular-Validierung erfolgreich');
       setState(() => _isLoading = true);
+      AppLogger().log('SignupPage: Loading State aktiviert');
 
       final username = _usernameController.text;
       final password = _passwordController.text;
       final cityId = _getCityId(_selectedCity!);
 
+      AppLogger().log('SignupPage: Registrierungsversuch für User: $username, Stadt: $_selectedCity');
+
       try {
         final userService = UserService();
+        AppLogger().log('SignupPage: UserService instanziiert');
 
         final response = await userService.registerUser(
           username: username,
@@ -46,19 +66,25 @@ class _SignupPageState extends State<SignupPage> {
           city: cityId,
           coins: 0,
         );
+        AppLogger().log('SignupPage: Registrierung erfolgreich abgeschlossen');
 
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Registrierung erfolgreich!')),
         );
+        AppLogger().log('SignupPage: Erfolgs-SnackBar angezeigt');
 
         Navigator.pushReplacementNamed(context, '/login');
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Fehler: ${e.toString()}')),
         );
+        AppLogger().log('SignupPage: Fehler bei der Registrierung - ${e.toString()}');
       } finally {
         setState(() => _isLoading = false);
+        AppLogger().log('SignupPage: Loading State deaktiviert');
       }
+    } else {
+      AppLogger().log('SignupPage: Formular-Validierung fehlgeschlagen');
     }
   }
 

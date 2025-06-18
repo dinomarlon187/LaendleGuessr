@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:laendle_guessr/data_objects/item.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 class ItemCard extends StatelessWidget {
   final Item item;
@@ -15,12 +16,14 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLogger().log('ItemCard: build() für Item ${item.name} (ID: ${item.id})');
     final UserManager userManager = UserManager.instance;
     final User? currentUser = userManager.currentUser;
     bool itemOwned = false;
 
     if (currentUser != null && currentUser.inventory != null) {
       itemOwned = currentUser.inventory!.items.any((inventoryItem) => inventoryItem.id == item.id);
+      AppLogger().log('ItemCard: Item ${item.name} besessen: $itemOwned');
     }
 
     return Material(

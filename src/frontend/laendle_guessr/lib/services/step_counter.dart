@@ -4,9 +4,12 @@ import 'dart:async';
 import 'package:laendle_guessr/services/quest_service.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 class StepCounter extends ChangeNotifier {
-  StepCounter._internal();
+  StepCounter._internal() {
+    AppLogger().log('StepCounter instanziiert');
+  }
   static final StepCounter _instance = StepCounter._internal();
   factory StepCounter() => _instance;
   static StepCounter get instance => _instance;
@@ -23,6 +26,7 @@ class StepCounter extends ChangeNotifier {
   static const String _pedometerValueKey = 'initialPedometerValue';
 
   void onStepCount(StepCount event) {
+    AppLogger().log('StepCounter: Schritt gezählt: \\${event.steps}');
     if (_initialPedometerValue == 0) {
       _initialPedometerValue = event.steps;
       _saveInitialPedometerValue(_initialPedometerValue);
@@ -32,6 +36,7 @@ class StepCounter extends ChangeNotifier {
   }
 
   void onStepCountError(error) {
+    AppLogger().log('StepCounter Fehler: $error');
     debugPrint('Step Count Error: $error');
   }
 

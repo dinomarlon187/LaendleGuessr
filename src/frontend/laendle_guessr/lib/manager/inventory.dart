@@ -3,18 +3,22 @@ import 'package:laendle_guessr/data_objects/user.dart';
 import 'dart:async';
 import 'package:laendle_guessr/services/item_service.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 class Inventory{
   List<Item> items;
   final ItemService itemService = ItemService.instance;
 
-  Inventory({List<Item>? items}) : items = items ?? [];
+  Inventory({List<Item>? items}) : items = items ?? [] {
+    AppLogger().log('Inventory instanziiert');
+  }
 
   void addItemToInventory(Item item) async {
     items.add(item);
     await itemService.addItemToInventory(UserManager.instance.currentUser!.uid, item).then((_) {
+      AppLogger().log('Item zu Inventory hinzugefügt: \\${item.name}');
     }).catchError((error) {
-      // Logging
+      AppLogger().log('Fehler beim Hinzufügen zu Inventory: $error');
     });
     
   }

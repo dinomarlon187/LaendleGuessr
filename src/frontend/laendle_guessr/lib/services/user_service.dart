@@ -3,12 +3,15 @@ import 'package:http/http.dart' as http;
 import 'package:laendle_guessr/services/api_service.dart';
 import 'package:laendle_guessr/data_objects/user.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 
 class UserService {
   final ApiService api;
 
-  UserService._internal(this.api);
+  UserService._internal(this.api) {
+    AppLogger().log('UserService instanziiert');
+  }
   static final UserService _instance = UserService._internal(ApiService.instance);
 
   factory UserService() {
@@ -19,37 +22,43 @@ class UserService {
 
 
   Future<List<dynamic>> getAllUsers() async {
+    AppLogger().log('UserService: getAllUsers() aufgerufen');
     final response = await api.get('user');
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      final users = jsonDecode(response.body);
+      AppLogger().log('UserService: ${users.length} Benutzer erfolgreich geladen');
+      return users;
     } else {
+      AppLogger().log('UserService: Fehler beim Abrufen der Benutzer - Status: ${response.statusCode}');
       throw Exception('Fehler beim Abrufen der Benutzer');
     }
   }
 
 
   Future<bool> checkCredentials(String username, String password) async {
+    AppLogger().log('UserService: checkCredentials() für Benutzer: $username');
     final response = await api.post('user/login', {
       'username': username,
       'password': password,
     });
 
     if (response.statusCode == 200) {
+      AppLogger().log('UserService: Login erfolgreich für Benutzer: $username');
       return true;
     } else {
+      AppLogger().log('UserService: Login fehlgeschlagen für Benutzer: $username - Status: ${response.statusCode}');
       return false;
     }
   }
 
-
-
-
-
   Future<Map<String, dynamic>> getUser(String uid) async {
+    AppLogger().log('UserService: getUser() für UID: $uid');
     final response = await api.get('user/$uid');
     if (response.statusCode == 200) {
+      AppLogger().log('UserService: Benutzer erfolgreich geladen für UID: $uid');
       return jsonDecode(response.body);
     } else {
+      AppLogger().log('UserService: Benutzer nicht gefunden für UID: $uid - Status: ${response.statusCode}');
       throw Exception('Benutzer nicht gefunden');
     }
   }

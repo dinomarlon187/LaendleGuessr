@@ -2,6 +2,7 @@ import 'package:laendle_guessr/data_objects/account.dart';
 import 'package:laendle_guessr/manager/inventory.dart';
 import 'package:laendle_guessr/data_objects/city.dart';
 import 'package:laendle_guessr/data_objects/quest.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 class User extends Account{
   int coins;
@@ -16,9 +17,12 @@ class User extends Account{
     required super.isAdmin,
     required this.city,
     required this.coins,
-  });
+  }) {
+    AppLogger().log('User erstellt: $username (UID: $uid, Stadt: ${city.name}, Coins: $coins)');
+  }
 
   factory User.fromJson(Map<String, dynamic> json) {
+    AppLogger().log('User.fromJson(): Erstelle User aus JSON für ${json['username']}');
     return User(
       uid: json['uid'],
       username: json['username'],

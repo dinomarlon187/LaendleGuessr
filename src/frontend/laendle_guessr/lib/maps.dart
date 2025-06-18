@@ -8,6 +8,7 @@ import 'package:laendle_guessr/services/locationchecker.dart';
 import 'package:laendle_guessr/manager/usermanager.dart';
 import 'package:laendle_guessr/services/step_counter.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:laendle_guessr/services/logger.dart';
 
 class MapsPage extends StatefulWidget {
   const MapsPage({super.key});
@@ -34,31 +35,42 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
   @override
   void initState() {
     super.initState();
+    AppLogger().log('MapsPage geladen');
+    AppLogger().log('MapsPage: Starte Berechtigungsprüfung und Tracking');
     _checkPermissionsAndStartTracking();
+    AppLogger().log('MapsPage: Starte QuestManager Tracking');
     _questManager.startTracking();
   }
 
   Future<void> _checkPermissionsAndStartTracking() async {
+    AppLogger().log('MapsPage: Prüfe Standortdienste');
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!mounted) return;
     if (!serviceEnabled) {
+      AppLogger().log('MapsPage: Standortdienste sind deaktiviert');
       _showError("Standortdienste sind deaktiviert.");
       return;
     }
+    AppLogger().log('MapsPage: Standortdienste sind aktiviert');
 
+    AppLogger().log('MapsPage: Fordere Standortberechtigung an');
     var status = await Permission.locationWhenInUse.request();
     if (!status.isGranted) {
+      AppLogger().log('MapsPage: Standortberechtigung verweigert');
       _showError("Standortberechtigung verweigert.");
       return;
     }
+    AppLogger().log('MapsPage: Standortberechtigung erteilt');
 
     LocationPermission permission = await Geolocator.checkPermission();
     if (!mounted) return;
     if (permission == LocationPermission.deniedForever) {
+      AppLogger().log('MapsPage: Standortberechtigung dauerhaft verweigert');
       _showError("Standortberechtigung dauerhaft verweigert, bitte in den App-Einstellungen aktivieren.");
       return;
     }
 
+    AppLogger().log('MapsPage: Starte Position Stream');
     await _positionStreamSubscription?.cancel();
     _positionStreamSubscription = Geolocator.getPositionStream(
       locationSettings: const LocationSettings(
@@ -67,14 +79,17 @@ class _MapsPageState extends State<MapsPage> with AutomaticKeepAliveClientMixin 
       ),
     ).listen((Position position) {
       if (!mounted) return;
+      AppLogger().log('MapsPage: Neue Position erhalten: ${position.latitude}, ${position.longitude}');
       final newLocation = LatLng(position.latitude, position.longitude);
       setState(() {
         _currentLocation = newLocation;
       });
       if (_isMapReady) {
+        AppLogger().log('MapsPage: Bewege Karte zur neuen Position');
         _mapController.move(newLocation, _currentZoom);
       }
     }, onError: (error) {
+      AppLogger().log('MapsPage: Fehler bei Position Stream: $error');
       if (mounted) {
         _showError("Fehler beim Empfangen des Standorts: $error");
       }

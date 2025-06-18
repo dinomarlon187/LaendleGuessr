@@ -4,6 +4,7 @@ from typing import List, Dict  # noqa: F401
 
 from openapi_server.models.base_model import Model
 from openapi_server import util
+from openapi_server.logger import logger
 
 
 class UserId(Model):
@@ -20,6 +21,7 @@ class UserId(Model):
         :param id: The id of this UserId.  # noqa: E501
         :type id: int
         """
+        logger.debug(f"models/user_id.py: UserId-Objekt erstellt mit uid={uid}, id={id}")
         self.openapi_types = {
             'uid': int,
             'id': int
@@ -38,11 +40,14 @@ class UserId(Model):
         """Returns the dict as a model
 
         :param dikt: A dict.
-        :type: dict
-        :return: The user_id of this UserId.  # noqa: E501
+        :type dikt: dict
+        :return: The UserId of this UserId.  # noqa: E501
         :rtype: UserId
         """
-        return util.deserialize_model(dikt, cls)
+        logger.debug(f"models/user_id.py: UserId.from_dict() aufgerufen mit: {dikt}")
+        user_id = util.deserialize_model(dikt, cls)
+        logger.debug(f"models/user_id.py: UserId-Objekt aus Dictionary erstellt: uid={user_id.uid}, id={user_id.id}")
+        return user_id
 
     @property
     def uid(self) -> int:

@@ -2,6 +2,7 @@ import datetime
 
 import typing
 from openapi_server import typing_utils
+from openapi_server.logger import logger
 
 
 def _deserialize(data, klass):
@@ -12,23 +13,32 @@ def _deserialize(data, klass):
 
     :return: object.
     """
+    logger.debug(f"util.py: _deserialize() aufgerufen für Klasse {klass}")
     if data is None:
+        logger.debug("util.py: _deserialize() - data ist None")
         return None
 
     if klass in (int, float, str, bool, bytearray):
+        logger.debug(f"util.py: Deserialisiere primitive Typ {klass}")
         return _deserialize_primitive(data, klass)
     elif klass == object:
+        logger.debug("util.py: Deserialisiere als object")
         return _deserialize_object(data)
     elif klass == datetime.date:
+        logger.debug("util.py: Deserialisiere als datetime.date")
         return deserialize_date(data)
     elif klass == datetime.datetime:
+        logger.debug("util.py: Deserialisiere als datetime.datetime")
         return deserialize_datetime(data)
     elif typing_utils.is_generic(klass):
         if typing_utils.is_list(klass):
+            logger.debug(f"util.py: Deserialisiere als List[{klass.__args__[0]}]")
             return _deserialize_list(data, klass.__args__[0])
         if typing_utils.is_dict(klass):
+            logger.debug(f"util.py: Deserialisiere als Dict[{klass.__args__[1]}]")
             return _deserialize_dict(data, klass.__args__[1])
     else:
+        logger.debug(f"util.py: Deserialisiere als Model {klass}")
         return deserialize_model(data, klass)
 
 
@@ -38,16 +48,19 @@ def _deserialize_primitive(data, klass):
     :param data: data to deserialize.
     :param klass: class literal.
 
-    :return: int, long, float, str, bool.
-    :rtype: int | long | float | str | bool
+    :return: object.
     """
+    logger.debug(f"util.py: _deserialize_primitive() für {klass} mit Daten: {data}")
     try:
         value = klass(data)
-    except UnicodeEncodeError:
-        value = data
+        logger.debug(f"util.py: Primitive Deserialisierung erfolgreich: {value}")
+        return value
+    except UnicodeDecodeError:
+        logger.error(f"util.py: UnicodeDecodeError bei Deserialisierung von {data} zu {klass}")
+        return data
     except TypeError:
-        value = data
-    return value
+        logger.error(f"util.py: TypeError bei Deserialisierung von {data} zu {klass}")
+        return data
 
 
 def _deserialize_object(value):
