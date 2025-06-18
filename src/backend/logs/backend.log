@@ -1755,3 +1755,579 @@ AttributeError: module 'openapi_server.controllers.user_controller' has no attri
  * Running on http://192.168.1.101:8080
 2025-06-18 21:34:34,690 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
 2025-06-18 21:34:53,062 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 22:19:37,297 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 22:19:37,300 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 22:19:37,391 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 148, in from_file
+    return cls.from_dict(spec)
+           ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 186, in from_dict
+    return OpenAPISpecification(spec)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 74, in __init__
+    self._validate_spec(raw_spec)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 92, in _validate_spec
+    raise InvalidSpecification.create_from(e)
+connexion.exceptions.InvalidSpecification: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+2025-06-18 22:20:50,025 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 22:20:50,026 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 22:20:50,180 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 148, in from_file
+    return cls.from_dict(spec)
+           ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 186, in from_dict
+    return OpenAPISpecification(spec)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 74, in __init__
+    self._validate_spec(raw_spec)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 92, in _validate_spec
+    raise InvalidSpecification.create_from(e)
+connexion.exceptions.InvalidSpecification: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+2025-06-18 22:21:02,290 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 22:21:02,290 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 22:21:02,372 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 148, in from_file
+    return cls.from_dict(spec)
+           ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 186, in from_dict
+    return OpenAPISpecification(spec)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 74, in __init__
+    self._validate_spec(raw_spec)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 92, in _validate_spec
+    raise InvalidSpecification.create_from(e)
+connexion.exceptions.InvalidSpecification: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+2025-06-18 22:21:11,448 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 22:21:11,448 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 22:21:11,508 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 148, in from_file
+    return cls.from_dict(spec)
+           ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 186, in from_dict
+    return OpenAPISpecification(spec)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 74, in __init__
+    self._validate_spec(raw_spec)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 92, in _validate_spec
+    raise InvalidSpecification.create_from(e)
+connexion.exceptions.InvalidSpecification: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+2025-06-18 22:22:21,558 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 22:22:21,559 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 22:22:21,621 [ERROR] LaendleGuessrBackend: Fehler beim Starten des Servers: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+Traceback (most recent call last):
+  File "c:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\openapi_server\__main__.py", line 13, in main
+    app.add_api('openapi.yaml',
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                arguments={'title': 'LaendleGuessr'},
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                pythonic_params=True)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\flask_app.py", line 74, in add_api
+    api = super().add_api(specification, **kwargs)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apps\abstract.py", line 149, in add_api
+    api = self.api_cls(specification,
+                       base_path=base_path,
+    ...<9 lines>...
+                       pass_context_arg_name=pass_context_arg_name,
+                       options=api_options.as_dict())
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\apis\abstract.py", line 81, in __init__
+    self.specification = Specification.load(specification, arguments=arguments)
+                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 194, in load
+    return cls.from_file(spec, arguments=arguments)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 148, in from_file
+    return cls.from_dict(spec)
+           ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 186, in from_dict
+    return OpenAPISpecification(spec)
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 74, in __init__
+    self._validate_spec(raw_spec)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\marlo\Documents\LaendleGuessr\src\backend\REST-API\.venv\Lib\site-packages\connexion\spec.py", line 92, in _validate_spec
+    raise InvalidSpecification.create_from(e)
+connexion.exceptions.InvalidSpecification: '/item_user' does not match any of the regexes: '^(get|put|post|delete|options|head|patch|trace)$', '^x-'
+
+Failed validating 'additionalProperties' in schema['properties']['paths']['patternProperties']['^\\/']:
+    {'type': 'object',
+     'properties': {'$ref': {'type': 'string'},
+                    'summary': {'type': 'string'},
+                    'description': {'type': 'string'},
+                    'servers': {'type': 'array',
+                                'items': {'$ref': '#/definitions/Server'}},
+                    'parameters': {'type': 'array',
+                                   'items': {'oneOf': [{'$ref': '#/definitions/Parameter'},
+                                                       {'$ref': '#/definitions/Reference'}]},
+                                   'uniqueItems': True}},
+     'patternProperties': {'^(get|put|post|delete|options|head|patch|trace)$': {'$ref': '#/definitions/Operation'},
+                           '^x-': {}},
+     'additionalProperties': False}
+
+On instance['paths']['/item_user']:
+    {'/item_user': None,
+     'post': {'operationId': 'item_user_post',
+              'requestBody': {'required': True,
+                              'content': {'application/json': {'schema': {'$ref': '#/components/schemas/item_user'}}}},
+              'responses': {'200': {'description': 'Erfolgreiche Antwort'},
+                            '400': {'description': 'Ungültige Eingabe'},
+                            '503': {'description': 'Service nicht '
+                                                   'verfügbar'}},
+              'summary': 'Einem User ein Item zuschreiben',
+              'tags': ['item'],
+              'x-openapi-router-controller': 'openapi_server.controllers.item_controller'}}
+2025-06-18 22:24:58,615 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 22:24:58,615 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 22:24:59,434 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 22:24:59,469 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 22:25:00,774 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 22:25:00,775 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 22:25:14,052 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 22:25:31,091 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 22:25:31,092 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 22:25:31,948 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 22:25:31,976 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 22:25:33,242 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 22:25:33,242 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 22:28:38,161 [INFO] LaendleGuessrBackend: start_server.py: Server-Start abgeschlossen
+2025-06-18 22:28:39,883 [INFO] LaendleGuessrBackend: start_server.py: Server wird über start_server.py gestartet
+2025-06-18 22:28:39,883 [INFO] LaendleGuessrBackend: Backend-Server wird gestartet.
+2025-06-18 22:28:40,602 [INFO] LaendleGuessrBackend: Supabase-Client initialisiert.
+2025-06-18 22:28:40,628 [INFO] LaendleGuessrBackend: API und Encoder erfolgreich initialisiert.
+2025-06-18 22:28:41,902 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.101:8080
+2025-06-18 22:28:41,903 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-18 22:30:59,991 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:30:59] "GET /healthcheck HTTP/1.1" 200 -
+2025-06-18 22:31:28,342 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 22:31:28,342 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: jass
+2025-06-18 22:31:28,343 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername jass bereits existiert.
+2025-06-18 22:31:29,173 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.jass "HTTP/2 200 OK"
+2025-06-18 22:31:29,180 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer jass.
+2025-06-18 22:31:29,461 [INFO] LaendleGuessrBackend: Erstelle Benutzer jass in Datenbank.
+2025-06-18 22:31:29,572 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 22:31:29,573 [INFO] LaendleGuessrBackend: Benutzer jass erfolgreich erstellt mit UID 74.
+2025-06-18 22:31:29,574 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:31:29] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 22:31:36,965 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.jass "HTTP/2 200 OK"
+2025-06-18 22:31:37,247 [INFO] LaendleGuessrBackend: Benutzer jass erfolgreich angemeldet.
+2025-06-18 22:31:37,247 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:31:37] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 22:31:37,273 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 22:31:37,393 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 22:31:37,396 [INFO] LaendleGuessrBackend: 33 Benutzer gefunden.
+2025-06-18 22:31:37,396 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:31:37] "GET /user HTTP/1.1" 200 -
+2025-06-18 22:31:37,440 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 22:31:37,551 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 22:31:37,554 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 22:31:37,554 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:31:37] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 22:31:37,574 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 22:31:37,643 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 22:31:37,647 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 22:31:37,648 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:31:37] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 22:31:37,672 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 74 gestartet.
+2025-06-18 22:31:37,740 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.74 "HTTP/2 200 OK"
+2025-06-18 22:31:37,742 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 74 gefunden.
+2025-06-18 22:31:37,743 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:31:37] "GET /activequest/74 HTTP/1.1" 200 -
+2025-06-18 22:31:37,875 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 74.
+2025-06-18 22:31:37,977 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.74 "HTTP/2 200 OK"
+2025-06-18 22:31:37,980 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 22:31:37,981 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:31:37] "GET /all_quests_user/74 HTTP/1.1" 200 -
+2025-06-18 22:32:00,366 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:32:00] "GET /healthcheck HTTP/1.1" 200 -
+2025-06-18 22:32:56,567 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:32:56] "[33mGET /health HTTP/1.1[0m" 404 -
+2025-06-18 22:37:54,485 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:37:54] "[33mGET /health HTTP/1.1[0m" 404 -
+2025-06-18 22:40:15,125 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:40:15] "[33mGET /health HTTP/1.1[0m" 404 -
+2025-06-18 22:40:19,957 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:40:19] "[33mGET /health HTTP/1.1[0m" 404 -
+2025-06-18 22:41:11,872 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:41:11] "[33mGET /health HTTP/1.1[0m" 404 -
+2025-06-18 22:41:23,857 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:41:23] "[33mGET /health HTTP/1.1[0m" 404 -
+2025-06-18 22:46:08,660 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:08] "GET /healthcheck HTTP/1.1" 200 -
+2025-06-18 22:46:24,192 [INFO] LaendleGuessrBackend: Benutzerregistrierung gestartet.
+2025-06-18 22:46:24,193 [INFO] LaendleGuessrBackend: Registrierungsversuch für Benutzer: aeiou
+2025-06-18 22:46:24,193 [INFO] LaendleGuessrBackend: Prüfe ob Benutzername aeiou bereits existiert.
+2025-06-18 22:46:24,584 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=uid&username=eq.aeiou "HTTP/2 200 OK"
+2025-06-18 22:46:24,591 [INFO] LaendleGuessrBackend: Hashe Passwort für Benutzer aeiou.
+2025-06-18 22:46:24,865 [INFO] LaendleGuessrBackend: Erstelle Benutzer aeiou in Datenbank.
+2025-06-18 22:46:24,940 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user "HTTP/2 201 Created"
+2025-06-18 22:46:24,941 [INFO] LaendleGuessrBackend: Benutzer aeiou erfolgreich erstellt mit UID 75.
+2025-06-18 22:46:24,942 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:24] "[35m[1mPOST /user HTTP/1.1[0m" 201 -
+2025-06-18 22:46:32,340 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A&username=eq.aeiou "HTTP/2 200 OK"
+2025-06-18 22:46:32,621 [INFO] LaendleGuessrBackend: Benutzer aeiou erfolgreich angemeldet.
+2025-06-18 22:46:32,621 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:32] "POST /user/login HTTP/1.1" 200 -
+2025-06-18 22:46:32,637 [INFO] LaendleGuessrBackend: Abruf aller Benutzer gestartet.
+2025-06-18 22:46:32,734 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user?select=%2A "HTTP/2 200 OK"
+2025-06-18 22:46:32,737 [INFO] LaendleGuessrBackend: 34 Benutzer gefunden.
+2025-06-18 22:46:32,737 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:32] "GET /user HTTP/1.1" 200 -
+2025-06-18 22:46:32,775 [INFO] LaendleGuessrBackend: Abruf der DailyQuest für Stadt 0 gestartet.
+2025-06-18 22:46:32,873 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&city=eq.0&last_used_d=eq.2025-06-18 "HTTP/2 200 OK"
+2025-06-18 22:46:32,940 [INFO] LaendleGuessrBackend: DailyQuest für Stadt 0 gefunden: 1 Quest(s).
+2025-06-18 22:46:32,940 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:32] "GET /dailyquest/0 HTTP/1.1" 200 -
+2025-06-18 22:46:32,971 [INFO] LaendleGuessrBackend: Abruf der WeeklyQuest für Woche 2025-W25 gestartet.
+2025-06-18 22:46:33,071 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&last_used_w=eq.2025-W25 "HTTP/2 200 OK"
+2025-06-18 22:46:33,074 [INFO] LaendleGuessrBackend: WeeklyQuest für Woche 2025-W25 gefunden: 1 Quest(s).
+2025-06-18 22:46:33,075 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:33] "GET /weeklyquest HTTP/1.1" 200 -
+2025-06-18 22:46:33,096 [INFO] LaendleGuessrBackend: Abruf der aktiven Quest für User 75 gestartet.
+2025-06-18 22:46:33,192 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=%2A&uid=eq.75 "HTTP/2 200 OK"
+2025-06-18 22:46:33,195 [INFO] LaendleGuessrBackend: Keine aktive Quest für User 75 gefunden.
+2025-06-18 22:46:33,196 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:33] "GET /activequest/75 HTTP/1.1" 200 -
+2025-06-18 22:46:33,378 [INFO] LaendleGuessrBackend: Abruf aller erledigten Quests für User 75.
+2025-06-18 22:46:33,449 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/user_quest?select=qid&uid=eq.75 "HTTP/2 200 OK"
+2025-06-18 22:46:33,455 [INFO] LaendleGuessrBackend: 0 Quests gefunden.
+2025-06-18 22:46:33,456 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:33] "GET /all_quests_user/75 HTTP/1.1" 200 -
+2025-06-18 22:46:35,269 [INFO] LaendleGuessrBackend: Abruf der Quest mit ID 1.
+2025-06-18 22:46:35,338 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/quest?select=%2A&qid=eq.1 "HTTP/2 200 OK"
+2025-06-18 22:46:35,343 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:35] "GET /quest/1 HTTP/1.1" 200 -
+2025-06-18 22:46:35,372 [INFO] LaendleGuessrBackend: Setze aktive Quest: {'uid': 75, 'qid': 1}
+2025-06-18 22:46:35,372 [INFO] LaendleGuessrBackend: Setze Quest 1 als aktive Quest für User 75.
+2025-06-18 22:46:35,444 [INFO] httpx: HTTP Request: POST https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest "HTTP/2 201 Created"
+2025-06-18 22:46:35,449 [INFO] LaendleGuessrBackend: aktive Quest für User 75 erfolgreich gesetzt.
+2025-06-18 22:46:35,449 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:35] "POST /activequest HTTP/1.1" 200 -
+2025-06-18 22:46:35,959 [INFO] LaendleGuessrBackend: Abruf des Startzeitpunkts der aktiven Quest für User 75.
+2025-06-18 22:46:36,060 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=started_at&uid=eq.75 "HTTP/2 200 OK"
+2025-06-18 22:46:36,065 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:36] "GET /activequest_started/75 HTTP/1.1" 200 -
+2025-06-18 22:46:36,299 [INFO] LaendleGuessrBackend: Abruf Schrittanzahl für User 75.
+2025-06-18 22:46:36,373 [INFO] httpx: HTTP Request: GET https://ipjfhqmcqlwlrjqanjqk.supabase.co/rest/v1/active_quest?select=stepsCount&uid=eq.75 "HTTP/2 200 OK"
+2025-06-18 22:46:36,377 [INFO] werkzeug: 127.0.0.1 - - [18/Jun/2025 22:46:36] "GET /activequest/75/stepcount HTTP/1.1" 200 -
